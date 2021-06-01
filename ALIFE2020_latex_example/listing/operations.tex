@@ -1,0 +1,249 @@
+\section{Operations}
+
+See \url{https://github.com/mmore500/dishtiny/tree/prq49/include/dish2/operations} and \url{https://github.com/mmore500/signalgp-lite/tree/b6c437f44136651aa6f4051d84bc62a86c2afbbe/include/sgpl/operations}
+
+cpu has X registers and a Y-bit bitstring (64?)
+
+cpu has Z cores (16?)
+
+two matching systems: 
+* one for internal use with all modules
+* one that receives messages from other cells that only contains modules with tags that end in 0
+
+\subsection{Fork If}
+
+prevalence 1
+
+\subsection{Nop, 0 RNG Touches}
+
+prevalence 1
+
+\subsection{Nop, 1 RNG Touches}
+
+prevalence 1
+
+\subsection{Nop, 2 RNG Touches}
+
+prevalence 1
+
+\subsection{Terminate If}
+
+prevalence 1
+
+\subsection{Add}
+
+prevalence 1
+
+\subsection{Divide}
+
+prevalence 1
+
+\subsection{Modulo}
+
+prevalence 1
+
+\subsection{Multiply}
+
+prevalence 1
+
+\subsection{Subtract}
+
+prevalence 1
+
+\subsection{Bitwise And}
+
+prevalence 1
+
+\subsection{Bitwise Not}
+
+prevalence 1
+
+\subsection{Bitwise Or}
+
+prevalence 1
+
+\subsection{Bitwise Shift}
+
+prevalence 1
+
+\subsection{Bitwise Xor}
+
+prevalence 1
+
+\subsection{Count Ones}
+
+prevalence 1
+
+\subsection{Random Fill}
+
+prevalence 1
+
+\subsection{Equal}
+
+prevalence 1
+
+\subsection{Greater Than}
+
+prevalence 1
+
+\subsection{Less Than}
+
+prevalence 1
+
+\subsection{Logical And}
+
+prevalence 1
+
+
+\subsection{Logical Or}
+
+prevalence 1
+
+\subsection{Not Equal}
+
+prevalence 1
+
+\subsection{Global Anchor}
+
+prevalence 15
+
+\subsection{Global Jump If}
+
+prevalence 1
+
+\subsection{Global Jump If Not}
+
+prevalence 1
+
+\subsection{Private Regulator Adjust}
+
+prevalence 1
+
+\subsection{Private Regulator Decay}
+
+prevalence 1
+
+\subsection{Private Regulator Get}
+
+prevalence 1
+
+\subsection{Private Regulator Set}
+
+prevalence 1
+
+\subsection{Local Anchor}
+
+prevalence 20
+
+need at least one local anchor to have a module!
+
+\subsection{Local Jump If}
+
+prevalence 1
+
+\subsection{Local Jump If Not}
+
+prevalence 1
+
+\subsection{Local Regulator Adjust}
+
+prevalence 1
+
+\subsection{Local Regulator Decay}
+
+prevalence 1
+
+\subsection{Local Regulator Get}
+
+prevalence 1
+
+\subsection{Local Regulator Set}
+
+prevalence 1
+
+\subsection{Decrement}
+
+prevalence 1
+
+\subsection{Increment}
+
+prevalence 1
+
+\subsection{Negate}
+
+prevalence 1
+
+\subsection{Not}
+
+prevalence 1
+
+\subsection{Random Bool}
+
+prevalence 1
+
+\subsection{Random Draw}
+
+prevalence 1
+
+\subsection{Terminal}
+
+prevalence 50
+
+\subsection{Exposed Regulator Adjust}
+
+prevalence 1
+
+\subsection{Exposed Regulator Decay}
+
+prevalence 1
+
+\subsection{Exposed Regulator Get}
+
+prevalence 1
+
+\subsection{Exposed Regulator Set}
+
+prevalence 1
+
+
+\subsection{Add to Own State}
+
+\begin{tabular}{|
+>{\columncolor[HTML]{C0C0C0}}l |l|}
+\hline
+Prevalence & 1 \\ \hline
+Num Args   & 1 \\ \hline
+\end{tabular}
+
+Interprets the first 32 bytes of the instruction tag as an unsigned integer.
+Calculates the index of the writable state to operate on as the remainder of integer division by the number of writable states. 
+
+Adds the value in register \texttt{arg0} and the current value in the target writable state then stores the sum back into the writable state.
+
+\subsection{Broadcast Intra Message If}
+
+prevalence 1
+
+\subsection{Multiply Own State}
+
+prevalence 5
+
+\subsection{Read Neighbor State}
+
+prevalence 10
+
+\subsection{Read Own State}
+
+prevalence 20
+
+\subsection{Send Inter Message If}
+
+prevalence 5
+
+\subsection{Send Intra Message If}
+
+prevalence 5
+
+\subsection{Write Own State If}
+
+prevalence 5

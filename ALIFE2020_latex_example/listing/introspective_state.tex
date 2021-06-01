@@ -1,0 +1,178 @@
+\section{Introspective State}
+
+In addition to raw introspective state, all events have interpreted introspective state stored here.
+
+See \url{https://github.com/mmore500/dishtiny/tree/prq49/include/dish2/peripheral/readable_state/introspective_state}.
+
+\subsection{Is Child Cell Of}
+
+\texttt{char}
+
+1 if Is Child Cell Of event should be triggered, 0 otherwise.
+See Is Child Cell Of event. (crossreference)
+
+\subsection{Is Child Group Of (0 thru $L-1$)}
+
+\texttt{char}
+
+\subsection{Is Newborn}
+
+\begin{tabular}{|
+>{\columncolor[HTML]{C0C0C0}}l |l|}
+\hline
+Type   & \texttt{char}                                            \\ \hline
+Values & 0 (\texttt{false}) or 1 (\texttt{true}) \\ \hline
+\end{tabular}
+
+Is the cell age less than \texttt{cfg.EVENT\_LAUNCHING\_SERVICE\_FREQUENCY}?
+
+\subsection{Is Parent Cell Of}
+
+This state is \texttt{char} type and stores the value 0 or 1.
+
+Is this cell the parent cell of this cardinal's neighbor?
+
+\subsection{Kin Group Match (0 thru $L-1$)}
+
+\texttt{char}
+
+\subsection{Kin Group Mismatch (0 thru $L-1$)}
+
+\texttt{char}
+
+\subsection{Kin Group will Expire (0 thru $L-1$)}
+
+\texttt{char}
+
+\subsection{Kin Group will not Expire (0 thru $L-1$)}
+
+\texttt{char}
+
+\subsection{Neighbor Apoptosis}
+
+\texttt{char}
+
+\subsection{Neighbor Fragmented}
+
+\texttt{char}
+
+\subsection{Neighbor Is Alive}
+
+\texttt{char}
+
+\subsection{Neighbor Is Newborn}
+
+\texttt{char}
+
+\subsection{Neighbor Is Not Alive}
+
+\texttt{char}
+
+\subsection{Neighbor Kin Group Will Expire (0 thru $L-1$)}
+
+\texttt{char}
+
+\subsection{Neighbor Optimum Quorum Exceeded}
+
+\texttt{char}
+
+\subsection{Optimum Quorum Exceeded (0 thru $L-1$)}
+
+\texttt{char}
+
+\subsection{Optimum Quorum Not Exceeded (0 thru $L-1$)}
+
+\texttt{char}
+
+\subsection{Parent Fragmented}
+
+\texttt{char}
+
+\subsection{Phylogenetic Root Match}
+
+\texttt{char}
+
+\subsection{Phylogenetic Root Mismatch}
+
+\texttt{char}
+
+\subsection{Poorer Than Neighbor}
+
+\texttt{char}
+
+\subsection{Received Resource From}
+
+\texttt{char}
+
+\subsection{Richer Than Neighbor}
+
+\texttt{char}
+
+\subsection{Stockpile Depleted}
+
+\texttt{char}
+
+\subsection{Stockpile Fecund}
+
+\texttt{char}
+
+\subsection{Cell Age}
+
+\texttt{char}
+
+\subsection{Epoch}
+
+\texttt{uint64\_t}
+
+\subsection{Incoming Inter Message Counter}
+
+\texttt{uint64\_t}
+
+\subsection{Incoming Intra Message Counter}
+
+\texttt{uint64\_t}
+
+\subsection{Is Alive}
+
+\texttt{char}
+
+\subsection{Kin Group Age ($L\times$)} 
+
+\texttt{uint64\_t}
+
+\subsection{Kin Group ID Ancestor View ($L\times$)}
+
+\texttt{uint64\_t}
+
+\subsection{Kin Group ID View ($L\times$)}
+
+\texttt{char}
+
+\subsection{Most Recent Cause of Death}
+
+\texttt{char}
+(see enum/CauseOfDeath)
+
+\subsection{Num Known Quorum Bits ($L\times$)}
+
+\texttt{uint64\_t}
+
+\subsection{Phylogenetic Root View}
+
+\texttt{uint64\_t}
+
+\subsection{Received Resource From}
+
+\texttt{float}
+
+\subsection{Resource Stockpile}
+
+\texttt{float}
+
+\subsection{Spawn Count}
+
+\texttt{char}
+
+\subsection{Spawned From}
+
+\texttt{char}
