@@ -4,13 +4,23 @@ See \url{https://github.com/mmore500/dishtiny/tree/prq49/include/dish2/events} a
 
 \subsection{Always}
 
+Always true.
+
 \subsection{Is Child Cell Of}
+
+Whether cell was spawned from a neighbor and cell age is less than neighbor age.
 
 \subsection{Is Child Group Of (0 thru $L-1$)}
 
+Whether its ancestor ID is equal to a cell neighbor's IDs.
+
 \subsection{Is Newborn}
 
+Whether cell age is less than frequency at which events are launched.
+
 \subsection{Is Parent Cell Of}
+
+Whether neighbor was spawned from cell and cell age is greather than neighbor age.
 
 \subsection{Kin Group Match (0 thru $L-1$)}
 
@@ -18,38 +28,76 @@ See \url{https://github.com/mmore500/dishtiny/tree/prq49/include/dish2/events} a
 
 \subsection{Kin Group will Expire (0 thru $L-1$)}
 
+Whether Kin Group age is greater than 80\% of the Kin Group Expiration duration.
+
 \subsection{Kin Group will not Expire (0 thru $L-1$)}
+
+Whether Kin Group age is less than or equal to than 80\% of the Kin Group Expiration duration.
 
 \subsection{Neighbor Apoptosis}
 
+Whether a cell neighbor died of apoptosis.
+
 \subsection{Neighbor Fragmented}
+
+Whether a cell neighbor died of fragmentation.
 
 \subsection{Neighbor Is Alive}
 
+Whether a cell neighbor is alive.
+
 \subsection{Neighbor Is Newborn}
+
+Whether a cell neighbor's age is less than the frequency at which events are launched.
 
 \subsection{Neighbor Is Not Alive}
 
+Whether a cell's neighbor has undergone apoptosis.
+
 \subsection{Neighbor Kin Group Will Expire (0 thru $L-1$)}
+
+Whether a cell's neighbor's Kin Group age is less than or equal to 80\% of the Kin Group Expiration duration.
 
 \subsection{Neighbor Optimum Quorum Exceeded}
 
+Whether a cell's neighbor's known number of quorum bits are greater than the optimum quorum count.
+
 \subsection{Optimum Quorum Exceeded (0 thru $L-1$)}
+
+Whether a cell's known number of quorum bits are greater than the optimum quorum count.
 
 \subsection{Optimum Quorum Not Exceeded (0 thru $L-1$)}
 
+Whether a cell's known number of quorum bits are less than or equal to than the optimum quorum count.
+
 \subsection{Parent Fragmented}
+
+Whether a cell's parent died from fragmentation.
 
 \subsection{Phylogenetic Root Match}
 
+Whether a cell's Root ID is equal to a cell's neighbor's Root ID. This means they originate from the same phylogeny.
+
 \subsection{Phylogenetic Root Mismatch}
+
+Whether a cell's Root ID is not equal to a cell's neighbor's Root ID.
 
 \subsection{Poorer Than Neighbor}
 
+Whether a cell has less resource than a cell neighbor.
+
 \subsection{Received Resource From}
+
+Whether a cell has recieved resource from that cell neighbor.
 
 \subsection{Richer Than Neighbor}
 
+Whether a cell has more resource than a cell neighbor.
+
 \subsection{Stockpile Depleted}
 
+Whether a cell's stockpile is less than twice the base harvest rate.
+
 \subsection{Stockpile Fecund}
+
+Whether a cell's stockpile is greater than one.
