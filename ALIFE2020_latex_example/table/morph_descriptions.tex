@@ -1,3 +1,15 @@
+\newcommand{\includesnapshot}[1] {%
+\adjustbox{trim={0.05\width} {0.35\width} {0.05\width} {0.35\width},clip}%
+    {\includegraphics[height=0.3\textheight]{#1}}
+}
+\newcommand{\tinyurl}[1]{\tiny\url{#1}}
+\newcommand{\morphtext}[1] {%
+\color[HTML]{FFFFFF} \huge \raisebox{1.2em}{\textbf{#1}}%
+}
+\newcommand{\videolink}[1] {%
+\raisebox{2.8em}{\begin{minipage}{1.3 cm} \tinyurl{#1} \end{minipage}}
+}
+
 {
 \catcode`\\%=12
 \begin{table}[]
@@ -14,5 +26,15 @@
 \cellcolor[HTML]{CCB974}{\color[HTML]{FFFFFF} i} & \includegraphics[width=0.2\linewidth]{\detokenize{snapshots/a=kin-group-id+idx=0+proc=0+series=16005+stint=74+thread=0+update=12991+_endeavor=16+_repro=r5bt4vkTWWZvyaKe+_slurm_job_id=25092628+_source=819521e-dirty+_treatment=bucket\%prq49~diversity\%0.50_series~mut_freq\%1.00~mut_sever\%1.00+ext=}}                  & \url{https://youtu.be/-SvgSmIsPQc?t=3740} & Groups form tetris-like pieces: they mostly consist of less than ten cells arranged in a geometric manner. Some motility is seen, with groups prefering to spawn in a single direction --- they have a "head" and a "tail". Resource use is incredibly high, with most groups only being able to maintain a stockpile greater than one for a few updates.              \\
 \cellcolor[HTML]{64B5CD}{\color[HTML]{FFFFFF} j} & \includegraphics[width=0.2\linewidth]{\detokenize{snapshots/a=kin-group-id+idx=0+proc=0+series=16005+stint=100+thread=0+update=8767+_endeavor=16+_repro=wSdyWubKcpinRb7H+_slurm_job_id=24415753+_source=8eb7a4e-dirty+_treatment=bucket\%prq49~diversity\%0.50_series~mut_freq\%1.00~mut_sever\%1.00+ext=}}                  & \url{https://youtu.be/-SvgSmIsPQc?t=4980} & Initially, groups are incredibly similar to (e): highly horizontal, and only using resource at their extremities. However, half of them spontaneously transform into blob-like groups. Resource use is low across the whole morphology.
 \end{tabular}
-\end{table}
+
+\caption{
+Qualitative morph phenotype categorizations.
+Color coding of morph IDs has no significance beyond guiding the eye in scatter plots where points are labeled by morph.
+Snapshot visualizes spatial layout of kin groups on toroidal grid at a fixed point in time.
+Each cell corresponds to a small square tile.
+Color hue denotes and black borders divide outermost kin groups while color saturation denotes and white borders divide innermost kin groups.
+}
+\label{tab:morph_descriptions}
+
+\end{table*}
 }

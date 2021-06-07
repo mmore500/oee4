@@ -1,11 +1,14 @@
 \documentclass[letterpaper]{article}
 
 \usepackage[footnotes,definitionLists,hashEnumerators,smartEllipses,hybrid]{markdown}
+\usepackage{adjustbox}
 \usepackage{natbib,alifeconf}  %% The order is important
 \usepackage[table,xcdraw]{xcolor}
 \usepackage{hyperref}
 \usepackage{subcaption}
 \usepackage{longtable}
+\usepackage{listings}
+\usepackage{amsmath}
 
 % *****************
 %  Requirements:
@@ -53,12 +56,11 @@
 % output. The use of ps type I fonts should avoid this problem.
 
 
-\title{Critical Exponent of Species-Size Distribution in Evolution}
-\author{Chris Adami$^{1}$, Ryoichi Seki$^{1,2}$ \and Robel Yirdaw$^2$ \\
+\title{Case Study of Novelty, Complexity, and Adaptation in a Multicellular System}
+\author{Matthew Andres Moreno$^{1}$, Santiago Rodriguez Papa$^{1}$ \and Charles Ofria$^{1}$ \\
 \mbox{}\\
-$^1$California Institute of Technology, Pasadena, CA 91125 \\
-$^2$California State University, Northridge, CA 91330 \\
-adami@caltech.edu} % email of corresponding author
+$^1$Michigan State University, East Lansing, MI 48103 \\
+mmore500@msu.edu} % email of corresponding author
 
 % For several authors from the same institution use the same number to
 % refer to one address.
@@ -83,11 +85,20 @@ adami@caltech.edu} % email of corresponding author
 
 \input{tex/results.tex}
 
+\input{tex/discussion.tex}
+
 \input{tex/conclusion.tex}
+
+\input{tex/acknowledgements.tex}
 
 \footnotesize
 \bibliographystyle{apalike}
 \bibliography{example} % replace by the name of your .bib file
+
+\clearpage
+\newpage
+
+\appendix
 
 \input{tex/appendix.tex}
 
