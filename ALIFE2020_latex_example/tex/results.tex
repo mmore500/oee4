@@ -1,10 +1,140 @@
-\section{Results and Discussion}
+\section{Results}
 
-\input{fig/apoptosis.tex}
-\input{fig/conflict.tex}
-\input{fig/fitness_complexity.tex}
-\input{fig/interface_complexity.tex}
-\input{fig/phenotype_complexity.tex}
-\input{fig/resource_sharing.tex}
+\subsection{Evolutionary History}
+
+% https://mybinder.org/v2/gh/mmore500/dishtiny/e17e6d5e258b7aacac72d44922008ab14e80e182?filepath=binder%2Fbucket%3Dprq49%2Fa%3Dall_stints_all_series_profiles%2Bendeavor%3D16%2Fcase_study_16005.ipynb
+Due to the distributed nature of the experimental framework, we did not perform perfect phylogeny tracking.
+However, we did track the total number of ancestors seeded into stint 0 with extant descendants.
+At the end of stints 0 and 1, three distinct original phylogenetic roots were present in the population.
+From stint 2 onward, only two distinct original phylogenetic roots were present.
+
+% https://mybinder.org/v2/gh/mmore500/dishtiny/e17e6d5e258b7aacac72d44922008ab14e80e182?filepath=binder%2Fbucket%3Dprq49%2Fa%3Dall_stints_all_series_profiles%2Bendeavor%3D16%2Fcase_study_16005.ipynb
+We performed secondary analyses on specimens sampled from the lowest original phylogenetic root ID present in the population.
+For the first two stints, this was root ID 2,378.
+During stint 2, original phylogenetic root 2,378 went extinct.
+So, all further secondary analyses were sampled from descendants of ancestor 12,634.
+
+We also tracked the number of genomes reconstituted at the outset of each stint with extant descendants at the end of that stint.
+This count grows from approximately 10 around stint 15 to upwards of 30 around stint 40 (Supplementary Figure \ref{fig:phylogeny:stint_roots}).
+Among descendants of the lowest original phylogenetic root, the number of independent lineages spanning a stint also increases from around 5 to around 15
+(Supplementary Figure \ref{fig:phylogeny:lowestroot_stint_roots}).
+This decrease in phylogenetic consolidation on a stint-by-stint basis correlates with the waning number of simulation updates performed per stint (Supplementary Figures \ref{fig:phylogeny:updates_vs_stint_roots} and \ref{fig:phylogeny:log_updates_vs_stint_roots}).
+More complete phylogenetic data will be necessary in future experiments to address questions about the possibility of long-term stable coexistence beyond the two strains supported under the diversity maintenance scheme.
+
+% https://mybinder.org/v2/gh/mmore500/dishtiny/e17e6d5e258b7aacac72d44922008ab14e80e182?filepath=binder%2Fbucket%3Dprq49%2Fa%3Dall_stints_all_series_profiles%2Bendeavor%3D16%2Fcase_study_16005.ipynb
+The specimen from stint 100 used in the final case study, an evolutionary history of 20,212 cell generations had elapsed.
+Of these cellular reproductions, 11,713 (58\%) had full kin ID commonality, 7,174 had partial kin ID commonality (35\%), and 1,325 had no kin ID commonality (7\%).
+On this specimen, 1,672 mutation events had elapsed.
+During these events, 7,240 insertion-deletion alterations had occurred and 26,153 point mutations had occurred.
+This strain experienced a selection pressure of 18\% over its evolutionary history, meaning that only 82\% of the mutations that would be expected given the number of cellular reproductions that had elapsed were present. 
+
+\subsection{Qualitative Life Histories}
 
 \input{table/morph_descriptions.tex}
+
+We performed a qualitative survey of the evolved life histories along the evolutionary timeline by analyzing video recordings of monocultures.
+These categories are --- variation --- but represent an effort to describe in broad strokes.
+%todo what is the ---?
+
+In brief, early stints were small multicellular groups  (morphs $a$, $b$, and $c$).
+Then, at stint 14 (morph $d$).
+At stint 15, asymmetrical group growth (morph $e$).
+%todo structure above is confusing
+Consistently left/right, indicating that somehow broke symmetrical of the simulation.
+At stint 45, secondary growth prior to force-fragmentation.
+Sampled frequently until stint 60 when morph $e$ began to be sampled.
+However, morph $g$ was observed as late as morph 90.
+
+Table \ref{tab:morph_descriptions} provides more detailed descriptions of each qualitative morph category as well as a video and still image example of each.
+Supplementary Table \ref{tab:morph_by_stint} provides morph categorization for each stint as well as links to view a video of the monoculture and links to load the focal strain or the entire population into the in-browser web viewer.
+
+% \subsection{Multicellular Phenotypic Traits}
+
+% In order for a transition in individuality, cells have to diminish their own immediate reproductive interests in order to prioritize the interests of the collective.
+% In previous work with an earlier version of the system, we've seen multicellular traits evolve such as (blah from abstract) %todo
+% \citep{moreno2021exploring}.
+
+% The formation of kin group morphologies in this system does not necessarily imply a transition in individuality. 
+% It is necessary to test to see if cells within groups are meaningfully cooperating.
+
+% Because cell reproduction is necessarily adversarial in this system, we can test to see whether cells preferentially target or spare their group members.
+% A conflict ratio of less than 1 implies that cells preferentially spare their members.
+% We observed a  0.5 most of the time.
+
+% Supplementary Figure \ref{fig:conflict:exactly_one} shows the  . %todo
+% Supplementary Figure \ref{fig:conflict:at_least_one}
+% Supplementary Figure \ref{fig:conflict:exactly_two}.
+% However, could be an artifact of cell-offspring cooperation. 
+
+% Interestingly, this strain appears to be using ``Is Child Cell Of,'' ``Is Parent Cell Of,'' ``Is Child Group Of,'' and the raw kin group ID of neighbors (but not the raw kin group ID of self).
+
+% %todo change wording, not sure what you're hoping to say with first phrase
+% To more conclusively, in future work we plan to look at the reproductive output at the interior of multicellular groups to see if these cells diminish their own reproductive output and to control for cellular relatedness when calculating this element of group cooperation. 
+
+% We analyzed other traits characteristic of multicellularity, as well.
+
+% We did not see widespread resource sharing over the evolutionary history.
+% Only tiny fractions of cells, less than 1\%, appeared to share tiny amounts of the resource, less than 1\% of the resource required to reproduce per update (Supplementary Figures \ref{fig:resource_sharing:fraction_sharing_monoculture} and \ref{fig:resource_sharing:sharing_amount_monoculture}).
+% However, in ten strains sampled along the evolutionary lineage, context-dependent resource-sending behavior contributed to fitness (Supplementary Figure \ref{fig:writable_perturbation}).
+% Interestingly, another strain present in the population that was not the subject of analysis appeared to evolve widespread, higher-throughput resource sharing after stint 60 (Supplementary Figures \ref{fig:resource_sharing:fraction_sharing_evolve} and \ref{fig:resource_sharing:sharing_amount_evolve}).
+
+% We observed widespread apoptosis over the evolutionary history.
+% As shown in Supplementary Figure \ref{fig:apoptosis:apoptosis_stint}, in most monocultured representative strains, between 10 and 30\% of cell deaths were due to apoptosis.
+% However, it is not clear if this apoptosis returned a fitness benefit.
+% No context-dependent apoptosis behavior contributed to fitness for any sampled strain over the evolutionary history (Supplementary Figure \ref{fig:writable_perturbation}).
+% It is unclear whether context-independent apoptosis might have a fitness benefit.
+
+% The behavior seems like cells from within a group don't explicitly recognize one another according to group membership. However, they do recognize their cell parent/child and arrange themselves in a somewhat linear fashion that minimizes the potential for conflict between cells.
+% Overall, there are elements of cooperation but is unclear to what extent this particular strain constitutes a proper fraternal transition in individuality.
+
+\subsection{Fitness}
+
+\input{fig/fitness.tex}
+
+%todo fix sentence
+Although, these events were associated with significant fitness increases with respect to the preceding population (Figure \ref{fig:fitness:fitness_neutrality}).
+However, the magnitude of these fitness differentials was similar to those of other stints (Figure \ref{fig:fitness:fitness_magnitude}).
+
+We saw continued increases in fitness across stints.
+However, we also saw occasional decreases in fitness.
+We used entire populations so it's not just bad sampled genomes.
+%todo: badly? Not really sure what this means
+This phenomenon is likely due to the implicit, contextual nature of fitness.
+
+We also measured growth rate of specimen strains by tracking doubling time (in updates) when seeded into quarter-full toroidal grids (Figure \ref{fig:fitness:doubling_time}).
+Morph $b$ exhibited a fast growth rate early on that was never matched by later morphs.
+This measure appears to be a poor overall proxy for fitness, highlighting the importance of biotic aspects of the simulation environment (which are not present in the empty space the specimen cells double into).
+We did observe modest increases in this fitness coincident with the emergence of morphs $e$ and $g$.
+
+\subsection{Fitness Complexity}
+
+\input{fig/fitness_complexity.tex}
+
+Critical fitness complexity starts less than 10 sites at stint 0, jumps to more than 20 while still exhibiting morph $b$, then jumps again to more than 40 under morph $d$, drops to slightly more than 30 for morph $e$, climbs to a high of 48 sites around stint 39 then levels out and decreases.
+The evolution of morph $g$ is not associated with a clear change in critical fitness complexity.
+Figure \ref{fig:fitness_complexity:critical_fitness_complexity} plots critical fitness complexity of specimens drawn from across the case study's evolutionary history.
+
+% Interpolated fitness complexity remains much more steady over the course of evolutionary history, although the certainty of our estimate of interpolated fitness complexity varies greatly.
+% Figure \ref{fig:fitness_complexity:interpolated_fitness_complexity} shows this.
+% Sometimes we were not able to estimate composite fitness complexity because the phenotype neutral nopout was not truly neutral --- it was significantly less fit than wildtype.
+
+% Figure \ref{fig:fitness_complexity:composite_fitness_complexity} shows composite fitness complexity, the sum of interpolated fitness complexity and critical fitness complexity.
+% The highest best estimate of composite fitness complexity was 64 sites at stint 61.
+% The highest lower bound estimate of composite fitness complexity was 49 sites at stint 70.
+
+\subsection{Interface Complexity}
+
+\input{fig/interface_complexity.tex}
+
+%todo: not a sentence
+Interface complexity more than doubled from 6 states at morph $d$ at stint 14 to 17 states at stint 15 coincident with the emergence of morph $e$ (Figure \ref{fig:interface_complexity:cardinal_interface_complexity}).
+The emergence of morph $g$ coincided with an increase in writable state interface complexity from 1 to 3 (although a writable state complexity of 3 had been observed previously) as shown in Figure \ref{fig:interface_complexity:writable_interface_complexity}.
+However, it was not associated with other changes in interface complexity.
+This is due to increases in extrospective state sensing (2 to 9 states; Figure \ref{fig:interface_complexity:extrospective_interface_complexity}), introspective state sensing (1 to 4 states; Figure \ref{fig:interface_complexity:introspective_interface_complexity}), and a small increase in writable state usage (1 to 2 states; Figure \ref{fig:interface_complexity:writable_interface_complexity}).
+The greatest observed interface complexities was 
+%todo complexity was or complexities were?
+22 interactions at stints 54 and 67.
+
+\input{fig/extrospective_perturbation.tex}
+\input{fig/introspective_perturbation.tex}
+\input{fig/writable_perturbation.tex}
