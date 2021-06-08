@@ -1,5 +1,15 @@
 \section{Operations}
 
+% create command to draw operation tables
+\newcommand{\opdef}[2]{
+    \begin{tabular}{|
+        >{\columncolor[HTML]{C0C0C0}}l |l|}
+        \hline
+        Prevalence & #1 \\ \hline
+        Num Args   & #2 \\ \hline
+    \end{tabular}
+}
+
 See \url{https://github.com/mmore500/dishtiny/tree/prq49/include/dish2/operations} and \url{https://github.com/mmore500/signalgp-lite/tree/b6c437f44136651aa6f4051d84bc62a86c2afbbe/include/sgpl/operations}
 
 cpu has X registers and a Y-bit bitstring (64?)
@@ -12,67 +22,37 @@ two matching systems:
 
 \subsection{Fork If}
 
-
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 1 \\ \hline
-    Num Args   & 1 \\ \hline
-\end{tabular}
+\opdef{1}{1}
 
 Requests a fork with the instruction tag as an argument if the register pointed to by the OP argument contains a true value.
 
 \subsection{Nop, 0 RNG Touches}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 1 \\ \hline
-    Num Args   & 0 \\ \hline
-\end{tabular}
+\opdef{1}{0}
 
 Performs no operation for one CPU cycle.
 
 \subsection{Nop, 1 RNG Touches}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 1 \\ \hline
-    Num Args   & 0 \\ \hline
-\end{tabular}
+\opdef{1}{0}
 
 Performs no operation for one CPU cycle, and advances the PRNG engine once.
 
 \subsection{Nop, 2 RNG Touches}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|} \hline
-    Prevalence & 1 \\ \hline
-    Num Args   & 1 \\ \hline
-\end{tabular}
+\opdef{1}{1}
 
 Performs no operation for one CPU cycle, and advances the PRNG engine twice.
 
 \subsection{Terminate If}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 1 \\ \hline
-    Num Args   & 1 \\ \hline
-\end{tabular}
+\opdef{1}{1}
 
 Terminates current core if argument is a true value.
 
 \subsection{Add}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 1 \\ \hline
-    Num Args   & 3 \\ \hline
-\end{tabular}
+\opdef{1}{3}
 
 Adds the value contained in the register pointed to by the second argument to the value in the register pointed to by the third argument.
 
@@ -80,12 +60,7 @@ Stores the result in the register pointed to by the first argument.
 
 \subsection{Divide}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 1 \\ \hline
-    Num Args   & 3 \\ \hline
-\end{tabular}
+\opdef{1}{3}
 
 Divides the value contained in the register pointed to by the second argument by the value in the register pointed to by the third argument.
 
@@ -93,12 +68,7 @@ Stores the result in the register pointed to by the first argument.
 
 \subsection{Modulo}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 1 \\ \hline
-    Num Args   & 3 \\ \hline
-\end{tabular}
+\opdef{1}{3}
 
 Calculates the remainder of the divison of the value contained in the register pointed to by the second argument by the value in the register pointed to by the third argument.
 
@@ -106,12 +76,7 @@ Stores the result in the register pointed to by the first argument.
 
 \subsection{Multiply}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 1 \\ \hline
-    Num Args   & 3 \\ \hline
-\end{tabular}
+\opdef{1}{3}
 
 Multiplies the value contained in the register pointed to by the second argument by the value in the register pointed to by the third argument.
 
@@ -119,12 +84,7 @@ Stores the result in the register pointed to by the first argument.
 
 \subsection{Subtract}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 1 \\ \hline
-    Num Args   & 3 \\ \hline
-\end{tabular}
+\opdef{1}{3}
 
 Subtracts the value contained in the register pointed to by the second argument to the value in the register pointed to by the third argument.
 
@@ -132,13 +92,7 @@ Stores the result in the register pointed to by the first argument.
 
 \subsection{Bitwise And}
 
-
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 1 \\ \hline
-    Num Args   & 3 \\ \hline
-\end{tabular}
+\opdef{1}{3}
 
 Performs a bitwise AND of the value contained in the register pointed to by the second argument with the value in the register pointed to by the third argument.
 
@@ -146,12 +100,7 @@ Stores the result in the register pointed to by the first argument.
 
 \subsection{Bitwise Not}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 1 \\ \hline
-    Num Args   & 2 \\ \hline
-\end{tabular}
+\opdef{1}{2}
 
 Negates every bit of the value contained in the register pointed to by the second argument.
 
@@ -159,12 +108,7 @@ Stores the result in the register pointed to by the first argument.
 
 \subsection{Bitwise Or}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 1 \\ \hline
-    Num Args   & 3 \\ \hline
-\end{tabular}
+\opdef{1}{3}
 
 Performs a bitwise OR of the value contained in the register pointed to by the second argument with the value in the register pointed to by the third argument.
 
@@ -172,12 +116,7 @@ Stores the result in the register pointed to by the first argument.
 
 \subsection{Bitwise Shift}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 1 \\ \hline
-    Num Args   & 3 \\ \hline
-\end{tabular}
+\opdef{1}{3}
 
 Shifts the bits of the value contained in the register pointed to by the second argument by the value in the register pointed to by the third argument.
 
@@ -185,12 +124,7 @@ Stores the result in the register pointed to by the first argument.
 
 \subsection{Bitwise Xor}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 1 \\ \hline
-    Num Args   & 3 \\ \hline
-\end{tabular}
+\opdef{1}{3}
 
 Performs a bitwise XOR of the value contained in the register pointed to by the second argument with the value in the register pointed to by the third argument.
 
@@ -198,12 +132,7 @@ Stores the result in the register pointed to by the first argument.
 
 \subsection{Count Ones}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 1 \\ \hline
-    Num Args   & 2 \\ \hline
-\end{tabular}
+\opdef{1}{2}
 
 Counts the number of bits set in the value contained in the register pointed to by the first argument.
 
@@ -211,23 +140,13 @@ Stores the result in the register pointed to by the second argument.
 
 \subsection{Random Fill}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 1 \\ \hline
-    Num Args   & 1 \\ \hline
-\end{tabular}
+\opdef{1}{1}
 
 Fills register pointed to by the first argument with random bits chosen from a uniform distribution.
 
 \subsection{Equal}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 1 \\ \hline
-    Num Args   & 3 \\ \hline
-\end{tabular}
+\opdef{1}{3}
 
 Checks whether the value contained in the register pointed to by the second argument is equal to the value in the register pointed to by the third argument.
 
@@ -235,12 +154,7 @@ Stores the result in the register pointed to by the first argument.
 
 \subsection{Greater Than}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 1 \\ \hline
-    Num Args   & 3 \\ \hline
-\end{tabular}
+\opdef{1}{3}
 
 Checks whether the value contained in the register pointed to by the second argument is greater than the value in the register pointed to by the third argument.
 
@@ -248,12 +162,7 @@ Stores the result in the register pointed to by the first argument.
 
 \subsection{Less Than}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 1 \\ \hline
-    Num Args   & 3 \\ \hline
-\end{tabular}
+\opdef{1}{3}
 
 Checks whether the value contained in the register pointed to by the second argument is less than the value in the register pointed to by the third argument.
 
@@ -261,12 +170,7 @@ Stores the result in the register pointed to by the first argument.
 
 \subsection{Logical And}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 1 \\ \hline
-    Num Args   & 3 \\ \hline
-\end{tabular}
+\opdef{1}{3}
 
 Performs a logical AND of the value contained in the register pointed to by the second argument with the value in the register pointed to by the third argument.
 
@@ -274,12 +178,7 @@ Stores the result in the register pointed to by the first argument.
 
 \subsection{Logical Or}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 1 \\ \hline
-    Num Args   & 3 \\ \hline
-\end{tabular}
+\opdef{1}{3}
 
 Performs a logical OR of the value contained in the register pointed to by the second argument with the value in the register pointed to by the third argument.
 
@@ -287,12 +186,7 @@ Stores the result in the register pointed to by the first argument.
 
 \subsection{Not Equal}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 1 \\ \hline
-    Num Args   & 3 \\ \hline
-\end{tabular}
+\opdef{1}{3}
 
 Checks whether the value contained in the register pointed to by the second argument is not equal to the value in the register pointed to by the third argument.
 
@@ -300,67 +194,37 @@ Stores the result in the register pointed to by the first argument.
 
 \subsection{Global Anchor}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 15 \\ \hline
-    Num Args   & 0 \\ \hline
-\end{tabular}
+\opdef{15}{0}
 
 Marks a global destination to which any jump instruction may jump to.
 
 \subsection{Global Jump If}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 1 \\ \hline
-    Num Args   & 1 \\ \hline
-\end{tabular}
+\opdef{1}{1}
 
 Jumps to a global anchor that maches the instruction tag if `arg[0]` is true.
 
 \subsection{Global Jump If Not}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 1 \\ \hline
-    Num Args   & 1 \\ \hline
-\end{tabular}
+\opdef{1}{1}
 
 Jumps to a global anchor that maches the instruction tag if `arg[0]` is false.
 
 \subsection{Private Regulator Adjust}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 1 \\ \hline
-    Num Args   & 1 \\ \hline
-\end{tabular}
+\opdef{1}{1}
 
 Adjusts the regulator value of all global jump table tags that match this instruction's tag by `arg[0]`.
 
 \subsection{Private Regulator Decay}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 1 \\ \hline
-    Num Args   & 1 \\ \hline
-\end{tabular}
+\opdef{1}{1}
 
 Decays the regulator value of all global jump table tags that match this instruction's tag by `arg[0]`.
 
 \subsection{Private Regulator Get}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 1 \\ \hline
-    Num Args   & 1 \\ \hline
-\end{tabular}
+\opdef{1}{1}
 
 Gets the regulator value of the first global jump table tag that matches this instruction's tag.
 
@@ -368,23 +232,13 @@ Stores it in `arg[0]`.
 
 \subsection{Private Regulator Set}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 1 \\ \hline
-    Num Args   & 1 \\ \hline
-\end{tabular}
+\opdef{1}{1}
 
 Sets the regulator value of all global jump table tags that match this instruction's tag to `arg[0]`.
 
 \subsection{Local Anchor}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 20 \\ \hline
-    Num Args   & 0 \\ \hline
-\end{tabular}
+\opdef{20}{0}
 
 Marks a local destination to which any jump instruction may jump to.
 
@@ -392,56 +246,31 @@ At least one local anchor is needed to have a module.
 
 \subsection{Local Jump If}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 1 \\ \hline
-    Num Args   & 1 \\ \hline
-\end{tabular}
+\opdef{1}{1}
 
 Jumps to a local anchor that maches the instruction tag if `arg[0]` is true.
 
 \subsection{Local Jump If Not}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 1 \\ \hline
-    Num Args   & 1 \\ \hline
-\end{tabular}
+\opdef{1}{1}
 
 Jumps to a local anchor that maches the instruction tag if `arg[0]` is false.
 
 \subsection{Local Regulator Adjust}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 1 \\ \hline
-    Num Args   & 1 \\ \hline
-\end{tabular}
+\opdef{1}{1}
 
 Adjusts the regulator value of all local jump table tags that match this instruction's tag by `arg[0]`.
 
 \subsection{Local Regulator Decay}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 1 \\ \hline
-    Num Args   & 1 \\ \hline
-\end{tabular}
+\opdef{1}{1}
 
 Decays the regulator value of all local jump table tags that match this instruction's tag by `arg[0]`.
 
 \subsection{Local Regulator Get}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 1 \\ \hline
-    Num Args   & 1 \\ \hline
-\end{tabular}
+\opdef{1}{1}
 
 Gets the regulator value of the first local jump table tag that matches this instruction's tag.
 
@@ -449,89 +278,49 @@ Stores it in `arg[0]`.
 
 \subsection{Local Regulator Set}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 1 \\ \hline
-    Num Args   & 1 \\ \hline
-\end{tabular}
+\opdef{1}{1}
 
 Sets the regulator value of all local jump table tags that match this instruction's tag to `arg[0]`.
 
 \subsection{Decrement}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 1 \\ \hline
-    Num Args   & 1 \\ \hline
-\end{tabular}
+\opdef{1}{1}
 
 Takes `arg[0]', decrements it by one, and stores it in `arg[0]'.
 
 \subsection{Increment}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 1 \\ \hline
-    Num Args   & 1 \\ \hline
-\end{tabular}
+\opdef{1}{1}
 
 Takes `arg[0]', increments it by one, and stores the result in `arg[0]'.
 
 \subsection{Negate}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 1 \\ \hline
-    Num Args   & 1 \\ \hline
-\end{tabular}
+\opdef{1}{1}
 
 Finds the negative value of `arg[0]` and stores the result in `arg[0]'.
 
 \subsection{Not}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 1 \\ \hline
-    Num Args   & 1 \\ \hline
-\end{tabular}
+\opdef{1}{1}
 
 Negates `arg[0]` and stores tbe result in `arg[0]'.
 
 \subsection{Random Bool}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 1 \\ \hline
-    Num Args   & 1 \\ \hline
-\end{tabular}
+\opdef{1}{1}
 
 Stores a random bool on `arg[0]` selected from an uniform distribution with probability proportional to this instruction's tag.
 
 \subsection{Random Draw}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 1 \\ \hline
-    Num Args   & 1 \\ \hline
-\end{tabular}
+\opdef{1}{1}
 
 Stores a random float on `arg[0]` selected from an uniform distribution with probability proportional to this instruction's tag.
 
 \subsection{Terminal}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 50 \\ \hline
-    Num Args   & 1 \\ \hline
-\end{tabular}
+\opdef{50}{1}
 
 Stores a genetically-encoded value on `arg[0]`. This value is encoded using the instruction's tag.
 
@@ -554,12 +343,7 @@ prevalence 1
 
 \subsection{Add to Own State}
 
-\begin{tabular}{|
->{\columncolor[HTML]{C0C0C0}}l |l|}
-\hline
-Prevalence & 1 \\ \hline
-Num Args   & 1 \\ \hline
-\end{tabular}
+\opdef{1}{1}
 
 Interprets the first 32 bytes of the instruction tag as an unsigned integer.
 Calculates the index of the writable state to operate on as the remainder of integer division by the number of writable states.
@@ -568,35 +352,20 @@ Adds the value in register \texttt{arg0} and the current value in the target wri
 
 \subsection{Broadcast Intra Message If}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 1 \\ \hline
-    Num Args   & 1 \\ \hline
-    \end{tabular}
+\opdef{1}{1}
 
 If `arg[0]' is true, encodes the instruction's tag and register states into a message, which then broadcasts to every other cardinal within the cell.
 
 
 \subsection{Multiply Own State}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 5 \\ \hline
-    Num Args   & 1 \\ \hline
-\end{tabular}
+\opdef{5}{1}
 
 Multiplies cell's own writable state by `arg[0]'
 
 \subsection{Read Neighbor State}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 10 \\ \hline
-    Num Args   & 1 \\ \hline
-\end{tabular}
+\opdef{10}{1}
 
 Reads neighbor's readable state and stores it in `arg[0]'.
 
@@ -604,46 +373,25 @@ Which neighbor the state is read from is determined algorithmically via the inst
 
 \subsection{Read Own State}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 20 \\ \hline
-    Num Args   & 1 \\ \hline
-\end{tabular}
+\opdef{20}{1}
 
 Reads own readable state and stores it in `arg[0]'.
 
 \subsection{Send Inter Message If}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 5 \\ \hline
-    Num Args   & 1 \\ \hline
-\end{tabular}
+\opdef{5}{1}
 
 If `arg[0]' is true, sends cell's state to a neighbor cell as determined by the peripheral.
 
 \subsection{Send Intra Message If}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 5 \\ \hline
-    Num Args   & 1 \\ \hline
-\end{tabular}
+\opdef{5}{1}
 
 If `arg[0]' is true, sends cell's state to a cardinal within the cell as determined by the peripheral.
 
-
 \subsection{Write Own State If}
 
-\begin{tabular}{|
-    >{\columncolor[HTML]{C0C0C0}}l |l|}
-    \hline
-    Prevalence & 5 \\ \hline
-    Num Args   & 2 \\ \hline
-\end{tabular}
+\opdef{5}{2}
 
 If `arg[1]' is true, writes cell's state into `arg[0]'.
 
