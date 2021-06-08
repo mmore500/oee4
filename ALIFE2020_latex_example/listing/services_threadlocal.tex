@@ -6,6 +6,21 @@ See \url{https://github.com/mmore500/dishtiny/tree/prq49/include/dish2/services_
 
 scheduled every $i$th update
 
+Runs a every cells' program and realizes their interactions with the enviroment, in order.
+
 \subsection{Diversity Maintentance Service}
 
 every $i$th update
+
+For every Root ID, determine whether the number of cells that have it is greater than a threshold.
+If so, calculate the ratio of cells in excess.
+Then, decay their resource stockpiles proportionally to that ratio.
+
+This makes sure diversity is maintained even in large populations, stopping any one Root ID from becoming too prevalent.
+
+\subsection{Stint Diversity Maintentance Service}
+
+For every Root ID in a stint, determine whether the number of cells that have it is greater than a threshold.
+Then, proceed as in the Diversity Maintentance Service.
+
+This makes sure diversity is maintained at a stint level, stopping any one Root ID from becoming too prevalent.
