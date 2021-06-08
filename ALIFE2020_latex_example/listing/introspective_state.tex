@@ -50,27 +50,39 @@ Is this cell the parent cell of this cardinal's neighbor?
 
 \subsection{Neighbor Apoptosis}
 
+Whether neighbor has died due to apoptosis.
+
 \texttt{char}
 
 \subsection{Neighbor Fragmented}
+
+Whether neighbor has died due to fragmentation.
 
 \texttt{char}
 
 \subsection{Neighbor Is Alive}
 
+Whether neighbor is alive.
+
 \texttt{char}
 
 \subsection{Neighbor Is Newborn}
 
+Whether neighbor age is less than frequency at which events are launched.
+
 \texttt{char}
 
 \subsection{Neighbor Is Not Alive}
+
+Whether neighbor is not alive.
 
 \texttt{char}
 
 \subsection{Neighbor Kin Group Will Expire (0 thru $L-1$)}
 
 \texttt{char}
+
+Whether Kin Group age is greater than 80\% of the Kin Group Expiration duration.
 
 \subsection{Neighbor Optimum Quorum Exceeded}
 
@@ -80,73 +92,109 @@ Is this cell the parent cell of this cardinal's neighbor?
 
 \texttt{char}
 
+Whether a cell's known number of quorum bits are greater than the optimum quorum count.
+
 \subsection{Optimum Quorum Not Exceeded (0 thru $L-1$)}
 
 \texttt{char}
+
+Whether a cell's known number of quorum bits are less than or equal to than the optimum quorum count.
 
 \subsection{Parent Fragmented}
 
 \texttt{char}
 
+Whether a cell's parent died from fragmentation.
+
 \subsection{Phylogenetic Root Match}
 
 \texttt{char}
+
+Whether a cell's Root ID is equal to a cell's neighbor's Root ID. This means they originate from the same phylogeny.
 
 \subsection{Phylogenetic Root Mismatch}
 
 \texttt{char}
 
+Whether a cell's Root ID is not equal to a cell's neighbor's Root ID.
+
 \subsection{Poorer Than Neighbor}
 
 \texttt{char}
+
+Whether a cell has less resource than a cell neighbor.
 
 \subsection{Received Resource From}
 
 \texttt{char}
 
+Whether a cell has recieved resource from that cell neighbor.
+
 \subsection{Richer Than Neighbor}
 
 \texttt{char}
+
+Whether a cell has more resource than a cell neighbor.
 
 \subsection{Stockpile Depleted}
 
 \texttt{char}
 
+Whether a cell's stockpile is less than twice the base harvest rate.
+
 \subsection{Stockpile Fecund}
 
 \texttt{char}
+
+Whether a cell's stockpile is greater than one.
 
 \subsection{Cell Age}
 
 \texttt{char}
 
+Updates elapsed since cell was born.
+
 \subsection{Epoch}
 
 \texttt{uint64\_t}
+
+Updates elapsed since start of simulation.
 
 \subsection{Incoming Inter Message Counter}
 
 \texttt{uint64\_t}
 
+Counter of incoming messages from other cells.
+
 \subsection{Incoming Intra Message Counter}
 
 \texttt{uint64\_t}
+
+Counter of incoming messages from other cardinals within the cell.
 
 \subsection{Is Alive}
 
 \texttt{char}
 
-\subsection{Kin Group Age ($L\times$)} 
+Whether the cell is alive.
+
+\subsection{Kin Group Age ($L\times$)}
 
 \texttt{uint64\_t}
+
+Number of updates since Kin Group formation.
 
 \subsection{Kin Group ID Ancestor View ($L\times$)}
 
 \texttt{uint64\_t}
 
+Kin Group ID of the cell's ancestor.
+
 \subsection{Kin Group ID View ($L\times$)}
 
 \texttt{char}
+
+Kin Group ID of this cell.
 
 \subsection{Most Recent Cause of Death}
 
@@ -169,10 +217,16 @@ Is this cell the parent cell of this cardinal's neighbor?
 
 \texttt{float}
 
+Amount of resource this cell has.
+
 \subsection{Spawn Count}
 
 \texttt{char}
 
+Number of cells born from this cell.
+
 \subsection{Spawned From}
 
 \texttt{char}
+
+Whether this cell spawned from that neighbor.
