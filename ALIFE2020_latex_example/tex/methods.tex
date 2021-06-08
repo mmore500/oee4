@@ -2,87 +2,101 @@
 
 \subsection{Simulation}
 
-The simulation environment tracks cells occupying tiles on a $120\times120$ toroidal grid.
-Cells collect a uniform inflow of continuous-valued resource, which can be spent in increments of $1.0$ to attempt asexual reproduction into any of its four adjacent cells.
-A cell can only be replaced if it contains less than $1.0$ resource.
-If a cell rebuffs a reproduction attempt, its resource stockpile is decremented by $1.0$.  
+The DISHTINY simulation environment tracks cells occupying tiles on a $120\times120$ toroidal grid.
+Cells collect a uniform inflow of continuous-valued resource.
+This resource can be spent in increments of $1.0$ to attempt asexual reproduction into any of a cell's four adjacent cells.
+A cell can only be replaced if it commands less than $1.0$ resource.
+If a cell rebuffs a reproduction attempt, its resource stockpile decrements by $1.0$.  
 
-In order to facilitate the formation of coherent multicellular groups, the simulation provides a mechanism for cells to form groups and detect group membership \cite{moreno2019toward}.
-%todo citation looks weird
+In order to facilitate the formation of coherent multicellular groups, the DISHTINY framework provides a mechanism for cells to form groups and detect group membership \citep{moreno2019toward}.
 Groups arise through cellular reproduction.
-When a cell proliferates, it may choose to initiate its offspring as a member of its kin group (thereby growing it) or induce the offspring to found a new kin group.
-This process can be thought of along the lines of 
-%todo is similar to
-the growth of biological multicellular tissues, where cell offspring can be retained as members of the tissue or permanently expelled (along with all of its future potential offspring).
+When a cell proliferates, it may choose to initiate its offspring as a member of its kin group, thereby growing it, or induce the offspring to found a new kin group.
+This process is similar to the growth of biological multicellular tissues, where cell offspring can be retained as members of the tissue or permanently expelled.
 
 We incentivize group formation by providing an additional resource inflow bonus based on group size.
 Groups that are too small do not receive this bonus.
 Group that are too large receive a penalty.
 In order to ensure group turnover, we force groups to fragment into unicells after 8,192 updates.
 
-Like physical attachment in biology, these kin groups are indifferent with respect to functional individuality.
-That is, the formation of kin groups doesn't necessarily imply that constituent cells are acting as a cohesive multicellular organism (TODO cite)--- it is necessary to test for traits characteristic of multicellularity such as cooperation, coordination, and reproductive division of labor.
+% Like physical attachment in biology, these kin groups do not in and of themselves  with respect to functional individuality.
+% That is, the formation of kin groups doesn't necessarily imply that constituent cells are acting as a cohesive multicellular organism (TODO cite)--- it is necessary to test for traits characteristic of multicellularity such as cooperation, coordination, and reproductive division of labor.
 
-In previous work, we found that most case studies of interest arose when two nested levels of group membership were tracked
-(as opposed to a single, un-nested level of group membership) \cite{moreno2021exploring}.
-Group growth still occurs by cellular reproduction, except cells may now choose to expel offspring from the innermost group (but retain membership in the outermost group) in addition to choosing to retain offspring within both groups or to expel offspring from both groups.
+In previous work, we established that this framework can select for traits characteristic of multicellularity, such as cooperation, coordination, and reproductive division of labor \cite{moreno2021exploring}.
+We also found more case studies of interest arose when two nested levels of group membership were tracked
+as opposed to a single, un-nested level of group membership \cite{moreno2021exploring}.
+With nested group membership, group growth still occurs by cellular reproduction.
+However, cells are given the choice to expel offspring from the innermost group (but retain membership in the outermost group) in addition to choosing to retain offspring within both groups or to expel offspring from both groups.
 In this work, we allow for nested kin groups.
 
-In addition to controlling reproduction behavior, cells can also share resources with adjacent cells, perform apoptosis (recovering a small amount of resource that may be shared with neighboring cells), and pass arbitrary messages to neighboring cells.
-Full details on simulation logic and parameter settings appear in the supplementary material.
+In addition to controlling reproduction behavior, evolving genomes can also share resources with adjacent cells, perform apoptosis (recovering a small amount of resource that may be shared with neighboring cells), and pass arbitrary messages to neighboring cells.
+Cell behaviors are controlled by event-driven genetic programs in which linear GP modules are activated in response to cues from the environment or neighboring agents \citep{lalejini2018evolving}.
+Each cell contains four independent virtual CPUs, all of which execute the same genetic program.
+Each CPU manages interactions with a single neighboring cell.
+We refer to a CPU managing interactions with a particular neighbor as a ``cardinal'' (as in ``cardinal direction'').
+These CPUs may communicate via intra-cellular message passing.
+Full details on the instruction set and event library used as well as simulation logic and parameter settings appear in supplementary material \citep{Moreno_2021}.
 
 \subsection{Evolution}
 
-We performed evolution in three hour windows for best compatibility with our compute cluster's scheduler.
+We performed evolution in three hour windows for compatibility with our compute cluster's scheduling system.
 We refer to these windows as ``stints.''
 One-hundred instruction genomes were randomly generated at the outset of the initial stint, stint 0.
 At the end of each three hour window, genomes were harvested and stored in a population file.
-Subsequent stints were seeded with the previous stint's population.
+Subsequent stints were then seeded with the previous stint's population.
 No simulation state besides genome content was preserved between stints.
 
-In order to ensure long-term diversity within populations and heterogeneity of biotic environmental factors experienced by evolving cells, we imposed a diversity maintenance scheme where descendants of a single progenitor cell from stint 0 constituting more than half of the population were penalized with resource loss.
+In order to ensure heterogeneity of biotic environmental factors experienced by evolving cells, we imposed a diversity maintenance scheme.
+In this scheme, descendants of a single progenitor cell from stint 0 that proliferated to constitute more than half of the population were penalized with resource loss.
 The severity of the penalty increased with increasing prevalence beyond half of the population.
-This ensured that descendants from at least two distinct stint 0 progenitors remained over the course of the simulation. 
+Thus, we ensured that descendants from at least two distinct stint 0 progenitors remained over the course of the simulation. 
 
-We evolved 40 independent populations for 101 stints.
+In our screen for case studies, we evolved 40 independent populations for 101 stints.
 We selected population 16005 from among these 40 to profile as a case study due to its distinct asymmetrical group morphology.
 
 At the conclusion of each stint, we selected the most abundant genome within the population as a representative specimen.
+We performed a suite of follow-up analyses on each representative specimen to characterize aspects of complexity, detailed in the following subsections.
 To ensure that specimens were consistently sampled from descendants of the same stint 0 progenitor, we only considered genomes with the lowest available stint 0 progenitor ID.
 
 \subsection{Phenotype-neutral Nopout}
 
-After harvesting representative specimens from each stint, we filtered out genome instructions that had no impact on the simulation.
+After harvesting representative specimens from each stint, we began filtered out genome instructions that had no impact on the simulation.
 
-To accomplish this, we performed sequential single-site nopouts where individual genome instructions were replaced with a Nop instruction (that performed the same number of random number generator touches as the original instruction to control for arbitrary effects of advancing the generator).
-We seeded an independent simulation with each nopout and ran it side-by-side with an independent simulation of the wildtype strain.
+To accomplish this, we performed sequential single-site ``nopouts'' where individual genome instructions were disabled by replaced with a \texttt{Nop} instruction.
+\footnote{
+This \texttt{Nop} instruction was chosen to perform the same number of random number generator touches as the original instruction to control for arbitrary effects of advancing the generator.
+}
+We reverted nopouts that altered a strain's phenotype and kept those that did not.
+To determine whether phenotypic alteration occurred, we seeded an independent, mutation-disabled simulation with the stain in question and ran it side-by-side with an independent, mutation-disabled simulation of the wildtype strain.
 If any divergence in resource concentration was detected between the two strains within a 2,048 update window, the single site nopout was reverted.  
 We continued this process until no single-site nopouts were possible without altering the genome's phenotype.
 To speed up evaluation, we performed step-by-step, side-by-side comparisons using a smaller toroidal grid size of just 100 tiles.
 
 This process left us with a ``Phenoytpe-neutral Nopout'' variant of the wildtype genome where all remaining instructions contributed to the phenotype.
-We called the number of remaining instructions in this skeleton genome its ``phenotype complexity.''
+%We called the number of remaining instructions in this skeleton genome its ``phenotype complexity.''
 
-In further analyses we discovered that 21 phenotype-neutral nopouts from our case study were not actually neutral --- competition experiments revealed they were significantly less fit than the wildtype strain.
-This might be due to insufficient spatial or temporal scope to observe expression of particular genome sites or effects of an instruction on the mutation.
+However, in further analyses we discovered that 21 phenotype-neutral nopouts from our case study were \textit{not} actually neutral --- competition experiments revealed they were significantly less fit than the wildtype strain.
+This might be due to insufficient spatial or temporal scope to observe expression of particular genome sites in our test for phenotypic divergence.
+%or effects of an instruction on the mutation.
 
 \subsection{Estimating Critical Fitness Complexity}
 
-Next, we sought to isolate genome instructions that contributed to a strain's fitness.
+Next, we sought to detect genome instructions that contributed to a strain's fitness.
 
-For each remaining instruction in the Phenotype-neutral Nopout variant, we took the wildtype strain and applied a nopout at the corresponding site.
-We then competed this variant against the wildtype strain. 
+For each remaining op instruction in the Phenotype-neutral Nopout variant, we took the wildtype strain and applied a nopout at the corresponding site.
+We then competed this variant against the wildtype strain.
+Only evaluating remaining op instructions in the Phenotype-neutral Nopout variant allowed us to decrease the number of fitness competitions we had to perform.
 
-Fitness competitions began by seeding a population evenly with two strains.
+Fitness competitions began by seeding a population half-and-half with two strains.
 These competitions ran for 10 minutes (about 4,200 updates) on a $60\times60$ toridal grid after which the simulation was ended and the relative abundances of descendants of both seeded strains were assessed.
 
-To determine whether fitness differed significantly between a wildtype and variant strain, we compared the relative abundance of the strains observed against outcomes from 20 control wildtype-vs-wildtype competitions.
+To determine whether fitness differed significantly between a wildtype and variant strain, we compared the relative abundance of the strains observed at the end of competitions against outcomes from 20 control wildtype-vs-wildtype competitions.
 We fit a $T$-distribution to the abundance outcomes observed under the control wildtype-vs-wildtype competitions and deemed outcomes that fell outside the central 98\% probability density of that distribution a significant difference in fitness.
 This allowed us to screen for fitness effects of single-site nopouts while only performing a single competition per site.
 
 This process left us with a ``Fitness-noncritical Nopout'' variant of the wildtype genome where all remaining instructions contributed to the phenotype.
-We called the number of remaining instructions in this skeleton genome its ``critical fitness complexity.''
-This metric closely tracks the complexity metric described in \citep{dolson2019modes} and the approximation of sequence complexity advanced in \citep{adami2000evolution}.
+We called the number of remaining instructions its ``critical fitness complexity.''
+We adjusted this figure downwards for the expected 1\% rate of false-positive fitness differences among tested genome sites.
+This metric mirrors the MODES complexity metric described in \citep{dolson2019modes} and the approximation of sequence complexity advanced in \citep{adami2000evolution}.
 
 % \subsection{Estimating Interpolated Fitness Complexity}
 
@@ -135,45 +149,40 @@ This metric closely tracks the complexity metric described in \citep{dolson2019m
 
 \subsection{Estimating State Interface Complexity}
 
-In addition to estimating the number of genome sites that contribute to fitness, we were interested in measuring the number of different environmental cues that cells incorporated into their behavior to promote fitness and the number of different outputs cells used to perform that behavior.
+In addition to estimating the number of genome sites that contribute to fitness, we were interested in measuring the number of different environmental cues and the number of different output mechanisms that cells adaptively incorporated into behavior.
 
-One possible way to take this measure would be to disable event cues, sensor instructions, and output registers one by one.
+One possible way to take this measure would be to disable event cues, sensor instructions, and output registers one by one and test for changes in fitness.
 However, this approach would fail to distinguish context-dependent input/output from merely contingent input/output.
-For example, a cell may happen to depend on a sensor being set at a certain frequency but not on the actual underlying state the sensor represents.
+For example, a cell might happen to depend on a sensor being set at a certain frequency but not on the actual underlying simulation information the sensor represents.
 
 To isolate context-dependent input/output state interactions, we tested the fitness effect of swapping particular input/output states between CPUs rather than completely disabling them.
-That is, for example, CPU 20 would actually be forced to perform the output generated by CPU 10 or CPU 20 would be shown the input meant for CPU 10.
-We performed this manipulation on half the population of a fitness competition for each individual component of Introspective State (44 sensor states relating to the status of a CPU's own cell), Extrospective State (61 sensor states relating to the status of a neighboring cell), and Writable State (18 output states, 10 of which control cell behavior and 8 of which act as global memory for the CPU).
-We deemed a state as fitness-critical if this manipulation resulted in significantly decreased fitness compared to a set of 20 control wild-type vs wild-type competitions.
+That is, for example, CPU $b$ would be forced to perform the output generated by CPU $a$ or CPU $b$ would be shown the input meant for CPU $a$.
+We performed this manipulation on half the population in a fitness competition for each individual component of the simulation's introspective state (44 sensor states relating to the status of a CPU's own cell), extrospective state (61 sensor states relating to the status of a neighboring cell), and writable state (18 output states, 10 of which control cell behavior and 8 of which act as global memory for the CPU).
+\footnote{
+A full description of each piece of introspective, extrospective, and writable state is listed in supplementary material \citep{Moreno_2021}.
+}
+We deemed a state as fitness-critical if this manipulation resulted in decreased fitness at significance $p < 0.01$ using a $T$-test parameterized by 20 control wild-type vs wild-type competitions.
 
 We describe the number of states that cells interact with to contribute to fitness as ``State Interface Complexity.''
-
-A full description of each piece of introspective, extrospective, and writable state is listed in supplementary material.
 
 \subsection{Estimating Messaging Interface Complexity}
 
 In addition to estimating the number of input/output states cells use to interact with the environment, we were interested in estimating the number of distinct intra-cellular messages cardinals within a cell use to coordinate and inter-cellular messages that cells use to coordinate.
-As with state interface complexity, distinguishing context-dependent behavior from contingent behavior is key to performing a meaningful measurement.
-A cardinal might also happen to depend on always receiving a inter-cellular message from a neighbor or an intra-cellular message from another cardinal, but that message doesn't mean anything functionally.
-So, instead of simply discarding messages to detect if the impact fitness, we re-route messages back to the sending cardinal instead of their intended recipient. 
-We deemed a messages as fitness-critical if this manipulation resulted in significantly decreased fitness compared to a set of 20 control wild-type vs wild-type competitions.
+As with state interface complexity, distinguishing context-dependent behavior from contingent behavior is critical to attaining a meaningful measurement.
+For example, a cardinal might happen to depend on always receiving a inter-cellular message from a neighbor or an intra-cellular message from another cardinal.
+Although meaningless, if that message were blocked fitness would decrease.
+So, instead of simply discarding messages to test for a fitness effect, we re-route messages back to the sending cardinal instead of their intended recipient. 
+We deemed a messages as fitness-critical if this manipulation resulted in decreased fitness at significance $p < 0.01$ using a $T$-test parameterized by 20 control wild-type vs wild-type competitions.
 
 We refer to the number of distinct messages that cells send to contribute to fitness as ``Messaging Interface Complexity.''
 
-We refer to the sum of State Interface Complexity, intra-messaging interface complexity, and inter-messaging interface complexity as ``Cardinal Interface Complexity.''
+We refer to the sum of State Interface Complexity, Intra-messaging Interface Complexity, and Inter-messaging Interface Complexity as ``Cardinal Interface Complexity.''
 
 \subsection{Implementation}
 
-Cell behaviors are controlled by event-driven genetic programs in which linear GP modules are activated in response to cues from the environment or neighboring agents \citep{lalejini2018evolving}.
-Each cell contains four independent virtual CPUs, all of which execute the same genetic program.
-Each CPU manages interactions with a single neighboring cell.
-We refer to a CPU managing interactions with a particular neighbor as a ``cardinal'' (as in ``cardinal direction'').
-These CPUs may communicate via intra-cellular message passing.
-Full details on the instruction set and event library used are provided in supplementary material.
-
 Multithreading was employed to speed up execution.
 We broke the simulation into four $60\times60$ subgrids.
-Each subgrid executed asynchronously, using the Conduit C++ Library to orchestrate best-effort real-time interactions between simulation elements on different threads.
+Each subgrid executed asynchronously, using the Conduit C++ Library to orchestrate best-effort, real-time interactions between simulation elements on different threads.
 This approach is inspired by Ackley's notion of indefinite scalability \citep{ackley2014indefinitely}.
 In other work benchmarking the system, we have demonstrated that this approach improves scalability.
 The simulation scales to 4 threads with 80\% efficiency, up to 64 threads with 40\% efficiency and up to 64 nodes with 80\% efficiency \citep{moreno2021conduit}.
@@ -183,20 +192,18 @@ The simulation scales to 4 threads with 80\% efficiency, up to 64 threads with 4
 Over the 101 three-hour evolutionary stints performed to evolve the case study, 7,565,309 simulation updates elapsed.
 (This translates to 74,904 updates elapsed per stint or about 6.9 updates per second.)
 However, the update processing rate was not uniform across stints: the simulation slowed about 77\% as stints progressed.
-Supplementary Figure \ref{fig:simulation} shows elapsed updates for each stint.
-During stint 0, 176,816
-%todo two numbers next to eachother is confusing
-updates elapsed (about 16.3 updates per second).
+Supplementary Figure \ref{fig:simulation} shows elapsed updates for each stint \citep{Moreno_2021}.
+During stint 0, 176,816 updates elapsed (about 16.3 updates per second).
 During stint 100, only 41,920 updates elapsed (about 3.8 updates per second).
 
 % https://mybinder.org/v2/gh/mmore500/dishtiny/e17e6d5e258b7aacac72d44922008ab14e80e182?filepath=binder%2Fbucket%3Dprq49%2Fa%3Dall_stints_all_thread_profiles%2Bendeavor%3D16%2Felapsed_updates.ipynb
-Although working asynchronously, threads working during the same stint processed updates at comparable rates throughout the simulation.
-The mean standard deviation of normalized update-processing between threads was 2\%.
-The mean difference of normalized update-processing rate between the fastest and slowest threads was 5\%.
+Although working asynchronously, threads processed similar number of updates during each stint.
+The mean standard deviation of update-processing rate between threads was 2\%.
+The mean difference of the update-processing rate between the fastest and slowest threads was 5\%.
 The maximum value of these statistics observed during a stint was 9\% and 20\%, respectively, at stint 44.
-Supplementary Figure \ref{fig:simulation:thread_updates} shows the distribution of elapsed updates across threads for each stint.
+Supplementary Figure \ref{fig:simulation:thread_updates} shows the distribution of elapsed updates across threads for each stint evolved during the case study \citep{Moreno_2021}.
 
 Software is available under a MIT License at \url{https://github.com/mmore500/dishtiny}.
 All data is available via the Open Science Framework at \url{https://osf.io/prq49}.
-
+Supplementary material is available via the Open Science Framework at \url{https://osf.io/gekc8} \citep{Moreno_2021}.
 %TODO dependencies

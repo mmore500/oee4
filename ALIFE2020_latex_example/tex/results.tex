@@ -9,44 +9,43 @@ At the end of stints 0 and 1, three distinct original phylogenetic roots were pr
 From stint 2 onward, only two distinct original phylogenetic roots were present.
 
 % https://mybinder.org/v2/gh/mmore500/dishtiny/e17e6d5e258b7aacac72d44922008ab14e80e182?filepath=binder%2Fbucket%3Dprq49%2Fa%3Dall_stints_all_series_profiles%2Bendeavor%3D16%2Fcase_study_16005.ipynb
-We performed secondary analyses on specimens sampled from the lowest original phylogenetic root ID present in the population.
+We performed follow-up analyses on specimens sampled from the lowest original phylogenetic root ID present in the population.
 For the first two stints, this was root ID 2,378.
 During stint 2, original phylogenetic root 2,378 went extinct.
-So, all further secondary analyses were sampled from descendants of ancestor 12,634.
+So, all further follow-up analyses were sampled from descendants of ancestor 12,634.
 
 We also tracked the number of genomes reconstituted at the outset of each stint with extant descendants at the end of that stint.
-This count grows from approximately 10 around stint 15 to upwards of 30 around stint 40 (Supplementary Figure \ref{fig:phylogeny:stint_roots}).
+This count grows from approximately 10 around stint 15 to upwards of 30 around stint 40 (Supplementary Figure \ref{fig:phylogeny:stint_roots}\citep{Moreno_2021}).
 Among descendants of the lowest original phylogenetic root, the number of independent lineages spanning a stint also increases from around 5 to around 15
-(Supplementary Figure \ref{fig:phylogeny:lowestroot_stint_roots}).
-This decrease in phylogenetic consolidation on a stint-by-stint basis correlates with the waning number of simulation updates performed per stint (Supplementary Figures \ref{fig:phylogeny:updates_vs_stint_roots} and \ref{fig:phylogeny:log_updates_vs_stint_roots}).
-More complete phylogenetic data will be necessary in future experiments to address questions about the possibility of long-term stable coexistence beyond the two strains supported under the diversity maintenance scheme.
+(Supplementary Figure \ref{fig:phylogeny:lowestroot_stint_roots} \citep{Moreno_2021}).
+This decrease in phylogenetic consolidation on a stint-by-stint basis correlates with the waning number of simulation updates performed per stint (Supplementary Figures \ref{fig:phylogeny:updates_vs_stint_roots} and \ref{fig:phylogeny:log_updates_vs_stint_roots} \citep{Moreno_2021}).
+More complete phylogenetic data will be necessary in future experiments to address questions about the possibility of long-term stable coexistence beyond the two strains supported under the explicit     diversity maintenance scheme.
 
 % https://mybinder.org/v2/gh/mmore500/dishtiny/e17e6d5e258b7aacac72d44922008ab14e80e182?filepath=binder%2Fbucket%3Dprq49%2Fa%3Dall_stints_all_series_profiles%2Bendeavor%3D16%2Fcase_study_16005.ipynb
-The specimen from stint 100 used in the final case study, an evolutionary history of 20,212 cell generations had elapsed.
-Of these cellular reproductions, 11,713 (58\%) had full kin ID commonality, 7,174 had partial kin ID commonality (35\%), and 1,325 had no kin ID commonality (7\%).
+On the specimen from stint 100 used in the final case study, an evolutionary history of 20,212 cell generations had elapsed.
+Of these cellular reproductions, 11,713 (58\%) had full kin group commonality, 7,174 had partial kin group commonality (35\%), and 1,325 had no kin group commonality (7\%).
 On this specimen, 1,672 mutation events had elapsed.
 During these events, 7,240 insertion-deletion alterations had occurred and 26,153 point mutations had occurred.
 This strain experienced a selection pressure of 18\% over its evolutionary history, meaning that only 82\% of the mutations that would be expected given the number of cellular reproductions that had elapsed were present. 
 
-\subsection{Qualitative Life Histories}
+\subsection{Qualitative Morphological Categorizations}
 
 \input{table/morph_descriptions.tex}
 
-We performed a qualitative survey of the evolved life histories along the evolutionary timeline by analyzing video recordings of monocultures.
-These categories are --- variation --- but represent an effort to describe in broad strokes.
-%todo what is the ---?
+We performed a qualitative survey of the evolved life histories along the evolutionary timeline by analyzing video recordings of monocultures of each stint's representative specimen.
 
-In brief, early stints were small multicellular groups  (morphs $a$, $b$, and $c$).
-Then, at stint 14 (morph $d$).
-At stint 15, asymmetrical group growth (morph $e$).
+Table \ref{tab:morph_descriptions} summarizes the ten morphological categories we grouped specimens into.
+In brief, specimens from early stints largely grew as unicellular or small multicellular groups (morphs $a$, $b$).
+Then, the specimen from stint 14 grew as larger, symmetrical groups (morph $d$).
+At stint 15, a distinct, asymmetrical horizontal bar morphology evolved (morph $e$).
 %todo structure above is confusing
-Consistently left/right, indicating that somehow broke symmetrical of the simulation.
-At stint 45, secondary growth prior to force-fragmentation.
-Sampled frequently until stint 60 when morph $e$ began to be sampled.
-However, morph $g$ was observed as late as morph 90.
+% Consistently left/right, indicating that somehow broke symmetrical of the simulation.
+At stint 45, a delayed secondary spurt of group growth in the vertical direction arose (morph $g$).
+This morphology was sampled frequently until stint 60 when morph $e$ began to be sampled primarily again.
+However, morph $g$ was observed as late as stint 90.
 
-Table \ref{tab:morph_descriptions} provides more detailed descriptions of each qualitative morph category as well as a video and still image example of each.
-Supplementary Table \ref{tab:morph_by_stint} provides morph categorization for each stint as well as links to view a video of the monoculture and links to load the focal strain or the entire population into the in-browser web viewer.
+Table \ref{tab:morph_descriptions} provides more detailed descriptions of each qualitative morph category as well as video and a still image example of each.
+Supplementary Table \ref{tab:morph_by_stint} provides morph categorization for each stint as well as links to view the stint's specimen in a video or in-browser web simulation \citep{Moreno_2021}.
 
 % \subsection{Multicellular Phenotypic Traits}
 
@@ -91,28 +90,29 @@ Supplementary Table \ref{tab:morph_by_stint} provides morph categorization for e
 
 \input{fig/fitness.tex}
 
-%todo fix sentence
-Although, these events were associated with significant fitness increases with respect to the preceding population (Figure \ref{fig:fitness:fitness_neutrality}).
-However, the magnitude of these fitness differentials was similar to those of other stints (Figure \ref{fig:fitness:fitness_magnitude}).
+In order to assess ongoing changes in fitness, we performed 20 replicate fitness competitions between the population seeded into each stint and the immediately population preceding it one stint prior.
+We determined that a significant change in fitness had occurred between populations if one population won more than 15 of those competitions, corresponding to a significance level of $p < 0.05$ under the binomial null hypothesis.
+Figure \ref{fig:fitness:fitness_neutrality} shows the fraction of competitions each stint won against its competitor.
+Significant increases in fitness occur throughout the evolutionary history of the case study, but not at every stint.
+In fact, some 20 stints exhibit significantly \textit{worse} fitness compared to their predecessor.
+These episodes of population-wide fitness decline merit further inquiry, but seem likely to be related to the implicit, contextual nature of fitness in this system.
 
-We saw continued increases in fitness across stints.
-However, we also saw occasional decreases in fitness.
-We used entire populations so it's not just bad sampled genomes.
-%todo: badly? Not really sure what this means
-This phenomenon is likely due to the implicit, contextual nature of fitness.
+Figure \ref{fig:fitness:fitness_magnitude} shows the magnitude the median fitness differential observed for each predecessor competition.
+Although the emergence of morphologies $d$, $e$, and $g$ were associated with significant increases in fitness, the magnitude of these fitness differentials is very similar to those of other stints (Figure \ref{fig:fitness:fitness_magnitude}).
 
 We also measured growth rate of specimen strains by tracking doubling time (in updates) when seeded into quarter-full toroidal grids (Figure \ref{fig:fitness:doubling_time}).
 Morph $b$ exhibited a fast growth rate early on that was never matched by later morphs.
-This measure appears to be a poor overall proxy for fitness, highlighting the importance of biotic aspects of the simulation environment (which are not present in the empty space the specimen cells double into).
-We did observe modest increases in this fitness coincident with the emergence of morphs $e$ and $g$.
+This measure appears to be a poor overall proxy for fitness, highlighting the importance of biotic aspects of the simulation environment (which are not present in the empty space the assayed cells double into).
 
 \subsection{Fitness Complexity}
 
 \input{fig/fitness_complexity.tex}
 
-Critical fitness complexity starts less than 10 sites at stint 0, jumps to more than 20 while still exhibiting morph $b$, then jumps again to more than 40 under morph $d$, drops to slightly more than 30 for morph $e$, climbs to a high of 48 sites around stint 39 then levels out and decreases.
-The evolution of morph $g$ is not associated with a clear change in critical fitness complexity.
 Figure \ref{fig:fitness_complexity:critical_fitness_complexity} plots critical fitness complexity of specimens drawn from across the case study's evolutionary history.
+
+Critical fitness complexity reaches more than 20 under morph $b$, jumps to more than 40 under morph $d$, drops to slightly more than 30 for morph $e$.
+Critical fitness complexity reaches a peak of 48 sites around stint 39 then levels out and decreases.
+% The evolution of morph $g$ is not associated with a clear change in critical fitness complexity.
 
 % Interpolated fitness complexity remains much more steady over the course of evolutionary history, although the certainty of our estimate of interpolated fitness complexity varies greatly.
 % Figure \ref{fig:fitness_complexity:interpolated_fitness_complexity} shows this.
@@ -126,15 +126,12 @@ Figure \ref{fig:fitness_complexity:critical_fitness_complexity} plots critical f
 
 \input{fig/interface_complexity.tex}
 
-%todo: not a sentence
-Interface complexity more than doubled from 6 states at morph $d$ at stint 14 to 17 states at stint 15 coincident with the emergence of morph $e$ (Figure \ref{fig:interface_complexity:cardinal_interface_complexity}).
-The emergence of morph $g$ coincided with an increase in writable state interface complexity from 1 to 3 (although a writable state complexity of 3 had been observed previously) as shown in Figure \ref{fig:interface_complexity:writable_interface_complexity}.
-However, it was not associated with other changes in interface complexity.
-This is due to increases in extrospective state sensing (2 to 9 states; Figure \ref{fig:interface_complexity:extrospective_interface_complexity}), introspective state sensing (1 to 4 states; Figure \ref{fig:interface_complexity:introspective_interface_complexity}), and a small increase in writable state usage (1 to 2 states; Figure \ref{fig:interface_complexity:writable_interface_complexity}).
-The greatest observed interface complexities was 
-%todo complexity was or complexities were?
-22 interactions at stints 54 and 67.
+Figure \ref{fig:interface_complexity} summarizes cardinal interface complexity, as well as its constituent components, for specimens drawn from across the case study's evolutionary history.
 
-\input{fig/extrospective_perturbation.tex}
-\input{fig/introspective_perturbation.tex}
-\input{fig/writable_perturbation.tex}
+%todo: not a sentence
+Notably, cardinal interface complexity more than doubles from 6 interactions to 17 interactions coincident with the emergence of morph $e$ (Figure \ref{fig:interface_complexity:cardinal_interface_complexity}).
+This is due to simultaneous increases in extrospective state sensing (2 to 9 states; Figure \ref{fig:interface_complexity:extrospective_interface_complexity}), introspective state sensing (1 to 4 states; Figure \ref{fig:interface_complexity:introspective_interface_complexity}), and writable state usage (1 to 2 states; Figure \ref{fig:interface_complexity:writable_interface_complexity}).
+
+The emergence of morph $g$ coincided with an increase in writable state interface complexity from 1 to 3 as shown in Figure \ref{fig:interface_complexity:writable_interface_complexity}.
+However, morph $g$ was not associated with other changes in other aspects of cardinal interface complexity.
+The greatest observed cardinal interface complexity was 22 interactions at stints 54 and 67.
