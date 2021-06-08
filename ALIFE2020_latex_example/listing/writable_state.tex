@@ -6,17 +6,25 @@ See \url{https://github.com/mmore500/dishtiny/tree/prq49/include/dish2/periphera
 
 \texttt{float}
 
+Writing to this state has no effect. Thus, it can be used to store data in-memory.
+
 \subsection{Transient Nop State ($4\times$)}
 
 \texttt{float}
+
+Writing to this state has no effect, and it is cleared regularly.
 
 \subsection{Apoptosis Request}
 
 \texttt{char}
 
+Whether cell has requested apoptosis.
+
 \subsection{Heir Request}
 
 \texttt{char}
+
+Whether a cell is a heir (that is, it inherits resource on death).
 
 \subsection{RepLev Request (0 thru $L$)}
 
@@ -26,22 +34,34 @@ See \url{https://github.com/mmore500/dishtiny/tree/prq49/include/dish2/periphera
 
 \texttt{float}
 
+How resistant this cell should be to recieving resource.
+
 \subsection{Resource Reserve Request}
 
 \texttt{float}
+
+Whether this cell has requested resource be reserved. The number stored indicates the amount of resource requested.
 
 \subsection{Resource Send Limit}
 
 \texttt{float}
 
+Maximum amount of resource that this cell can send.
+
 \subsection{Resource Send Request}
 
 \texttt{float}
+
+Whether a cardinal has requested to send resource. The number stored indicates the amount of resource.
 
 \subsection{Spawn Arrest}
 
 \texttt{char}
 
+Whether a cardinal has requested to stop the spawning of children, even if sufficient resource is available.
+
 \subsection{Spawn Request}
 
 \texttt{char}
+
+Whether a cardinal has requested to spawn a child.
