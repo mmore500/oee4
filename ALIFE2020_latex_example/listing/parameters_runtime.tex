@@ -1,8 +1,8 @@
-\section{Parameters}
+\section{Runtime Parameters}
 
 % create command to draw operation tables
 \newcommand{\confdef}[2]{
-    \begin{tabular}{|
+    ~\\ \begin{tabular}{|
         >{\columncolor[HTML]{C0C0C0}}l |l|}
         \hline
         Type & \texttt{#1} \\ \hline
@@ -10,7 +10,12 @@
     \end{tabular}
 }
 
-See \url{https://github.com/mmore500/dishtiny/blob/prq49/include/dish2/config/ConfigBase.hpp} and \url{https://github.com/mmore500/dishtiny/blob/prq49/include/dish2/spec/prefab/Spec\_prq49.hpp}.
+This section enumerates simulation parameters and provides default settings that were used.
+
+See \url{https://github.com/mmore500/dishtiny/blob/prq49/include/dish2/config/ConfigBase.hpp} for source code defining run time parameters.
+
+Some parameter settings were overridden in some assays.
+See \url{https://github.com/mmore500/dishtiny/tree/prq49/configpacks/bucket=prq49+diversity=0.50_series+mut_freq=1.00+mut_sever=1.00} for configuration files used in each assay and \url{https://github.com/mmore500/dishtiny/tree/prq49/slurm} for runscripts used in each assay.
 
 \subsection{EXECUTION}
 
@@ -18,63 +23,69 @@ See \url{https://github.com/mmore500/dishtiny/blob/prq49/include/dish2/config/Co
 
 \subsubsection{N\_THREADS}
 
-\confdef{size\_t}{1}
+\confdef{size\_t}{4}
 
-[NATIVE] How many threads should we run with?"
+How many threads should we run with?
+
+\subsubsection{RUN\_UPDATES}
+
+\confdef{bool}{\texttt{false}}
+
+Should we run evolution or skip directly to post-processing and data collection?
 
 \subsubsection{RUN\_UPDATES}
 
 \confdef{size\_t}{0}
 
-[NATIVE] Should we run evolution or skip directly to post-processing and data collection?
+How many updates should we run the experiment for?
 
 \subsubsection{RUN\_SECONDS}
 
 \confdef{double}{0}
 
-[NATIVE] How many updates should we run the experiment for?
+How many updates should we run the experiment for?
 
 \subsubsection{MAIN\_TIMEOUT\_SECONDS}
 
-\confdef{double}{13500}
+\confdef{double}{10800}
 
-[NATIVE] After how many seconds should we time out and fail with an error?
+After how many seconds should we time out and fail with an error?
 
 \subsubsection{END\_SNAPSHOT\_TIMEOUT\_SECONDS}
 
 \confdef{double}{1200}
 
-[NATIVE] After how many seconds should the end snapshot timeout?
+After how many seconds should the end snapshot timeout?
 
 \subsubsection{LOG\_FREQ}
 
 \confdef{double}{20}
 
-[NATIVE] How many seconds should pass between logging progress?
+How many seconds should pass between logging progress?
 
 \subsubsection{ASYNCHRONOUS}
 
 \confdef{size\_t}{3}
 
-[NATIVE] Should updates occur synchronously across threads and processes?"
+Should updates occur synchronously across threads and processes?
 
 \subsubsection{SYNC\_FREQ\_MILLISECONDS}
 
 \confdef{size\_t}{100}
 
-[NATIVE] How often updates occur synchronously across threads and processes for async mode 1?
+How often updates occur synchronously across threads and processes for async mode 1?
 
 \subsubsection{RNG\_PRESEED}
 
 \confdef{utin64\_t}{std::numeric\_limits<uint64\_t>::max()}
 
-[NATIVE] Optionally override the calculated rng preseed.
+Optionally override the calculated rng preseed.
 
 \subsubsection{THROW\_ON\_EXTINCTION}
 
 \confdef{bool}{true}
 
-[NATIVE] Should we throw an exception if populations go extinct?
+Should we throw an exception if populations go extinct?
 
 % end of EXECUTION
 
@@ -84,33 +95,46 @@ See \url{https://github.com/mmore500/dishtiny/blob/prq49/include/dish2/config/Co
 
 \subsubsection{RUN\_SLUG}
 
-\confdef{std::string}{"default"}
+\confdef{std::string}{``default''}
 
-Run-identifying slug
+Run-identifying slug.
 
 \subsubsection{PHENOTYPIC\_DIVERGENCE\_N\_UPDATES}
 
 \confdef{size\_t}{2048}
 
+How many updates should we run phenotypic divergence experiments for?
+If phenotypic divergence is not detected within this many updates, we consider two strains to be phenotypically identical.
+
 \subsubsection{PHENOTYPIC\_DIVERGENCE\_N\_CELLS}
 
 \confdef{size\_t}{100}
+
+How many cells should we simulate while testing for phenotypic divergence?
 
 \subsubsection{STINT}
 
 \confdef{utin64\_t}{std::numeric\_limits<uint64\_t>::max()}
 
+How many evolutionary stints have elapsed?
+
 \subsubsection{SERIES}
 
 \confdef{utin64\_t}{std::numeric\_limits<uint64\_t>::max()}
 
+Which evolutionary series are we running?
+
 \subsubsection{REPLICATE}
 
-\confdef{std::string}{""}
+\confdef{std::string}{``''}
+
+What replicate are we running?
 
 \subsubsection{TREATMENT}
 
-\confdef{std::string}{"none"}
+\confdef{std::string}{``none''}
+
+What experimental treatment has been applied?
 
 \subsubsection{SEED\_FILL\_FRACTION}
 
@@ -122,7 +146,8 @@ If we are seeding the population, what fraction of available slots should we fil
 
 \confdef{std::string}{"generate"}
 
-generate, reconstitute, monoculture, or innoculate
+How should we initialize the population?
+Can be ``generate'' to randomly generate a new population,  ``reconstitute'' to load a population from file, ``monoculture'' to load a single genome from file, or ``innoculate'' to load genomes annotated with root ID keyname attributes from file.
 
 % end of EXPERIMENT
 
@@ -140,7 +165,7 @@ How many cells should be simulated?
 
 \confdef{bool}{false}
 
-[NATIVE] Should number of total cells be multiplied by the total number of threads (num procs times threads per proc)?
+Should number of total cells be multiplied by the total number of threads (num procs times threads per proc)?
 
 \subsubsection{N\_DIMS}
 
@@ -234,35 +259,19 @@ What fraction of cells should have a quorum bit set?
 
 % end of QUORUM
 
-% start of QUORUM CAPS
-
-\subsection{QUORUM\_CAPS}
-
-\subsubsection{QUORUM\_CAP}
-
-\confdef{internal::nlev\_float\_t}{internal::nlev\_size\_t\_t\{12\}}
-
-"At what quorum size should cell death be triggered?
-
-\subsubsection{P\_QUORUM\_CAP\_KILL}
-
-\confdef{internal::nlev\_float\_t}{internal::nlev\_float\_t\{0.0825\}}
-
-With what probability should quorum death be enforced?
-
 \subsection{GENOME}
 
 \subsubsection{PROGRAM\_START\_SIZE}
 
 \confdef{size\_t}{128}
 
-How big should initial programs be?
+How many instructions should initial programs be?
 
 \subsubsection{PROGRAM\_MAX\_SIZE}
 
 \confdef{size\_t}{4096}
 
-What size should programs be capped at?"
+How many instructions should programs be capped at?
 
 \subsubsection{MUTATION\_RATE}
 
@@ -286,9 +295,13 @@ How often should sloppy copy defect occur?
 
 \confdef{size\_t}{8}
 
+For minor sequence mutations, at most how many instructions should be inserted or deleted?
+
 \subsubsection{SEVERE\_SEQUENCE\_MUTATION\_RATE}
 
 \confdef{float}{0.001}
+
+With what probability should sequence mutation be severe?
 
 \subsection{HARDWARE}
 
@@ -317,180 +330,216 @@ At what rate should bits should be flipped in writable memory?"
 \confdef{size\_t}{16}
 
 Run service every ?? updates.
+Must be a power of 2.
 
 \subsubsection{BIRTH\_SETUP\_SERVICE\_FREQUENCY}
 
 \confdef{size\_t}{16}
 
 Run service every ?? updates.
+Must be a power of 2.
 
 \subsubsection{CONDUIT\_FLUSH\_SERVICE\_FREQUENCY}
 
 \confdef{size\_t}{1}
 
 Run service every ?? updates.
+Must be a power of 2.
 
 \subsubsection{COLLECTIVE\_HARVESTING\_SERVICE\_FREQUENCY}
 
 \confdef{size\_t}{16}
 
 Run service every ?? updates.
+Must be a power of 2.
 
 \subsubsection{CPU\_EXECUTION\_SERVICE\_FREQUENCY}
 
 \confdef{size\_t}{4}
 
 Run service every ?? updates.
+Must be a power of 2.
 
 \subsubsection{GROUP\_EXPIRATION\_SERVICE\_FREQUENCY}
 
 \confdef{size\_t}{1}
 
 Run service every ?? updates.
+Must be a power of 2.
 
 \subsubsection{RUNNING\_LOG\_PURGE\_SERVICE\_FREQUENCY}
 
 \confdef{size\_t}{64}
 
 Run service every ?? updates.
+Must be a power of 2.
 
 \subsubsection{DIVERSITY\_MAINTENANCE\_SERVICE\_FREQUENCY}
 
 \confdef{size\_t}{64}
 
 Run service every ?? updates.
+Must be a power of 2.
 
 \subsubsection{DIVERSITY\_MAINTENANCE\_PREVALENCE}
 
 \confdef{double}{0.25}
+
+If an originally-seeded ancestor's descendants constitute more than this fraction of the population, decay their resource stockpiles.
 
 \subsubsection{STINT\_DIVERSITY\_MAINTENANCE\_SERVICE\_FREQUENCY}
 
 \confdef{size\_t}{0}
 
 Run service every ?? updates.
+Must be a power of 2.
 
 \subsubsection{STINT\_DIVERSITY\_MAINTENANCE\_PREVALENCE}
 
 \confdef{double}{0.25}
 
+If a seeded or reconstituted stint-originating ancestor's descendants constitute more than this fraction of the population, decay their resource stockpiles.
+
 \subsubsection{DECAY\_TO\_BASELINE\_SERVICE\_FREQUENCY}
 
 \confdef{size\_t}{32}
+
+Run service every ?? updates.
+                                                                                                        Must be a power of 2.
 
 \subsubsection{EPOCH\_ADVANCE\_SERVICE\_FREQUENCY}
 
 \confdef{size\_t}{8}
 
 Run service every ?? updates.
+Must be a power of 2.
 
 \subsubsection{EVENT\_LAUNCHING\_SERVICE\_FREQUENCY}
 
 \confdef{size\_t}{8}
 
-Run service every ?? updates. Must be > 1.
+Run service every ?? updates.
+Must be a power of 2.
+Must be > 1.
 
 \subsubsection{INTERMITTENT\_CPU\_RESET\_SERVICE\_FREQUENCY}
 
 \confdef{size\_t}{64}
 
 Run service every ?? updates.
+Must be a power of 2.
 
 \subsubsection{INTERMITTENT\_STATE\_PERTURB\_SERVICES\_FREQUENCY}
 
 \confdef{size\_t}{1}
 
 Run service every ?? updates.
+Must be a power of 2.
 
 \subsubsection{INTER\_MESSAGE\_COUNTER\_CLEAR\_SERVICE\_FREQUENCY}
 
 \confdef{size\_t}{16}
 
 Run service every ?? updates.
+Must be a power of 2.
 
 \subsubsection{INTER\_MESSAGE\_LAUNCHING\_SERVICE\_FREQUENCY}
 
 \confdef{size\_t}{8}
 
 Run service every ?? updates.
+Must be a power of 2.
 
 \subsubsection{INTRA\_MESSAGE\_LAUNCHING\_SERVICE\_FREQUENCY}
 
 \confdef{size\_t}{1}
 
 Run service every ?? updates.
+Must be a power of 2.
 
 \subsubsection{STATE\_OUTPUT\_PUT\_SERVICE\_FREQUENCY}
 
 \confdef{size\_t}{8}
 
 Run service every ?? updates.
+Must be a power of 2.
 
 \subsubsection{PUSH\_SERVICE\_FREQUENCY}
 
 \confdef{size\_t}{16}
 
 Run service every ?? updates.
+Must be a power of 2.
 
 \subsubsection{QUORUM\_CAP\_SERVICE\_FREQUENCY}
 
 \confdef{size\_t}{16}
 
 Run service every ?? updates.
+Must be a power of 2.
 
 \subsubsection{QUORUM\_SERVICE\_FREQUENCY}
 
 \confdef{size\_t}{1}
 
 Run service every ?? updates.
+Must be a power of 2.
 
 \subsubsection{RESOURCE\_DECAY\_SERVICE\_FREQUENCY}
 
 \confdef{size\_t}{1}
 
 Run service every ?? updates.
+Must be a power of 2.
 
 \subsubsection{RESOURCE\_HARVESTING\_SERVICE\_FREQUENCY}
 
 \confdef{size\_t}{1}
 
 Run service every ?? updates.
+Must be a power of 2.
 
 \subsubsection{RESOURCE\_INPUT\_JUMP\_SERVICE\_FREQUENCY}
 
 \confdef{size\_t}{1}
 
 Run service every ?? updates.
+Must be a power of 2.
 
 \subsubsection{RESOURCE\_RECEIVING\_SERVICE\_FREQUENCY}
 
 \confdef{size\_t}{4}
 
 Run service every ?? updates.
+Must be a power of 2.
 
 \subsubsection{RESOURCE\_SENDING\_SERVICE\_FREQUENCY}
 
 \confdef{size\_t}{1}
 
 Run service every ?? updates.
+Must be a power of 2.
 
 \subsubsection{SPAWN\_SENDING\_SERVICE\_FREQUENCY}
 
 \confdef{size\_t}{16}
 
 Run service every ?? updates.
+Must be a power of 2.
 
 \subsubsection{STATE\_INPUT\_JUMP\_SERVICE\_FREQUENCY}
 
 \confdef{size\_t}{8}
 
 Run service every ?? updates.
+Must be a power of 2.
 
 \subsubsection{CONTROLLER\_MAPPED\_STATE\_NOISE\_SERVICE\_FREQUENCY}
 
 \confdef{size\_t}{8}
 
 Run service every ?? updates.
+Must be a power of 2.
 
 \subsection{DATA}
 
@@ -498,91 +547,99 @@ Run service every ?? updates.
 
 \confdef{bool}{false}
 
-[NATIVE] Should we make and record a phenotype equivalent nopout strain at the end of the run? Must also enable ARTIFACTS\_DUMP.
+Should we make and record a phenotype equivalent nopout strain at the end of the run? Must also enable ARTIFACTS\_DUMP.
 
 \subsubsection{BATTLESHIP\_PHENOTYPE\_EQUIVALENT\_NOPOUT}
 
 \confdef{bool}{false}
 
-[NATIVE] Should we make and record a phenotype equivalent nopout strain at the end of the run? Must also enable ARTIFACTS\_DUMP.
+Should we make and record a phenotype equivalent nopout strain at the end of the run?
+Must also enable ARTIFACTS\_DUMP.
 
 \subsubsection{JENGA\_PHENOTYPE\_EQUIVALENT\_NOPOUT}
 
 \confdef{bool}{false}
 
-[NATIVE] Should we make and record a phenotype equivalent nopout strain at the end of the run? Must also enable ARTIFACTS\_DUMP.
+Should we make and record a phenotype equivalent nopout strain at the end of the run?
+Must also enable ARTIFACTS\_DUMP.
 
 \subsubsection{JENGA\_NOP\_OUT\_SAVE\_PROGRESS\_AND\_QUIT\_SECONDS}
 
 \confdef{size\_t}{10800}
 
-[NATIVE] After how many seconds should we save nop-out progress and quit?
+After how many seconds should we save nop-out progress and quit?
 
 \subsubsection{TEST\_INTERROOT\_PHENOTYPE\_DIFFERENTIATION}
 
 \confdef{bool}{false}
 
-[NATIVE] Should we test for phenotype differentiation between roots?
+Should we test for phenotype differentiation between roots?
 
 \subsubsection{ALL\_DRAWINGS\_WRITE}
 
 \confdef{bool}{false}
 
-[NATIVE] Should we generate and record drawings of the final state of the simulation? Must also enable DATA\_DUMP.
+Should we generate and record drawings of the final state of the simulation?
+Must also enable DATA\_DUMP.
 
 \subsubsection{DATA\_DUMP}
 
 \confdef{bool}{false}
 
-[NATIVE] Should we record data on the final state of the simulation?
+Should we record data on the final state of the simulation?
 
 \subsubsection{RUNNINGLOGS\_DUMP}
 
 \confdef{bool}{false}
 
-[NATIVE] Should we dump running logs at the end of the simulation? Must also enalbe DATA\_DUMP.
+Should we dump running logs at the end of the simulation?
+Must also enable DATA\_DUMP.
 
 \subsubsection{CENSUS\_WRITE}
 
 \confdef{bool}{false}
 
-[NATIVE] Should we write the cell census at the end of the simulation? Must also enalbe DATA\_DUMP.
+Should we write the cell census at the end of the simulation?
+Must also enable DATA\_DUMP.
 
 \subsubsection{ARTIFACTS\_DUMP}
 
 \confdef{bool}{false}
 
-[NATIVE] Should we record data on the final state of the simulation?
+Should we record data on the final state of the simulation?
 
 \subsubsection{BENCHMARKING\_DUMP}
 
 \confdef{bool}{false}
 
-[NATIVE] Should we record data for benchmarking the simulation?
+Should we record data for benchmarking the simulation?
 
 \subsubsection{ROOT\_ABUNDANCES\_FREQ}
 
 \confdef{size\_t}{0}
 
-[NATIVE] How many updates should elapse between recording phylogenetic root abundances? If 0, never record phylogenetic root abundances. Must be power of two.
+How many updates should elapse between recording phylogenetic root abundances?
+If 0, never record phylogenetic root abundances.
+Must be power of two.
 
 \subsubsection{ABORT\_IF\_COALESCENT\_FREQ}
 
 \confdef{size\_t}{0}
 
-[NATIVE] How many updates should elapse between checking for coalescence? If 0, never check for coalescence. Must be power of two.
+How many updates should elapse between checking for coalescence? If 0, never check for coalescence.
+Must be power of two.
 
 \subsubsection{ABORT\_IF\_EXTINCT\_FREQ}
 
 \confdef{size\_t}{0}
 
-[NATIVE] How many updates should elapse between checking for coalescence? If 0, never check for coalescence. Must be power of two.
+How many updates should elapse between checking for coalescence? If 0, never check for coalescence. Must be power of two.
 
 \subsubsection{ABORT\_AT\_LIVE\_CELL\_FRACTION}
 
 \confdef{double}{0.0}
 
-[NATIVE] Should we terminate once a live cell fraction is reached? If 0, will not terminate.
+Should we terminate once a live cell fraction is reached? If 0, will not terminate.
 
 \subsubsection{REGULATION\_VIZ\_CLAMP}
 
@@ -600,7 +657,7 @@ How many purge epochs should we keep events in the running log?
 
 \confdef{size\_t}{0}
 
-How often should we draw the current world?
+How many updates should elapse between outputting snapshot images?
 
 \subsubsection{DRAWING\_WIDTH\_PX}
 
@@ -616,15 +673,17 @@ What should the height of the drawings be, in pixels?
 
 \subsubsection{SELECTED\_DRAWINGS}
 
-\confdef{std::string}{""}
+\confdef{std::string}{``''}
 
-What drawings should be drawn? Provide slugified drawer names seperated by colons.
+What drawings should be drawn?
+Provide slugified drawer names separated by colons.
 
 \subsubsection{ANIMATE\_FRAMES}
 
 \confdef{bool}{false}
 
-Should we stich the output images into a video? Only valid if DRAWING\_FREQ is not 0.
+Should we stitch the output images into a video?
+Only valid if DRAWING\_FREQ is not 0.
 
 \subsubsection{VIDEO\_FPS}
 
@@ -636,4 +695,4 @@ How many frames per second should the video be?
 
 \confdef{size\_t}{960}
 
-At most how many frames should the video include?
+At most how many frames should output video include?

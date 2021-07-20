@@ -1,26 +1,40 @@
+% create command to draw state tables
+\newcommand{\threadlocalsimservicedef}[2]{
+    \begin{tabular}{|
+        >{\columncolor[HTML]{C0C0C0}}l |l|}
+        \hline
+        Frequency & every #1 update(s) \\ \hline
+    \end{tabular} \\
+}
+
 \section{Threadlocal Simulation Services}
 
-See \url{https://github.com/mmore500/dishtiny/tree/prq49/include/dish2/services_threadlocal}
+Actions that are performed on each \texttt{thread\_local} population.
+
+See \url{https://github.com/mmore500/dishtiny/tree/prq49/include/dish2/services_threadlocal} for source code implementing these services. 
 
 \subsection{Cell Update Service}
 
-scheduled every $i$th update
+\threadlocalsimservicedef{1}
 
-Runs a every cells' program and realizes their interactions with the enviroment, in order.
+Performs each cell's simulation services, iterating over cells in randomized order.
 
-\subsection{Diversity Maintentance Service}
+\subsection{Diversity Maintenance Service}
 
-every $i$th update
+\threadlocalsimservicedef{8}
 
-For every Root ID, determine whether the number of cells that have it is greater than a threshold.
-If so, calculate the ratio of cells in excess.
-Then, decay their resource stockpiles proportionally to that ratio.
+Prevents any one originally-generated ancestor from sweeping the population, preserving deep phylogenetic diversity.
 
-This makes sure diversity is maintained even in large populations, stopping any one Root ID from becoming too prevalent.
+Counts cells that descend from each originally-seeded ancestor.
+If more than \texttt{DIVERSITY\_MAINTENANCE\_PREVALENCE} of cells descend from a single seeded ancestor, decay their resource stockpiles.
+The magnitude of this effect increases with excess prevalence.
 
-\subsection{Stint Diversity Maintentance Service}
+\subsection{Stint Diversity Maintenance Service}
 
-For every Root ID in a stint, determine whether the number of cells that have it is greater than a threshold.
-Then, proceed as in the Diversity Maintentance Service.
+\threadlocalsimservicedef{n/a}
 
-This makes sure diversity is maintained at a stint level, stopping any one Root ID from becoming too prevalent.
+Prevents any one seeded or reconstituted stint-originating ancestor from sweeping the population, preserving phylogenetic diversity within a single stint.
+
+Counts cells that descend from each seeded or reconstituted stint-originating ancestor.
+If more than \texttt{STINT\_DIVERSITY\_MAINTENANCE\_PREVALENCE} of cells descend from a single seeded or reconstituted ancestor, decay their resource stockpiles.
+The magnitude of this effect increases with excess prevalence.

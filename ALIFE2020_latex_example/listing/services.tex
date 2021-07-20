@@ -1,196 +1,288 @@
+% create command to draw state tables
+\newcommand{\cellsimservicedef}[2]{
+    \begin{tabular}{|
+        >{\columncolor[HTML]{C0C0C0}}l |l|}
+        \hline
+        Frequency & every #1 update(s) \\ \hline
+    \end{tabular} \\
+}
+
 \section{Cellular Simulation Services}
 
-See \url{https://github.com/mmore500/dishtiny/tree/prq49/include/dish2/services}
+Simulation logic is applied to each cell through a collection of distinct functors, referred to as services.
+
+All services specified to run on a particular update are applied in sequence to a single cell.
+(Some services run only every $n$th update.)
+Then, to another randomly-chosen cell in a \texttt{thread\_local} population, and another until the entire population has been updated.
+
+See \url{https://github.com/mmore500/dishtiny/tree/prq49/include/dish2/services} for source code implementing these services.
 
 \subsection{Decay to Baseline Service}
 
-scheduled every $i$th update
+\cellsimservicedef{32}
 
-Decay's a cell's global regulators, resets its controller-mapped peripheral states, and resets its transient NOP states.
+Decays a cell's global regulators, resets its controller-mapped peripheral states, and resets its transient NOP states.
 
 \subsection{Running Log Purge Service}
 
-every $i$th update
+\cellsimservicedef{64}
 
 Purges a cell's running logs.
+(Only affects data collection, not simulation logic.)
 
 \subsection{Controller Mapped State Noise Service}
 
-every $i$th update
+\cellsimservicedef{8}
 
-Given a non-zero controller-mapped state defect rate, picks a random number $n$ from a Poisson distribution.
-Then, it introduces $n$ defects to a cell's controller-mapped state.
-These defects have a 50\% probability of zeroing out the state, and a 50\% probability of randimizing it.
+Given a non-zero controller-mapped state defect rate, picks a random number $n$ from a Poisson distribution parameterized by \texttt{CONTROLLER\_MAPPED\_STATE\_DEFECT\_RATE}.
+Then, it introduces $n$ defects to a cell's writable state.
+Half of these defects zero out the state and half randomize it.
 
 \subsection{Interpreted Introspective State Refresh Service}
 
-every $i$th update
+\cellsimservicedef{i}
 
-Refreshes the Interpreted Introspective state of a cell.
+Refreshes the interpreted introspective state of a cell.
 
 \subsection{Extrospective State Exchange Service}
 
-every $i$th update
+\cellsimservicedef{1}
 
+Used for experimental manipulations testing the fitness effect of extrospective state.
+(Not part of core simulation logic.)
 
 \subsection{Extrospective State Rotate Service}
 
-every $i$th update
+\cellsimservicedef{1}
+
+Used for experimental manipulations testing the fitness effect of extrospective state.
+(Not part of core simulation logic.)
 
 \subsection{Introspective State Exchange Service}
 
-every $i$th update
+\cellsimservicedef{1}
+
+Used for experimental manipulations testing the fitness effect of introspective state.
+(Not part of core simulation logic.)
 
 \subsection{Introspective State Rotate Service}
 
-every $i$th update
+\cellsimservicedef{1}
 
-\subsection{Cpu Execution Service}
+Used for experimental manipulations testing the fitness effect of introspective state.
+(Not part of core simulation logic.)
 
-every $i$th update
+\subsection{CPU Execution Service}
 
-Executes a cell's cardinal's genomes in random order.
+\cellsimservicedef{1}
+
+Executes a cell's genome on its cardinals' virtual CPUs for \texttt{HARDWARE\_EXECUTION\_CYCLES} virtual cycles.
+The order of cardinal evaluation is randomized. 
+This is repeated \texttt{HARDWARE\_EXECUTION\_ROUNDS} times.
 
 \subsection{Event Launching Service}
 
-every $i$th update
+\cellsimservicedef{8}
 
-Launches a cell's events, and then launches all of its cardinals' events.
+Dispatches environmentally-managed events for each cardinal.
 
 \subsection{Introspective State Rotate Restore Service}
 
-every $i$th update
+\cellsimservicedef{1}
+
+Used for experimental manipulations testing the fitness effect of introspective state.
+(Not part of core simulation logic.)
 
 \subsection{Introspective State Exchange Restore Service}
 
-every $i$th update
+\cellsimservicedef{1}
+
+Used for experimental manipulations testing the fitness effect of introspective state.
+(Not part of core simulation logic.)
 
 \subsection{Extrospective State Rotate Restore Service}
 
-every $i$th update
+\cellsimservicedef{1}
+
+Used for experimental manipulations testing the fitness effect of extrospective state.
+(Not part of core simulation logic.)
 
 \subsection{Extrospective State Exchange Restore Service}
 
-every $i$th update
+\cellsimservicedef{1}
+
+Used for experimental manipulations testing the fitness effect of extrospective state.
+(Not part of core simulation logic.)
 
 \subsection{Writable State Exchange Service}
 
-every $i$th update
+\cellsimservicedef{1}
+
+Used for experimental manipulations testing the fitness effect of writable state.
+(Not part of core simulation logic.)
 
 \subsection{Writable State Rotate Service}
 
-every $i$th update
+\cellsimservicedef{1}
+
+Used for experimental manipulations testing the fitness effect of writable state.
+(Not part of core simulation logic.)
 
 \subsection{Birth Setup Service}
 
-every $i$th update
+\cellsimservicedef{16}
 
 Births a new cell into the current cell.
 
 This occurs by first iterating through the cell's cardinals' birth request inputs in random order.
-While the cell's resource stockpile is sufficiently large (greater than the Spawn Defense Cost), the requests are ignored and the stockpile depleted by the cost.
+While the cell's resource stockpile is greater than the \texttt{SPAWN\_DEFENSE\_COST}, the requests are ignored and the stockpile depleted by that cost.
 The first request that cannot be defended against is then acted upon.
-The current cell's death routine is called, the old genome is replaced by the incoming genome, and the new cell's make-alive routine is called.
+The current cell's death routine is called, the old genome is replaced by the incoming genome, and the cell's make-alive routine is called.
 
 \subsection{Cell Age Service}
 
-every $i$th update
+\cellsimservicedef{1}
 
-Updates the cell age of every cell, and then refreshes their Kin Group epochs.
+Advances the cell age introspective state and refreshes kin group age introspective state.
 
 \subsection{Collective Harvesting Service}
 
-every $i$th update
+\cellsimservicedef{4}
 
-Calculates total amount of resource harvested among every cardinal, and then updates every cardinal with the new amount.
+Calculates the total amount of resource collectively harvested to this cell by the cell's kin group.
+This amount increases with quorum count and saturates at \texttt{OPTIMAL\_QUORUM\_COUNT}. 
+Adds the harvested amount to the cell's resource stockpile.
 
 \subsection{Collective Resource Decay Service}
 
-every $i$th update
+\cellsimservicedef{1}
 
-Decays cell resource stockpile by an algorithmically-calucalted decay rate, and then updates every cardinal with the new amount.
+If the cell's quorum count exceeds \texttt{OPTIMAL\_QUORUM\_COUNT}, applies multiplicative decay to the cell's resource stockpile.
+This effect strengthens exponentially with excess cell quorum count.
 
 \subsection{Conduit Flush Service}
 
-every $i$th update
+\cellsimservicedef{16}
 
-Flushes every cardinals' outputs.
+Flushes each cardinals' inter-process and inter-thread output conduits.
 
 \subsection{Inter Message Launching Service}
 
-every $i$th update
+\cellsimservicedef{8}
 
+Launches new virtual cores to process incoming inter-cell messages.
 
 \subsection{Inter Message Purging Service}
 
-every $i$th update
+\cellsimservicedef{8}
+
+Purges excess incoming inter-cell messages that couldn't be handled due to virtual core availability.
+
+\subsection{Intra Message Launching Service}
+
+\cellsimservicedef{8}
+
+Launches new virtual cores to process incoming messages from co-cardinals.
 
 \subsection{Message Counter Clear Service}
 
-every $i$th update
+\cellsimservicedef{16}
+
+Intermittently resets introspective message count state.
 
 \subsection{Quorum Service}
 
-every $i$th update
+\cellsimservicedef{1}
+
+Performs distributed estimation of kin group size by simulation.
+
+Each cell has a single randomly-chosen index set within a fixed-length bitstring.
+(Depending in parameter settings, some cells may may have index set --- all positions within the bitstring are zeroed out.)
+
+Broadcasts bits known to be set are to all neighbor cells within the same kin group.
+Incoming bitstrings from neighbors are ORed with known bits.
+
+The original neighbor each non-self bit was first learned from is recorded alongside that bit.
+If that neighbor no longer broadcasts that bit, it is erased from the cell's known bits.
+
+Updates latest quorum count into introspective state.
+
+This scheme is replicated independently for each kin group level simulated.
 
 \subsection{Resource Decay Service}
 
-every $i$th update
+\cellsimservicedef{1}
 
-Decays cell resource stockpile by an algorithmically-calucalted decay rate, and then updates every cardinal with the new amount.
+Decays cell resource stockpile multiplicatively by \texttt{RESOURCE\_DECAY} constant.
 
 \subsection{Resource Harvesting Service}
 
-every $i$th update
+\cellsimservicedef{1}
 
-Calculates total amount of resource harvested among every cardinal, and then updates every cardinal with the new amount.
+Adds a constant amount to cell's resource stockpile.
 
 \subsection{Resource Receiving Service}
 
-every $i$th update
+\cellsimservicedef{4}
 
-Calculates total amount of resource recieved across every cardinal, and then updates every cardinal with the new amount.
+Calculates total amount of resource received across every cardinal, and then adds that total to resource stockpile.
 
-If the cell has died this update, it instead refunds all recieved resources.
+If the cell is not alive, it instead refunds all received resources back to each sending cell.
 
 \subsection{Resource Sending Service}
 
-every $i$th update
+\cellsimservicedef{1}
+
+Based on writable state within each cardinal, calculates and dispatches resource that should be shared to each neighbor cell.
 
 \subsection{Spawn Sending Service}
 
-every $i$th update
+\cellsimservicedef{16}
 
-If available resource is greater than one, iterates randomly through every cardinal to determine whether it requested to spawn and not to arrest spawns.
-Then, it sends one of these requests at random and decreases resource by one.
+If available resource is greater than or equal to 1.0, iterates randomly through every cardinal to determine whether it requested to spawn and has not arrested spawning.
+Then, one of these requests is dispatched at random and stockpile is decreased by one.
 
 \subsection{State Input Jump Service}
 
-every $i$th update
+\cellsimservicedef{8}
 
-Calls jump on
+Pulls a fresh copy of each neighbor cardinal's current readable state.
 
 \subsection{State Output Put Service}
 
-every $i$th update
+\cellsimservicedef{8}
+
+Dispatches a copy of each cardinal's current readable state to each cardinal's neighbor cell.
 
 \subsection{Epoch Advance Service}
 
-every $i$th update
+\cellsimservicedef{8}
+
+The cell's current-known epoch count is advanced by one then set to the maximum of the cell's current-known epoch count and neighbor cells' current-known epoch count.
 
 \subsection{Writable State Rotate Restore Service}
 
-every $i$th update
+\cellsimservicedef{1}
+
+Used for experimental manipulations testing the fitness effect of writable state.
+(Not part of core simulation logic.)
 
 \subsection{Writable State Exchange Restore Service}
 
-every $i$th update
+\cellsimservicedef{1}
+
+Used for experimental manipulations testing the fitness effect of writable state.
+(Not part of core simulation logic.)
 
 \subsection{Group Expiration Service}
 
-every $i$th update
+\cellsimservicedef{64}
+
+As group age exceeds \texttt{GROUP\_EXPIRATION\_DURATIONS}, with increasing probability fragments cell from its kin group.
+This process kills the cell and replaces it in place with a daughter without kin ID commonality.
 
 \subsection{Apoptosis Service}
 
-Iterates through every cell checking whether any of its cardinals has requested apoptosis. If so, it calls its death routine.
-every $i$th update
+\cellsimservicedef{16}
+
+If any cardinals have requested apoptosis, do death routine on the cell.
