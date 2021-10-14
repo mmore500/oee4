@@ -37,7 +37,7 @@ Each CPU can host up to 16 active virtual cores.
 If additional cores are required after all 16 available are in use, the oldest active core is killed and replaced.
 Each virtual core contains 8 virtual \texttt{float} registers.
 
-Cores execute round-robin in quasi-parallel, with up to 8 instructions being executed on a single core before execution shifts to the next active core. 
+Cores execute round-robin in quasi-parallel, with up to 8 instructions being executed on a single core before execution shifts to the next active core.
 
 Like SignalGP, the signalgp-lite system uses tag-matching to determine which modules to activate in response to incoming signals from the environment, from other agents (i.e., messages), and from internal events (i.e., execution of \texttt{call} and \texttt{fork} instructions).
 
@@ -69,15 +69,15 @@ Otherwise, no jump is performed.
 Initial populations were seeded with programs consisting of 128 randomly generated instructions.
 Program length was capped at 4096 instructions.
 
-Mutation was applied to one in 10 reproductions where any kin group commonality was maintained and to 10 in 10 reproductions where it was not. 
+Mutation was applied to one in 10 reproductions where any kin group commonality was maintained and to 10 in 10 reproductions where it was not.
 If mutation occurred, bits in the binary representation of the genome were flipped with 0.02\% probability.
 If mutation occurred, sequence mutations were also introduced into the program at a per-site rate of 0.1\%.
 Half of sequence mutations were deletion events, with a number of sites deleted drawn uniformly between 0 and 8.
 Half of sequence mutations were insertion events, with a number of sites inserted drawn uniformly between 0 and 8.
 When sites were inserted, half of the time randomly-generated instructions were added and half of the time existing the preceding sequence of instructions was duplicated.
-With 0.1\% probability a sequence mutation took on severe intensity, meaning that the number of sites inserted or deleted was drawn uniformly between 0 and program size rather than between 0 and 8. 
+With 0.1\% probability a sequence mutation took on severe intensity, meaning that the number of sites inserted or deleted was drawn uniformly between 0 and program size rather than between 0 and 8.
 
-\section{Cooperative Resource Collection} 
+\section{Cooperative Resource Collection}
 
 In order to ensure kin group structure had functional ramifications, we based part of cell resource collection on the number of contiguous kin group members.
 To do this, we needed an efficient distributed method to approximate kin group size.
@@ -96,7 +96,7 @@ Thus, the quorum count for these lowest-level kin groups was a function of the n
 For the highest-level kin group, each tile's fixed bit was chosen as a deterministic function of its lowest-level kin group ID.
 Thus, the quorum count for these highest-level kin groups was a function of the number of lowest-level kin groups contained.
 
-To incentivize kin group formation and maintenance, we gave each cell a 0.02 resource bonus every four updates for each non-self quorum count.  
+To incentivize kin group formation and maintenance, we gave each cell a 0.02 resource bonus every four updates for each non-self quorum count.
 This bonus saturated at the simulation-defined target quorum count.
 For both the lowest- and highest-level kin groups we used a target quorum count of 12.
 The source code controlling cooperative resource collection can be found at \url{https://github.com/mmore500/dishtiny/blob/prq49/include/dish2/services/CollectiveHarvestingService.hpp}.
