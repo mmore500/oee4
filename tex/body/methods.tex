@@ -9,7 +9,7 @@ The DISHTINY simulation environment tracks cells occupying tiles on a $120\times
 Cells collect a uniform inflow of continuous-valued resource.
 This resource can be spent in increments of $1.0$ to attempt asexual reproduction into any of a cell's four adjacent cells.
 A cell can only be replaced if it commands less than $1.0$ resource.
-If a cell rebuffs a reproduction attempt, its resource stockpile decrements by $1.0$.  
+If a cell rebuffs a reproduction attempt, its resource stockpile decrements by $1.0$.
 
 In order to facilitate the formation of coherent multicellular groups, the DISHTINY framework provides a mechanism for cells to form groups and detect group membership \citep{moreno2019toward}.
 Groups arise through cellular reproduction.
@@ -51,7 +51,7 @@ No simulation state besides genome content was preserved between stints.
 In order to ensure heterogeneity of biotic environmental factors experienced by evolving cells, we imposed a diversity maintenance scheme.
 In this scheme, descendants of a single progenitor cell from stint 0 that proliferated to constitute more than half of the population were penalized with resource loss.
 The severity of the penalty increased with increasing prevalence beyond half of the population.
-Thus, we ensured that descendants from at least two distinct stint 0 progenitors remained over the course of the simulation. 
+Thus, we ensured that descendants from at least two distinct stint 0 progenitors remained over the course of the simulation.
 
 In our screen for case studies, we evolved 40 independent populations for 101 stints.
 We selected population 16005 from among these 40 to profile as a case study due to its distinct asymmetrical group morphology.
@@ -70,7 +70,7 @@ This \texttt{Nop} instruction was chosen to perform the same number of random nu
 }
 We reverted nopouts that altered a strain's phenotype and kept those that did not.
 To determine whether phenotypic alteration occurred, we seeded an independent, mutation-disabled simulation with the stain in question and ran it side-by-side with an independent, mutation-disabled simulation of the wildtype strain.
-If any divergence in resource concentration was detected between the two strains within a 2,048 update window, the single site nopout was reverted.  
+If any divergence in resource concentration was detected between the two strains within a 2,048 update window, the single site nopout was reverted.
 We continued this process until no single-site nopouts were possible without altering the genome's phenotype.
 To speed up evaluation, we performed step-by-step, side-by-side comparisons using a smaller toroidal grid size of just 100 tiles.
 
@@ -114,7 +114,7 @@ This metric mirrors the MODES complexity metric described in \citep{dolson2019mo
 % Instead, we used a sampling approach and statistical inference to estimate the number of noncritical genome sites that contribute to fitness.
 % We focused on the role of the $n$ instructions that were present in a strain's phenotype-neutral nopout and but absent in its fitness-noncritical nopout.
 % We performed 50 fitness competitions.
-% Each competition $i$ was held between a wildtype genome and the phenotype-neutral nopout with with $h_i=i\times n/50$ randomly chosen additional noncritical instructions nopped out. 
+% Each competition $i$ was held between a wildtype genome and the phenotype-neutral nopout with with $h_i=i\times n/50$ randomly chosen additional noncritical instructions nopped out.
 % This allowed us to sample the genome space interpolated between the phenotype-neutral nopout and the fitness-noncritical nopout.
 
 % We modeled the occurrence of deleterious fitness effect as drawing any complete set of $s$ cards from a deck totaling $n$ cards with $m$ distinct sets shuffled in among them.
@@ -137,7 +137,7 @@ This metric mirrors the MODES complexity metric described in \citep{dolson2019mo
 
 % To our surprise, we found that in most instances a set size $s$ of 1 gave higher likelihoods of the observed data than larger set sizes.
 % It appears that the redundancy that prevented these sites from being detected in the fitness-critical nopout was eliminated by the phenotype-neutral nopout.
-% In the future, it may be practical to couple this approach with a exhaustive battery single-site nopouts on sites present in a strain's phenotype-neutral nopout and but 
+% In the future, it may be practical to couple this approach with a exhaustive battery single-site nopouts on sites present in a strain's phenotype-neutral nopout and but
 % %todo which word? and or but?
 % absent in its fitness-noncritical nopout.
 % However, for parsimony's sake for all further analyses in this work we fixed $s=1$.
@@ -147,7 +147,7 @@ This metric mirrors the MODES complexity metric described in \citep{dolson2019mo
 % (Noncritical fitness complexity might be a better term for this metric moving forward, however.)
 % We used the range of $m$ that accounts for the central 95\% of likelihood density to construct a 95\% credible interval for this metric.
 
-% However, we were unable to perform this estimate because in 21 phenotype-neutral nopouts were significantly less fit than wildtype. 
+% However, we were unable to perform this estimate because in 21 phenotype-neutral nopouts were significantly less fit than wildtype.
 % %todo fix this sentence; not sure what it should say
 
 \subsection{Estimating State Interface Complexity}
@@ -169,12 +169,13 @@ We deemed a state as fitness-critical if this manipulation resulted in decreased
 We describe the number of states that cells interact with to contribute to fitness as ``State Interface Complexity.''
 
 \subsection{Estimating Messaging Interface Complexity}
+\label{sec:estimating-messaging-interface-complexity;ch:measuring-cna}
 
 In addition to estimating the number of input/output states cells use to interact with the environment, we were interested in estimating the number of distinct intra-cellular messages cardinals within a cell use to coordinate and inter-cellular messages that cells use to coordinate.
 As with state interface complexity, distinguishing context-dependent behavior from contingent behavior is critical to attaining a meaningful measurement.
 For example, a cardinal might happen to depend on always receiving a inter-cellular message from a neighbor or an intra-cellular message from another cardinal.
 Although meaningless, if that message were blocked fitness would decrease.
-So, instead of simply discarding messages to test for a fitness effect, we re-route messages back to the sending cardinal instead of their intended recipient. 
+So, instead of simply discarding messages to test for a fitness effect, we re-route messages back to the sending cardinal instead of their intended recipient.
 We deemed a messages as fitness-critical if this manipulation resulted in decreased fitness at significance $p < 0.01$ using a $T$-test parameterized by 20 control wild-type vs wild-type competitions.
 
 We refer to the number of distinct messages that cells send to contribute to fitness as ``Messaging Interface Complexity.''
