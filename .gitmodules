@@ -1,0 +1,4 @@
+[submodule "submodule/dishtiny"]
+	path = submodule/dishtiny
+	url = https://github.com/mmore500/dishtiny.git
+	branch = binder
