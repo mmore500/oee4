@@ -2,3 +2,6 @@
 	path = submodule/dishtiny
 	url = https://github.com/mmore500/dishtiny.git
 	branch = binder
+[submodule "submodule/dishtiny_event_tag_phylogenetics"]
+	path = submodule/dishtiny_event_tag_phylogenetics
+	url = https://github.com/rodsan0/dishtiny_event_tag_phylogenetics.git
