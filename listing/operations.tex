@@ -12,7 +12,7 @@
 
 This section overviews the operation library made available to evolving signalgp-lite genetic programs within the simulation.
 
-Within the program section of each genome, each instruction contained 
+Within the program section of each genome, each instruction contained
 \begin{itemize}
 \item an op code, specifying which operation should be performed;
 \item a 64-bit bitstring, used as a tag for operations that required tag-matching or as data for some configurable operations; and
@@ -190,7 +190,7 @@ This instruction can also mark a module-end position --- executing this instruct
 If no local anchor instruction is present between the current global anchor instruction and the preceding global anchor instruction, this operation will not terminate the executing core.
 (This way, several global anchors may lead into the same module.)
 
-However, if a local anchor instruction is present between the current global anchor instruction and the preceding global anchor instruction, this operation will terminate the executing core. 
+However, if a local anchor instruction is present between the current global anchor instruction and the preceding global anchor instruction, this operation will terminate the executing core.
 Local jump instructions will only consider local anchors between the preceding global anchor and the subsequent global anchor instruction.
 
 \subsection{Global Jump If}
@@ -221,7 +221,7 @@ This regulator value affects the outcome of tag lookup for internal events and s
 \opdef{1}{1}
 
 Ages the regulator decay countdown of global jump table tags matching this instruction's tag by the amount \texttt{reg[arg\_0]}.
-If \texttt{reg[arg\_0]} is negative, this can forestall decay. 
+If \texttt{reg[arg\_0]} is negative, this can forestall decay.
 
 This decay countdown affects the outcome of tag lookup for internal events, and signals from the environment.
 (Note, as described in \ref{sec:virtual_cpu}, that independent tag lookup tables handle activating genome modules across different contexts.)
@@ -354,7 +354,7 @@ This regulator value affects the outcome of tag lookup for messages from neighbo
 \opdef{1}{1}
 
 Ages the regulator decay countdown of global jump table tags matching this instruction's tag by the amount \texttt{reg[arg\_0]}.
-If \texttt{reg[arg\_0]} is negative, this can forestall decay. 
+If \texttt{reg[arg\_0]} is negative, this can forestall decay.
 
 This decay countdown affects the outcome of tag lookup for messages from neighbor cells.
 (Note, as described in \ref{sec:virtual_cpu}, that independent tag lookup tables handle activating genome modules across different contexts.)
