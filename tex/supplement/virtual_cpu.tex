@@ -1,0 +1,22 @@
+\section{Virtual CPU} \label{sec:virtual_cpu}
+
+Each cardinal hosts a signalgp-lite virtual CPU.
+Each CPU can host up to 16 active virtual cores.
+If additional cores are required after all 16 available are in use, the oldest active core is killed and replaced.
+Each virtual core contains 8 virtual \texttt{float} registers.
+
+Cores execute round-robin in quasi-parallel, with up to 8 instructions being executed on a single core before execution shifts to the next active core.
+
+Like SignalGP, the signalgp-lite system uses tag-matching to determine which modules to activate in response to incoming signals from the environment, from other agents (i.e., messages), and from internal events (i.e., execution of \texttt{call} and \texttt{fork} instructions).
+
+In the DISHTINY simulation, each CPU hosts two independent module-lookup data structures.
+The first module-lookup data structure is used to activate modules in response to internally-generated signals, messages from other cardinals within the same cell, and environmental events;
+this module-lookup data structure contains \textit{all} modules within the genetic program.
+The second module-lookup data structure is used to activate modules in response to messages from other cells;
+this module-lookup data structure contains only modules with bitstring tags that end in 0.
+(Hence, the subset of modules with bitstring tags that end in 1 \textit{cannot} be activated by messages from other cells, so that sensitive functionality like resource sharing and apoptosis can be protected from potentially malicious exploitation.)
+
+We also use a tag-matching system to route \texttt{jump} instructions executed within a module.
+When a module is loaded, all \texttt{local anchor} instructions are registered within a tag-matching data structure.
+The local \texttt{jump} instruction routes to the best-matching local anchor.
+If no matching local anchor is available, then no jump is performed and execution continues as if a \texttt{nop} instruction had elapsed.

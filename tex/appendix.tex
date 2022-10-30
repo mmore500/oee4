@@ -30,85 +30,11 @@ in OEE4: The Fourth Workshop on Open-Ended Evolution}
 In the following sections, $L$ refers to the number of hierarchical kin group levels defined for the simulation.
 In this work, we use $L=2$.
 
-\section{Virtual CPU} \label{sec:virtual_cpu}
+\input{tex/supplement/virtual_cpu.tex}
+\input{tex/supplement/tag_matching.tex}
+\input{tex/supplement/generation_mutation.tex}
+\input{tex/supplement/resource_collection.tex}
 
-Each cardinal hosts a signalgp-lite virtual CPU.
-Each CPU can host up to 16 active virtual cores.
-If additional cores are required after all 16 available are in use, the oldest active core is killed and replaced.
-Each virtual core contains 8 virtual \texttt{float} registers.
-
-Cores execute round-robin in quasi-parallel, with up to 8 instructions being executed on a single core before execution shifts to the next active core.
-
-Like SignalGP, the signalgp-lite system uses tag-matching to determine which modules to activate in response to incoming signals from the environment, from other agents (i.e., messages), and from internal events (i.e., execution of \texttt{call} and \texttt{fork} instructions).
-
-In the DISHTINY simulation, each CPU hosts two independent module-lookup data structures.
-The first module-lookup data structure is used to activate modules in response to internally-generated signals, messages from other cardinals within the same cell, and environmental events;
-this module-lookup data structure contains \textit{all} modules within the genetic program.
-The second module-lookup data structure is used to activate modules in response to messages from other cells;
-this module-lookup data structure contains only modules with bitstring tags that end in 0.
-(Hence, the subset of modules with bitstring tags that end in 1 \textit{cannot} be activated by messages from other cells, so that sensitive functionality like resource sharing and apoptosis can be protected from potentially malicious exploitation.)
-
-We also use a tag-matching system to route \texttt{jump} instructions executed within a module.
-When a module is loaded, all \texttt{local anchor} instructions are registered within a tag-matching data structure.
-The local \texttt{jump} instruction routes to the best-matching local anchor.
-If no matching local anchor is available, then no jump is performed and execution continues as if a \texttt{nop} instruction had elapsed.
-
-\section{Tag Matching}
-
-We use 64-bit bitstring tags to label modules and jump destinations.
-We use a variant of Downing's streak metric to compute tag matches \citep{downing2015intelligence}.
-We deterministically select the single best-matching result for a tag lookup.
-If there is a tie, an arbitrary result is selected.
-For module-lookup, the best-matching tag must have a match quality at the 80th or better percentile among match qualities of pairs of randomly generated tags.
-Otherwise, no module is activated.
-For jump-lookup, the best match must be at the 50th or better percentile.
-Otherwise, no jump is performed.
-
-\section{Program Generation and Mutation}
-
-Initial populations were seeded with programs consisting of 128 randomly generated instructions.
-Program length was capped at 4096 instructions.
-
-Mutation was applied to one in 10 reproductions where any kin group commonality was maintained and to 10 in 10 reproductions where it was not.
-If mutation occurred, bits in the binary representation of the genome were flipped with 0.02\% probability.
-If mutation occurred, sequence mutations were also introduced into the program at a per-site rate of 0.1\%.
-Half of sequence mutations were deletion events, with a number of sites deleted drawn uniformly between 0 and 8.
-Half of sequence mutations were insertion events, with a number of sites inserted drawn uniformly between 0 and 8.
-When sites were inserted, half of the time randomly-generated instructions were added and half of the time existing the preceding sequence of instructions was duplicated.
-With 0.1\% probability a sequence mutation took on severe intensity, meaning that the number of sites inserted or deleted was drawn uniformly between 0 and program size rather than between 0 and 8.
-
-\section{Cooperative Resource Collection}
-
-In order to ensure kin group structure had functional ramifications, we based part of cell resource collection on the number of contiguous kin group members.
-To do this, we needed an efficient distributed method to approximate kin group size.
-
-Each cell held a 64-bit bitstring with one chosen bit fixed.
-We estimated group size by counting the number of distinct set bits (out of 64 available slots) that were contained within a kin group.
-We refer to this count of distinct set bits as a group's ``quorum count.''
-
-At every update within each tile, the simulation system broadcasts all bits that were known to be set within that tile's kin group.
-This broadcast was only sent neighboring tiles that were part of the same kin group as the broadcasting tile.
-Each tile tracked which neighbor it learned of each set bit from so that when tiles left the kin group their set bits could be forgotten from the bits known to be set within the kin group.
-
-This scheme was replicated independently for each kin group level simulated.
-For the lowest-level kin group, a different fixed bit was chosen independently for each tile.
-Thus, the quorum count for these lowest-level kin groups was a function of the number of cells contained.
-For the highest-level kin group, each tile's fixed bit was chosen as a deterministic function of its lowest-level kin group ID.
-Thus, the quorum count for these highest-level kin groups was a function of the number of lowest-level kin groups contained.
-
-To incentivize kin group formation and maintenance, we gave each cell a 0.02 resource bonus every four updates for each non-self quorum count.
-This bonus saturated at the simulation-defined target quorum count.
-For both the lowest- and highest-level kin groups we used a target quorum count of 12.
-The source code controlling cooperative resource collection can be found at \url{https://github.com/mmore500/dishtiny/blob/prq49/include/dish2/services/CollectiveHarvestingService.hpp}.
-
-In addition to this cooperative resource collection mechanism, cells enjoyed a continuous resource inflow of 0.02 units per update.
-The source code controlling base resource inflow can be found at \url{https://github.com/mmore500/dishtiny/blob/master/include/dish2/services/ResourceHarvestingService.hpp}.
-
-To penalize groups that expanded beyond the simulation-defined target quorum count, we decayed held resource by a multiplicative factor of $0.9995^{2^n}$, where $n$ is the excess quorum count beyond the simulation-defined target.
-The source code controlling cooperative resource collection can be found at \url{https://github.com/mmore500/dishtiny/blob/prq49/include/dish2/services/CollectiveResourceDecayService.hpp}.
-
-In addition to any decay due to group size, held resource decayed at a rate of 0.05\% per update.
-Received resource was decayed 0.099975\% upon receipt.
 
 \input{listing/events.tex}
 
