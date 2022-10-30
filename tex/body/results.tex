@@ -28,6 +28,19 @@ On this specimen, 1,672 mutation events had elapsed.
 During these events, 7,240 insertion-deletion alterations had occurred and 26,153 point mutations had occurred.
 This strain experienced a selection pressure of 18\% over its evolutionary history, meaning that only 82\% of the mutations that would be expected given the number of cellular reproductions that had elapsed were present.
 
+\input{fig/phylo_parsimony_tree.tex}
+
+% https://github.com/mmore500/dishtiny_event_tag_phylogenetics/commit/ecc2ab8a580b125bea9f661e49cd4d7f34bfa1bb
+In order to characterize the evolutionary history of the experiment in greater detail, we performed a parsimony-based phylogenetic reconstruction on the sampled representative specimens from each stint, shown in Figure \ref{fig:phylo_parsimony_tree}.
+We used genomes' fixed-length blocks of 35 64-bit tags that mediate environmental interactions as the basis for this reconstruction.
+These tag blocks underwent bitwise mutation over the course of the experiment.\footnote{
+In future experiments, we plan to incorporate new methodology for ``Hereditary Stratigraph'' genome annotations expressly designed to facilitate phylogenetic reconstruction \citep{moreno2022hereditary}.
+}
+Supplementary Figure \ref{fig:phylo_distance_matrix_heatmap} shows hamming distance between all pairs of tag blocks.
+We additionally tried several other tree inference methods, discussed in supplementary material; however, these yielded lower-quality reconstructions.
+
+Although the phylogeny of stint representatives includes many instances breaking strict stint-on-stint ladderization (i.e., each stint's representative descending directly from the preceding stint's representative), we did not observe evidence of long-term coexistence of clades over more than ten stints.
+
 \subsection{Qualitative Morphological Categorizations}
 
 \input{table/morph_descriptions.tex}
@@ -85,17 +98,6 @@ Supplementary Table \ref{tab:morph_by_stint} provides morph categorization for e
 
 % The behavior seems like cells from within a group don't explicitly recognize one another according to group membership. However, they do recognize their cell parent/child and arrange themselves in a somewhat linear fashion that minimizes the potential for conflict between cells.
 % Overall, there are elements of cooperation but is unclear to what extent this particular strain constitutes a proper fraternal transition in individuality.
-
-\subsection{Phylogenetic Analysis}
-
-\input{fig/phylo_parsimony_tree.tex}
-
-\ref{fig:phylo_distance_matrix_heatmap}
-\ref{fig:phylo_nj_tree}
-\ref{fig:phylo_scipy_linkage_tree}
-
-
-TODO cite hstrat
 
 \subsection{Fitness}
 
