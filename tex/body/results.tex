@@ -105,32 +105,98 @@ Supplementary Table \ref{tab:morph_by_stint} provides morph categorization for e
 
 \subsection{Fitness}
 
-\input{fig/fitness.tex}
-
-In order to assess ongoing changes in fitness, we performed 20 replicate fitness competitions between the population seeded into each stint and the immediately population preceding it one stint prior.
-We determined that a significant change in fitness had occurred between populations if one population won more than 15 of those competitions, corresponding to a significance level of $p < 0.05$ under the binomial null hypothesis.
-Figure \ref{fig:fitness:fitness_neutrality} shows the fraction of competitions each stint won against its competitor.
-Significant increases in fitness occur throughout the evolutionary history of the case study, but not at every stint.
-In fact, some 20 stints exhibit significantly \textit{worse} fitness compared to their predecessor.
-These episodes of population-wide fitness decline merit further inquiry, but seem likely to be related to the implicit, contextual nature of fitness in this system.
-
-Figure \ref{fig:fitness:fitness_magnitude} shows the magnitude the median fitness differential observed for each predecessor competition.
-Although the emergence of morphologies $d$, $e$, and $g$ were associated with significant increases in fitness, the magnitude of these fitness differentials is very similar to those of other stints (Figure \ref{fig:fitness:fitness_magnitude}).
-
-We also measured growth rate of specimen strains by tracking doubling time (in updates) when seeded into quarter-full toroidal grids (Figure \ref{fig:fitness:doubling_time}).
-Morph $b$ exhibited a fast growth rate early on that was never matched by later morphs.
-This measure appears to be a poor overall proxy for fitness, highlighting the importance of biotic aspects of the simulation environment (which are not present in the empty space the assayed cells double into).
-
-\input{fig/adaptation/fitness_gain_or_loss.tex}
-\input{fig/adaptation/num_updates_elapsed.tex}
+\input{fig/adaptation/num_updates_elapsed_heatmap.tex}
+\input{fig/adaptation/num_updates_elapsed_boxplot.tex}
+\input{fig/adaptation/num_updates_elapsed_barplot.tex}
 \input{fig/adaptation/mean_competition_prevalence.tex}
 \input{fig/adaptation/mean_competition_prevalence_boxplot.tex}
 \input{fig/adaptation/mean_competition_prevalence_barplot.tex}
 \input{fig/adaptation/adaptation_control.tex}
 \input{fig/adaptation/median_fitness_differential_symlog.tex}
-\input{fig/adaptation/with_vs_without_diversity_maintenance.tex}
+
+% \input{fig/fitness.tex}
+
+In order to assess ongoing changes in fitness, we performed fitness competitions between the representative focal strain specimen sampled at each stint and the focal strain population from the preceding stint.
+(Recall from Section \ref{sec:methods;ch:measuring-cna} that, due to a diversity maintenance procedure, two completely independent strains coexisted over the course of the experiment --- the ``focal'' strain selected for analysis and a ``background'' strain.)
+Using the population, rather than the representative specimen, from the preceding stint as the competitive baseline ensured more focused, consistent measurement of the fitness properties of the specimen at the current stint (e.g., preventing skewed results from a sampled ``dud'' at the preceding stint).
+
+We performed 20 independent replicates of each competition.
+Competing strains were well-mixed within the full-sized toroidal grid at the outset of each competition, which lasted for 10 minutes of wall time.
+This was sufficient to simulate about 8,000 updates at stint 0 and 2,000 updates at stint 100 (Supplementary Figures \ref{fig:num_udpates_elapsed_heatmap}, \ref{fig:num_updates_elapsed_barplot}, and \ref{fig:num_updates_elapsed_boxplot}).
+We determined that a gain of fitness had occurred if the current stint specimen constituted a population majority at the conclusion of more than 17 of those competitions, corresponding to a significance level of $p < 0.005$ under the two-tailed binomial null hypothesis.
+Likewise, we deemed winning fewer than 3 competitions a significant fitness loss.
+
 \input{fig/adaptation/outcome_count_distns.tex}
+
+Of the 100 competition assays performed, 57 indicated significant fitness gain, 23 were neutral, and 20 indicated significant fitness loss (shown in upper right of Figure \ref{fig:fitness:outcome_count_distns}, at the intersection of the ``Biotic Background, Without'' column and ``Assay Subject, Specimen'' row.)
+
+Surprised by the frequency of deleterious outcomes, we performed a second set of experiments to investigate whether these outcomes could be explained as sampling of ``dud'' representatives.
+In these competition assays, we competed the entire focal strain population against the focal strain population from the preceding stint.
+However, we observed a similar result: 50 assays indicated significant fitness gain, 34 were neutral, and 16 indicated significant fitness loss (shown in lower right of Figure \ref{fig:fitness:outcome_count_distns}, at the intersection of the ``Biotic Background, Without'' column and ``Assay Subject, Population'' row.)
+
+\input{fig/adaptation_assay_cartoon.tex}
+
+Next, we investigated whether the presence of the background strain as a ``biotic background'' influenced fitness.
+We repeated the two experiments described above (specimen and population competition assays), but inserted the background strain as half of the initial well-mixed population.
+In one assay setup, we used the background strain population from the current stint.
+We refer to this as ``contemporary biotic background.''
+In another, which we call ``prefatory biotic background,'' we used the background strain population from the previous stint.
+We refer to the original competition assays absent the background strain as ``without biotic background.''
+Figure \ref{fig:adaptation_assay_cartoon} summarizes these competition assay designs.
+
 \input{fig/adaptation/outcome_count_joint_distns.tex}
+
+After incorporating the background strain into our measure of fitness, we detected significantly fewer whole-population deleterious outcomes --- six under contemporary biotic background conditions and three under prefatory biotic background conditions ($p = 0.04$ and $p = 0.028$, Fisher's exact two-tailed test; Figure \ref{fig:outcome_count_distns}).
+It is important to note, however, that this result may be influenced by slower simulation execution under biotic background conditions (Supplementary Figure \ref{fig:num_updates_elapsed_barplot}).
+
+However, we did find stronger direct evidence of a selective effect by the background strain: four whole-population outcomes that were deleterious without biotic background were actually significantly advantageous in the presence of both the prefatory and contemporary background strain populations (Figure \ref{fig:outcome_count_joint_distns:population}).
+Additionally, two deleterious outcomes without biotic background were detected as significantly adaptive under the prefatory biotic background but were neutral under contemporary biotic background (Figure \ref{fig:outcome_count_joint_distns:population}).
+A further five outcomes were detected as significantly deleterious without biotic background but were not detected as significantly adaptive or deleterious (i.e., neutral) in the presence  of both background strain populations (Figure \ref{fig:outcome_count_joint_distns:population}).
+We also found one whole-population outcome that was significantly advantageous without biotic background and in the presence of the prefatory background strain population but significantly deleterious in the presence of the contemporary background strain, possibly suggesting a ``arms race''-esque evolutionary innovation on the part of the background strain over that stint (Figure \ref{fig:outcome_count_joint_distns:population}).
+
+We still saw three whole-population outcomes that were significantly deleterious under all three conditions (Figure \ref{fig:outcome_count_joint_distns:population}).
+Muller's ratchet \citep{andersson1996muller} or maladaptation due to environmental change \citep{brady2019causes} may provide possible explanations, but a definitive answer will require further study.
+
+We also performed fitness assays on individual sampled specimens with both biotic backgrounds.
+Out of 100 stints tested, we observed 20 significantly deleterious outcomes without biotic background, 23 significantly deleterious outcomes under prefatory biotic background, and 12 significantly deleterious outcomes under contemporary biotic background (Figure \ref{fig:outcome_count_distns:specimen_with_dm}).
+Reciprocally, we observed 57 significantly adaptive outcomes without biotic background, 44 with prefatory biotic background, and 48 with contemporary biotic background (Figure \ref{fig:outcome_count_distns:specimen_with_dm}).
+Greater sensitivity of the ``without biotic background'' adaptation assay could account for the counterintuitive detection of more adaptive outcomes under foreign environmental biotic conditions (i.e., the absence of the background strain).
+
+As before with the population-level adaptation assays, we detected four specimen outcomes that were deleterious without biotic background but significantly advantageous under both tested background strain populations (Figure \ref{fig:outcome_count_joint_distns:specimen_with_dm}).
+Additionally, and again as before, two deleterious outcomes without biotic background were detected as significantly adaptive under the prefatory biotic background but neutral under the contemporary biotic background (Figure \ref{fig:outcome_count_joint_distns:specimen_with_dm}).
+
+We found no specimen outcomes that were advantageous under the prefatory biotic background but deleterious under the contemporary background.
+However, we found three stints with opposite dynamics: specimen outcomes deleterious under prefatory biotic background but advantageous under contemporary biotic background (Figure \ref{fig:outcome_count_joint_distns:specimen_with_dm}), further suggesting coincident, interacting evolutionary innovations along focal and background strain lineages (Figure \ref{fig:outcome_count_joint_distns:specimen_with_dm}).
+
+\input{fig/adaptation/with_vs_without_diversity_maintenance.tex}
+
+To better characterize the mechanism of fitness effects caused by the background strain, we performed additional competition experiments with sampled specimens in the presence of the background strain population with diversity maintenance disabled.
+This allowed us to test whether action of the diversity maintenance mechanism, rather than direct interactions between the focal and background strains, caused the observed fitness effects.
+Figure \ref{fig:with_vs_without_diversity_maintenance} compares adaptation assay outcomes with and without diversity maintenance under both the prefatory and contemporary biotic background conditions.
+Outcomes were generally similar, and only one sign-change difference was observed: one specimen outcome was beneficial under prefatory biotic background conditions without diversity maintenance but deleterious with diversity maintenance.
+Further, as shown in Figure \ref{fig:outcome_count_joint_distns:specimen_without_dm}, we observed near-identical sign-change fitness effects of biotic background as noted above.
+So, biotic selective effects cannot be explained as an artifact of activation of the diversity maintenance scheme.
+
+\input{fig/adaptation/fitness_gain_or_loss.tex}
+
+Significant increases in fitness occur throughout the evolutionary history of the case study, but not at every stint.
+Figure \ref{fig:fitness_gain_or_loss.tex} summarizes the outcome of all adaptation assays stint-by-stint across evolutionary history.
+Neutral outcomes appear to occur more frequently at later stints.
+This may be indicative of slower evolutionary innovation, but may also result to some extent from simulation of fewer generations during evolutionary stints (Supplementary Figure \ref{fig:simulation}) and during competition experiments (Supplementary Figure \ref{fig:num_updates_elapsed_barplot}) due to slower execution of later genomes.
+
+\input{fig/adaptation/median_fitness_differential_symlog.tex}
+
+Figure \ref{fig:median_fitness_differential_symlog} shows the magnitudes of calculated fitness differentials for all adaptation assays.
+Fitness differentials during the first 40 stints are generally higher magnitude than later fitness differentials, although a very strong fitness differential occurs at stint 93.
+Although the emergence of morphology $d$ was associated with significant increases in fitness in some specimen assays and morphologies $e$ and $g$ were associated with significant increases in fitness across all specimen assays (Figure \ref{fig:fitness_gain_or_loss}), the magnitude of these fitness differentials appears ordinary compared to fitness differentials at other stints (Figure \ref{fig:fitness:fitness_magnitude}).
+Supplementary Figure \ref{fig:mean_competition_prevalence} shows mean end-competition prevalence across assays, telling a similar story.
+
+\input{fig/doubling_time.tex}
+
+In addition to competition assays, we also measured growth rate of specimen strains by tracking doubling time (in updates) when seeded into quarter-full toroidal grids (Figure \ref{fig:doubling_time}).
+Morph $b$ exhibited a fast growth rate early on that was never matched by later morphs.
+This measure appears to be a poor overall proxy for fitness, highlighting the importance of biotic aspects of the simulation environment (which are not present in the empty space the assayed cells double into).
+
 
 \subsection{Fitness Complexity}
 
