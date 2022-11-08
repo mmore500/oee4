@@ -40,6 +40,7 @@ These CPUs may communicate via intra-cellular message passing.
 Full details on the instruction set and event library used as well as simulation logic and parameter settings appear in supplementary material \citep{Moreno_2021}.
 
 \subsection{Evolution}
+\label{sec:evolution;ch:measuring-cna}
 
 We performed evolution in three hour windows for compatibility with our compute cluster's scheduling system.
 We refer to these windows as ``stints.''
@@ -186,10 +187,19 @@ We refer to the number of distinct messages that cells send to contribute to fit
 
 We refer to the sum of State Interface Complexity, Intra-messaging Interface Complexity, and Inter-messaging Interface Complexity as ``Cardinal Interface Complexity.''
 
-\subsection{Measuring Adaptation}
-\label{sec:measuring-adaptatoin;ch:measuring-cna}
+\subsection{Estimating Adaptation}
+\label{sec:measuring-adaptation;ch:measuring-cna}
 
-\input{fig/adaptation_assay_cartoon.tex}
+In order to assess ongoing changes in fitness, we performed fitness competitions between the representative focal strain specimen sampled at each stint and the focal strain population from the preceding stint.
+(Recall from Section \ref{sec:evolution;ch:measuring-cna} that, due to a diversity maintenance procedure, two completely independent strains coexisted over the course of the experiment --- the ``focal'' strain selected for analysis and a ``background'' strain.)
+Using the population, rather than the representative specimen, from the preceding stint as the competitive baseline ensured more focused, consistent measurement of the fitness properties of the specimen at the current stint (e.g., preventing skewed results from a sampled ``dud'' at the preceding stint).
+
+We performed 20 independent replicates of each competition.
+Competing strains were well-mixed within the full-sized toroidal grid at the outset of each competition, which lasted for 10 minutes of wall time.
+This was sufficient to simulate about 8,000 updates at stint 0 and 2,000 updates at stint 100 (Supplementary Figures \ref{fig:num_updates_elapsed_heatmap}, \ref{fig:num_updates_elapsed_barplot}, and \ref{fig:num_updates_elapsed_boxplot}).
+We determined that a gain of fitness had occurred if the current stint specimen constituted a population majority at the conclusion of more than 17 of those competitions, corresponding to a significance level of $p < 0.005$ under the two-tailed binomial null hypothesis.
+Likewise, we deemed winning fewer than 3 competitions a significant fitness loss.
+
 
 \subsection{Implementation}
 
