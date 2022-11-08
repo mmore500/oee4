@@ -19,14 +19,14 @@ This process is similar to the growth of biological multicellular tissues, where
 We incentivize group formation by providing an additional resource inflow bonus based on group size.
 Groups that are too small do not receive this bonus.
 Group that are too large receive a penalty.
-In order to ensure group turnover, we force groups to fragment into unicells after 8,192 updates.
+In order to ensure group turnover, we force groups to fragment into unicells after 8,192 ($2^{13}$) updates.
 
 % Like physical attachment in biology, these kin groups do not in and of themselves  with respect to functional individuality.
 % That is, the formation of kin groups doesn't necessarily imply that constituent cells are acting as a cohesive multicellular organism (TODO cite)--- it is necessary to test for traits characteristic of multicellularity such as cooperation, coordination, and reproductive division of labor.
 
-In previous work, we established that this framework can select for traits characteristic of multicellularity, such as cooperation, coordination, and reproductive division of labor \cite{moreno2021exploring}.
+In previous work, we established that this framework can select for traits characteristic of multicellularity, such as cooperation, coordination, and reproductive division of labor \citep{moreno2021exploring}.
 We also found more case studies of interest arose when two nested levels of group membership were tracked
-as opposed to a single, un-nested level of group membership \cite{moreno2021exploring}.
+as opposed to a single, un-nested level of group membership \citep{moreno2021exploring}.
 With nested group membership, group growth still occurs by cellular reproduction.
 However, cells are given the choice to expel offspring from the innermost group (but retain membership in the outermost group) in addition to choosing to retain offspring within both groups or to expel offspring from both groups.
 In this work, we allow for nested kin groups.
@@ -48,13 +48,15 @@ One-hundred instruction genomes were randomly generated at the outset of the ini
 At the end of each three hour window, genomes were harvested and stored in a population file.
 Subsequent stints were then seeded with the previous stint's population.
 No simulation state besides genome content was preserved between stints.
+In addition to simplifying implementation concerns, re-seeding each stint ensured that strains retained the capability to grow from a well-mixed innoculum.
+This facilitated later competition experiments between strains.
 
 In order to ensure heterogeneity of biotic environmental factors experienced by evolving cells, we imposed a diversity maintenance scheme.
 In this scheme, descendants of a single progenitor cell from stint 0 that proliferated to constitute more than half of the population were penalized with resource loss.
 The severity of the penalty increased with increasing prevalence beyond half of the population.
 Thus, we ensured that descendants from at least two distinct stint 0 progenitors remained over the course of the simulation.
 We arbitrarily chose the strain with the lowest integer root ID for primary study --- we refer to this strain as the ``focal'' strain and others as ``background'' strains.
-(In our case study, there was only one background strain.)
+In our case study, there was only one background strain.
 
 In our screen for case studies, we evolved 40 independent populations for 101 stints.
 We selected population 16005 from among these 40 to profile as a case study due to its distinct asymmetrical group morphology.
@@ -68,7 +70,7 @@ To ensure that specimens were consistently sampled from descendants of the same 
 
 After harvesting representative specimens from each stint, we began filtered out genome instructions that had no impact on the simulation.
 
-To accomplish this, we performed sequential single-site ``nopouts'' where individual genome instructions were disabled by replaced with a \texttt{Nop} instruction.
+To accomplish this, we performed sequential single-site ``nopouts'' where individual genome instructions were disabled by replacing them with a \texttt{Nop} instruction.
 \footnote{
 This \texttt{Nop} instruction was chosen to perform the same number of random number generator touches as the original instruction to control for arbitrary effects of advancing the generator.
 }
@@ -91,10 +93,10 @@ Next, we sought to detect genome instructions that contributed to a strain's fit
 
 For each remaining op instruction in the Phenotype-neutral Nopout variant, we took the wildtype strain and applied a nopout at the corresponding site.
 We then competed this variant against the wildtype strain.
-Only evaluating remaining op instructions in the Phenotype-neutral Nopout variant allowed us to decrease the number of fitness competitions we had to perform.
+Evaluating only remaining op instructions in the Phenotype-neutral Nopout variant allowed us to decrease the number of fitness competitions we had to perform.
 
 Fitness competitions began by seeding a population half-and-half with two strains.
-These competitions ran for 10 minutes (about 4,200 updates) on a $60\times60$ toridal grid after which the simulation was ended and the relative abundances of descendants of both seeded strains were assessed.
+These competitions ran for 10 minutes (about 4,200 updates) on a $60\times60$ toridal grid after which the simulation ended and the relative abundances of descendants of both seeded strains were assessed.
 
 To determine whether fitness differed significantly between a wildtype and variant strain, we compared the relative abundance of the strains observed at the end of competitions against outcomes from 20 control wildtype-vs-wildtype competitions.
 We fit a $T$-distribution to the abundance outcomes observed under the control wildtype-vs-wildtype competitions and deemed outcomes that fell outside the central 98\% probability density of that distribution a significant difference in fitness.
@@ -192,7 +194,7 @@ We refer to the sum of State Interface Complexity, Intra-messaging Interface Com
 
 In order to assess ongoing changes in fitness, we performed fitness competitions between the representative focal strain specimen sampled at each stint and the focal strain population from the preceding stint.
 (Recall from Section \ref{sec:evolution;ch:measuring-cna} that, due to a diversity maintenance procedure, two completely independent strains coexisted over the course of the experiment --- the ``focal'' strain selected for analysis and a ``background'' strain.)
-Using the population, rather than the representative specimen, from the preceding stint as the competitive baseline ensured more focused, consistent measurement of the fitness properties of the specimen at the current stint (e.g., preventing skewed results from a sampled ``dud'' at the preceding stint).
+Using the population from the preceding stint as the competitive baseline (rather than the representative specimen) ensured more focused, consistent measurement of the fitness properties of the specimen at the current stint (e.g., preventing skewed results from a sampled ``dud'' at the preceding stint).
 
 We performed 20 independent replicates of each competition.
 Competing strains were well-mixed within the full-sized toroidal grid at the outset of each competition, which lasted for 10 minutes of wall time.
@@ -204,8 +206,8 @@ Likewise, we deemed winning fewer than 3 competitions a significant fitness loss
 \subsection{Implementation}
 
 Multithreading was employed to speed up execution.
-We broke the simulation into four $60\times60$ subgrids.
-Each subgrid executed asynchronously, using the Conduit C++ Library to orchestrate best-effort, real-time interactions between simulation elements on different threads.
+We split the simulation into four $60\times60$ subgrids.
+Each subgrid executed asynchronously, using the Conduit C++ Library to orchestrate best-effort, real-time interactions between simulation elements on different threads \citep{moreno2021conduit}.
 This approach is inspired by Ackley's notion of indefinite scalability \citep{ackley2014indefinitely}.
 In other work benchmarking the system, we have demonstrated that this approach improves scalability.
 The simulation scales to 4 threads with 80\% efficiency, up to 64 threads with 40\% efficiency and up to 64 nodes with 80\% efficiency \citep{moreno2021conduit}.
