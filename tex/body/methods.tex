@@ -16,10 +16,10 @@ Groups arise through cellular reproduction.
 When a cell proliferates, it may choose to initiate its offspring as a member of its kin group, thereby growing it, or induce the offspring to found a new kin group.
 This process is similar to the growth of biological multicellular tissues, where cell offspring can be retained as members of the tissue or permanently expelled.
 
-We incentivize group formation by providing an additional resource inflow bonus based on group size.
-Groups that are too small do not receive this bonus.
-Group that are too large receive a penalty.
-In order to ensure group turnover, we force groups to fragment into unicells after 8,192 ($2^{13}$) updates.
+We incentivize group formation by providing an additional resource inflow bonus based on group size---
+groups that are too small do not receive this bonus, and  groups that are too large receive a penalty instead.
+In order to ensure group turnover, we force groups to fragment into individual cells after 8,192 ($2^{13}$) updates.
+This was estimated to be the number of updates that xxx....
 
 % Like physical attachment in biology, these kin groups do not in and of themselves  with respect to functional individuality.
 % That is, the formation of kin groups doesn't necessarily imply that constituent cells are acting as a cohesive multicellular organism (TODO cite)--- it is necessary to test for traits characteristic of multicellularity such as cooperation, coordination, and reproductive division of labor.
@@ -28,7 +28,8 @@ In previous work, we established that this framework can select for traits chara
 We also found more case studies of interest arose when two nested levels of group membership were tracked
 as opposed to a single, un-nested level of group membership \citep{moreno2021exploring}.
 With nested group membership, group growth still occurs by cellular reproduction.
-However, cells are given the choice to expel offspring from the innermost group (but retain membership in the outermost group) in addition to choosing to retain offspring within both groups or to expel offspring from both groups.
+Cells are given the choice to retain offspring within both groups, to expel offspring from both groups, or to expel offspring from the innermost group only.
+In addition of being given the choice to expel or retain offspring within both groups, cells are also allowed to expel offspring from the innermost group only.
 In this work, we allow for nested kin groups.
 
 In addition to controlling reproduction behavior, evolving genomes can also share resources with adjacent cells, perform apoptosis (recovering a small amount of resource that may be shared with neighboring cells), and pass arbitrary messages to neighboring cells.
