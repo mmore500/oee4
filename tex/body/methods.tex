@@ -19,7 +19,7 @@ This process is similar to the growth of biological multicellular tissues, where
 We incentivize group formation by providing an additional resource inflow bonus based on group size.
 We provide burst of resource that will support intermediate-sized groups; an important aspect of the formation of multicellular organisms is their ability to regulate their own size.
 Groups that are too small do not receive this bonus.
-Group that are too large receive a penalty.
+Groups that are too large receive a penalty.
 In order to ensure group turnover, we force groups to fragment into unicells after 8,192 ($2^{13}$) updates.
 
 % Like physical attachment in biology, these kin groups do not in and of themselves  with respect to functional individuality.
@@ -29,7 +29,8 @@ In previous work, we established that this framework can select for traits chara
 We also found more case studies of interest arose when two nested levels of group membership were tracked
 as opposed to a single, un-nested level of group membership \citep{moreno2021exploring}.
 With nested group membership, group growth still occurs by cellular reproduction.
-However, cells are given the choice to expel offspring from the innermost group (but retain membership in the outermost group) in addition to choosing to retain offspring within both groups or to expel offspring from both groups.
+Cells are given the choice to retain offspring within both groups, to expel offspring from both groups, or to expel offspring from the innermost group only.
+In addition to being given the choice to expel or retain offspring within both groups, cells are also allowed to expel offspring from the innermost group only.
 In this work, we allow for nested kin groups.
 
 In addition to controlling reproduction behavior, evolving genomes can also share resources with adjacent cells, perform apoptosis (recovering a small amount of resource that may be shared with neighboring cells), and pass arbitrary messages to neighboring cells.
@@ -47,7 +48,7 @@ We performed evolution in three-hour windows for compatibility with our compute 
 We refer to these windows as ``stints.''
 We randomly generated one-hundred instruction genomes at the outset of the initial stint, stint 0.
 At the end of each three hour window, the system harvested and stored genomes in a population file.
-Subsequent stints were then seeded with the previous stint's population.
+We then seeded subsequent stints with the previous stint's population.
 No simulation state besides genome content was preserved between stints.
 In addition to simplifying implementation concerns, re-seeding each stint ensured that strains retained the capability to grow from a well-mixed innoculum.
 This facilitated later competition experiments between strains.
@@ -90,14 +91,14 @@ This might be due to insufficient spatial or temporal scope to observe expressio
 
 \subsection{Estimating Critical Fitness Complexity}
 
-Next, we sought to detect genome instructions that contributed to a strain's fitness.
+Next, we sought to detect genome instructions that contributed to the strain fitness.
 
 For each remaining op instruction in the Phenotype-neutral Nopout variant, we took the wildtype strain and applied a nopout at the corresponding site.
 We then competed this variant against the wildtype strain.
 Evaluating only remaining op instructions in the Phenotype-neutral Nopout variant allowed us to decrease the number of fitness competitions we had to perform.
 
 We initialized fitness competitions by seeding a population half-and-half with two strains.
-These competitions ran for 10 minutes (about 4,200 updates) on a $60\times60$ toridal grid after which the simulation ended and the relative abundances of descendants of both seeded strains were assessed.
+We ran these competitions for 10 minutes (about 4,200 updates) on a $60\times60$ toroidal grid, after which we assessed the relative abundances of descendants of both seeded strains.
 
 To determine whether fitness differed significantly between a wildtype and variant strain, we compared the relative abundance of the strains observed at the end of competitions against outcomes from 20 control wildtype-vs-wildtype competitions.
 We fit a $T$-distribution to the abundance outcomes observed under the control wildtype-vs-wildtype competitions and deemed outcomes that fell outside the central 98\% probability density of that distribution a significant difference in fitness.
@@ -182,7 +183,7 @@ We describe the number of states that cells interact with to contribute to fitne
 In addition to estimating the number of input/output states cells use to interact with the environment, we also estimated the number of distinct intra-cellular messages cardinals within a cell use to coordinate and inter-cellular messages that cells use to coordinate.
 As with state interface complexity, distinguishing context-dependent behavior from contingent behavior is critical to attaining a meaningful measurement.
 For example, a cardinal might happen to depend on always receiving a inter-cellular message from a neighbor or an intra-cellular message from another cardinal.
-Although meaningless, if that message were blocked fitness would decrease.
+Although meaningless, if that message were blocked, fitness would decrease.
 So, instead of simply discarding messages to test for a fitness effect, we re-route messages back to the sending cardinal instead of their intended recipient.
 We deemed a messages as fitness-critical if this manipulation resulted in decreased fitness at significance $p < 0.01$ using a $T$-test parameterized by 20 control wild-type vs wild-type competitions.
 
@@ -216,7 +217,7 @@ The simulation scales to 4 threads with 80\% efficiency, up to 64 threads with 4
 
 % https://mybinder.org/v2/gh/mmore500/dishtiny/e17e6d5e258b7aacac72d44922008ab14e80e182?filepath=binder%2Fbucket%3Dprq49%2Fa%3Dall_stints_all_series_profiles%2Bendeavor%3D16%2Fcase_study_16005.ipynb
 Over the 101 three-hour evolutionary stints performed to evolve the case study, 7,565,309 simulation updates elapsed.
-(This translates to 74,904 updates elapsed per stint or about 6.9 updates per second.)
+This translates to 74,904 updates elapsed per stint or about 6.9 updates per second.
 However, the update processing rate was not uniform across stints: the simulation slowed about 77\% as stints progressed.
 Supplementary Figure \ref{fig:simulation} shows elapsed updates for each stint.
 During stint 0, 176,816 updates elapsed (about 16.3 updates per second).
