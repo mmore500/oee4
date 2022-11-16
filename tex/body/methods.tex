@@ -5,21 +5,22 @@
 \input{fig/cpu_detail.tex}
 \input{fig/overview.tex}
 
-The DISHTINY simulation environment tracks cells occupying tiles on a $120\times120$ toroidal grid.
+The DISHTINY simulation environment tracks cells occupying tiles on a toroidal grid (size $120\times120$ by default).
 Cells collect a uniform inflow of continuous-valued resource.
 This resource can be spent in increments of $1.0$ to attempt asexual reproduction into any of a cell's four adjacent cells.
 A cell can only be replaced if it commands less than $1.0$ resource.
-If a cell rebuffs a reproduction attempt, its resource stockpile decrements by $1.0$.
+If a cell rebuffs a reproduction attempt, its resource stockpile decrements by $1.0$ down to a minimum of $0.0$.
 
 In order to facilitate the formation of coherent multicellular groups, the DISHTINY framework provides a mechanism for cells to form groups and detect group membership \citep{moreno2019toward}.
 Groups arise through cellular reproduction.
 When a cell proliferates, it may choose to initiate its offspring as a member of its kin group, thereby growing it, or induce the offspring to found a new kin group.
 This process is similar to the growth of biological multicellular tissues, where cell offspring can be retained as members of the tissue or permanently expelled.
 
-We incentivize group formation by providing an additional resource inflow bonus based on group size---
-groups that are too small do not receive this bonus, and  groups that are too large receive a penalty instead.
-In order to ensure group turnover, we force groups to fragment into individual cells after 8,192 ($2^{13}$) updates.
-This was estimated to be the number of updates that xxx....
+We incentivize group formation by providing an additional resource inflow bonus based on group size.
+We provide burst of resource that will support intermediate-sized groups; an important aspect of the formation of multicellular organisms is their ability to regulate their own size.
+Groups that are too small do not receive this bonus.
+Group that are too large receive a penalty.
+In order to ensure group turnover, we force groups to fragment into unicells after 8,192 ($2^{13}$) updates.
 
 % Like physical attachment in biology, these kin groups do not in and of themselves  with respect to functional individuality.
 % That is, the formation of kin groups doesn't necessarily imply that constituent cells are acting as a cohesive multicellular organism (TODO cite)--- it is necessary to test for traits characteristic of multicellularity such as cooperation, coordination, and reproductive division of labor.
@@ -43,10 +44,10 @@ Full details on the instruction set and event library used as well as simulation
 \subsection{Evolution}
 \label{sec:evolution;ch:measuring-cna}
 
-We performed evolution in three hour windows for compatibility with our compute cluster's scheduling system.
+We performed evolution in three-hour windows for compatibility with our compute cluster's scheduling system.
 We refer to these windows as ``stints.''
-One-hundred instruction genomes were randomly generated at the outset of the initial stint, stint 0.
-At the end of each three hour window, genomes were harvested and stored in a population file.
+We randomly generated one-hundred instruction genomes at the outset of the initial stint, stint 0.
+At the end of each three hour window, the system harvested and stored genomes in a population file.
 Subsequent stints were then seeded with the previous stint's population.
 No simulation state besides genome content was preserved between stints.
 In addition to simplifying implementation concerns, re-seeding each stint ensured that strains retained the capability to grow from a well-mixed innoculum.
@@ -69,7 +70,7 @@ To ensure that specimens were consistently sampled from descendants of the same 
 \subsection{Phenotype-neutral Nopout}
 \label{sec:phenotype_neutral_nopout}
 
-After harvesting representative specimens from each stint, we began filtered out genome instructions that had no impact on the simulation.
+After harvesting representative specimens from each stint, we filtered out genome instructions that had no impact on the simulation.
 
 To accomplish this, we performed sequential single-site ``nopouts'' where individual genome instructions were disabled by replacing them with a \texttt{Nop} instruction.
 \footnote{
@@ -96,7 +97,7 @@ For each remaining op instruction in the Phenotype-neutral Nopout variant, we to
 We then competed this variant against the wildtype strain.
 Evaluating only remaining op instructions in the Phenotype-neutral Nopout variant allowed us to decrease the number of fitness competitions we had to perform.
 
-Fitness competitions began by seeding a population half-and-half with two strains.
+We initialized fitness competitions by seeding a population half-and-half with two strains.
 These competitions ran for 10 minutes (about 4,200 updates) on a $60\times60$ toridal grid after which the simulation ended and the relative abundances of descendants of both seeded strains were assessed.
 
 To determine whether fitness differed significantly between a wildtype and variant strain, we compared the relative abundance of the strains observed at the end of competitions against outcomes from 20 control wildtype-vs-wildtype competitions.
@@ -160,7 +161,7 @@ This metric mirrors the MODES complexity metric described in \citep{dolson2019mo
 \subsection{Estimating State Interface Complexity}
 \label{sec:estimating-state-interface-complexity;ch:measuring-cna}
 
-In addition to estimating the number of genome sites that contribute to fitness, we were interested in measuring the number of different environmental cues and the number of different output mechanisms that cells adaptively incorporated into behavior.
+In addition to estimating the number of genome sites that contribute to fitness, we measured the number of different environmental cues and the number of different output mechanisms that cells adaptively incorporated into behavior.
 
 One possible way to take this measure would be to disable event cues, sensor instructions, and output registers one by one and test for changes in fitness.
 However, this approach would fail to distinguish context-dependent input/output from merely contingent input/output.
@@ -179,7 +180,7 @@ We describe the number of states that cells interact with to contribute to fitne
 \subsection{Estimating Messaging Interface Complexity}
 \label{sec:estimating-messaging-interface-complexity;ch:measuring-cna}
 
-In addition to estimating the number of input/output states cells use to interact with the environment, we were interested in estimating the number of distinct intra-cellular messages cardinals within a cell use to coordinate and inter-cellular messages that cells use to coordinate.
+In addition to estimating the number of input/output states cells use to interact with the environment, we also estimated the number of distinct intra-cellular messages cardinals within a cell use to coordinate and inter-cellular messages that cells use to coordinate.
 As with state interface complexity, distinguishing context-dependent behavior from contingent behavior is critical to attaining a meaningful measurement.
 For example, a cardinal might happen to depend on always receiving a inter-cellular message from a neighbor or an intra-cellular message from another cardinal.
 Although meaningless, if that message were blocked fitness would decrease.
@@ -206,7 +207,7 @@ Likewise, we deemed winning fewer than 3 competitions a significant fitness loss
 
 \subsection{Implementation}
 
-Multithreading was employed to speed up execution.
+We employed multithreading to speed up execution.
 We split the simulation into four $60\times60$ subgrids.
 Each subgrid executed asynchronously, using the Conduit C++ Library to orchestrate best-effort, real-time interactions between simulation elements on different threads \citep{moreno2021conduit}.
 This approach is inspired by Ackley's notion of indefinite scalability \citep{ackley2014indefinitely}.
