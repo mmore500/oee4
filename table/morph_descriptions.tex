@@ -1,15 +1,24 @@
+\input{lib/dissertationexclude.tex}
+\input{lib/dissertationonly.tex}
+
 \newcommand{\includesnapshot}[1] {%
 \adjustbox{trim={0.05\width} {0.35\width} {0.05\width} {0.35\width},clip}%
-    {\includegraphics[height=0.3\textheight]{#1}}
+    {\includegraphics[height=\dissertationexclude{0.3}\dissertationonly{0.2}\textheight]{#1}}
 }
 \newcommand{\morphtext}[1] {%
 \color[HTML]{FFFFFF} \huge \raisebox{1.2em}{\textbf{#1}}%
 }
 \newcommand{\videolink}[1] {%
-\raisebox{2.8em}{\begin{minipage}{1.3 cm} \tiny\url{#1} \end{minipage}}
+\raisebox{
+\dissertationexclude{2.8em}
+\dissertationonly{2.2em}
+}{\begin{minipage}{1.3 cm} \tiny\url{#1} \end{minipage}}
 }
 \newcommand{\descript}[1] {%
-\raisebox{2.8em}{\begin{minipage}{\linewidth} #1 \end{minipage}}
+\raisebox{
+  \dissertationexclude{2.8em}
+  \dissertationonly{2.2em}
+}{\begin{minipage}{\linewidth}\dissertationonly{\tiny} #1 \end{minipage}}
 }
 
 
