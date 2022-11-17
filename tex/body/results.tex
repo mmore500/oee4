@@ -1,16 +1,27 @@
+\input{lib/dissertationelse.tex}
+\input{lib/dissertationexclude.tex}
+\input{lib/dissertationonly.tex}
+
 \section{Results}
 
 \subsection{Evolutionary History}
 
 % https://mybinder.org/v2/gh/mmore500/dishtiny/e17e6d5e258b7aacac72d44922008ab14e80e182?filepath=binder%2Fbucket%3Dprq49%2Fa%3Dall_stints_all_series_profiles%2Bendeavor%3D16%2Fcase_study_16005.ipynb
 Due to the parallel nature of the experimental framework, we did not perform perfect phylogeny tracking.
-Instead, we opted to track the total number of ancestors seeded into stint 0 with extant descendants.
+\dissertationonly{Chapter \ref{ch:distributed-phylogeny} discusses challenges parallelizing perfect phylogeny tracking in depth.}
+
+However, we did track the total number of ancestors seeded into stint 0 with extant descendants.
 At the end of stints 0 and 1, three distinct original phylogenetic roots were present in the population.
 From stint 2 onward, only two distinct original phylogenetic roots were present.
 
 % https://mybinder.org/v2/gh/mmore500/dishtiny/e17e6d5e258b7aacac72d44922008ab14e80e182?filepath=binder%2Fbucket%3Dprq49%2Fa%3Dall_stints_all_series_profiles%2Bendeavor%3D16%2Fcase_study_16005.ipynb
 We performed follow-up analyses on specimens sampled from the lowest original phylogenetic root ID present in the population.
-For the first two stints, this was root ID 2,378.
+\footnote{
+This approach was designed to choose an arbitrary strain as focal.
+Barring extinction, that same strain will then be identified as focal consistently across subsequent stints.
+Phylogenetic root ID had no functional consequences; it is simply an arbitrary basis for focal strain selection.
+}
+For the first two stints, the focal strain was root ID 2,378.
 During stint 2, original phylogenetic root 2,378 went extinct.
 So, all further follow-up analyses were sampled from descendants of ancestor 12,634.
 
@@ -34,7 +45,7 @@ This strain experienced a selection pressure of 18\% over its evolutionary histo
 In order to characterize the evolutionary history of the experiment in greater detail, we performed a parsimony-based phylogenetic reconstruction on the sampled representative specimens from each stint, shown in Figure \ref{fig:phylo_parsimony_tree}.
 We used genomes' fixed-length blocks of 35 64-bit tags that mediate environmental interactions as the basis for this reconstruction.
 These tag blocks underwent bitwise mutation over the course of the experiment.\footnote{
-In future experiments, we plan to incorporate new methodology for ``Hereditary Stratigraph'' genome annotations expressly designed to facilitate phylogenetic reconstruction \citep{moreno2022hereditary}.
+In future experiments, we plan to incorporate new methodology for ``hereditary stratigraph'' genome annotations expressly designed to facilitate phylogenetic reconstruction \dissertationelse{(Chapter \ref{ch:distributed-phylogeny})}{\citep{moreno2022hereditary}}.
 }
 Supplementary Figure \ref{fig:phylo_distance_matrix_heatmap} shows hamming distance between all pairs of tag blocks.
 We additionally tried several other tree inference methods, discussed in supplementary material; however, these yielded lower-quality reconstructions.
@@ -148,6 +159,8 @@ Muller's ratchet \citep{andersson1996muller} or maladaptation due to environment
 
 We also performed fitness assays on individual sampled specimens with both biotic backgrounds.
 Out of 100 stints tested, we observed 20 significantly deleterious outcomes without biotic background, 23 significantly deleterious outcomes under prefatory biotic background, and 12 significantly deleterious outcomes under contemporary biotic background (Figure \ref{fig:outcome_count_distns}).
+Unlike the whole-population deleterious outcomes discussed above, some deleterious outcomes from sampled specimens is not surprising.
+Evolving populations naturally contain standing variation in fitness \citep{martin2016nonstationary}, so occasional sampling of less-fit individuals should be expected.
 Reciprocally, we observed 57 significantly adaptive outcomes without biotic background, 44 with prefatory biotic background, and 48 with contemporary biotic background (Figure \ref{fig:outcome_count_distns}).
 Greater sensitivity of the ``without biotic background'' adaptation assay could account for the counterintuitive detection of more adaptive outcomes under abiotic conditions (i.e., the absence of the background strain).
 

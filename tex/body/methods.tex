@@ -1,3 +1,7 @@
+\input{lib/dissertationelse.tex}
+\input{lib/dissertationexclude.tex}
+\input{lib/dissertationonly.tex}
+
 \section{Methods} \label{sec:methods;ch:measuring-cna}
 
 \subsection{Simulation}
@@ -11,13 +15,16 @@ This resource can be spent in increments of $1.0$ to attempt asexual reproductio
 A cell can only be replaced if it commands less than $1.0$ resource.
 If a cell rebuffs a reproduction attempt, its resource stockpile decrements by $1.0$ down to a minimum of $0.0$.
 
-In order to facilitate the formation of coherent multicellular groups, the DISHTINY framework provides a mechanism for cells to form groups and detect group membership \citep{moreno2019toward}.
+In order to facilitate the formation of coherent multicellular groups, the DISHTINY framework provides a mechanism for cells to form groups and detect group membership \dissertationexclude{\citep{moreno2019toward}}.
 Groups arise through cellular reproduction.
 When a cell proliferates, it may choose to initiate its offspring as a member of its kin group, thereby growing it, or induce the offspring to found a new kin group.
 This process is similar to the growth of biological multicellular tissues, where cell offspring can be retained as members of the tissue or permanently expelled.
 
 We incentivize group formation by providing an additional resource inflow bonus based on group size.
-We provide burst of resource that will support intermediate-sized groups; an important aspect of the formation of multicellular organisms is their ability to regulate their own size.
+Per-cell resource collection rate increases linearly with group size up to a cap of 12 members.
+Past 12 members, the decay rate of cells' resource stockpiles begins increasing exponentially.
+These mechanisms select for medium-sized groups;
+the harsh penalization of oversize groups, in particular, prevents any single group from consuming the entire population.
 Groups that are too small do not receive this bonus.
 Groups that are too large receive a penalty.
 In order to ensure group turnover, we force groups to fragment into unicells after 8,192 ($2^{13}$) updates.
@@ -25,12 +32,13 @@ In order to ensure group turnover, we force groups to fragment into unicells aft
 % Like physical attachment in biology, these kin groups do not in and of themselves  with respect to functional individuality.
 % That is, the formation of kin groups doesn't necessarily imply that constituent cells are acting as a cohesive multicellular organism (TODO cite)--- it is necessary to test for traits characteristic of multicellularity such as cooperation, coordination, and reproductive division of labor.
 
-In previous work, we established that this framework can select for traits characteristic of multicellularity, such as cooperation, coordination, and reproductive division of labor \citep{moreno2021exploring}.
+In \dissertationelse{Chapter \ref{ch:case-studies}}{previous work}, we established that this framework can select for traits characteristic of multicellularity, such as cooperation, coordination, and reproductive division of labor \dissertationexclude{\citep{moreno2021exploring}}.
 We also found more case studies of interest arose when two nested levels of group membership were tracked
-as opposed to a single, un-nested level of group membership \citep{moreno2021exploring}.
+as opposed to a single, un-nested level of group membership \dissertationexclude{\citep{moreno2021exploring}}.
 With nested group membership, group growth still occurs by cellular reproduction.
 Cells are given the choice to retain offspring within both groups, to expel offspring from both groups, or to expel offspring from the innermost group only.
 In addition to being given the choice to expel or retain offspring within both groups, cells are also allowed to expel offspring from the innermost group only.
+\dissertationonly{Section \ref{sec:hierarchical_nesting} provides greater detail on group membership and hierarchical group membership in DISHTINY.}
 In this work, we allow for nested kin groups.
 
 In addition to controlling reproduction behavior, evolving genomes can also share resources with adjacent cells, perform apoptosis (recovering a small amount of resource that may be shared with neighboring cells), and pass arbitrary messages to neighboring cells.
@@ -40,6 +48,8 @@ Each CPU manages interactions with a single neighboring cell.
 We refer to a CPU managing interactions with a particular neighbor as a ``cardinal'' (as in ``cardinal direction'').
 These CPUs may communicate via intra-cellular message passing.
 Full details on the instruction set and event library used as well as simulation logic and parameter settings appear in supplementary material.
+
+Supplementary Section \ref{sec:simulation-details} provides full detail on simulation components and parameters.
 
 \subsection{Evolution}
 \label{sec:evolution;ch:measuring-cna}
@@ -57,8 +67,8 @@ In order to ensure heterogeneity of biotic environmental factors experienced by 
 In this scheme, descendants of a single progenitor cell from stint 0 that proliferated to constitute more than half of the population were penalized with resource loss.
 The severity of the penalty increased with increasing prevalence beyond half of the population.
 Thus, we ensured that descendants from at least two distinct stint 0 progenitors remained over the course of the simulation.
-We arbitrarily chose the strain with the lowest integer root ID for primary study --- we refer to this strain as the ``focal'' strain and others as ``background'' strains.
-In our case study, there was only one background strain.
+We arbitrarily chose a strain for primary study --- we refer to this strain as the ``focal'' strain and others as ``background'' strains.
+In our case study, there was only one background strain in addition to this focal strain.
 
 In our screen for case studies, we evolved 40 independent populations for 101 stints.
 We selected population 16005 from among these 40 to profile as a case study due to its distinct asymmetrical group morphology.
@@ -209,10 +219,10 @@ Likewise, we deemed winning fewer than 3 competitions a significant fitness loss
 
 We employed multithreading to speed up execution.
 We split the simulation into four $60\times60$ subgrids.
-Each subgrid executed asynchronously, using the Conduit C++ Library to orchestrate best-effort, real-time interactions between simulation elements on different threads \citep{moreno2021conduit}.
+Each subgrid executed asynchronously, using the Conduit C++ Library \dissertationonly{presented in Chapter \ref{ch:conduit}} to orchestrate best-effort, real-time interactions between simulation elements on different threads \dissertationexclude{\citep{moreno2021conduit}}.
 This approach is inspired by Ackley's notion of indefinite scalability \citep{ackley2014indefinitely}.
 In other work benchmarking the system, we have demonstrated that this approach improves scalability.
-The simulation scales to 4 threads with 80\% efficiency, up to 64 threads with 40\% efficiency and up to 64 nodes with 80\% efficiency \citep{moreno2021conduit}.
+The simulation scales to 4 threads with 80\% efficiency, up to 64 threads with 40\% efficiency and up to 64 nodes with 80\% efficiency \dissertationelse{(Chapter \ref{ch:conduit})}{\citep{moreno2021conduit}}.
 %TODO multicellular between distribute dsystems We are excited about the potential of the system not just
 
 % https://mybinder.org/v2/gh/mmore500/dishtiny/e17e6d5e258b7aacac72d44922008ab14e80e182?filepath=binder%2Fbucket%3Dprq49%2Fa%3Dall_stints_all_series_profiles%2Bendeavor%3D16%2Fcase_study_16005.ipynb
