@@ -30,21 +30,25 @@ In this work, we use $L=2$.
 \section{Simulation Details}
 \label{sec:simulation-details}
 
+% adapted from https://tex.stackexchange.com/a/61803
+\newenvironment{leveldown}% Demote sectional commands
+  {\let\section\subsection%
+   \let\subsection\subsubsection%
+   \let\subsubsection\paragraph%
+   \let\paragraph\subparagraph%
+   %\let\subparagraph\relax%
+  }{}
+
+\begin{leveldown}
 \input{listing/events.tex}
-
 \input{listing/operations.tex}
-
 \input{listing/introspective_state.tex}
-
 \input{listing/writable_state.tex}
-
 \input{listing/services.tex}
-
 \input{listing/services_threadlocal.tex}
-
 \input{listing/parameters_runtime.tex}
-
 \input{listing/parameters_compiletime.tex}
+\end{leveldown}
 
 % \clearpage
 % \onecolumn
