@@ -4,7 +4,7 @@
 
 \newcommand{\includesnapshot}[1] {%
 \adjustbox{trim={0.05\width} {0.35\width} {0.05\width} {0.35\width},clip}%
-    {\includegraphics[height=\dissertationexclude{0.3}\dissertationonly{0.2}\textheight]{#1}}
+    {\includegraphics[height=\dissertationexclude{0.3}\dissertationonly{0.25}\textheight]{#1}}
 }
 \newcommand{\morphtext}[1] {%
 \color[HTML]{FFFFFF} \huge \raisebox{1.2em}{\textbf{#1}}%
@@ -13,7 +13,7 @@
 \raisebox{
 \dissertationexclude{2.8em}
 \dissertationonly{2.2em}
-}{\begin{minipage}{1.3 cm} \dissertationelse{\fontsize{6}{7}\selectfont}{\tiny}\url{#1} \end{minipage}}
+}{\begin{minipage}{\dissertationelse{2.4cm}{1.3 cm}} \dissertationelse{\fontsize{6}{7}\selectfont}{\tiny}\url{#1} \end{minipage}}
 }
 \newcommand{\descript}[1] {%
 \raisebox{
