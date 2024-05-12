@@ -17,7 +17,7 @@ find . -type d -name docs -exec rm -rf {} +
 find . -type d -empty -delete
 find . -type l -delete
 find -type f -name ".*" -delete; rm -f *~
-rm -f **/*{.meta,.json,.ipynb,.cpp,.hpp,.jpg,.csv}
+rm -f **/*{.meta,.json,.ipynb,.cpp,.hpp,.jpg,.csv,@longlink}
 ls -1 submodule/dishtiny/binder/bucket=prq49/a=all_stints_all_series_profiles+endeavor=16/**/* \
     | grep -v "submodule/dishtiny/binder/bucket=prq49/a=all_stints_all_series_profiles+endeavor=16/teeplots/bucket=prq49+cat=morph+endeavor=16+transform=filter-Series-16005+viz=letterscatter-vline+x=stint+y=num-instructions+ext=" \
     | grep -v "submodule/dishtiny/binder/bucket=prq49/a=all_stints_all_series_profiles+endeavor=16/teeplots/bucket=prq49+cat=morph+endeavor=16+transform=filter-Series-16005+viz=letterscatter-vline+x=stint+y=mean-program-module-count-monoculture-mean+ext=" \
