@@ -1,0 +1,32 @@
+\section{Cooperative Resource Collection}
+
+In order to ensure kin group structure had functional ramifications, we based part of cell resource collection on the number of contiguous kin group members.
+To do this, we needed an efficient distributed method to approximate kin group size.
+
+Each cell held a 64-bit bitstring with one chosen bit fixed.
+We estimated group size by counting the number of distinct set bits (out of 64 available slots) that were contained within a kin group.
+We refer to this count of distinct set bits as a group's ``quorum count.''
+
+At every update within each tile, the simulation system broadcasts all bits that were known to be set within that tile's kin group.
+This broadcast was only sent neighboring tiles that were part of the same kin group as the broadcasting tile.
+Each tile tracked which neighbor it learned of each set bit from so that when tiles left the kin group their set bits could be forgotten from the bits known to be set within the kin group.
+
+This scheme was replicated independently for each kin group level simulated.
+For the lowest-level kin group, a different fixed bit was chosen independently for each tile.
+Thus, the quorum count for these lowest-level kin groups was a function of the number of cells contained.
+For the highest-level kin group, each tile's fixed bit was chosen as a deterministic function of its lowest-level kin group ID.
+Thus, the quorum count for these highest-level kin groups was a function of the number of lowest-level kin groups contained.
+
+To incentivize kin group formation and maintenance, we gave each cell a 0.02 resource bonus every four updates for each non-self quorum count.
+This bonus saturated at the simulation-defined target quorum count.
+For both the lowest- and highest-level kin groups we used a target quorum count of 12.
+The source code controlling cooperative resource collection can be found at \url{https://github.com/mmore500/dishtiny/blob/prq49/include/dish2/services/CollectiveHarvestingService.hpp}.
+
+In addition to this cooperative resource collection mechanism, cells enjoyed a continuous resource inflow of 0.02 units per update.
+The source code controlling base resource inflow can be found at \url{https://github.com/mmore500/dishtiny/blob/master/include/dish2/services/ResourceHarvestingService.hpp}.
+
+To penalize groups that expanded beyond the simulation-defined target quorum count, we decayed held resource by a multiplicative factor of $0.9995^{2^n}$, where $n$ is the excess quorum count beyond the simulation-defined target.
+The source code controlling cooperative resource collection can be found at \url{https://github.com/mmore500/dishtiny/blob/prq49/include/dish2/services/CollectiveResourceDecayService.hpp}.
+
+In addition to any decay due to group size, held resource decayed at a rate of 0.05\% per update.
+Received resource was decayed 0.099975\% upon receipt.
