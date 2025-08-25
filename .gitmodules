@@ -7,3 +7,7 @@
 	path = submodule/dishtiny_event_tag_phylogenetics
 	url = https://github.com/rodsan0/dishtiny_event_tag_phylogenetics.git
 	shallow = true
+[submodule "submodule/dishtiny-dishpylib"]
+	path = submodule/dishtiny-dishpylib
+	url = https://github.com/mmore500/dishtiny.git
+	shallow = true
