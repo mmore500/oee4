@@ -1,0 +1,115 @@
+\section{Compile Time Parameters}
+
+% create command to draw operation tables
+\newcommand{\paramcompiletimedef}[2]{
+    ~\\ \begin{tabularx}{\linewidth}{|
+        >{\columncolor[HTML]{C0C0C0}}l |X|}
+        \hline
+        Type & \texttt{#1} \\ \hline
+        Value   & \texttt{#2} \\ \hline
+    \end{tabularx}
+}
+
+This section enumerates simulation parameters and provides default settings that were used.
+
+See \url{https://github.com/mmore500/dishtiny/blob/prq49/include/dish2/spec/Spec_prq49.hpp} for source code defining compile time parameters.
+
+\subsection{NLEV}
+
+\paramcompiletimedef{size\_t}{2}
+
+How many hierarchical kin group levels should be simulated?
+
+\subsection{AMT\_NOP\_MEMORY}
+
+\paramcompiletimedef{size\_t}{4}
+
+How many nop and transient nop states should exist in the peripheral?
+
+\subsection{STATE\_EXCHANGE\_CHAIN\_LENGTH}
+
+\paramcompiletimedef{size\_t}{128}
+
+How many callees should we displace state by in state exchange experiments?
+
+\subsection{sgpl\_spec\_t::num\_cores}
+
+\paramcompiletimedef{size\_t}{32}
+
+How many virtual cores should each cardinal's virtual CPU be able to support?
+
+\subsection{sgpl\_spec\_t::num\_fork\_requests}
+
+\paramcompiletimedef{size\_t}{3}
+
+How many fork requests can a virtual core make at most?
+
+\subsection{sgpl\_spec\_t::num\_registers}
+
+\paramcompiletimedef{size\_t}{8}
+
+How many registers should each virtual core contain?
+
+\subsection{sgpl\_spec\_t::switch\_steps}
+
+\paramcompiletimedef{size\_t}{8}
+
+Maximum num steps executed on one core before next core is executed.
+
+\subsection{sgpl\_spec\_t::global\_matching\_t}
+
+\paramcompiletimedef{typedef}{%
+emp::MatchDepository<\newline
+\hspace*{2em}// \mbox{program index type} \newline
+\hspace*{2em}unsigned short, \newline
+\hspace*{2em}// \mbox{match metric} \newline
+\hspace*{2em}emp::OptimizedApproxDualStreakMetric<64>,\newline
+\hspace*{2em}// \mbox{match selector} \newline\hspace*{2em}emp::statics::RankedSelector<\newline
+\hspace*{4em}// \mbox{match threshold} \newline
+\hspace*{4em}std::ratio<1, 5>\newline
+\hspace*{2em}>,\newline
+\hspace*{2em}// \mbox{regulator} \newline
+\hspace*{2em}emp::PlusCountdownRegulator<\newline
+\hspace*{4em}std::deci, // Slope\newline
+\hspace*{4em}std::ratio<1,4>, // MaxUpreg\newline
+\hspace*{4em}std::deci, // ClampLeeway\newline
+\hspace*{4em}2 // CountdownStart\newline
+\hspace*{2em}>,\newline
+\hspace*{2em}true, // raw caching \newline
+\hspace*{2em}8 // regulated caching\newline
+>
+}
+
+What matching datastructure implementation should we use for global jump tables?
+
+\subsection{sgpl\_spec\_t::local\_matching\_t}
+
+\paramcompiletimedef{typedef}{%
+emp::MatchDepository<\newline
+\hspace*{2em}// \mbox{program index type} \newline
+\hspace*{2em}unsigned short, \newline
+\hspace*{2em}// \mbox{match metric} \newline
+\hspace*{2em}emp::OptimizedApproxDualStreakMetric<64>,\newline
+\hspace*{2em}// \mbox{match selector} \newline\hspace*{2em}emp::statics::RankedSelector<\newline
+\hspace*{4em}// \mbox{match threshold} \newline
+\hspace*{4em}std::ratio<1, 2>\newline
+\hspace*{2em}>,\newline
+\hspace*{2em}// \mbox{regulator} \newline
+\hspace*{2em}emp::PlusCountdownRegulator<\newline
+\hspace*{4em}std::deci, // Slope\newline
+\hspace*{4em}std::ratio<1,4>, // MaxUpreg\newline
+\hspace*{4em}std::deci, // ClampLeeway\newline
+\hspace*{4em}2 // CountdownStart\newline
+\hspace*{2em}>,\newline
+\hspace*{2em}false, // raw caching \newline
+\hspace*{2em}0 // regulated caching\newline
+>
+}
+
+What matching datastructure implementation should we use for local jump tables?
+
+\subsection{sgpl\_spec\_t::tag\_width}
+
+\paramcompiletimedef{size\_t}{64}
+
+Tag width in bits.
