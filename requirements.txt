@@ -67,6 +67,7 @@ decorator==5.2.1
     # via
     #   ipython
     #   networkx
+    #   retry
     #   traitlets
 defusedxml==0.7.1
     # via nbconvert
@@ -160,7 +161,7 @@ jupyter-core==4.7.1
     #   jupyter-client
     #   nbconvert
     #   nbformat
-keyname==0.4.1
+keyname==0.6.0
     # via
     #   -r requirements.in
     #   nbmetalog
@@ -191,6 +192,8 @@ mdit-py-plugins==0.2.6
     #   myst-parser
 mistune==0.8.4
     # via nbconvert
+more-itertools==10.7.0
+    # via keyname
 multidict==6.6.4
     # via
     #   aiohttp
@@ -267,6 +270,8 @@ propcache==0.3.2
     #   yarl
 ptyprocess==0.7.0
     # via pexpect
+py==1.11.0
+    # via retry
 pyasn1==0.6.1
     # via rsa
 pygments==2.19.2
@@ -308,6 +313,8 @@ requests==2.32.5
     #   tweepy
 requests-oauthlib==2.0.0
     # via tweepy
+retry==0.9.2
+    # via keyname
 rsa==4.5
     # via awscli
 ruff==0.0.260
