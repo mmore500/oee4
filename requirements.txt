@@ -176,8 +176,10 @@ markdown-it-py==0.6.2
     #   myst-parser
 markdown2==2.3.9
     # via -r requirements.in
-markupsafe==3.0.2
-    # via jinja2
+markupsafe==2.0.1
+    # via
+    #   -r requirements.in
+    #   jinja2
 matplotlib==3.3.2
     # via
     #   -r requirements.in

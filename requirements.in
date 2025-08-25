@@ -52,3 +52,4 @@ markdown-it-py==0.6.2
 sphinxemoji==0.1.8
 
 jinja2==2.11.3
+markupsafe==2.0.1
