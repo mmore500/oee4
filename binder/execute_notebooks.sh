@@ -29,13 +29,20 @@ echo "--------------------------------------"
 
 shopt -s nullglob
 
-for notebook in "${script_dir}/"*.ipynb; do
+if [ $# -gt 0 ]; then
+  cd "${script_dir}"
+  notebooks=("$@")
+else
+  notebooks=("${script_dir}/"*.ipynb)
+fi
+
+for notebook in "${notebooks[@]}"; do
   echo "notebook ${notebook}"
   export NOTEBOOK_NAME="$(basename "${notebook%.*}")"
   export NOTEBOOK_PATH="$(realpath "${notebook}")"
   jupyter nbconvert \
     --to notebook --execute --inplace \
-    --ExecutePreprocessor.timeout=600 \
+    --ExecutePreprocessor.timeout=-1 \
     "${notebook}"
 done
 
