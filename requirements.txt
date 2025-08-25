@@ -223,7 +223,7 @@ numpy==1.21.6
     #   statsmodels
 oauthlib==3.3.1
     # via requests-oauthlib
-opencv-python==4.5.1.48
+opencv-python==4.6.0.66
     # via -r requirements.in
 osfclient==0.0.5
     # via -r requirements.in
