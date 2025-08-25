@@ -37,7 +37,7 @@ nbmetalog==0.2.6
 deprecation==2.1.0
 ruff==0.0.260
 teeplot==1.1.3
-uv==0.4.20
+uv==0.3.5
 watermark==2.4.3
 
 # docs
