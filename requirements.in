@@ -22,7 +22,7 @@ aiobotocore[boto3, awscli]==1.1.2
 statsmodels==0.13.5
 gitpython==3.1.14
 numpy==1.21.6
-scipy==1.5.4
+scipy==1.11.4
 iterdub==0.2.0
 opencv-python==4.5.1.48
 nbconvert==5.6.1

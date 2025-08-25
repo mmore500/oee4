@@ -315,7 +315,7 @@ s3transfer==0.3.7
     # via
     #   awscli
     #   boto3
-scipy==1.5.4
+scipy==1.11.4
     # via
     #   -r requirements.in
     #   seaborn
