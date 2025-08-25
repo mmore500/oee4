@@ -1,0 +1,266 @@
+\input{lib/dissertationelse.tex}
+\input{lib/dissertationexclude.tex}
+\input{lib/dissertationonly.tex}
+
+\section{Results}
+
+\subsection{Evolutionary History}
+
+% https://mybinder.org/v2/gh/mmore500/dishtiny/e17e6d5e258b7aacac72d44922008ab14e80e182?filepath=binder%2Fbucket%3Dprq49%2Fa%3Dall_stints_all_series_profiles%2Bendeavor%3D16%2Fcase_study_16005.ipynb
+Due to the parallel nature of the experimental framework, we did not perform perfect phylogeny tracking.
+\dissertationonly{Chapter \ref{ch:distributed-phylogeny} discusses challenges parallelizing perfect phylogeny tracking in depth.}
+
+However, we did track the total number of ancestors seeded into stint 0 with extant descendants.
+At the end of stints 0 and 1, three distinct original phylogenetic roots were present in the population.
+From stint 2 onward, only two distinct original phylogenetic roots were present.
+
+% https://mybinder.org/v2/gh/mmore500/dishtiny/e17e6d5e258b7aacac72d44922008ab14e80e182?filepath=binder%2Fbucket%3Dprq49%2Fa%3Dall_stints_all_series_profiles%2Bendeavor%3D16%2Fcase_study_16005.ipynb
+We performed follow-up analyses on specimens sampled from the lowest original phylogenetic root ID present in the population.
+\footnote{
+This approach was designed to choose an arbitrary strain as focal.
+Barring extinction, that same strain will then be identified as focal consistently across subsequent stints.
+Phylogenetic root ID had no functional consequences; it is simply an arbitrary basis for focal strain selection.
+}
+For the first two stints, the focal strain was root ID 2,378.
+During stint 2, original phylogenetic root 2,378 went extinct.
+So, all further follow-up analyses were sampled from descendants of ancestor 12,634.
+
+We also tracked the number of genomes reconstituted at the outset of each stint with extant descendants at the end of that stint.
+This count grows from approximately 10 around stint 15 to upwards of 30 around stint 40 (Supplementary Figure \ref{fig:phylogeny:stint_roots}).
+Among descendants of the lowest original phylogenetic root, the number of independent lineages spanning a stint also increases from around 5 to around 15
+(Supplementary Figure \ref{fig:phylogeny:lowestroot_stint_roots}).
+This decrease in phylogenetic consolidation on a stint-by-stint basis correlates with the waning number of simulation updates performed per stint (Supplementary Figures \ref{fig:phylogeny:updates_vs_stint_roots} and \ref{fig:phylogeny:log_updates_vs_stint_roots}).
+More complete phylogenetic data will be necessary in future experiments to address questions about the possibility of long-term stable coexistence beyond the two strains supported under the explicit diversity maintenance scheme.
+
+% https://mybinder.org/v2/gh/mmore500/dishtiny/e17e6d5e258b7aacac72d44922008ab14e80e182?filepath=binder%2Fbucket%3Dprq49%2Fa%3Dall_stints_all_series_profiles%2Bendeavor%3D16%2Fcase_study_16005.ipynb
+On the specimen from stint 100 used in the final case study, an evolutionary history of 20,212 cell generations had elapsed.
+Of these cellular reproductions, 11,713 (58\%) had full kin group commonality, 7,174 had partial kin group commonality (35\%), and 1,325 had no kin group commonality (7\%).
+On this specimen, 1,672 mutation events had elapsed.
+During these events, 7,240 insertion-deletion alterations had occurred and 26,153 point mutations had occurred.
+This strain experienced a selection pressure of 18\% over its evolutionary history, meaning that only 82\% of the mutations that would be expected given the number of cellular reproductions that had elapsed were present.
+
+\input{fig/phylo_parsimony_tree.tex}
+
+% https://github.com/mmore500/dishtiny_event_tag_phylogenetics/commit/ecc2ab8a580b125bea9f661e49cd4d7f34bfa1bb
+In order to characterize the evolutionary history of the experiment in greater detail, we performed a parsimony-based phylogenetic reconstruction on the sampled representative specimens from each stint, shown in Figure \ref{fig:phylo_parsimony_tree}.
+We used genomes' fixed-length blocks of 35 64-bit tags that mediate environmental interactions as the basis for this reconstruction.
+These tag blocks underwent bitwise mutation over the course of the experiment.\footnote{
+In future experiments, we plan to incorporate new methodology for ``hereditary stratigraph'' genome annotations expressly designed to facilitate phylogenetic reconstruction \dissertationelse{(Chapter \ref{ch:distributed-phylogeny})}{\citep{moreno2022hereditary}}.
+}
+Supplementary Figure \ref{fig:phylo_distance_matrix_heatmap} shows hamming distance between all pairs of tag blocks.
+We additionally tried several other tree inference methods, discussed in supplementary material; however, these yielded lower-quality reconstructions.
+
+Although the phylogeny of stint representatives includes many instances that do not constitute a string lineage (i.e., each stint's representative descending directly from the preceding stint's representative), we did not observe evidence of long-term coexistence of clades over more than ten stints.
+
+\subsection{Qualitative Morphological Categorizations}
+
+\input{table/morph_descriptions.tex}
+
+We performed a qualitative survey of the evolved life histories along the evolutionary timeline by analyzing video recordings of monocultures representative specimens from each stint.
+
+Table \ref{tab:morph_descriptions} summarizes the ten morphological categories we grouped specimens into.
+In brief, specimens from early stints largely grew as unicellular or small multicellular groups (morphs $a$, $b$).
+Then, the specimen from stint 14 grew as larger, symmetrical groups (morph $d$).
+At stint 15, a distinct, asymmetrical horizontal bar morphology evolved (morph $e$).
+%todo structure above is confusing
+% Consistently left/right, indicating that somehow broke symmetrical of the simulation.
+At stint 45, a delayed secondary spurt of group growth in the vertical direction arose (morph $g$).
+This morphology was sampled frequently until stint 60 when morph $e$ began to be sampled primarily again.
+However, morph $g$ was observed as late as stint 90.
+
+Phylogenetic analysis (Figure \ref{fig:phylo_parsimony_tree}) indicates that observations of morph $e$ at stint 53 and onward are instances of secondary loss rather than retention of trait $e$ by a separate lineage coexisting with the lineage expressing morph $g$.
+Three separate reversion events from morph $g$ to morph $e$ appear likely.
+Interestingly, morph $g$ individuals at stints 89 and 90 appear to represent subsequent trait re-gain after reversion from morph $g$ to morph $e$.
+
+Table \ref{tab:morph_descriptions} provides more detailed descriptions of each qualitative morph category as well as video and a still image example of each.
+Supplementary Table \ref{tab:morph_by_stint} provides morph categorization for each stint as well as links to view the stint's specimen in a video or in-browser web simulation.
+
+% \subsection{Multicellular Phenotypic Traits}
+
+% In order for a transition in individuality, cells have to diminish their own immediate reproductive interests in order to prioritize the interests of the collective.
+% In previous work with an earlier version of the system, we've seen multicellular traits evolve such as (blah from abstract) %todo
+% \citep{moreno2021exploring}.
+
+% The formation of kin group morphologies in this system does not necessarily imply a transition in individuality.
+% It is necessary to test to see if cells within groups are meaningfully cooperating.
+
+% Because cell reproduction is necessarily adversarial in this system, we can test to see whether cells preferentially target or spare their group members.
+% A conflict ratio of less than 1 implies that cells preferentially spare their members.
+% We observed a  0.5 most of the time.
+
+% Supplementary Figure \ref{fig:conflict:exactly_one} shows the  . %todo
+% Supplementary Figure \ref{fig:conflict:at_least_one}
+% Supplementary Figure \ref{fig:conflict:exactly_two}.
+% However, could be an artifact of cell-offspring cooperation.
+
+% Interestingly, this strain appears to be using ``Is Child Cell Of,'' ``Is Parent Cell Of,'' ``Is Child Group Of,'' and the raw kin group ID of neighbors (but not the raw kin group ID of self).
+
+% %todo change wording, not sure what you're hoping to say with first phrase
+% To more conclusively, in future work we plan to look at the reproductive output at the interior of multicellular groups to see if these cells diminish their own reproductive output and to control for cellular relatedness when calculating this element of group cooperation.
+
+% We analyzed other traits characteristic of multicellularity, as well.
+
+% We did not see widespread resource sharing over the evolutionary history.
+% Only tiny fractions of cells, less than 1\%, appeared to share tiny amounts of the resource, less than 1\% of the resource required to reproduce per update (Supplementary Figures \ref{fig:resource_sharing:fraction_sharing_monoculture} and \ref{fig:resource_sharing:sharing_amount_monoculture}).
+% However, in ten strains sampled along the evolutionary lineage, context-dependent resource-sending behavior contributed to fitness (Supplementary Figure \ref{fig:writable_perturbation}).
+% Interestingly, another strain present in the population that was not the subject of analysis appeared to evolve widespread, higher-throughput resource sharing after stint 60 (Supplementary Figures \ref{fig:resource_sharing:fraction_sharing_evolve} and \ref{fig:resource_sharing:sharing_amount_evolve}).
+
+% We observed widespread apoptosis over the evolutionary history.
+% As shown in Supplementary Figure \ref{fig:apoptosis:apoptosis_stint}, in most monocultured representative strains, between 10 and 30\% of cell deaths were due to apoptosis.
+% However, it is not clear if this apoptosis returned a fitness benefit.
+% No context-dependent apoptosis behavior contributed to fitness for any sampled strain over the evolutionary history (Supplementary Figure \ref{fig:writable_perturbation}).
+% It is unclear whether context-independent apoptosis might have a fitness benefit.
+
+% The behavior seems like cells from within a group don't explicitly recognize one another according to group membership. However, they do recognize their cell parent/child and arrange themselves in a somewhat linear fashion that minimizes the potential for conflict between cells.
+% Overall, there are elements of cooperation but is unclear to what extent this particular strain constitutes a proper fraternal transition in individuality.
+
+\subsection{Fitness}
+
+% \input{fig/fitness.tex}
+
+\input{fig/adaptation/outcome_count_distns.tex}
+
+Of the 100 competition assays performed, 57 indicated significant fitness gain, 23 were neutral, and 20 indicated significant fitness loss (shown in upper right of Figure \ref{fig:outcome_count_distns}, at the intersection of the ``Biotic Background, Without'' column and ``Assay Subject, Specimen'' row.)
+
+We were surprised by the frequency of deleterious outcomes, leading us to perform a second set of experiments to investigate whether these outcomes could be explained as sampling of ``dud'' representatives.
+In these competition assays, we competed the entire focal strain population against the focal strain population from the preceding stint.
+However, we observed a similar result: 50 assays indicated significant fitness gain, 34 were neutral, and 16 indicated significant fitness loss (shown in lower right of Figure \ref{fig:outcome_count_distns}, at the intersection of the ``Biotic Background, Without'' column and ``Assay Subject, Population'' row.)
+
+\input{fig/adaptation_assay_cartoon.tex}
+
+Next, we investigated whether the presence of the background strain as a ``biotic background'' influenced fitness.
+We repeated the two experiments described above (specimen and population competition assays), but inserted the background strain as half of the initial well-mixed population.
+In one assay setup, we used the background strain population from the current stint.
+We refer to this as ``contemporary biotic background.''
+In another, which we call ``prefatory biotic background,'' we used the background strain population from the previous stint.
+We refer to the original competition assays absent the background strain as ``without biotic background.''
+Figure \ref{fig:adaptation_assay_cartoon} summarizes these competition assay designs.
+
+\input{fig/adaptation/outcome_count_joint_distns.tex}
+
+After incorporating the background strain into our measure of fitness, we detected fewer whole-population deleterious outcomes --- only six under contemporary biotic background conditions and only three under prefatory biotic background conditions (Figure \ref{fig:outcome_count_distns}).
+To determine whether the presence of the background strain caused the overall reduction in whole-population deleterious outcomes, we performed a control competitions under biotic background conditions, but with the focal strain population substituted for the background strain population (Supplementary Figure \ref{fig:baseline_adaptation_control}).
+Under these conditions, nine of the stints where whole-population deleterious outcomes had been detected came up neutral and one, surprisingly, tested significantly adaptive (Supplementary Figure \ref{fig:baseline_fitness_gain_or_loss}).
+Dose-dependent fitness effects and/or reduced experimental sensitivity of the biotic background assay appear to play at least a partial role in explaining the reduction of detected whole-population deleterious outcomes.
+However, 10 stints still tested significantly deleterious with the control focal strain biotic background in addition to without biotic background.
+
+Four stints do provide strong, direct evidence of a selective effect by the background strain: four whole-population outcomes that were deleterious without their biotic background were actually significantly advantageous in the presence of both the prefatory and contemporary background strain populations (Figure \ref{fig:outcome_count_joint_distns:population}).
+All four of these stints exhibited whole-population deleterious outcomes under the control focal strain biotic background, indicating that the observed fitness sign change was specifically due to the presence of the background strain (Supplementary Figure \ref{fig:baseline_fitness_gain_or_loss}).
+
+Additionally, we detected two deleterious outcomes without biotic background as significantly adaptive under the prefatory biotic background but as neutral under contemporary biotic background (Figure \ref{fig:outcome_count_joint_distns:population}).
+Control focal strain biotic background experiments again suggest that the background strain, specifically, is responsible for this effect (Supplementary Figure \ref{fig:baseline_fitness_gain_or_loss}).
+
+% A further five outcomes were detected as significantly deleterious without biotic background but were not detected as significantly adaptive or deleterious (i.e., neutral) in the presence of both background strain populations (Figure \ref{fig:outcome_count_joint_distns:population}).
+We also found one whole-population outcome that was significantly advantageous without biotic background and in the presence of the prefatory background strain population but significantly deleterious in the presence of the contemporary background strain, possibly suggesting a ``arms race''-like evolutionary innovation on the part of the background strain over that stint (Figure \ref{fig:outcome_count_joint_distns:population}).
+
+Nonetheless, we still saw three whole-population outcomes that were significantly deleterious under all three conditions (Figure \ref{fig:outcome_count_joint_distns:population}).
+These whole-population outcomes were also deleterious under the control focal strain biotic background experiments (Supplementary Figure \ref{fig:baseline_fitness_gain_or_loss}).
+Muller's ratchet \citep{andersson1996muller} or maladaptation due to environmental change \citep{brady2019causes} may provide possible explanations, but a definitive answer will require further study.
+
+We also performed fitness assays on individual sampled specimens with both biotic backgrounds.
+Out of 100 stints tested, we observed 20 significantly deleterious outcomes without biotic background, 23 significantly deleterious outcomes under prefatory biotic background, and 12 significantly deleterious outcomes under contemporary biotic background (Figure \ref{fig:outcome_count_distns}).
+Unlike the whole-population deleterious outcomes discussed above, some deleterious outcomes from sampled specimens is not surprising.
+Evolving populations naturally contain standing variation in fitness \citep{martin2016nonstationary}, so occasional sampling of less-fit individuals should be expected.
+Reciprocally, we observed 57 significantly adaptive outcomes without biotic background, 44 with prefatory biotic background, and 48 with contemporary biotic background (Figure \ref{fig:outcome_count_distns}).
+Greater sensitivity of the ``without biotic background'' adaptation assay could account for the counterintuitive detection of more adaptive outcomes under abiotic conditions (i.e., the absence of the background strain).
+
+As before with the population-level adaptation assays, we detected four specimen outcomes that were deleterious without biotic background but significantly advantageous under both tested background strain populations (Figure \ref{fig:outcome_count_joint_distns:specimen_with_dm}).
+Additionally, and again as before, we detected two deleterious outcomes without biotic background as significantly adaptive under the prefatory biotic background but as neutral under the contemporary biotic background (Figure \ref{fig:outcome_count_joint_distns:specimen_with_dm}).
+Control focal strain biotic background experiments confirm that the background strain, specifically, is responsible for these effects (Supplementary Figure \ref{fig:baseline_fitness_gain_or_loss}).
+
+We found no specimen outcomes that were advantageous under the prefatory biotic background but deleterious under the contemporary background.
+However, we found three stints with opposite dynamics: specimen outcomes deleterious under prefatory biotic background but advantageous under contemporary biotic background (Figure \ref{fig:outcome_count_joint_distns:specimen_with_dm}), further suggesting coincident, interacting evolutionary innovations along focal and background strain lineages (Figure \ref{fig:outcome_count_joint_distns:specimen_with_dm}).
+
+\input{fig/adaptation/with_vs_without_diversity_maintenance.tex}
+
+To better characterize the mechanism behind fitness effects caused by the background strain, we performed additional specimen adaptation assays under biotic background conditions with diversity maintenance disabled.
+This analysis allowed us to test whether action of the diversity maintenance mechanism, rather than direct interactions between the focal and background strains, caused the observed fitness effects.
+Figure \ref{fig:with_vs_without_diversity_maintenance} compares adaptation assay outcomes with and without diversity maintenance under both the prefatory and contemporary biotic background conditions.
+Outcomes were generally similar, and we observed only one sign-change difference was observed: one specimen outcome was beneficial under prefatory biotic background conditions without diversity maintenance but deleterious with diversity maintenance.
+Further, as shown in Figure \ref{fig:outcome_count_joint_distns:specimen_no_dm}, without diversity maintenance we still to observed four outcomes that were advantageous only under biotic conditions and instead tested deleterious under abiotic conditions.
+So, biotic selective effects cannot be explained as an artifact of activation of the diversity maintenance scheme.\footnote{
+We also conducted specimen adaptation assays with diversity maintenance disabled under the control focal strain biotic background.
+In these experiments, we again found no evidence for impact from the diversity maintenance scheme on results
+(Supplementary Figure \ref{fig:baseline_fitness_gain_or_loss}).
+}
+
+\input{fig/adaptation/fitness_gain_or_loss.tex}
+
+Significant increases in fitness occur throughout the evolutionary history of the case study, but not at every stint.
+Figure \ref{fig:fitness_gain_or_loss} summarizes the outcome of all adaptation assays stint-by-stint across evolutionary history.
+Neutral outcomes appear to occur more frequently at later stints.
+This may be indicative of slower evolutionary innovation, but may also result to some extent from simulation of fewer generations during evolutionary stints (Supplementary Figure \ref{fig:simulation}) and during competition experiments (Supplementary Figure \ref{fig:num_updates_elapsed_barplot}) due to slower execution of later genomes.
+
+\input{fig/adaptation/median_fitness_differential_symlog.tex}
+
+Figure \ref{fig:median_fitness_differential_symlog} shows the magnitudes of calculated fitness differentials for all adaptation assays.
+Fitness differentials during the first 40 stints are generally higher magnitude than later fitness differentials, although a strong fitness differential occurs at stint 93.
+Although the emergence of morphology $d$ was associated with significant increases in fitness in some specimen assays and morphologies $e$ and $g$ were associated with significant increases in fitness across all specimen assays (Figure \ref{fig:fitness_gain_or_loss}), the magnitude of these fitness differentials appears ordinary compared to fitness differentials at other stints (Figure \ref{fig:median_fitness_differential_symlog}).
+Supplementary Figure \ref{fig:mean_competition_prevalence} shows mean end-competition prevalence across assays, telling a similar story.
+
+\input{fig/doubling_time.tex}
+
+In addition to competition assays, we also measured growth rate of specimen strains by tracking doubling time (in updates) when seeded into quarter-full toroidal grids (Figure \ref{fig:doubling_time}).
+Morph $b$ exhibited a fast growth rate early on that was never matched by later morphs.
+This measure appears to be a poor overall proxy for fitness, highlighting the importance of biotic aspects of the simulation environment which are not present in the empty space the assayed cells double into.
+
+
+\subsection{Fitness Complexity}
+
+\input{fig/critical_fitness_complexity.tex}
+
+Figure \ref{fig:critical_fitness_complexity} plots critical fitness complexity of specimens drawn from across the case study's evolutionary history.
+
+Critical fitness complexity reaches more than 20 under morph $b$, jumps to more than 40 under morph $d$, drops to slightly more than 30 for morph $e$.
+Critical fitness complexity reaches a peak of 48 sites around stint 39 then levels out and decreases.
+This decrease may in part be due to declining sensitivity of competition experiments due to slower simulation resulting in execution of fewer updates within the fixed-duration jobs (Supplementary Figure \ref{fig:num_updates_elapsed_heatmap}).
+
+Phylogenetic analysis (Figure \ref{fig:phylo_parsimony_tree}) suggests independent origins of the critical fitness complexity in morph $d$ and morph $e$ --- the morph $d$ specimen from stint 14 is more closely related to the morph $b$ specimen from stint 13 than to the morph $e$ specimen from stint 15.
+Likewise, specimens of lower complexity morphs $i$ and $b$ that appear past stint 70 appear to have independent evolutionary origins.
+
+% The evolution of morph $g$ is not associated with a clear change in critical fitness complexity.
+
+% Interpolated fitness complexity remains much more steady over the course of evolutionary history, although the certainty of our estimate of interpolated fitness complexity varies greatly.
+% Figure \ref{fig:fitness_complexity:interpolated_fitness_complexity} shows this.
+% Sometimes we were not able to estimate composite fitness complexity because the phenotype neutral nopout was not truly neutral --- it was significantly less fit than wildtype.
+
+% Figure \ref{fig:fitness_complexity:composite_fitness_complexity} shows composite fitness complexity, the sum of interpolated fitness complexity and critical fitness complexity.
+% The highest best estimate of composite fitness complexity was 64 sites at stint 61.
+% The highest lower bound estimate of composite fitness complexity was 49 sites at stint 70.
+
+\subsection{Interface Complexity}
+
+\input{fig/interface_complexity.tex}
+
+Figure \ref{fig:interface_complexity} summarizes cardinal interface complexity, as well as its constituent components, for specimens drawn from across the case study's evolutionary history.
+
+Notably, cardinal interface complexity more than doubles from 6 interactions to 17 interactions coincident with the emergence of morph $e$ (Figure \ref{fig:interface_complexity:cardinal_interface_complexity}).
+This is due to simultaneous increases in extrospective state sensing (2 to 9 states; Figure \ref{fig:interface_complexity:extrospective_interface_complexity}), introspective state sensing (1 to 4 states; Figure \ref{fig:interface_complexity:introspective_interface_complexity}), and writable state usage (1 to 2 states; Figure \ref{fig:interface_complexity:writable_interface_complexity}).
+
+The emergence of morph $g$ coincided with an increase in writable state interface complexity from 1 to 3 as shown in Figure \ref{fig:interface_complexity:writable_interface_complexity}.
+However, morph $g$ was not associated with other changes in other aspects of cardinal interface complexity.
+The greatest observed cardinal interface complexity was 22 interactions at stints 54 and 67.
+
+\subsection{Genome Size}
+
+\input{fig/genome_size.tex}
+
+Figure \ref{fig:genome_size} shows evolutionary trajectories of three genome size metrics in sampled focal strain specimens.
+Instruction count and module count increased from 100 and 5 to around 800 and 30, respectively, between stints 0 and 40.
+Within this period at stint 24, instruction count jumped from around 600 to more than 800 and module count jumped by about 5.
+This was coincident with detection in our adaptation assays of population-level sign-change mediation of adaptation by the background strain (Figure \ref{fig:fitness_gain_or_loss}).
+In sampled specimen fitness assays at stint 24, we detected significant increases in fitness in the presence of the background strain but no significant change in fitness in its absence.
+
+Between stints 40 and 90, module count gradually increased to around 40 while instruction count remained stable.
+Then, at stint 93, instruction count jumped to around 1,500 and module count jumped to around 60.
+This was coincident with the strong fitness differentials observed at stint 93 (Figure \ref{fig:median_fitness_differential_symlog}).
+
+To better understand the functional effects of changes in genome size, we additionally measured the number of instructions that affected agent phenotype, shown as ``phenotype complexity'' in Figure \ref{fig:phenotype_complexity}.
+This measure can be considered akin to a count of ``active'' sites.
+
+Phenotype complexity varied greatly stint to stint.
+The median value increased from nearly 0 to around 200 sites between stints 0 and 40.
+Between stints 40 and 90, we observed phenotype complexity values ranging from less than 100 to more than 500.
+Morph $g$ specimens appear to show particularly great variance in phenotype complexity.
+The first observed morph $g$ specimen at stint 45 exhibited relatively low phenotype complexity of around 100 active sties.
+The highest phenotype complexity values of around 700 were measured from three specimens of morphs $e$ and $g$ in the last ten stints.
