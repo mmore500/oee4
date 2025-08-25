@@ -1,0 +1,40 @@
+% create command to draw state tables
+\newcommand{\threadlocalsimservicedef}[2]{
+    \begin{tabular}{|
+        >{\columncolor[HTML]{C0C0C0}}l |l|}
+        \hline
+        Frequency & every #1 update(s) \\ \hline
+    \end{tabular} \\
+}
+
+\section{Threadlocal Simulation Services}
+
+Actions that are performed on each \texttt{thread\_local} population.
+
+See \url{https://github.com/mmore500/dishtiny/tree/prq49/include/dish2/services_threadlocal} for source code implementing these services.
+
+\subsection{Cell Update Service}
+
+\threadlocalsimservicedef{1}
+
+Performs each cell's simulation services, iterating over cells in randomized order.
+
+\subsection{Diversity Maintenance Service}
+
+\threadlocalsimservicedef{8}
+
+Prevents any one originally-generated ancestor from sweeping the population, preserving deep phylogenetic diversity.
+
+Counts cells that descend from each originally-seeded ancestor.
+If more than \texttt{DIVERSITY\_MAINTENANCE\_PREVALENCE} of cells descend from a single seeded ancestor, decay their resource stockpiles.
+The magnitude of this effect increases with excess prevalence.
+
+\subsection{Stint Diversity Maintenance Service}
+
+\threadlocalsimservicedef{n/a}
+
+Prevents any one seeded or reconstituted stint-originating ancestor from sweeping the population, preserving phylogenetic diversity within a single stint.
+
+Counts cells that descend from each seeded or reconstituted stint-originating ancestor.
+If more than \texttt{STINT\_DIVERSITY\_MAINTENANCE\_PREVALENCE} of cells descend from a single seeded or reconstituted ancestor, decay their resource stockpiles.
+The magnitude of this effect increases with excess prevalence.
