@@ -14,6 +14,8 @@ aiosignal==1.4.0
     # via aiohttp
 alabaster==0.7.16
     # via sphinx
+async-timeout==5.0.1
+    # via aiohttp
 attrs==20.3.0
     # via
     #   aiohttp
@@ -48,9 +50,7 @@ breathe==4.19.2
 bs4==0.0.2
     # via exhale
 certifi==2025.8.3
-    # via
-    #   matplotlib
-    #   requests
+    # via requests
 charset-normalizer==3.4.3
     # via requests
 click==8.2.1
@@ -90,6 +90,8 @@ exhale==0.2.3
     # via -r requirements.in
 fastjsonschema==2.21.2
     # via nbformat
+fonttools==4.59.1
+    # via matplotlib
 frozendict==1.2
     # via -r requirements.in
 frozenlist==1.7.0
@@ -181,7 +183,7 @@ markupsafe==2.0.1
     # via
     #   -r requirements.in
     #   jinja2
-matplotlib==3.3.2
+matplotlib==3.5.3
     # via
     #   -r requirements.in
     #   seaborn
@@ -236,6 +238,7 @@ osfclient==0.0.5
 packaging==25.0
     # via
     #   deprecation
+    #   matplotlib
     #   sphinx
     #   statsmodels
 pandas==1.4.4
@@ -260,7 +263,7 @@ pillow==7.2.0
     # via
     #   image-slicer
     #   matplotlib
-platformdirs==4.3.8
+platformdirs==4.4.0
     # via black
 prompt-toolkit==3.0.51
     # via ipython
@@ -328,8 +331,8 @@ s3transfer==0.3.7
 scipy==1.11.4
     # via
     #   -r requirements.in
-    #   seaborn
-seaborn==0.11.0
+    #   statsmodels
+seaborn==0.13.2
     # via -r requirements.in
 setuptools==80.9.0
     # via
@@ -385,6 +388,8 @@ text-unidecode==1.3
     # via python-slugify
 toml==0.10.1
     # via -r requirements.in
+tomli==2.2.1
+    # via black
 tornado==6.5.2
     # via
     #   ipykernel
@@ -404,9 +409,11 @@ traitlets==4.3.3
     #   nbformat
 tweepy==3.10.0
     # via -r requirements.in
-typing-extensions==4.14.1
+typing-extensions==4.15.0
     # via
+    #   aiosignal
     #   beautifulsoup4
+    #   multidict
     #   teeplot
 urllib3==1.25.11
     # via
