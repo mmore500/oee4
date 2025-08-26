@@ -51,10 +51,6 @@ bs4==0.0.2
     # via exhale
 certifi==2025.8.3
     # via requests
-cffi==1.17.1
-    # via
-    #   pyvips
-    #   pyvips-binary
 charset-normalizer==3.4.3
     # via requests
 click==8.2.1
@@ -263,9 +259,11 @@ pexpect==4.9.0
     # via ipython
 pickleshare==0.7.5
     # via ipython
-pillow==11.3.0
-    # via matplotlib
-platformdirs==4.3.8
+pillow==7.2.0
+    # via
+    #   image-slicer
+    #   matplotlib
+platformdirs==4.4.0
     # via black
 prompt-toolkit==3.0.51
     # via ipython
@@ -279,8 +277,6 @@ py==1.11.0
     # via retry
 pyasn1==0.6.1
     # via rsa
-pycparser==2.22
-    # via cffi
 pygments==2.19.2
     # via
     #   ipython
@@ -304,10 +300,6 @@ python-slugify==4.0.1
     #   teeplot
 pytz==2025.2
     # via pandas
-pyvips==3.0.0
-    # via image-slicer
-pyvips-binary==8.17.1
-    # via pyvips
 pyyaml==5.3.1
     # via
     #   awscli
