@@ -1,0 +1,238 @@
+% create command to draw state tables
+\newcommand{\instrospectivestatedef}[2]{
+    \begin{tabular}{|
+        >{\columncolor[HTML]{C0C0C0}}l |l|}
+        \hline
+        Type & #1 \\ \hline
+        Category & #2 \\ \hline
+    \end{tabular} \\
+}
+
+\section{Introspective State}
+
+Introspective state refers to the collection of simulation-generated sensor values that evolving programs running within each cardinal can access via read-only operations.
+Each cardinal has an independent copy of each piece of introspective state state.
+(However, some introspective states representing cell state are set to identical values across cardinals within the same cell.)
+
+Each cardinal's introspective state regularly copied and dispatched to that cardinal's neighbor cell, where it serves as read-only extrospective state.
+
+Introspective state is organized into two categories:
+\begin{enumerate}
+    \item raw introspective state, and
+    \item interpreted introspective state.
+\end{enumerate}
+
+Raw introspective state directly exposes aspects of simulation state.
+Interpreted introspective state is filled with truthy values that are interpreted as booleans to dispatch environmentally-managed events.
+
+See \url{https://github.com/mmore500/dishtiny/tree/prq49/include/dish2/peripheral/readable_state/introspective_state} for source code implementing introspective state.
+
+\subsection{Is Child Cell Of}
+
+\instrospectivestatedef{\texttt{char} (w/ boolean semantics)}{interpreted}
+
+Did this cell spawn from this cardinal's neighbor cell?
+
+\subsection{Is Child Group Of (0 thru $L-1$)}
+
+\instrospectivestatedef{\texttt{char} (w/ boolean semantics)}{interpreted}
+
+Does this cell's kin group ID descend directly from the neighbor's kin group ID?
+
+\subsection{Is Newborn}
+
+\instrospectivestatedef{\texttt{char} (w/ boolean semantics)}{interpreted}
+
+Is this cell's age less than \texttt{EVENT\_LAUNCHING\_SERVICE\_FREQUENCY}?
+
+\subsection{Is Parent Cell Of}
+
+\instrospectivestatedef{\texttt{char} (w/ boolean semantics)}{interpreted}
+
+Did this cardinal's neighbor cell spawn from this cell?
+That is, was neighbor was spawned from this cell and is this cell older than neighbor?
+
+\subsection{Is Parent Group Of}
+
+\instrospectivestatedef{\texttt{char} (w/ boolean semantics)}{interpreted}
+
+Did this cell's kin group descend directly from the cardinal's neighbor cell's kin group?
+That is, is cell's kin group ancestor ID(s) equal to the cardinal's neighbor's current kin group ID(s).
+
+\subsection{Kin Group Match (0 thru $L-1$)}
+
+\instrospectivestatedef{\texttt{char} (w/ boolean semantics)}{interpreted}
+
+Does this cell's kin group ID match the neighbor's kin group ID?
+
+\subsection{Kin Group will Expire (0 thru $L-1$)}
+
+\instrospectivestatedef{\texttt{char} (w/ boolean semantics)}{interpreted}
+
+Is this cell's kin group age greater than 80\% of this level's \texttt{GROUP\_EXPIRATION\_DURATIONS}?
+
+\subsection{Neighbor Apoptosis}
+
+Was the neighbor tile's most recent death apoptosis?
+
+\instrospectivestatedef{\texttt{char} (w/ boolean semantics)}{interpreted}
+
+\subsection{Neighbor Fragmented}
+
+Was group fragmentation the most recent cause of death in the cardinal's neighbor cell?
+
+\instrospectivestatedef{\texttt{char} (w/ boolean semantics)}{interpreted}
+
+\subsection{Neighbor Is Newborn}
+
+\instrospectivestatedef{\texttt{char} (w/ boolean semantics)}{interpreted}
+
+Is the neighbor's cell age less than \texttt{EVENT\_LAUNCHING\_SERVICE\_FREQUENCY}?
+
+\subsection{Neighbor Kin Group Will Expire (0 thru $L-1$)}{interpreted}
+
+\instrospectivestatedef{\texttt{char} (w/ boolean semantics)}{interpreted}
+
+Is this cell's kin group age greater than 80\% of the this level's \texttt{GROUP\_EXPIRATION\_DURATIONS}?
+
+\subsection{Neighbor Optimum Quorum Exceeded (0 thru $L-1$)}
+
+\instrospectivestatedef{\texttt{char} (w/ boolean semantics)}{interpreted}
+
+Is this cardinal's neighbor cell's kin group quorum count more than the simulation-defined target count \texttt{OPTIMAL\_QUORUM\_COUNT}?
+
+\subsection{Optimum Quorum Exceeded (0 thru $L-1$)}
+
+\instrospectivestatedef{\texttt{char} (w/ boolean semantics)}{interpreted}
+
+Is this cell's kin group quorum count more than the simulation-defined target count \texttt{OPTIMAL\_QUORUM\_COUNT}?
+
+\subsection{Parent Fragmented}
+
+\instrospectivestatedef{\texttt{char} (w/ boolean semantics)}{interpreted}
+
+Did the cell's parent die from fragmentation?
+That is, was the last cause of death on the current tile was fragmentation?
+
+\subsection{Phylogenetic Root Match}
+
+\instrospectivestatedef{\texttt{char} (w/ boolean semantics)}{interpreted}
+
+Does this cell's root ID equal the cardinal's cell neighbor's root ID?
+(This means they originate from the same seed ancestor.)
+
+\subsection{Richer Than Neighbor}
+
+\instrospectivestatedef{\texttt{char} (w/ boolean semantics)}{interpreted}
+
+Does this cell's stockpile more resource than the cardinal's cell neighbor?
+
+\subsection{Stockpile Depleted}
+
+\instrospectivestatedef{\texttt{char} (w/ boolean semantics)}{interpreted}
+
+Is this cell's stockpile less than twice the base harvest rate?
+
+\subsection{Stockpile Fecund}
+
+\instrospectivestatedef{\texttt{char} (w/ boolean semantics)}{interpreted}
+
+Does this cell have enough resource stockpiled to fund spawning an offspring cell?
+
+\subsection{Cell Age}
+
+\instrospectivestatedef{\texttt{size\_t}}{raw}
+
+Number CellAgeService calls elapsed since cell was born.
+
+\subsection{Epoch}
+
+\instrospectivestatedef{\texttt{size\_t}}{raw}
+
+Updates elapsed since start of simulation.
+
+\subsection{Incoming Inter Message Counter}
+
+\instrospectivestatedef{\texttt{size\_t}}{raw}
+
+Counter tracking incoming messages from cardinal's neighbor cell.
+Intermittently reset to zero.
+
+\subsection{Incoming Intra Message Counter}
+
+\instrospectivestatedef{\texttt{size\_t}}{raw}
+
+Counter of incoming messages from other cardinals within the cell.
+Intermittently reset to zero.
+
+\subsection{Is Alive}
+
+\instrospectivestatedef{\texttt{char} (w/ boolean semantics)}{raw}
+
+Whether the cell is alive.
+Although trivial as introspective state, this state is useful for neighbor cell's extrospective state.
+
+\subsection{Kin Group Age ($0$ thru $L - 1$)}
+
+\instrospectivestatedef{\texttt{size\_t}}{raw}
+
+Number of epochs elapsed since kin group formation.
+
+\subsection{Kin Group ID Ancestor View ($0$ thru $L - 1$)}
+
+\instrospectivestatedef{\texttt{size\_t}}{raw}
+
+Kin group ID from which cell's kin group ID is descended.
+
+\subsection{Kin Group ID View ($0$ thru $L - 1$)}
+
+\instrospectivestatedef{\texttt{size\_t}}{raw}
+
+Kin group ID of this cell.
+
+\subsection{Most Recent Cause of Death}{raw}
+
+\instrospectivestatedef{\texttt{char}}{raw}
+
+What was this the most recent cause of death on this tile?
+Encoded using the \texttt{CauseOfDeath} enum.
+
+\subsection{Num Known Quorum Bits (0 thru $L-1$)}
+
+\instrospectivestatedef{\texttt{size\_t}}{raw}
+
+What is this cell's known quorum count?
+(How many unique quorum bits collected from kin group members are known?)
+
+\subsection{Phylogenetic Root View}
+
+\instrospectivestatedef{\texttt{size\_t}}{raw}
+
+What is this cell's phylogenetic root ID?
+
+(Which initially-generated ancestor is this cell descended from?)
+
+\subsection{Received Resource From}
+
+\instrospectivestatedef{\texttt{float}}{raw}
+
+How much resource is being received from the cardinal's cell neighbor?
+
+\subsection{Resource Stockpile}
+
+\instrospectivestatedef{\texttt{float}}{raw}
+
+Amount of resource this cell has.
+
+\subsection{Spawn Count}
+
+\instrospectivestatedef{\texttt{float}}{raw}
+
+Number of offspring generated from this cell and sent to the cardinal's neighbor tile.
+Includes offspring that do not successfully take into the neighbor tile or have not survived.
+
+\subsection{Spawned From}
+
+\instrospectivestatedef{\texttt{char} (w/ boolean semantics)}{raw}
+
+Did this cell spawn from this cardinal's neighbor cell?
