@@ -1,0 +1,444 @@
+\section{Operations}
+
+% create command to draw operation tables
+\newcommand{\opdef}[2]{
+    \begin{tabular}{|
+        >{\columncolor[HTML]{C0C0C0}}l |l|}
+        \hline
+        Prevalence & #1 \\ \hline
+        Num Args   & #2 \\ \hline
+    \end{tabular}
+}
+
+This section overviews the operation library made available to evolving signalgp-lite genetic programs within the simulation.
+
+Within the program section of each genome, each instruction contained
+\begin{itemize}
+\item an op code, specifying which operation should be performed;
+\item a 64-bit bitstring, used as a tag for operations that required tag-matching or as data for some configurable operations; and
+\item three integer arguments, specifying which registers the operation should apply to (many operations do not use all arguments).
+\end{itemize}
+
+In the operation descriptions below, we refer to register access via to the $n$th argument as \texttt{reg[arg\_n]}.
+Each core has its own eight \texttt{float} registers.
+All core registers are zeroed out at core launch.
+
+In order to prevent bread-and-butter operations like global anchors, local anchors, and terminals from being swamped out by large instruction set size, we manually defined increased ``prevalences'' for some instructions.
+This prevalence increased the probability of the operation being selected under mutations and initial program generation.
+Prevalence works like increasing the number of identical copies of the operation included in the operation library.
+We provide the prevalence of each operation below.
+
+See \url{https://github.com/mmore500/dishtiny/tree/prq49/include/dish2/operations} for the source code of DISHTINY-specific operations and \url{https://github.com/mmore500/signalgp-lite/tree/b6c437f44136651aa6f4051d84bc62a86c2afbbe/include/sgpl/operations} for the source code of generic operations.
+
+Refer to Section \ref{sec:virtual_cpu} for details on the virtual CPU running these instructions.
+
+\subsection{Fork If}
+
+\opdef{1}{1}
+
+If \texttt{reg[arg\_0]} is nonzero, registers a request to activate a new core with the module best-matching the current instruction's tag.
+These fork requests are only handled when the current core terminates.
+Each core may only register 3 fork requests.
+
+\subsection{Nop, 0 RNG Touches}
+
+\opdef{1}{0}
+
+Performs no operation for one virtual CPU cycle.
+
+\subsection{Nop, 1 RNG Touches}
+
+\opdef{1}{0}
+
+Performs no operation for one virtual CPU cycle, and advances the RNG engine once.
+(Important to nop-out operations that perform one RNG touch without causing side effects.)
+
+\subsection{Nop, 2 RNG Touches}
+
+\opdef{1}{1}
+
+Performs no operation for one virtual CPU cycle, and advances the RNG engine twice.
+(Important to nop-out operations that perform two RNG touches without causing side effects.)
+
+\subsection{Terminate If}
+
+\opdef{1}{1}
+
+Terminates current core if \texttt{reg[arg\_0]} is nonzero.
+
+\subsection{Add}
+
+\opdef{1}{3}
+
+Adds \texttt{reg[arg\_1]} to \texttt{reg[arg\_2]} and stores the result in \texttt{reg[arg\_0]}.
+
+\subsection{Divide}
+
+\opdef{1}{3}
+
+Divides \texttt{reg[arg\_1]} by \texttt{reg[arg\_2]} and stores the result in \texttt{reg[arg\_0]}.
+Division by zero can result in an \texttt{Inf} or \texttt{NaN} value.
+
+\subsection{Modulo}
+
+\opdef{1}{3}
+
+Calculates the modulus of \texttt{reg[arg\_1]} by \texttt{reg[arg\_2]} and stores the result in \texttt{reg[arg\_0]}.
+Mod by zero can result in a \texttt{NaN} value.
+
+\subsection{Multiply}
+
+\opdef{1}{3}
+
+Multiplies \texttt{reg[arg\_1]} by \texttt{reg[arg\_2]} and stores the result in \texttt{reg[arg\_0]}.
+
+\subsection{Subtract}
+
+\opdef{1}{3}
+
+Subtracts \texttt{reg[arg\_2]} from \texttt{reg[arg\_1]} and stores the result in \texttt{reg[arg\_0]}.
+
+\subsection{Bitwise And}
+
+\opdef{1}{3}
+
+Performs a bitwise AND of \texttt{reg[arg\_1]} and \texttt{reg[arg\_2]} then stores the result in \texttt{reg[arg\_0]}.
+
+\subsection{Bitwise Not}
+
+\opdef{1}{2}
+
+Computes the bitwise NOT of \texttt{reg[arg\_1]} and stores the result in \texttt{reg[arg\_0]}.
+
+\subsection{Bitwise Or}
+
+\opdef{1}{3}
+
+Performs a bitwise OR of \texttt{reg[arg\_1]} and \texttt{reg[arg\_2]} then stores the result in \texttt{reg[arg\_0]}.
+
+\subsection{Bitwise Shift}
+
+\opdef{1}{3}
+
+Shifts the bits of \texttt{reg[arg\_1]} by \texttt{reg[arg\_2]} positions.
+(If \texttt{reg[arg\_2]} is negative, this is a right shift.
+Otherwise it is a left shift.)
+Stores the result in \texttt{reg[arg\_0]}.
+
+\subsection{Bitwise Xor}
+
+\opdef{1}{3}
+
+Performs a bitwise XOR of \texttt{reg[arg\_1]} and \texttt{reg[arg\_2]} then stores the result in \texttt{reg[arg\_0]}.
+
+\subsection{Count Ones}
+
+\opdef{1}{2}
+
+Counts the number of bits set in \texttt{reg[arg\_1]} and stores the result in \texttt{reg[arg\_0]}.
+
+\subsection{Random Fill}
+
+\opdef{1}{1}
+
+Fills register pointed to by \texttt{reg[arg\_0]} with random bits chosen from a uniform distribution.
+
+\subsection{Equal}
+
+\opdef{1}{3}
+
+Checks whether \texttt{reg[arg\_1]} is equal to \texttt{reg[arg\_2]} and stores the result in \texttt{reg[arg\_0]}.
+
+\subsection{Greater Than}
+
+\opdef{1}{3}
+
+Checks whether \texttt{reg[arg\_1]} is greater than \texttt{reg[arg\_2]} and stores the result in \texttt{reg[arg\_0]}.
+
+\subsection{Less Than}
+
+\opdef{1}{3}
+
+Checks whether \texttt{reg[arg\_1]} is less than \texttt{reg[arg\_2]} and stores the result in \texttt{reg[arg\_0]}.
+
+\subsection{Logical And}
+
+\opdef{1}{3}
+
+Performs a logical AND of \texttt{reg[arg\_1]} and \texttt{reg[arg\_2]}, storing the result in \texttt{reg[arg\_0]}.
+
+\subsection{Logical Or}
+
+\opdef{1}{3}
+
+Performs a logical OR of \texttt{reg[arg\_1]} and \texttt{reg[arg\_2]}, storing the result in \texttt{reg[arg\_0]}.
+
+\subsection{Not Equal}
+
+\opdef{1}{3}
+
+Checks whether \texttt{reg[arg\_1]} is not equal to \texttt{reg[arg\_2]} and stores the result in \texttt{reg[arg\_0]}.
+
+\subsection{Global Anchor} \label{sec:global_anchor}
+
+\opdef{15}{0}
+
+Marks a module-begin position.
+Based on tag-lookup, new cores or global jump instructions may set the program counter to this instruction's program position.
+
+This instruction can also mark a module-end position --- executing this instruction can terminate the executing core.
+If no local anchor instruction is present between the current global anchor instruction and the preceding global anchor instruction, this operation will not terminate the executing core.
+(This way, several global anchors may lead into the same module.)
+
+However, if a local anchor instruction is present between the current global anchor instruction and the preceding global anchor instruction, this operation will terminate the executing core.
+Local jump instructions will only consider local anchors between the preceding global anchor and the subsequent global anchor instruction.
+
+\subsection{Global Jump If}
+
+\opdef{1}{2}
+
+Jumps the current core to a global anchor that matches the instruction tag if \texttt{reg[arg\_0]} is nonzero.
+If \texttt{reg[arg\_1]} is nonzero, resets registers.
+
+\subsection{Global Jump If Not}
+
+\opdef{1}{2}
+
+Jumps the current core to a global anchor that matches the instruction tag if \texttt{reg[arg\_0]} is nonzero.
+If \texttt{reg[arg\_1]} is zero, resets registers.
+
+\subsection{Protected Regulator Adjust}
+
+\opdef{1}{1}
+
+Adjusts the regulator value of global jump table tags matching this instruction's tag by the amount \texttt{reg[arg\_0]}.
+
+This regulator value affects the outcome of tag lookup for internal events and signals from the environment.
+(Note, as described in \ref{sec:virtual_cpu}, that independent tag lookup tables handle activating genome modules across different contexts.)
+
+\subsection{Protected Regulator Decay}
+
+\opdef{1}{1}
+
+Ages the regulator decay countdown of global jump table tags matching this instruction's tag by the amount \texttt{reg[arg\_0]}.
+If \texttt{reg[arg\_0]} is negative, this can forestall decay.
+
+This decay countdown affects the outcome of tag lookup for internal events, and signals from the environment.
+(Note, as described in \ref{sec:virtual_cpu}, that independent tag lookup tables handle activating genome modules across different contexts.)
+
+\subsection{Protected Regulator Get}
+
+\opdef{1}{1}
+
+Gets the regulator value of the global jump table tag that best matches this instruction's tag.
+Stores the value in \texttt{reg[arg\_0]}.
+
+If no tag matches, a no-op is performed.
+
+The regulator value gotten controls internal events and signals from the environment.
+(Note, as described in \ref{sec:virtual_cpu}, that independent tag lookup tables handle activating genome modules across different contexts.)
+
+\subsection{Protected Regulator Set}
+
+\opdef{1}{1}
+
+Sets the regulator value of global jump table tags matching this instruction's tag to \texttt{reg[arg\_0]}.
+
+This regulator value affects the outcome of tag lookup for internal events and signals from the environment.
+(Note, as described in \ref{sec:virtual_cpu}, that independent tag lookup tables handle activating genome modules across different contexts.)
+
+\subsection{Local Anchor}
+
+\opdef{20}{0}
+
+Marks a program location local jump instructions may route to.
+This program location is tagged with the instruction's tag.
+
+As described in Section \ref{sec:global_anchor}, this operation also plays a role in determining whether global anchor instructions close a module.
+
+\subsection{Local Jump If}
+
+\opdef{1}{1}
+
+Jumps to a local anchor that matches the instruction tag if \texttt{reg[arg\_0]} is nonzero.
+
+\subsection{Local Jump If Not}
+
+\opdef{1}{1}
+
+Jumps to a local anchor that matches the instruction tag if \texttt{reg[arg\_0]} is zero.
+
+\subsection{Local Regulator Adjust}
+
+\opdef{1}{1}
+
+Adjusts the regulator value of local jump table tags matching this instruction's tag by the amount \texttt{reg[arg\_0]}.
+
+\subsection{Local Regulator Decay}
+
+\opdef{1}{1}
+
+Ages the regulator decay countdown of local jump table tags matching this instruction's tag by the amount \texttt{reg[arg\_0]}.
+If \texttt{reg[arg\_0]} is negative, this can forestall decay.
+
+\subsection{Local Regulator Get}
+
+\opdef{1}{1}
+
+Gets the regulator value of the local jump table tag that best matches this instruction's tag.
+Stores the value in \texttt{reg[arg\_0]}.
+
+If no tag matches, a no-op is performed.
+
+\subsection{Local Regulator Set}
+
+\opdef{1}{1}
+
+Sets the regulator value of global jump table tags matching this instruction's tag to \texttt{reg[arg\_0]}.
+
+\subsection{Decrement}
+
+\opdef{1}{1}
+
+Takes \texttt{reg[arg\_0]}, decrements it by one, and stores the result in \texttt{reg[arg\_0]}.
+
+\subsection{Increment}
+
+\opdef{1}{1}
+
+Takes \texttt{reg[arg\_0]}, increments it by one, and stores the result in \texttt{reg[arg\_0]}.
+
+\subsection{Negate}
+
+\opdef{1}{1}
+
+Negates \texttt{reg[arg\_0]} and stores the result in \texttt{reg[arg\_0]}.
+
+\subsection{Not}
+
+\opdef{1}{1}
+
+Performs a logical not on \texttt{reg[arg\_0]} and stores the result in \texttt{reg[arg\_0]}.
+
+\subsection{Random Bool}
+
+\opdef{1}{1}
+
+Stores \texttt{1.0f} to \texttt{reg[arg\_0]} with probability determined by this instruction's tag.
+Otherwise, stores \texttt{0.0f} to \texttt{reg[arg\_0]}.
+
+\subsection{Random Draw}
+
+\opdef{1}{1}
+
+Stores a randomly drawn float value to \texttt{reg[arg\_0]}.
+
+\subsection{Terminal}
+
+\opdef{50}{1}
+
+Stores a genetically-encoded value to \texttt{reg[arg\_0]}.
+This value is determined deterministically using the instruction's tag.
+
+\subsection{Exposed Regulator Adjust}
+
+\opdef{1}{1}
+
+Adjusts the regulator value of global jump table tags matching this instruction's tag by the amount \texttt{reg[arg\_0]}.
+
+This regulator value affects the outcome of tag lookup for messages from neighbor cells.
+(Note, as described in \ref{sec:virtual_cpu}, that independent tag lookup tables handle activating genome modules across different contexts.)
+
+\subsection{Exposed Regulator Decay}
+
+\opdef{1}{1}
+
+Ages the regulator decay countdown of global jump table tags matching this instruction's tag by the amount \texttt{reg[arg\_0]}.
+If \texttt{reg[arg\_0]} is negative, this can forestall decay.
+
+This decay countdown affects the outcome of tag lookup for messages from neighbor cells.
+(Note, as described in \ref{sec:virtual_cpu}, that independent tag lookup tables handle activating genome modules across different contexts.)
+
+\subsection{Exposed Regulator Get}
+
+\opdef{1}{1}
+
+Gets the regulator value of the global jump table tag that best matches this instruction's tag.
+Stores the value in \texttt{arg[0]}.
+
+If no tag matches, a no-op is performed.
+
+The regulator value gotten controls messages from other cells.
+(Note, as described in \ref{sec:virtual_cpu}, that independent tag lookup tables handle activating genome modules across different contexts.)
+
+\subsection{Exposed Regulator Set}
+
+\opdef{1}{1}
+
+Sets the regulator value of global jump table tags matching this instruction's tag to \texttt{reg[arg\_0]}.
+
+This regulator value affects the outcome of tag lookup for messages from other cells.
+(Note, as described in \ref{sec:virtual_cpu}, that independent tag lookup tables handle activating genome modules across different contexts.)
+
+\subsection{Add to Own State}
+
+\opdef{5}{1}
+
+Adds \texttt{reg[arg\_0]} to the current value in a target writable state then stores the sum back in to that target writable state.
+
+To determine the target writable state, interprets the first 32 bits of the instruction tag as an unsigned integer then calculates the remainder of integer division by the number of writable states.
+
+\subsection{Broadcast Intra Message If}
+
+\opdef{1}{1}
+
+If \texttt{reg[arg\_0]} is nonzero, generates a message tagged with the instruction's tag that contains the core's current register state.
+Broadcasts this message to every other cardinal within the cell.
+
+\subsection{Multiply Own State}
+
+\opdef{5}{1}
+
+Multiplies \texttt{reg[arg\_0]} by the current value in a target writable state then stores the result back in to that target writable state.
+
+To determine the target writable state, interprets the first 32 bits of the instruction tag as an unsigned integer then calculates the remainder of integer division by the number of writable states.
+
+\subsection{Read Neighbor State}
+
+\opdef{10}{1}
+
+Reads a target readable state from the neighboring cell and stores it into \texttt{reg[arg\_0]}.
+
+To determine the target readable state, interprets the first 32 bits of the instruction tag as an unsigned integer then calculates the remainder of integer division by the number of readable states.
+
+\subsection{Read Own State}
+
+\opdef{20}{1}
+
+Reads a target readable state and stores it into \texttt{reg[arg\_0]}.
+
+To determine the target readable state, interprets the first 32 bits of the instruction tag as an unsigned integer then calculates the remainder of integer division by the number of readable states.
+
+\subsection{Send Inter Message If}
+
+\opdef{5}{1}
+
+If \texttt{reg[arg\_0]} is nonzero, generates a message tagged with the instruction's tag that contains the core's current register state.
+Sends this message to the neighboring cell.
+
+\subsection{Send Intra Message If}
+
+\opdef{5}{1}
+
+If \texttt{reg[arg\_0]} is nonzero, generates a message tagged with the instruction's tag that contains the core's current register state.
+Sends this message to a target cardinal within the cell.
+
+To determine the target cardinal, sums instruction arguments then calculates the remainder of integer division by the number of co-cardinals.
+
+\subsection{Write Own State If}
+
+\opdef{5}{2}
+
+If \texttt{reg[arg\_1]} is nonzero, stores \texttt{reg[arg\_0]} into a target writable state.
+
+To determine the target writable state, interprets the first 32 bits of the instruction tag as an unsigned integer then calculates the remainder of integer division by the number of writable states.
