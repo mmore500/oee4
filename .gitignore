@@ -3,6 +3,11 @@
 env/
 venv/
 
+oee4.pdf
+oee4-draft.pdf
+main.pdf
+main-draft.pdf
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
