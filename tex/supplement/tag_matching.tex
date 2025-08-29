@@ -1,7 +1,7 @@
 \section{Tag Matching}
 
 We use 64-bit bitstring tags to label modules and jump destinations.
-We use a variant of Downing's streak metric to compute tag matches \citep{downing2015intelligence}.
+We use a variant of Downing's streak metric to compute tag matches \citep{downing2015intelligence,moreno2023matchmaker}.
 We deterministically select the single best-matching result for a tag lookup.
 If there is a tie, an arbitrary result is selected.
 For module-lookup, the best-matching tag must have a match quality at the 80th or better percentile among match qualities of pairs of randomly generated tags.
