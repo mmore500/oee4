@@ -1,4 +1,5 @@
 \documentclass[letterpaper]{article}
+\usepackage{authblk}
 
 \usepackage[footnotes,definitionLists,hashEnumerators,smartEllipses,hybrid]{markdown}
 \usepackage{adjustbox}
@@ -20,6 +21,7 @@
 \usepackage{fancyheadings}
 \usepackage{tikz}
 \usetikzlibrary{calc}
+\usepackage{orcidlink}
 
 \usepackage{floatpag}
 \floatpagestyle{plain}
@@ -170,16 +172,15 @@
 % Note:  Some laser printers have a serious problem printing TeX
 % output. The use of ps type I fonts should avoid this problem.
 
-\input{tex/frontmatter.tex}
-
 \begin{document}
-\maketitle
+
+\input{tex/frontmatter.tex}
 
 \input{tex/abstract.tex}
 
 \input{tex/body.tex}
 
-\input{tex/acknowledgements.tex}
+\input{tex/boilerplate.tex}
 
 \footnotesize
 \bibliographystyle{apalike}
