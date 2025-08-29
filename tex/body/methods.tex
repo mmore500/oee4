@@ -15,19 +15,19 @@ This resource can be spent in increments of $1.0$ to attempt asexual reproductio
 A cell can only be replaced if it commands less than $1.0$ resource.
 If a cell rebuffs a reproduction attempt, its resource stockpile decrements by $1.0$ down to a minimum of $0.0$.
 
-In order to facilitate the formation of coherent multicellular groups, the DISHTINY framework provides a mechanism for cells to form groups and detect group membership \dissertationexclude{\citep{moreno2019toward}}.
+To facilitate the formation of coherent multicellular groups, the DISHTINY framework provides a mechanism for cells to form groups and detect group membership \dissertationexclude{\citep{moreno2019toward}}.
 Groups arise through cellular reproduction.
 When a cell proliferates, it may choose to initiate its offspring as a member of its kin group, thereby growing it, or induce the offspring to found a new kin group.
 This process is similar to the growth of biological multicellular tissues, where cell offspring can be retained as members of the tissue or permanently expelled.
 
 We incentivize group formation by providing an additional resource inflow bonus based on group size.
 Per-cell resource collection rate increases linearly with group size up to a cap of 12 members.
-Past 12 members, the decay rate of cells' resource stockpiles begins increasing exponentially.
-These mechanisms select for medium-sized groups;
-the harsh penalization of oversize groups, in particular, prevents any single group from consuming the entire population.
-Groups that are too small do not receive this bonus.
+Beyond 12 members, the decay rate of cells' resource stockpiles begins to increase exponentially.
+These mechanisms select for medium-sized groups.
+Harsh penalization of oversize groups prevents any single group from consuming the entire population.
+Undersized groups, on the other hand, do not receive resource bonuses.
 Groups that are too large receive a penalty.
-In order to ensure group turnover, we force groups to fragment into unicells after 8,192 ($2^{13}$) updates.
+To ensure group turnover, we force groups to fragment into unicells after 8,192 ($2^{13}$) updates.
 
 % Like physical attachment in biology, these kin groups do not in and of themselves  with respect to functional individuality.
 % That is, the formation of kin groups doesn't necessarily imply that constituent cells are acting as a cohesive multicellular organism (TODO cite)--- it is necessary to test for traits characteristic of multicellularity such as cooperation, coordination, and reproductive division of labor.
@@ -46,18 +46,18 @@ Cell behaviors are controlled by event-driven genetic programs in which linear G
 Each cell contains four independent virtual CPUs, all of which execute the same genetic program (Figure \ref{fig:overview}a).
 Each CPU manages interactions with a single neighboring cell.
 We refer to a CPU managing interactions with a particular neighbor as a ``cardinal'' (as in ``cardinal direction'').
-These CPUs may communicate via intra-cellular message passing.
-Full details on the instruction set and event library used as well as simulation logic and parameter settings appear in supplementary material.
+These CPUs may communicate via intracellular message passing.
+Full details on the instruction set and event library used, as well as simulation logic and parameter settings, appear in supplementary material.
 
-Supplementary Section \ref{sec:simulation-details} provides full detail on simulation components and parameters.
+% Supplementary Section \ref{sec:simulation-details} provides full detail on simulation components and parameters.
 
 \subsection{Evolution}
 \label{sec:evolution;ch:measuring-cna}
 
 We performed evolution in three-hour windows for compatibility with our compute cluster's scheduling system.
 We refer to these windows as ``stints.''
-We randomly generated one-hundred instruction genomes at the outset of the initial stint, stint 0.
-At the end of each three hour window, the system harvested and stored genomes in a population file.
+We randomly generated 100 instruction genomes at the outset of the initial stint, stint 0.
+At the end of each three-hour window, the system harvested and stored genomes in a population file.
 We then seeded subsequent stints with the previous stint's population.
 No simulation state besides genome content was preserved between stints.
 In addition to simplifying implementation concerns, re-seeding each stint ensured that strains retained the capability to grow from a well-mixed innoculum.
@@ -88,20 +88,20 @@ This \texttt{Nop} instruction was chosen to perform the same number of random nu
 }
 We reverted nopouts that altered a strain's phenotype and kept those that did not.
 To determine whether phenotypic alteration occurred, we seeded an independent, mutation-disabled simulation with the stain in question and ran it side-by-side with an independent, mutation-disabled simulation of the wildtype strain.
-If any divergence in resource concentration was detected between the two strains within a 2,048 update window, the single site nopout was reverted.
+If any divergence in resource concentration was detected between the two strains within a 2,048 update window, the single-site nopout was reverted.
 We continued this process until no single-site nopouts were possible without altering the genome's phenotype.
 To speed up evaluation, we performed step-by-step, side-by-side comparisons using a smaller toroidal grid size of just 100 tiles.
 
-This process left us with a ``Phenoytpe-neutral Nopout'' variant of the wildtype genome where all remaining instructions contributed to the phenotype.
+This process left us with a ``Phenotype-neutral Nopout'' variant of the wildtype genome where all remaining instructions contributed to the phenotype.
 %We called the number of remaining instructions in this skeleton genome its ``phenotype complexity.''
 
 However, in further analyses we discovered that 21 phenotype-neutral nopouts from our case study were \textit{not} actually neutral --- competition experiments revealed they were significantly less fit than the wildtype strain.
-This might be due to insufficient spatial or temporal scope to observe expression of particular genome sites in our test for phenotypic divergence.
+This might be due to insufficient spatial or temporal scope to observe the expression of particular genome sites in our test for phenotypic divergence.
 %or effects of an instruction on the mutation.
 
 \subsection{Estimating Critical Fitness Complexity}
 
-Next, we sought to detect genome instructions that contributed to the strain fitness.
+Next, we sought to detect genome instructions that contributed to strain fitness.
 
 For each remaining op instruction in the Phenotype-neutral Nopout variant, we took the wildtype strain and applied a nopout at the corresponding site.
 We then competed this variant against the wildtype strain.
@@ -151,11 +151,11 @@ This metric mirrors the MODES complexity metric described in \citep{dolson2019mo
 % \end{align*}
 
 % We can calculate the likelihood of the particular set of 50 outcomes we observed given an underlying number of sets $m$ and set size $s$ as $\prod_i p_i(m,s)$.
-% This formula allows us to find the values of $m$ an $s$ that maximize likelihood and best explain our observed data.
+% This formula allows us to find the values of $m$ and $s$ that maximize likelihood and best explain our observed data.
 
 % To our surprise, we found that in most instances a set size $s$ of 1 gave higher likelihoods of the observed data than larger set sizes.
 % It appears that the redundancy that prevented these sites from being detected in the fitness-critical nopout was eliminated by the phenotype-neutral nopout.
-% In the future, it may be practical to couple this approach with a exhaustive battery single-site nopouts on sites present in a strain's phenotype-neutral nopout and but
+% In the future, it may be practical to couple this approach with an exhaustive battery of single-site nopouts on sites present in a strain's phenotype-neutral nopout and but
 % %todo which word? and or but?
 % absent in its fitness-noncritical nopout.
 % However, for parsimony's sake for all further analyses in this work we fixed $s=1$.
@@ -175,7 +175,7 @@ In addition to estimating the number of genome sites that contribute to fitness,
 
 One possible way to take this measure would be to disable event cues, sensor instructions, and output registers one by one and test for changes in fitness.
 However, this approach would fail to distinguish context-dependent input/output from merely contingent input/output.
-For example, a cell might happen to depend on a sensor being set at a certain frequency but not on the actual underlying simulation information the sensor represents.
+For example, a cell might arbitrarily depend on a sensor being set at a certain frequency, but not make use of underlying information the sensor provides.
 
 To isolate context-dependent input/output state interactions, we tested the fitness effect of swapping particular input/output states between CPUs rather than completely disabling them.
 That is, for example, CPU $b$ would be forced to perform the output generated by CPU $a$ or CPU $b$ would be shown the input meant for CPU $a$.
@@ -192,10 +192,10 @@ We describe the number of states that cells interact with to contribute to fitne
 
 In addition to estimating the number of input/output states cells use to interact with the environment, we also estimated the number of distinct intra-cellular messages cardinals within a cell use to coordinate and inter-cellular messages that cells use to coordinate.
 As with state interface complexity, distinguishing context-dependent behavior from contingent behavior is critical to attaining a meaningful measurement.
-For example, a cardinal might happen to depend on always receiving a inter-cellular message from a neighbor or an intra-cellular message from another cardinal.
+For example, a cardinal might depend on always receiving an intercellular message from a neighbor or an intracellular message from another cardinal.
 Although meaningless, if that message were blocked, fitness would decrease.
 So, instead of simply discarding messages to test for a fitness effect, we re-route messages back to the sending cardinal instead of their intended recipient.
-We deemed a messages as fitness-critical if this manipulation resulted in decreased fitness at significance $p < 0.01$ using a $T$-test parameterized by 20 control wild-type vs wild-type competitions.
+We deemed messages as fitness-critical if this manipulation resulted in decreased fitness at significance $p < 0.01$ using a $T$-test parameterized by 20 control wild-type vs wild-type competitions.
 
 We refer to the number of distinct messages that cells send to contribute to fitness as ``Messaging Interface Complexity.''
 
