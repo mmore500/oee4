@@ -3,7 +3,7 @@
 
 \usepackage[footnotes,definitionLists,hashEnumerators,smartEllipses,hybrid]{markdown}
 \usepackage{adjustbox}
-\usepackage{natbib,alifeconf}  %% The order is important
+\usepackage[super,comma,sort&compress]{natbib} \usepackage{alifeconf} %% The order is important
 \usepackage[table,xcdraw]{xcolor}
 \usepackage{subcaption}
 \usepackage{longtable}
@@ -183,7 +183,7 @@
 \input{tex/boilerplate.tex}
 
 \footnotesize
-\bibliographystyle{apalike}
+\bibliographystyle{apalike-ejor}
 \bibliography{bibl} % replace by the name of your .bib file
 
 \clearpage
