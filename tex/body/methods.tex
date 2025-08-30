@@ -23,8 +23,7 @@ This process is similar to the growth of biological multicellular tissues, where
 We incentivize group formation by providing an additional resource inflow bonus based on group size.
 Per-cell resource collection rate increases linearly with group size up to a cap of 12 members.
 Beyond 12 members, the decay rate of cells' resource stockpiles begins to increase exponentially.
-These mechanisms select for medium-sized groups.
-Harsh penalization of oversize groups prevents any single group from consuming the entire population.
+These mechanisms select for medium-sized groups; in particular, the harsh penalization of oversized groups prevents any single group from consuming the entire population.
 Undersized groups, on the other hand, do not receive resource bonuses.
 Groups that are too large receive a penalty.
 To ensure group turnover, we force groups to fragment into unicells after 8,192 ($2^{13}$) updates.
@@ -33,7 +32,7 @@ To ensure group turnover, we force groups to fragment into unicells after 8,192 
 % That is, the formation of kin groups doesn't necessarily imply that constituent cells are acting as a cohesive multicellular organism (TODO cite)--- it is necessary to test for traits characteristic of multicellularity such as cooperation, coordination, and reproductive division of labor.
 
 In \dissertationelse{Chapter \ref{ch:case-studies}}{previous work}, we established that this framework can select for traits characteristic of multicellularity, such as cooperation, coordination, and reproductive division of labor \dissertationexclude{\citep{moreno2021exploring}}.
-We also found more case studies of interest arose when two nested levels of group membership were tracked
+We also found that more case studies of interest arose when two nested levels of group membership were tracked
 as opposed to a single, un-nested level of group membership \dissertationexclude{\citep{moreno2021exploring}}.
 With nested group membership, group growth still occurs by cellular reproduction.
 Cells are given the choice to retain offspring within both groups, to expel offspring from both groups, or to expel offspring from the innermost group only.
@@ -60,7 +59,7 @@ We randomly generated 100 instruction genomes at the outset of the initial stint
 At the end of each three-hour window, the system harvested and stored genomes in a population file.
 We then seeded subsequent stints with the previous stint's population.
 No simulation state besides genome content was preserved between stints.
-In addition to simplifying implementation concerns, re-seeding each stint ensured that strains retained the capability to grow from a well-mixed innoculum.
+In addition to simplifying implementation concerns, re-seeding each stint ensured that strains retained the capability to grow from a well-mixed inoculum.
 This facilitated later competition experiments between strains.
 
 In order to ensure heterogeneity of biotic environmental factors experienced by evolving cells, we imposed a diversity maintenance scheme.
@@ -87,8 +86,8 @@ To accomplish this, we performed sequential single-site ``nopouts'' where indivi
 This \texttt{Nop} instruction was chosen to perform the same number of random number generator touches as the original instruction to control for arbitrary effects of advancing the generator.
 }
 We reverted nopouts that altered a strain's phenotype and kept those that did not.
-To determine whether phenotypic alteration occurred, we seeded an independent, mutation-disabled simulation with the stain in question and ran it side-by-side with an independent, mutation-disabled simulation of the wildtype strain.
-If any divergence in resource concentration was detected between the two strains within a 2,048 update window, the single-site nopout was reverted.
+To determine whether phenotypic alteration occurred, we seeded an independent, mutation-disabled simulation with the strain in question and ran it side-by-side with an independent, mutation-disabled simulation of the wildtype strain.
+If any divergence in resource concentration was detected between the two strains within a 2,048-update window, the single-site nopout was reverted.
 We continued this process until no single-site nopouts were possible without altering the genome's phenotype.
 To speed up evaluation, we performed step-by-step, side-by-side comparisons using a smaller toroidal grid size of just 100 tiles.
 
@@ -221,7 +220,7 @@ We employed multithreading to speed up execution.
 We split the simulation into four $60\times60$ subgrids.
 Each subgrid executed asynchronously, using the Conduit C++ Library \dissertationonly{presented in Chapter \ref{ch:conduit}} to orchestrate best-effort, real-time interactions between simulation elements on different threads \dissertationexclude{\citep{moreno2021conduit}}.
 This approach is inspired by Ackley's notion of indefinite scalability \citep{ackley2014indefinitely}.
-In particular, the localized grid topology and best-effort communication model of DISHTINY is designed with an eye towards compatibility  with the dataflow architecture of next-generation AI/ML hardware accelerator devices, which field up to hundreds of thousands of independent processor cores but impose restrictions on communication locality and memory availability \citep{lauterbach2021path,moreno2024trackable}.
+In particular, the localized grid topology and best-effort communication model of DISHTINY is designed with an eye towards compatibility with the dataflow architecture of next-generation AI/ML hardware accelerator devices, which field up to hundreds of thousands of independent processor cores but impose restrictions on communication locality and memory availability \citep{lauterbach2021path,moreno2024trackable}.
 In other work benchmarking the system, we have demonstrated that this approach improves scalability.
 The simulation scales to 4 threads with 80\% efficiency, up to 64 threads with 40\% efficiency and up to 64 nodes with 80\% efficiency \dissertationelse{(Chapter \ref{ch:conduit})}{\citep{moreno2021conduit}}.
 %TODO multicellular between distribute dsystems We are excited about the potential of the system not just
