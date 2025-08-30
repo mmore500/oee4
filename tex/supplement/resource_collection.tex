@@ -9,7 +9,7 @@ We refer to this count of distinct set bits as a group's ``quorum count.''
 
 At every update within each tile, the simulation system broadcasts all bits that were known to be set within that tile's kin group.
 This broadcast was only sent to neighboring tiles that were part of the same kin group as the broadcasting tile.
-Each tile tracked which neighbor it learned of each set bit from so that when tiles left the kin group their set bits could be forgotten from the bits known to be set within the kin group.
+Each tile tracked which neighbor it learned of each set bit from so that when tiles left the kin group, their set bits could be forgotten from the bits known to be set within the kin group.
 
 This scheme was replicated independently for each kin group level simulated.
 For the lowest-level kin group, a different fixed bit was chosen independently for each tile.
@@ -29,4 +29,4 @@ To penalize groups that expanded beyond the simulation-defined target quorum cou
 The source code controlling cooperative resource collection can be found at \url{https://github.com/mmore500/dishtiny/blob/prq49/include/dish2/services/CollectiveResourceDecayService.hpp}.
 
 In addition to any decay due to group size, held resource decayed at a rate of 0.05\% per update.
-Received resource was decayed 0.099975\% upon receipt.
+Received resource was decayed by 0.099975\% upon receipt.
