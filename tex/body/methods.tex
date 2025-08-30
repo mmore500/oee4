@@ -33,10 +33,9 @@ To ensure group turnover, we force groups to fragment into unicells after 8,192 
 
 In \dissertationelse{Chapter \ref{ch:case-studies}}{previous work}, we established that this framework can select for traits characteristic of multicellularity, such as cooperation, coordination, and reproductive division of labor \dissertationexclude{\citep{moreno2021exploring}}.
 We also found that more case studies of interest arose when two nested levels of group membership were tracked
-as opposed to a single, un-nested level of group membership \dissertationexclude{\citep{moreno2021exploring}}.
+as opposed to a single, unnested level of group membership \dissertationexclude{\citep{moreno2021exploring}}.
 With nested group membership, group growth still occurs by cellular reproduction.
 Cells are given the choice to retain offspring within both groups, to expel offspring from both groups, or to expel offspring from the innermost group only.
-In addition to being given the choice to expel or retain offspring within both groups, cells are also allowed to expel offspring from the innermost group only.
 \dissertationonly{Section \ref{sec:hierarchical_nesting} provides greater detail on group membership and hierarchical group membership in DISHTINY.}
 In this work, we allow for nested kin groups.
 
@@ -55,7 +54,7 @@ Full details on the instruction set and event library used, as well as simulatio
 
 We performed evolution in three-hour windows for compatibility with our compute cluster's scheduling system.
 We refer to these windows as ``stints.''
-We randomly generated 100 instruction genomes at the outset of the initial stint, stint 0.
+We randomly generated 100-instruction genomes at the outset of the initial stint, stint 0.
 At the end of each three-hour window, the system harvested and stored genomes in a population file.
 We then seeded subsequent stints with the previous stint's population.
 No simulation state besides genome content was preserved between stints.
@@ -115,7 +114,7 @@ This allowed us to screen for fitness effects of single-site nopouts while only 
 
 This process left us with a ``Fitness-noncritical Nopout'' variant of the wildtype genome where all remaining instructions contributed to the phenotype.
 We called the number of remaining instructions its ``critical fitness complexity.''
-We adjusted this figure downwards for the expected 1\% rate of false-positive fitness differences among tested genome sites.
+We adjusted this figure downward for the expected 1\% rate of false-positive fitness differences among tested genome sites.
 This metric mirrors the MODES complexity metric described in \citep{dolson2019modes} and the approximation of sequence complexity advanced in \citep{adami2000evolution}.
 
 % \subsection{Estimating Interpolated Fitness Complexity}
@@ -182,19 +181,19 @@ We performed this manipulation on half the population in a fitness competition f
 \footnote{
 A full description of each piece of introspective, extrospective, and writable state is listed in supplementary material.
 }
-We deemed a state as fitness-critical if this manipulation resulted in decreased fitness at significance $p < 0.01$ using a $T$-test parameterized by 20 control wild-type vs wild-type competitions.
+We deemed a state as fitness-critical if this manipulation resulted in decreased fitness at significance $p < 0.01$ using a $T$-test parameterized by 20 control wildtype vs wildtype competitions.
 
 We describe the number of states that cells interact with to contribute to fitness as ``State Interface Complexity.''
 
 \subsection{Estimating Messaging Interface Complexity}
 \label{sec:estimating-messaging-interface-complexity;ch:measuring-cna}
 
-In addition to estimating the number of input/output states cells use to interact with the environment, we also estimated the number of distinct intra-cellular messages cardinals within a cell use to coordinate and inter-cellular messages that cells use to coordinate.
+In addition to estimating the number of input/output states cells use to interact with the environment, we also estimated the number of distinct intracellular messages cardinals within a cell use to coordinate, as well as the intercellular messages that cells use to coordinate.
 As with state interface complexity, distinguishing context-dependent behavior from contingent behavior is critical to attaining a meaningful measurement.
 For example, a cardinal might depend on always receiving an intercellular message from a neighbor or an intracellular message from another cardinal.
 Although meaningless, if that message were blocked, fitness would decrease.
-So, instead of simply discarding messages to test for a fitness effect, we re-route messages back to the sending cardinal instead of their intended recipient.
-We deemed messages as fitness-critical if this manipulation resulted in decreased fitness at significance $p < 0.01$ using a $T$-test parameterized by 20 control wild-type vs wild-type competitions.
+So, instead of simply discarding messages to test for a fitness effect, we reroute messages back to the sending cardinal instead of their intended recipient.
+We deemed messages as fitness-critical if this manipulation resulted in decreased fitness at significance $p < 0.01$ using a $T$-test parameterized by 20 control wildtype vs wildtype competitions.
 
 We refer to the number of distinct messages that cells send to contribute to fitness as ``Messaging Interface Complexity.''
 
@@ -220,7 +219,7 @@ We employed multithreading to speed up execution.
 We split the simulation into four $60\times60$ subgrids.
 Each subgrid executed asynchronously, using the Conduit C++ Library \dissertationonly{presented in Chapter \ref{ch:conduit}} to orchestrate best-effort, real-time interactions between simulation elements on different threads \dissertationexclude{\citep{moreno2021conduit}}.
 This approach is inspired by Ackley's notion of indefinite scalability \citep{ackley2014indefinitely}.
-In particular, the localized grid topology and best-effort communication model of DISHTINY is designed with an eye towards compatibility with the dataflow architecture of next-generation AI/ML hardware accelerator devices, which field up to hundreds of thousands of independent processor cores but impose restrictions on communication locality and memory availability \citep{lauterbach2021path,moreno2024trackable}.
+In particular, the localized grid topology and best-effort communication model of DISHTINY are designed with an eye towards compatibility with the dataflow architecture of next-generation AI/ML hardware accelerator devices, which field up to hundreds of thousands of independent processor cores but impose restrictions on communication locality and memory availability \citep{lauterbach2021path,moreno2024trackable}.
 In other work benchmarking the system, we have demonstrated that this approach improves scalability.
 The simulation scales to 4 threads with 80\% efficiency, up to 64 threads with 40\% efficiency and up to 64 nodes with 80\% efficiency \dissertationelse{(Chapter \ref{ch:conduit})}{\citep{moreno2021conduit}}.
 %TODO multicellular between distribute dsystems We are excited about the potential of the system not just
