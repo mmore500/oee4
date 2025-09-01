@@ -15,7 +15,7 @@ Within each cell, behavior is directed by a collection of four virtual CPUs (N, 
 Each cardinal can interact with other cardinals in its own cell via message passing.
 A cardinal can also exchange messages with its counterpart cardinal in the abutting neighbor cell, allowing arbitrary inter-cell communication.
 Alongside message-passing I/O, cardinals accept input to sense local simulation state and create output to perform cell actions (panel $d$).
-Sensory input occurs via a combination of special input registers (e.g., for own- and neighbor-cell resource availability, cell age, etc.) and special messages triggered by simulation conditions (``events'' --- depicted as bells in panel $d$).
+Sensory input occurs via a combination of special input registers (e.g., for own- and neighbor-cell resource availability, cell age, etc.) and special messages triggered by simulation conditions (``events,'' depicted as bells in panel $d$).
 Behavior outputs are dispatched via special output registers (e.g., for resource sharing, replication, apoptosis, etc.).
 At implementation level, replicator program code is evaluated via an event-driven execution model.
 That is, tag-matching mechanisms trigger program submodules in response to stimuli (panel $e$).
