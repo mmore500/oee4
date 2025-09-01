@@ -218,7 +218,7 @@ Likewise, we deemed winning fewer than 3 competitions a significant fitness loss
 We employed multithreading to speed up execution.
 We split the simulation into four $60\times60$ subgrids.
 Each subgrid executed asynchronously, using the Conduit C++ Library \dissertationonly{presented in Chapter \ref{ch:conduit}} to orchestrate best-effort, real-time interactions between simulation elements on different threads \dissertationexclude{\citep{moreno2021conduit}}.
-This approach is inspired by Ackley's notion of indefinite scalability \citep{ackley2014indefinitely}.
+This approach is in part informed by Ackley's principles of indefinite scalability, which highlight fault tolerance, soft synchronization, decentralization, and spatial locality as key engineering principles for large-scale \textit{in silico} artificial life systems \citep{ackley2014indefinitely,ackley2023robust}.
 In particular, the localized grid topology and best-effort communication model of DISHTINY are designed with an eye towards compatibility with the dataflow architecture of next-generation AI/ML hardware accelerator devices, which field up to hundreds of thousands of independent processor cores but impose restrictions on communication locality and memory availability \citep{lauterbach2021path,moreno2024trackable}.
 In other work benchmarking the system, we have demonstrated that this approach improves scalability.
 The simulation scales to 4 threads with 80\% efficiency, up to 64 threads with 40\% efficiency and up to 64 nodes with 80\% efficiency \dissertationelse{(Chapter \ref{ch:conduit})}{\citep{moreno2021conduit}}.
