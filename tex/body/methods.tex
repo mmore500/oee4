@@ -44,6 +44,8 @@ Each cell contains four independent virtual CPUs, all of which execute the same 
 Each CPU manages interactions with a single neighboring cell.
 We refer to a CPU managing interactions with a particular neighbor as a ``cardinal'' (as in ``cardinal direction'').
 These CPUs may communicate via intracellular message passing.
+To support plasticity and differentiation, each CPU may also dynamically regulate tag-matching priorities of program modules \citep{lalejini2021tag}.
+
 Full details on the instruction set and event library used, as well as simulation logic and parameter settings, appear in supplementary material.
 
 % Supplementary Section \ref{sec:simulation-details} provides full detail on simulation components and parameters.
