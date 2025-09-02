@@ -6,7 +6,6 @@
 
 \subsection{Simulation}
 
-\input{fig/cpu_detail.tex}
 \input{fig/overview.tex}
 
 The DISHTINY simulation environment tracks cells occupying tiles on a toroidal grid (size $120\times120$ by default).
@@ -40,8 +39,8 @@ Cells are given the choice to retain offspring within both groups, to expel offs
 In this work, we allow for nested kin groups.
 
 In addition to controlling reproduction behavior, evolving genomes can also share resources with adjacent cells, perform apoptosis (recovering a small amount of resource that may be shared with neighboring cells), and pass arbitrary messages to neighboring cells.
-Cell behaviors are controlled by event-driven genetic programs in which linear GP modules are activated in response to cues from the environment or neighboring agents; signals are handled in quasi-parallel on up to 32 virtual cores (Figure \ref{fig:cpu_detail}) \citep{lalejini2018evolving}.
-Each cell contains four independent virtual CPUs, all of which execute the same genetic program (Figure \ref{fig:overview}a).
+Cell behaviors are controlled by event-driven genetic programs in which linear GP modules are activated in response to cues from the environment or neighboring agents; signals are handled in quasi-parallel on up to 32 virtual cores (Figure \ref{fig:overview}g) \citep{lalejini2018evolving}.
+Each cell contains four independent virtual CPUs, all of which execute the same genetic program (Figure \ref{fig:overview}e).
 Each CPU manages interactions with a single neighboring cell.
 We refer to a CPU managing interactions with a particular neighbor as a ``cardinal'' (as in ``cardinal direction'').
 These CPUs may communicate via intracellular message passing.
