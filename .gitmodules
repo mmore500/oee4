@@ -11,3 +11,18 @@
 	path = submodule/dishtiny-dishpylib
 	url = https://github.com/mmore500/dishtiny.git
 	shallow = true
+[submodule "binder-2025-08-28-complexity-adaptation"]
+	path = binder-2025-08-28-complexity-adaptation
+	url = https://github.com/mmore500/oee4.git
+	branch = binder-2025-08-28-complexity-adaptation.ipynb
+	shallow = true
+[submodule "binder-2025-08-24-keyfig"]
+	path = binder-2025-08-24-keyfig
+	url = https://github.com/mmore500/oee4.git
+	branch = binder-2025-08-24-keyfig.ipynb
+	shallow = true
+[submodule "binder-2025-08-26-dotfig"]
+	path = binder-2025-08-26-dotfig
+	url = https://github.com/mmore500/oee4.git
+	branch = binder-2025-08-26-dotfig.ipynb
+	shallow = true
