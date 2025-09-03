@@ -1,0 +1,6 @@
+\pragmaonce
+
+% adapted from https://tex.stackexchange.com/a/8620
+\def\replacesinglequote#1{%
+  \IfSubStr{#1}{'}{%
+    \StrSubstitute{#1}{'}{\,}}{#1}}
