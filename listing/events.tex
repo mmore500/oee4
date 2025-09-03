@@ -17,13 +17,13 @@ This event is always dispatched.
 
 \subsection{Is Child Cell Of}
 
-Is this cell a daughter cell of the cardinal's neighbor?
-Triggered if this cell was spawned from the cardinal's neighbor and its cell is younger than the neighbor.
+Is this cell a daughter cell of the cardinal processor's neighbor?
+Triggered if this cell was spawned from the cardinal processor's neighbor and its cell is younger than the neighbor.
 
 \subsection{Is Child Group Of (0 thru $L-1$)}
 
-Is this cell's kin group a daughter group of the cardinal's neighbor cell's kin group?
-Triggered if a cell's kin group ancestor ID(s) are equal to the cardinal's neighbor's current kin group ID(s).
+Is this cell's kin group a daughter group of the cardinal processor's neighbor cell's kin group?
+Triggered if a cell's kin group ancestor ID(s) are equal to the cardinal processor's neighbor's current kin group ID(s).
 
 \subsection{Is Newborn}
 
@@ -32,18 +32,18 @@ Triggered if cell age is less than frequency at which events are launched.
 
 \subsection{Is Parent Cell Of}
 
-Is this cardinal's cell the parent cell of the cardinal's neighbor?
+Is this cardinal processor's cell the parent cell of the cardinal processor's neighbor?
 Triggered if neighbor was spawned from cell and cell age is greater than neighbor age.
 
 \subsection{Kin Group Match (0 thru $L-1$)}
 
-Is this cell part of the same kin group as the cardinal's neighbor?
-Triggered if a cell's kin group ID(s) are equal to the cardinal's neighbors' current kin group ID(s).
+Is this cell part of the same kin group as the cardinal processor's neighbor?
+Triggered if a cell's kin group ID(s) are equal to the cardinal processor's neighbors' current kin group ID(s).
 
 \subsection{Kin Group Mismatch (0 thru $L-1$)}
 
-Is this cell part of a different kin group from the cardinal's neighbor cell?
-Triggered if a cell's kin group ID(s) are not equal to the cardinal's neighbors' current kin group ID(s).
+Is this cell part of a different kin group from the cardinal processor's neighbor cell?
+Triggered if a cell's kin group ID(s) are not equal to the cardinal processor's neighbors' current kin group ID(s).
 
 \subsection{Kin Group will Expire (0 thru $L-1$)}
 
@@ -56,32 +56,32 @@ Triggered if kin group age is less than or equal to than 80\% of the kin group e
 
 \subsection{Neighbor Apoptosis}
 
-Triggered if the most recent cell death in the cardinal's neighbor tile was apoptosis.
+Triggered if the most recent cell death in the cardinal processor's neighbor tile was apoptosis.
 
 \subsection{Neighbor Fragmented}
 
-Triggered if the most recent cell death in the cardinal's neighbor tile was fragmentation.
+Triggered if the most recent cell death in the cardinal processor's neighbor tile was fragmentation.
 
 \subsection{Neighbor Is Alive}
 
-Triggered if a cardinal's neighbor tile is occupied by a live cell.
+Triggered if a cardinal processor's neighbor tile is occupied by a live cell.
 
 \subsection{Neighbor Is Newborn}
 
-Triggered once for each time a newborn spawns into the cardinal's neighboring tile.
-Triggered if the cardinal's neighbor's age is less than the frequency at which events are launched.
+Triggered once for each time a newborn spawns into the cardinal processor's neighboring tile.
+Triggered if the cardinal processor's neighbor's age is less than the frequency at which events are launched.
 
 \subsection{Neighbor Is Not Alive}
 
-Triggered if the cardinal's neighboring tile is not occupied.
+Triggered if the cardinal processor's neighboring tile is not occupied.
 
 \subsection{Neighbor Kin Group Will Expire (0 thru $L-1$)}
 
-Triggered if the cardinal's cell neighbor's kin group age is less than or equal to 80\% of the kin group expiration duration.
+Triggered if the cardinal processor's cell neighbor's kin group age is less than or equal to 80\% of the kin group expiration duration.
 
 \subsection{Neighbor Optimum Quorum Exceeded}
 
-Triggered if the cardinal's cell neighbor's number of known quorum bits exceed the target quorum count.
+Triggered if the cardinal processor's cell neighbor's number of known quorum bits exceed the target quorum count.
 
 \subsection{Optimum Quorum Exceeded (0 thru $L-1$)}
 
@@ -99,26 +99,26 @@ That is, if the last cause of death on the current tile was fragmentation.
 \subsection{Phylogenetic Root Match}
 
 Does this cell descend from the same originally-generated genome as its neighbor?
-Triggered if a cardinal's cell's root ID is equal to that cardinal's neighbor cell's root ID.
+Triggered if a cardinal processor's cell's root ID is equal to that cardinal processor's neighbor cell's root ID.
 
 \subsection{Phylogenetic Root Mismatch}
 
 Does this cell and its neighbor descend from a different originally-generated genomes?
-Triggered if a cardinal's cell's root ID is not equal to that cardinal's neighbor cell's Root ID.
+Triggered if a cardinal processor's cell's root ID is not equal to that cardinal processor's neighbor cell's Root ID.
 
 \subsection{Poorer Than Neighbor}
 
 Does this cell have less resource stockpiled than its neighbor?
-Triggered if a cardinal's cell has less resource than that cardinal's neighbor cell.
+Triggered if a cardinal processor's cell has less resource than that cardinal processor's neighbor cell.
 
 \subsection{Received Resource From}
 
-Triggered if a cardinal's cell has received resource from that cardinal's neighbor cell.
+Triggered if a cardinal processor's cell has received resource from that cardinal processor's neighbor cell.
 
 \subsection{Richer Than Neighbor}
 
 Does this cell have more resource stockpiled than its neighbor?
-Triggered if a cardinal's cell has more resource in its stockpile than that cardinal's neighbor cell.
+Triggered if a cardinal processor's cell has more resource in its stockpile than that cardinal processor's neighbor cell.
 
 \subsection{Stockpile Depleted}
 

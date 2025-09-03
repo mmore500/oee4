@@ -393,7 +393,7 @@ To determine the target writable state, interprets the first 32 bits of the inst
 \opdef{1}{1}
 
 If \texttt{reg[arg\_0]} is nonzero, generates a message tagged with the instruction's tag that contains the core's current register state.
-Broadcasts this message to every other cardinal within the cell.
+Broadcasts this message to every other cardinal processors within the cell.
 
 \subsection{Multiply Own State}
 
@@ -431,9 +431,9 @@ Sends this message to the neighboring cell.
 \opdef{5}{1}
 
 If \texttt{reg[arg\_0]} is nonzero, generates a message tagged with the instruction's tag that contains the core's current register state.
-Sends this message to a target cardinal within the cell.
+Sends this message to a target cardinal processor within the cell.
 
-To determine the target cardinal, sums instruction arguments then calculates the remainder of integer division by the number of co-cardinals.
+To determine the target cardinal processor, sums instruction arguments then calculates the remainder of integer division by the number of other same-cell cardinal processors.
 
 \subsection{Write Own State If}
 
