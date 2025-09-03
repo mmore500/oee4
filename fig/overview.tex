@@ -7,7 +7,7 @@
 \footnotesize
 Population comprises a toroidal grid of cells occupied by replicating computer programs.
 In the surveyed case study, grid size was 14,400 cells ($120\times120$).
-To accelerate the evolutionary depth feasible in experiments, population subgrids are evaluated across available hardware threads and processes --- in this work, 4 threads (panel $a$).
+To accelerate the feasible evolutionary depth of experiments, population subgrids are evaluated across available hardware threads and processes --- in this work, 4 threads (panel $a$).
 At subgrid boundaries where inter-cell interactions reach between different threads or processes, communication is handled on a best-effort basis via the underlying Conduit library.
 On the population grid, cells may form local multicell groups --- shown as colored patches in visualizations (panel $b$).
 Cells replicate by copying program content into a chosen neighbor cell, and may choose to grow their existing multicell group ($c$) --- or splinter their offspring off to found a new group ($d$).
