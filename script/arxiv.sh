@@ -9,6 +9,7 @@ for binderpath in submodule/*; do
 done
 
 find . -type f -name '*.jpg' -exec rm -f {} +
+find . -type d -name dishtiny -exec rm -rf {} +
 find . -type d -name hstrat -exec rm -rf {} +
 find . -type d -name conduit -exec rm -rf {} +
 find . -type d -name docs -exec rm -rf {} +
