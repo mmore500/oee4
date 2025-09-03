@@ -1,6 +1,6 @@
 \section{Virtual CPU} \label{sec:virtual_cpu}
 
-Each cardinal processor hosts a signalgp-lite virtual CPU.
+Each cardinal processor hosts a signalgp-lite virtual CPU \citep{lalejini2018evolving,moreno2021signalgp}.
 Each CPU can host up to 16 active virtual cores.
 If additional cores are required after all 16 available are in use, the oldest active core is killed and replaced.
 Each virtual core contains 8 virtual \texttt{float} registers.
