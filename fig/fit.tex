@@ -5,11 +5,7 @@
 ~
 \end{minipage}
 ~
-\begin{minipage}[b]{0.078\linewidth}
-    ~
-    % \includegraphics[width=0.8\linewidth]{{img/fit-key.pdf}}
-\end{minipage}%
-\begin{minipage}[b]{0.624\linewidth}
+\begin{minipage}[b]{0.8\linewidth}
         \includegraphics[width=\linewidth]{{img/fit-key.pdf}}
 \end{minipage}
 
@@ -43,13 +39,14 @@
 \textbf{Adaptation assay design.}
 \footnotesize
 Due to the implicit nature of fitness in our study system, adaptation was primarily assessed on a relative basis, using competition experiments, rather than on an absolute basis.
-Panel \ref{fig:fit-nobg} overviews competition experiments design.
-For these experiments, population cells are seeded with genomes from two strains, in equal proportion,
+Panel \ref{fig:fit-nobg} overviews competition experiment design.
+For these experiments, population cells are seeded with genomes from two strains in equal proportion,
 After a fixed simulation duration, strain abundances are assessed.
-In stint-to-stint adaptation assays, outcome significance was tested according to ``winning'' (higher abundance) strain consistency across replicates.
-For genotype/phenotype complexity screens, which required assessment of numerous knockout variants, significance was instead assessed by comparing the end-state abundance ratio against a sampled distribution of outcomes from control WT vs. WT competition replicates.
+In stint-to-stint adaptation assays, ``winning'' (higher abundance) strain consistency across replicates determined outcome significance.
+For genotype/phenotype complexity screens --- which required assessment of numerous knockout variants --- significance was instead assessed by comparing end-state abundance ratio against a sampled distribution of outcomes from control WT vs. WT competition replicates.
 In some cases, to assess context-sensitivity of fitness, competitions were performed under ``biotic background'' conditions (panel \ref{fig:fit-bg}).
 For these competition trials, half the initial population was seeded with a background strain.
+Although the background strain participated fully during competition runtime, it was excluded from end-state abundance ratio calculations --- which considered only the test and baseline strains.
 }
 \label{fig:fit}
 
