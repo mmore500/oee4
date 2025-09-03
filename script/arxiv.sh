@@ -3,7 +3,7 @@
 set -e
 shopt -s globstar
 
-for binderpath in submodule*; do
+for binderpath in submodule/*; do
     echo "binderpath ${binderpath}"
     find "${binderpath}" -type f ! \( -name "*.pdf" -o -name "*.jpg" -o -name "*.tex" -o -name "*.bib" \) -exec rm -f {} +
 done
