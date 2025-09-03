@@ -53,6 +53,8 @@ Full details on the instruction set and event library used, as well as simulatio
 \subsection{Evolution}
 \label{sec:evolution;ch:measuring-cna}
 
+\input{fig/stints.tex}
+
 We performed evolution in three-hour windows for compatibility with our compute cluster's scheduling system.
 We refer to these windows as ``stints.''
 We randomly generated 100-instruction genomes at the outset of the initial stint, stint 0.
@@ -213,6 +215,7 @@ This was sufficient to simulate about 8,000 updates at stint 0 and 2,000 updates
 We determined that a gain of fitness had occurred if the current stint specimen constituted a population majority at the conclusion of more than 17 of those competitions, corresponding to a significance level of $p < 0.005$ under the two-tailed binomial null hypothesis.
 Likewise, we deemed winning fewer than 3 competitions a significant fitness loss.
 
+\input{fig/fit.tex}
 
 \subsection{Implementation}
 
