@@ -3,9 +3,9 @@
 set -e
 shopt -s globstar
 
-for binderpath in binder*; do
+for binderpath in submodule*; do
     echo "binderpath ${binderpath}"
-    find "${binderpath}" -type f ! \( -name "*.pdf" -o -name "*.tex" -o -name "*.bib" \) -exec rm -f {} +
+    find "${binderpath}" -type f ! \( -name "*.pdf" -o -name "*.jpg" -o -name "*.tex" -o -name "*.bib" \) -exec rm -f {} +
 done
 
 find . -type f -name '*.jpg' -exec rm -f {} +
@@ -15,7 +15,7 @@ find . -type d -name conduit -exec rm -rf {} +
 find . -type d -name docs -exec rm -rf {} +
 find . -type d -empty -delete
 
-find ./binder -type f -name "*.pdf" -print | while read -r f; do
+find ./submodule -type f -name "*.pdf" -print | while read -r f; do
     base=$(basename "$f" .pdf)   # strip .pdf extension
     if ! grep -qF "$base" ./**/*.tex 2>/dev/null; then
         echo rm "$f"
