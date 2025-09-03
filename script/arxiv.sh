@@ -28,7 +28,7 @@ make cleaner
 make
 make clean
 mv bibl.bib main.bib
-cp bu1.bbl main.bbl
-cp bu1.blg main.blg
+cp oee4-*.bbl main.bbl
+cp oee4-*.blg main.blg
 rm draft.tex
 tar -czvf arxiv.tar.gz *
