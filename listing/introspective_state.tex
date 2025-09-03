@@ -10,11 +10,11 @@
 
 \section{Introspective State}
 
-Introspective state refers to the collection of simulation-generated sensor values that evolving programs running within each cardinal can access via read-only operations.
-Each cardinal has an independent copy of each piece of introspective state state.
-(However, some introspective states representing cell state are set to identical values across cardinals within the same cell.)
+Introspective state refers to the collection of simulation-generated sensor values that evolving programs running within each cardinal processor can access via read-only operations.
+Each cardinal processor has an independent copy of each piece of introspective state state.
+(However, some introspective states representing cell state are set to identical values across cardinal processors within the same cell.)
 
-Each cardinal's introspective state regularly copied and dispatched to that cardinal's neighbor cell, where it serves as read-only extrospective state.
+Each cardinal processor's introspective state regularly copied and dispatched to that cardinal processor's neighbor cell, where it serves as read-only extrospective state.
 
 Introspective state is organized into two categories:
 \begin{enumerate}
@@ -31,7 +31,7 @@ See \url{https://github.com/mmore500/dishtiny/tree/prq49/include/dish2/periphera
 
 \instrospectivestatedef{\texttt{char} (w/ boolean semantics)}{interpreted}
 
-Did this cell spawn from this cardinal's neighbor cell?
+Did this cell spawn from this cardinal processor's neighbor cell?
 
 \subsection{Is Child Group Of (0 thru $L-1$)}
 
@@ -49,15 +49,15 @@ Is this cell's age less than \texttt{EVENT\_LAUNCHING\_SERVICE\_FREQUENCY}?
 
 \instrospectivestatedef{\texttt{char} (w/ boolean semantics)}{interpreted}
 
-Did this cardinal's neighbor cell spawn from this cell?
+Did this cardinal processor's neighbor cell spawn from this cell?
 That is, was neighbor was spawned from this cell and is this cell older than neighbor?
 
 \subsection{Is Parent Group Of}
 
 \instrospectivestatedef{\texttt{char} (w/ boolean semantics)}{interpreted}
 
-Did this cell's kin group descend directly from the cardinal's neighbor cell's kin group?
-That is, is cell's kin group ancestor ID(s) equal to the cardinal's neighbor's current kin group ID(s).
+Did this cell's kin group descend directly from the cardinal processor's neighbor cell's kin group?
+That is, is cell's kin group ancestor ID(s) equal to the cardinal processor's neighbor's current kin group ID(s).
 
 \subsection{Kin Group Match (0 thru $L-1$)}
 
@@ -79,7 +79,7 @@ Was the neighbor tile's most recent death apoptosis?
 
 \subsection{Neighbor Fragmented}
 
-Was group fragmentation the most recent cause of death in the cardinal's neighbor cell?
+Was group fragmentation the most recent cause of death in the cardinal processor's neighbor cell?
 
 \instrospectivestatedef{\texttt{char} (w/ boolean semantics)}{interpreted}
 
@@ -99,7 +99,7 @@ Is this cell's kin group age greater than 80\% of the this level's \texttt{GROUP
 
 \instrospectivestatedef{\texttt{char} (w/ boolean semantics)}{interpreted}
 
-Is this cardinal's neighbor cell's kin group quorum count more than the simulation-defined target count \texttt{OPTIMAL\_QUORUM\_COUNT}?
+Is this cardinal processor's neighbor cell's kin group quorum count more than the simulation-defined target count \texttt{OPTIMAL\_QUORUM\_COUNT}?
 
 \subsection{Optimum Quorum Exceeded (0 thru $L-1$)}
 
@@ -118,14 +118,14 @@ That is, was the last cause of death on the current tile was fragmentation?
 
 \instrospectivestatedef{\texttt{char} (w/ boolean semantics)}{interpreted}
 
-Does this cell's root ID equal the cardinal's cell neighbor's root ID?
+Does this cell's root ID equal the cardinal processor's cell neighbor's root ID?
 (This means they originate from the same seed ancestor.)
 
 \subsection{Richer Than Neighbor}
 
 \instrospectivestatedef{\texttt{char} (w/ boolean semantics)}{interpreted}
 
-Does this cell's stockpile more resource than the cardinal's cell neighbor?
+Does this cell's stockpile more resource than the cardinal processor's cell neighbor?
 
 \subsection{Stockpile Depleted}
 
@@ -155,14 +155,14 @@ Updates elapsed since start of simulation.
 
 \instrospectivestatedef{\texttt{size\_t}}{raw}
 
-Counter tracking incoming messages from cardinal's neighbor cell.
+Counter tracking incoming messages from cardinal processor's neighbor cell.
 Intermittently reset to zero.
 
 \subsection{Incoming Intra Message Counter}
 
 \instrospectivestatedef{\texttt{size\_t}}{raw}
 
-Counter of incoming messages from other cardinals within the cell.
+Counter of incoming messages from other cardinal processors within the cell.
 Intermittently reset to zero.
 
 \subsection{Is Alive}
@@ -216,7 +216,7 @@ What is this cell's phylogenetic root ID?
 
 \instrospectivestatedef{\texttt{float}}{raw}
 
-How much resource is being received from the cardinal's cell neighbor?
+How much resource is being received from the cardinal processor's cell neighbor?
 
 \subsection{Resource Stockpile}
 
@@ -228,11 +228,11 @@ Amount of resource this cell has.
 
 \instrospectivestatedef{\texttt{float}}{raw}
 
-Number of offspring generated from this cell and sent to the cardinal's neighbor tile.
+Number of offspring generated from this cell and sent to the cardinal processor's neighbor tile.
 Includes offspring that do not successfully take into the neighbor tile or have not survived.
 
 \subsection{Spawned From}
 
 \instrospectivestatedef{\texttt{char} (w/ boolean semantics)}{raw}
 
-Did this cell spawn from this cardinal's neighbor cell?
+Did this cell spawn from this cardinal processor's neighbor cell?
