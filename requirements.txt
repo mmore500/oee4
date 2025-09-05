@@ -53,10 +53,12 @@ certifi==2025.8.3
     # via requests
 charset-normalizer==3.4.3
     # via requests
-click==8.2.1
+click==8.1.8
     # via
     #   black
     #   keyname
+cliffs-delta==1.0.0
+    # via -r requirements.in
 colorama==0.4.3
     # via awscli
 coverxygen==1.5.0
@@ -168,7 +170,7 @@ keyname==0.6.0
     #   -r requirements.in
     #   nbmetalog
     #   teeplot
-kiwisolver==1.4.9
+kiwisolver==1.4.7
     # via matplotlib
 lxml==6.0.1
     # via exhale
@@ -194,7 +196,7 @@ mdit-py-plugins==0.2.6
     #   myst-parser
 mistune==0.8.4
     # via nbconvert
-more-itertools==10.7.0
+more-itertools==10.8.0
     # via keyname
 multidict==6.6.4
     # via
@@ -411,8 +413,10 @@ tweepy==3.10.0
     # via -r requirements.in
 typing-extensions==4.15.0
     # via
+    #   aioitertools
     #   aiosignal
     #   beautifulsoup4
+    #   black
     #   multidict
     #   teeplot
 urllib3==1.25.11
