@@ -31,3 +31,8 @@
 	url = https://github.com/mmore500/oee4.git
 	branch = binder-2025-09-05-interpolation_complexity.ipynb
 	shallow = true
+[submodule "binder-2025-09-05-genome-expansion-fitness"]
+	path = binder-2025-09-05-genome-expansion-fitness
+	url = https://github.com/mmore500/oee4.git
+	branch = binder-2025-09-05-genome-expansion-fitness.ipynb
+	shallow = true
