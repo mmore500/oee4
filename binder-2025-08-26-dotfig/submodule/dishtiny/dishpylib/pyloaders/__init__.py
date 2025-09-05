@@ -1,2 +1,0 @@
-from .genome_local_autoload import genome_local_autoload
-from .genome_s3_autoload import genome_s3_autoload
