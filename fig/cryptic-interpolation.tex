@@ -1,0 +1,11 @@
+\foreach \s in {0,20,40,60,80}{% add 100 here if you want a 6th figure
+\begin{figure*}
+\centering
+\includegraphics[width=0.33\linewidth]{binder-2025-09-05-interpolation_complexity/binder/teeplots/2025-09-05-interpolation_complexity/bucket=prq49+endeavor=16+hue=relative-fitness+stint=\s+viz=lineplot-scatterplot+x=genome-nop-interpolation-num-nopped+y=fitness-differential+ext=.pdf}
+\includegraphics[width=0.33\linewidth]{binder-2025-09-05-interpolation_complexity/binder/teeplots/2025-09-05-interpolation_complexity/bucket=prq49+endeavor=16+stint=\s+viz=regplot+x=genome-nop-interpolation-num-nopped+y=fitness-differential+ext=.pdf}
+\includegraphics[width=0.33\linewidth]{binder-2025-09-05-interpolation_complexity/binder/teeplots/2025-09-05-interpolation_complexity/bucket=prq49+endeavor=16+stint=\s+viz=regplot+x=genome-nop-interpolation-num-nopped+y=is-deleterious+ext=.pdf}
+
+\caption{\textbf{Cryptic Sequence Complexity Interpolation Detail for Stint \s.}}
+\label{fig:cryptic-interpolation-stint-\s}
+\end{figure*}
+}
