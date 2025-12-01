@@ -40,6 +40,7 @@ teeplot==1.4.2
 uv==0.3.5
 watermark==2.4.3
 cliffs-delta==1.0.0
+piecewise_regression==1.5.0
 
 # docs
 sphinx==3.1.2

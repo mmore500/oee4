@@ -6,16 +6,14 @@ aiobotocore==1.1.2
     #   s3fs
 aiohappyeyeballs==2.6.1
     # via aiohttp
-aiohttp==3.12.15
+aiohttp==3.13.2
     # via aiobotocore
-aioitertools==0.12.0
+aioitertools==0.13.0
     # via aiobotocore
 aiosignal==1.4.0
     # via aiohttp
 alabaster==0.7.16
     # via sphinx
-async-timeout==5.0.1
-    # via aiohttp
 attrs==20.3.0
     # via
     #   aiohttp
@@ -27,11 +25,11 @@ babel==2.17.0
     # via sphinx
 backcall==0.2.0
     # via ipython
-beautifulsoup4==4.13.5
+beautifulsoup4==4.14.3
     # via bs4
 black==22.10.0
     # via -r requirements.in
-bleach==6.2.0
+bleach==6.3.0
     # via nbconvert
 boto3==1.14.44
     # via
@@ -49,11 +47,11 @@ breathe==4.19.2
     #   exhale
 bs4==0.0.2
     # via exhale
-certifi==2025.8.3
+certifi==2025.11.12
     # via requests
-charset-normalizer==3.4.3
+charset-normalizer==3.4.4
     # via requests
-click==8.1.8
+click==8.3.1
     # via
     #   black
     #   keyname
@@ -92,11 +90,11 @@ exhale==0.2.3
     # via -r requirements.in
 fastjsonschema==2.21.2
     # via nbformat
-fonttools==4.59.2
+fonttools==4.61.0
     # via matplotlib
 frozendict==1.2
     # via -r requirements.in
-frozenlist==1.7.0
+frozenlist==1.8.0
     # via
     #   aiohttp
     #   aiosignal
@@ -170,9 +168,9 @@ keyname==0.6.0
     #   -r requirements.in
     #   nbmetalog
     #   teeplot
-kiwisolver==1.4.7
+kiwisolver==1.4.9
     # via matplotlib
-lxml==6.0.1
+lxml==6.0.2
     # via exhale
 markdown-it-py==0.6.2
     # via
@@ -188,6 +186,7 @@ markupsafe==2.0.1
 matplotlib==3.5.3
     # via
     #   -r requirements.in
+    #   piecewise-regression
     #   seaborn
     #   teeplot
 mdit-py-plugins==0.2.6
@@ -198,7 +197,7 @@ mistune==0.8.4
     # via nbconvert
 more-itertools==10.8.0
     # via keyname
-multidict==6.6.4
+multidict==6.7.0
     # via
     #   aiohttp
     #   yarl
@@ -228,6 +227,7 @@ numpy==1.21.6
     #   opencv-python
     #   pandas
     #   patsy
+    #   piecewise-regression
     #   scipy
     #   seaborn
     #   statsmodels
@@ -255,21 +255,23 @@ parso==0.8.5
     # via jedi
 pathspec==0.12.1
     # via black
-patsy==1.0.1
+patsy==1.0.2
     # via statsmodels
 pexpect==4.9.0
     # via ipython
 pickleshare==0.7.5
     # via ipython
+piecewise-regression==1.5.0
+    # via -r requirements.in
 pillow==7.2.0
     # via
     #   image-slicer
     #   matplotlib
-platformdirs==4.4.0
+platformdirs==4.5.0
     # via black
 prompt-toolkit==3.0.52
     # via ipython
-propcache==0.3.2
+propcache==0.4.1
     # via
     #   aiohttp
     #   yarl
@@ -284,7 +286,7 @@ pygments==2.19.2
     #   ipython
     #   nbconvert
     #   sphinx
-pyparsing==3.2.3
+pyparsing==3.2.5
     # via matplotlib
 pyrsistent==0.20.0
     # via jsonschema
@@ -308,7 +310,7 @@ pyyaml==5.3.1
     #   j2cli
     #   myst-parser
     #   nbmetalog
-pyzmq==27.0.2
+pyzmq==27.1.0
     # via jupyter-client
 requests==2.32.5
     # via
@@ -333,7 +335,7 @@ s3transfer==0.3.7
 scipy==1.11.4
     # via
     #   -r requirements.in
-    #   statsmodels
+    #   piecewise-regression
 seaborn==0.13.2
     # via -r requirements.in
 setuptools==80.9.0
@@ -381,7 +383,9 @@ sphinxcontrib-serializinghtml==2.0.0
 sphinxemoji==0.1.8
     # via -r requirements.in
 statsmodels==0.13.5
-    # via -r requirements.in
+    # via
+    #   -r requirements.in
+    #   piecewise-regression
 teeplot==1.4.2
     # via -r requirements.in
 testpath==0.6.0
@@ -390,8 +394,6 @@ text-unidecode==1.3
     # via python-slugify
 toml==0.10.1
     # via -r requirements.in
-tomli==2.2.1
-    # via black
 tornado==6.5.2
     # via
     #   ipykernel
@@ -413,11 +415,7 @@ tweepy==3.10.0
     # via -r requirements.in
 typing-extensions==4.15.0
     # via
-    #   aioitertools
-    #   aiosignal
     #   beautifulsoup4
-    #   black
-    #   multidict
     #   teeplot
 urllib3==1.25.11
     # via
@@ -427,13 +425,13 @@ uv==0.3.5
     # via -r requirements.in
 watermark==2.4.3
     # via -r requirements.in
-wcwidth==0.2.13
+wcwidth==0.2.14
     # via prompt-toolkit
 webencodings==0.5.1
     # via bleach
-wrapt==1.17.3
+wrapt==2.0.1
     # via aiobotocore
-yarl==1.20.1
+yarl==1.22.0
     # via aiohttp
 zipp==3.23.0
     # via importlib-metadata
