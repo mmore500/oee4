@@ -36,3 +36,38 @@
 	url = https://github.com/mmore500/oee4.git
 	branch = binder-2025-09-05-genome-expansion-fitness.ipynb
 	shallow = true
+[submodule "binder-2025-11-30-genome-complexity-regression.ipynb"]
+	path = binder-2025-11-30-genome-complexity-regression.ipynb
+	url = https://github.com/mmore500/oee4.git
+	branch = binder-2025-11-30-genome-complexity-regression.ipynb
+	shallow = true
+[submodule "binder-bucket=prq49--a=all_stints_all_series_profiles+endeavor=16--x=complexity-fitness.ipynb"]
+	path = binder-bucket=prq49--a=all_stints_all_series_profiles+endeavor=16--x=complexity-fitness.ipynb
+	url = https://github.com/mmore500/oee4.git
+	branch = binder-bucket=prq49--a=all_stints_all_series_profiles+endeavor=16--x=complexity-fitness.ipynb
+	shallow = true
+[submodule "binder-2025-11-30-external-selfbb-truebb.ipynb"]
+	path = binder-2025-11-30-external-selfbb-truebb.ipynb
+	url = https://github.com/mmore500/oee4.git
+	branch = binder-2025-11-30-external-selfbb-truebb.ipynb
+	shallow = true
+[submodule "binder-2025-11-26-replaysmutagenized50.ipynb"]
+	path = binder-2025-11-26-replaysmutagenized50.ipynb
+	url = https://github.com/mmore500/oee4.git
+	branch = binder-2025-11-26-replaysmutagenized50.ipynb
+	shallow = true
+[submodule "binder-2025-11-25-external-selfbb-timeshift.ipynb"]
+	path = binder-2025-11-25-external-selfbb-timeshift.ipynb
+	url = https://github.com/mmore500/oee4.git
+	branch = binder-2025-11-25-external-selfbb-timeshift.ipynb
+	shallow = true
+[submodule "binder-2025-11-23-replaysmutagenized08.ipynb"]
+	path = binder-2025-11-23-replaysmutagenized08.ipynb
+	url = https://github.com/mmore500/oee4.git
+	branch = binder-2025-11-23-replaysmutagenized08.ipynb
+	shallow = true
+[submodule "binder-2025-09-13-interspersed-nopouts.ipynb"]
+	path = binder-2025-09-13-interspersed-nopouts.ipynb
+	url = https://github.com/mmore500/oee4.git
+	branch = binder-2025-09-13-interspersed-nopouts.ipynb
+	shallow = true
