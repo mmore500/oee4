@@ -77,7 +77,7 @@
 	branch = binder-bucket=prq49--a=all_stints_all_series_profiles+endeavor=16--fitness_complexity.ipynb
 	shallow = true
 [submodule "binder-bucket\\=prq49--a\\=all_stints_all_series_profiles+endeavor\\=16--interface_complexity.ipynb"]
-	path = binder-bucket\\=prq49--a\\=all_stints_all_series_profiles+endeavor\\=16--interface_complexity.ipynb
+	path = binder-bucket=prq49--a=all_stints_all_series_profiles+endeavor=16--interface_complexity.ipynb
 	url = https://github.com/mmore500/oee4.git
 	branch = binder-bucket\\=prq49--a\\=all_stints_all_series_profiles+endeavor\\=16--interface_complexity.ipynb
 	shallow = true
