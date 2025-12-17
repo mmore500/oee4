@@ -109,3 +109,7 @@
 	path = binder-2025-12-09-bb-complexity.ipynb
 	url = https://github.com/mmore500/oee4.git
 	branch = binder-2025-12-09-bb-complexity.ipynb
+[submodule "binder-2025-12-04-cryptic-complexity.ipynb"]
+	path = binder-2025-12-04-cryptic-complexity.ipynb
+	url = https://github.com/mmore500/oee4.git
+	branch = binder-2025-12-04-cryptic-complexity.ipynb
