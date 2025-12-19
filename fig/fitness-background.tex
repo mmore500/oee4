@@ -1,22 +1,33 @@
 \begin{figure}
 
-\begin{subfigure}{\linewidth}
-\begin{minipage}{0.692\linewidth}
+\begin{minipage}{\linewidth}
+\begin{subfigure}{0.692\linewidth}
 \includegraphics[width=\linewidth, trim=0.8cm 0 0 0, clip]{binder-2025-11-30-external-selfbb-truebb.ipynb/binder/teeplots/2025-11-30-external-selfbb-truebb/hue=kind1+style=kind1+viz=lineplot+x=competition-stint+y=focal-prevalence+ext=.pdf}
-\end{minipage}%
-\begin{minipage}{0.308\linewidth}
-
-\vspace{2.7ex}
-
-\includegraphics[width=\linewidth, trim=1.3cm 0 0 0.1cm, clip]{binder-2025-11-30-external-selfbb-truebb.ipynb/binder/teeplots/2025-11-30-external-selfbb-truebb/hue=kind+inner=quartile+viz=violinplot+x=kind+y=focal-prevalence+ext=.pdf}
-\end{minipage}
 \footnotesize
+\vspace{-4.25ex}
+\caption{stints 0 to 100}
+\label{fig:fitness-background:timeseries}
+\end{subfigure}%
+\begin{subfigure}{0.308\linewidth}
+\includegraphics[width=\linewidth, trim=1.3cm 0 0 0.1cm, clip]{binder-2025-11-30-external-selfbb-truebb.ipynb/binder/teeplots/2025-11-30-external-selfbb-truebb/hue=kind+inner=quartile+viz=violinplot+x=kind+y=focal-prevalence+ext=.pdf}
+\footnotesize
+\vspace{-4.25ex}
+\caption{stints 15 to 100}
+\label{fig:fitness-background:distribution}
 \end{subfigure}
+\end{minipage}
 
 \caption{%
-\textbf{TODO.}
+\textbf{Case study strain develops sustained fitness advantage from self-context.}
 \footnotesize
-TODO.
+Fitness is measured as mean end-state prevalence outcome across ``tournament'' of specimen competition experiments between case study strain and focal strain from other independent evolutionary replicates.
+For background type ``none,'' competition is initialized 50/50 between compared strains (Figure \ref{fig:fit:nobbg}).
+Otherwise, competition is initialized 25/25 between compared strains, with remaining half initialized as a population sample from either (1) the case study strain's co-evolved background strain (``ecological'') or (2) the case study strain itself (Figure \ref{fig:fit:bbg}).
+Fitness measures remain generally similar across background contexts until approximately stint 15, coincident with early observations of morph e (panel \ref{fig:fitness-background:timeseries}, shaded bands as bootstrap 95\% CI).
+From this point onwards, self context affords significantly higher tournament fitness than ecological context (Mann-Whitney $U$ test, $p<10^{-25}$).
+By contrast, ecological context more closely tracks background-free tournament fitness, though exhibiting strong episodic deviations.
+Absent background context, the case study strain's tournament fitness fell below null expectation of 0.5 ($\mu=0.39$; $[0.31,\;0.43]$ boostrap 95\% CI, $n=40$).
+By contrast, in self-context tournament fitness fell above null expectation ($\mu=0.72$; $[0.69,\;0.76]$ bootstrap 95\% CI, $n=40$).
 }
 \label{fig:fitness-background}
 \end{figure}
