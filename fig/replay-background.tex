@@ -23,23 +23,31 @@ TODO.
 \includegraphics[height=1.45in,trim=2.5cm 0 0 0,clip]{binder-2025-11-26-replaysmutagenized50.ipynb/binder/teeplots/2025-11-26-replaysmutagenized50/clip=62+hue=bucket+inner=quart+viz=violinplot+x=bucket+y=is-less-fit+ext=.pdf}
 \end{subfigure}
 
+\vspace{-2ex}
 \begin{subfigure}{0.25\linewidth}
 ~
 \end{subfigure}%
 \begin{subfigure}{0.35\linewidth}
 \footnotesize
 \caption{8 mutation dose}
+\label{fig:replay-background:moderatedose}
 \end{subfigure}%
 \begin{subfigure}{0.35\linewidth}
 \footnotesize
 \caption{50 mutation dose}
+\label{fig:replay-background:highdose}
 \end{subfigure}
 
 \caption{%
-\textbf{TODO.}
+\textbf{Self context selects for genetic complexity maintenance in case study strain.}
 \footnotesize
-TODO.
-Supplementary Figure \ref{fig:replay-background-early}.
+To identify the role of biotic context on maintenance of evolved complexity in the case study strain, we performed short one-stint replay trials on strain populations from stints 33-100 ($n=67$).
+Replays were conducted in either ecological context (comprising contemporary population from the co-evolved ``background'' strain) or self context (comprising the case study strain's own contemporary population), with endpoint genetic complexity measured via single-site knockout fitness assays (panel \ref{fig:replay-background:design}).
+To enhance standing variation and weaken inherent self-context effects, seeded foreground genomes were subjected to moderate mutagenization, dosed to maintain a minority of genomes functionally intact.
+At this dose level, replays in self-context maintained significantly higher genetic complexity than ecological context (Mann-Whitney $U$ test, panel \ref{fig:replay-background:moderatedose}).
+As a control, this effect did not manifest under stronger mutagenization expected to substantially degrade all seeded genomes (Mann-Whitney $U$ test, panel \ref{fig:replay-background:highdose}).
+In earlier timepoint replays, self-context exerted no effect on genetic complexity at stints 1-24, and only a marginal effect at stints 25-34 (Supplementary Figure \ref{fig:replay-background-early}).
 }
+\label{fig:replay-background}
 
 \end{figure}
