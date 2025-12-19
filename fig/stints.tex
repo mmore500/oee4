@@ -2,15 +2,15 @@
 \begin{figure}
 \includegraphics[width=\linewidth]{{img/stints.pdf}}
 \caption{%
-\textbf{Evolutionary regimen.}
+\textbf{Evolutionary replicate design.}
 \footnotesize
-Experiment was initialized with a founder population of randomly generated genomes.
+Experiment was initialized with 40 founder populations of randomly generated genomes.
 Among founder lineages, an arbitrary clade was designated as the ``focal strain'' subject of case study.
 To ensure genomes maintained viability as simulation seeds (e.g., for competition and monoculture trials) and provide checkpoints in the case of cluster downtime, population was subjected to serial passage between at 3-hour intervals --- referred to as ``stints.''
 Between stints, a whole-population snapshot of genome content was recorded and a sample genome was collected from the focal strain (``focal specimen'').
 To continue evolution in the following stint, a fresh simulation instance was initialized by shuffled injection of snapshot genomes.
-Note that, due to early extinctions, focal designation switched to a new strain at stint 2, which was maintained onwards.
-A diversity-maintenance procedure was used to curtail growth of any founder lineage beyond population majority, hence ensuring long-term coexistence of at least one independent ``background'' strain.
+Note that, due to early extinctions, focal designation switched to a new strain at stint 2 in case study replicate, which was maintained onwards.
+A reosource-balancing diversity-maintenance procedure was used to curtail growth of any founder lineage beyond population majority, hence ensuring long-term coexistence of at least one independent ``background'' strain as ecological context.
 }
 \label{fig:stints}
 \end{figure}
