@@ -4,13 +4,15 @@
 \centering
 \includegraphics[width=\linewidth,trim=0 0.2cm 0 0,clip]{binder-bucket=prq49--a=all_stints_all_series_profiles+endeavor=16--fitness_complexity.ipynb/binder/teeplots/bucket=prq49--a=all_stints_all_series_profiles+endeavor=16--fitness_complexity/hue=series+viz=lineplot+what=16005+x=stint+y=flagged-advantageous-sites+ext=.pdf}
 \footnotesize
-\caption{TODO}
+\caption{case study genotype complexity (blue) versus other replicates}
+\label{fig:16005-timelapse:genotype-complexity}
 \end{subfigure}%
 \begin{subfigure}{0.5\linewidth}
 \centering
 \includegraphics[width=\linewidth,trim=0 0.2cm 0 0,clip]{binder-bucket=prq49--a=all_stints_all_series_profiles+endeavor=16--interface_complexity.ipynb/binder/teeplots/bucket=prq49--a=all_stints_all_series_profiles+endeavor=16--interface_complexity/hue=series+viz=lineplot+what=16005+x=stint+y=cardinal-interface-complexity+ext=.pdf}
 \footnotesize
-\caption{TODO}
+\caption{case study phenotype complexity (blue) versus other replicates}
+\label{fig:16005-timelapse:phenotype-complexity}
 \end{subfigure}
 
 \vspace{1ex}
@@ -19,36 +21,48 @@
 \centering
 \includegraphics[width=0.9\linewidth,trim=4cm 4cm 4cm 4cm,clip]{img/a=kin-group-id+idx=0+proc=0+series=16005+stint=48+thread=0+update=64-45056_64/frame_0001.png}%
 \caption{update 64}
+\label{fig:16005-timelapse:update64}
 \end{subfigure}%
 \begin{subfigure}{0.2\linewidth}
 \centering
 \includegraphics[width=0.9\linewidth,trim=4cm 4cm 4cm 4cm,clip]{img/a=kin-group-id+idx=0+proc=0+series=16005+stint=48+thread=0+update=64-45056_64/frame_0004.png}%
 \footnotesize
 \caption{update 256}
+\label{fig:16005-timelapse:update256}
 \end{subfigure}%
 \begin{subfigure}{0.2\linewidth}
 \centering
 \includegraphics[width=0.9\linewidth,trim=4cm 4cm 4cm 4cm,clip]{img/a=kin-group-id+idx=0+proc=0+series=16005+stint=48+thread=0+update=64-45056_64/frame_0013.png}%
 \footnotesize
 \caption{update 832}
+\label{fig:16005-timelapse:update832}
 \end{subfigure}%
 \begin{subfigure}{0.2\linewidth}
 \centering
 \includegraphics[width=0.9\linewidth,trim=4cm 4cm 4cm 4cm,clip]{img/a=kin-group-id+idx=0+proc=0+series=16005+stint=48+thread=0+update=64-45056_64/frame_0105.png}%
 \footnotesize
 \caption{update 6,720}
+\label{fig:16005-timelapse:update6720}
 \end{subfigure}%
 \begin{subfigure}{0.2\linewidth}
 \centering
 \includegraphics[width=0.9\linewidth,trim=4cm 4cm 4cm 4cm,clip]{img/a=kin-group-id+idx=0+proc=0+series=16005+stint=48+thread=0+update=64-45056_64/frame_0119.png}%
 \footnotesize
 \caption{update 7,616}
+\label{fig:16005-timelapse:update7616}
 \end{subfigure}
 
 \caption{%
-\textbf{TODO.}
+\textbf{Selection of case study strain.}
 \footnotesize
-TODO. morph e sampled from stint 48 grown in monoculture.
+Focal strain of replicate 16005 sustained higher quantitative measures of complexity compared to other evolutionary replicates (upper panels \cref{fig:16005-timelapse:genotype-complexity,fig:16005-timelapse:phenotype-complexity}) and exhibited distinctive multi-stage asymmetric kin group patterning (lower panels \cref{fig:16005-timelapse:update64,fig:16005-timelapse:update256,fig:16005-timelapse:update832,fig:16005-timelapse:update6720,fig:16005-timelapse:update7616}).
+Genotype complexity is measured as count of genetic program instructions contributing to fitness and phenotype complexity is measured as count of distinct input/output channels contributing to fitness --- both determined via knockout trials.
+Lower panels show example kin group life histories corresponding to the specimen sampled from case study lineage at stint 48, classified as morph ``e'' (Table \ref{tab:morph_descriptions}).
+Time series of cell grid snapshots from specimen monoculture is presented in chronological order left-to-right.
+In snapshots, color hue denotes, and black borders divide, outermost kin groups; color saturation denotes, and white borders divide, innermost kin groups.
+Beginning initially as single-cell kin groups (panel \ref{fig:16005-timelapse:update64}), cells replicate to form horizontally elongated kin groups (panels \cref{fig:16005-timelapse:update256,fig:16005-timelapse:update832}).
+In a later second stage of growths, groups expand along the vertical axis yielding a more squared final morphology (panels \cref{fig:16005-timelapse:update6720,fig:16005-timelapse:update7616}).
+Video animation is available at \url{https://hopth.ru/21/b=prq49+s=16005+t=48+v=video+w=specimen}.
 }
 \label{fig:16005-timelapse}
 
