@@ -94,6 +94,12 @@
 	branch = binder-2025-12-14-external-selfbb-truebb-all.ipynb
 	shallow = true
 
+[submodule "binder-2025-12-20-external-bb-reciporical.ipynb"]
+	path = binder-2025-12-20-external-bb-reciporical.ipynb
+	url = https://github.com/mmore500/oee4.git
+	branch = binder-2025-12-20-external-bb-reciporical.ipynb
+	shallow = true
+
 [submodule "binder-bucket=prq49--a=all_stints_all_series_profiles+endeavor=16--fitness_complexity.ipynb"]
 	path = binder-bucket=prq49--a=all_stints_all_series_profiles+endeavor=16--fitness_complexity.ipynb
 	url = https://github.com/mmore500/oee4.git
