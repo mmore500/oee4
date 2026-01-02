@@ -2,6 +2,14 @@
 
 \includegraphics[width=\linewidth]{{img/graphic-oee4-cpu.pdf}}
 
+\includegraphics[height=2.7cm]{{img/environment-phenotype.pdf}}
+\hfill
+\includegraphics[height=2.7cm]{{img/environment-phenotype-vs.pdf}}
+\hfill
+\includegraphics[height=2.7cm]{{img/environment-phenotype-overlap.pdf}}
+\hfill
+\includegraphics[height=2.7cm]{{img/environment-phenotype-cna.pdf}}
+
 \caption{
 \textbf{Overview of digital multicell model.}
 \footnotesize
@@ -20,6 +28,8 @@ At implementation level, replicator program code is evaluated via an event-drive
 That is, program submodules trigger in response to stimuli --- determined by tag-matching mechanisms (panel $g$).
 In addition to external stimuli (i.e., inter-cellular messages, intra-cellular messages, and simulation events), program code can also trigger arbitrary self-stimuli.
 Virtual hardware supports concurrent interaction handling via independent pseudo-cores, as well as dynamic plasticity through regulation of tag-matching affinities within each cardinal processor.
+In contrast to deme-based digital models where multicell life histories are evaluated in isolation \citep{goldsby2012task, goldsby2014evolutionary} (panel $h$), instantiating multicells within a unified spatial realm with dense biotic interaction introduces potential for rich feedbacks on selection for life history traits as multicells constitute their own environmental context (panel $i$).
+This approach creates opportunity to study the relationship between eco-evolutionary feedbacks and the origins of biotic complexity, novelty, and adaptation (panel $j$).
 }
 \label{fig:overview}
 \end{figure*}
