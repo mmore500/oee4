@@ -7,25 +7,37 @@
 
 \section{Introduction}
 
-% TODO sell why this matters
 Why should complex multicellular organisms exist, when simpler unicellular organisms grow biomass with substantially greater efficiency \citep{lynch2024bioenergetic}?
-One possible explanation points to feedback from organisms' evolved traits in shaping their own environmental context.
-Where new traits become advantaged by such niche construction effects, selection can boost complexity \citep{TODO}.
-% Indeed, current theories of complex multicellularity draw heavily on niche construction \citep{TODO}.
-In the case of complex multicellularity, substantial observational evidence supports the evolutionary significance of niche construction \citep{TODO} --- backed by equally rigorous theoretical developments \citep{TODO}.
-To date, however, experimental approaches have yet to directly test how niche construction affects genetic and phenotypic complexity during early multicell evolution \citep{goldsby2012task,goldsby2014evolutionary,YEASTTOODO,VOLVOXTODO}.
+Though somatic division of labor and economies of scale can produce some synergistic benefit \citep{corning2015synergistic,niklas2014evolutionary}, such adaptation --- being outweighted by structural overheads and accumulated metabolic impedimenta --- cannot explain complex multicellularity.
+Instead, some argue complex multicellularity to primarily reflect neutral processes \citep{TODO}, arising by gradual diffusion from a lower complexity bound \citep{gould1990wonderful}.
+As highlighted by the drift-barrier hypothesis, modest population sizes among multicells should indeed act to accentuate evolutionary drift \citep{lynch2003origins}.
+To compund this stochasticity, epistatic lock-in of arbitrary contingencies may act as a ratchet for complexity accumulation \citep{stoltzfus1999possibility,muozgmez2021constructive}.
 
-Leveraging an artificial life model to study synthetic instances of \textit{de novo} multicell evolution \textit{in silico}, we find direct evidence that spontaneous niche construction effects can stabilize substantially elevated genetic and phenotypic complexity.
+An alternate adaptive explanation, however, may complement the neutralist framing: niche construction, where feedback from organisms' evolved traits shapes their own environmental context \citep{oldingsmee2003niche,odlingsmee1988niche}.
+Where complex traits become advantaged by such niche construction effects, they may be selected for \citep{taylor2004niche,waddington2008paradigm,laland2014niche,creanza2016cultural}.
+In the context of multicellularity, for instance, large body size may be selected as a means to resist predation \citep{niklas2014evolutionary}.
+Indeed, such effects arise in microbial experiments that introduce predator introduction to populations of naive prey \citep{boraas1998phagotrophy,yoshida2003rapid,herron2019denovo}.
+% multicellularity can shape ecological context and be sensitive to it (yeast) \citep{kalambokidis2023multispecies}.
+% Indeed, current theories of complex multicellularity draw heavily on niche construction \citep{TODO}.
+% In the case of complex multicellularity, substantial observational evidence supports the evolutionary significance of niche construction \citep{TODO} --- backed by equally rigorous theoretical developments \citep{TODO}.
+To date, however, experimental approaches have yet to demonstrate \textit{de novo} niche construction during early multicell evolution, and test its connection to evolved complexity \citep{goldsby2012task,goldsby2014evolutionary,bozdag2023denovo,ratcliff2012experimental,herron2016origins,kalambokidis2023multispecies}.
+% Chicken and the egg problem --- temporal component, does it need the ability to continue changing the environment?
+% what can we learn about niche construction that we can't through theory?
+% concrete substantantitative instance --- what is unique about that? (Ratcliff?) --- complexity, novelty, adaptation
+
+Leveraging an artificial life model to study synthetic instances of multicell evolution \textit{in silico}, we find direct evidence that spontaneous niche construction effects can stabilize substantially elevated genetic and phenotypic complexity.
+% ^ and it's surprising that... _____ some tension that we resolve
 Furthermore, we report, with much greater detail than previously possible, how this process unfolds in a concrete instance.
 Critical to the work's tractability is our use of digital organisms as a model system: computer programs that replicate, mutate, compete, and thus evolve --- analogous to genomes within biological cells \citep{pennock2007models}.
-Although using an artificial substrate, we frame our approach to illuminate principles relevant across any evolving system \citep{zaman2014coevolution,adami2000evolution,lenski2003evolutionary}.
-Indeed, beyond evolutionary biology, the topics of niche construction and Evolutionary Transitions in Individuality (ETI) --- such as multicellularity --- have garnered substantial interest among computer scientists and engineers as means to achieve artificial ``open-ended'' creativity analogous to natural evolution \citep{dolson2019constructive,soros2014identifying,huizinga2018emergence,lehman2012beyond,nguyen2015,stanley2019open,packard2019overview,taylor2016open}.
+Although important limitations arise in using an artificial substrate \citep{lynch2025complexity}, we frame our approach to illuminate principles relevant across any evolving system \citep{zaman2014coevolution,adami2000evolution,lenski2003evolutionary}.
+Indeed, among computer scientists, niche construction and Evolutionary Transitions in Individuality (ETI) --- such as multicellularity --- have been highlighted in efforts to engineer artificial ``open-ended'' creativity \citep{dolson2019constructive,soros2014identifying,huizinga2018emergence,lehman2012beyond,nguyen2015,stanley2019open,packard2019overview,taylor2016open}.
 
 The next section describes our experimental system, detailing how model digital organisms replicate, form multicells, and interact with other multicells.
 Following this, we examine complexity, novelty, and adaptation across the genomic and phenotypic history of a case study lineage exhibiting high genetic complexity, high phenotypic complexity, and morphological innovation.
 Further examining this high-complexity lineage, competition assays reveal it evolved to become fit when abundant --- in other words, when serving as its own environmental context.
-Using further competition assays, we next test for feedback between this selection and this niche construction effect.
-Lastly, we use replay experiments along the high-complexity lineage's history to test the causal role of niche construction in maintaining complexity.
+Using further competition assays, we next test whether this niche construction effect substantially drive selection on the high-complexity lineage.
+% unexpected that self-selection doesn't "freeze" evolution but that
+Lastly, we use replay experiments along the high-complexity lineage's history to test the causal role of niche construction in maintaining evolved complexity.
 
 % Further competitions indicate sustained feedback between selection and niche construction, with self-benefit sensitive to time-shift manipulation.
 % To assess whether
