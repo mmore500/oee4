@@ -32,53 +32,6 @@ Within modules, programs consist of a linear instruction sequence.
 Available instructions include floating point arithmetic operations, conditional control flow operations (e.g., looping, branching, etc.), input operations to sense local state, and output operations to trigger actions (e.g., resource sharing, reproduction, etc.).
 The full set of 56 available instruction types is described in supplementary material, alongside details for full simulation logic and parameter settings.
 
-\subsection{Measuring Fitness}
-\label{sec:measuringfitness}
-
-Mirroring nature, cell behavior and fate in DISHTINY emerges from stochastic interaction between expressed genetic traits and the local environment.
-% fitness effects of a mutation are not specified or determined \textit{a priori}.
-Because fitness thus arises as an implicit outcome, rather than an explicit trait, it is neither specified nor readily determined \textit{a priori} \citep{franklin2019mapping} --- it must be evaluated \textit{in situ}.
-Further, we cannot reliably evaluate fitness by looking at a cell or group in isolation, on account of dense biotic interaction between groups \citep{wadgymar2024defining}.
-
-Therefore, to assess fitness, we rely on inter-strain competition assays.
-\unskip\footnote{%
-Supplementary material also reports doubling-time fitness assays, which measure expansion into empty space.
-However, as our evolutionary trials begin and remain near carrying capacity, we did not find these assays informative of ability to compete for occupied space.
-}
-These assays began with available space filled by compared strains in an even mix.
-Then, after a 10 minute runtime, we evaluated relative abundances of compared strains (Figure \ref{fig:fit:nobbg}).
-\unskip\footnote{%
-As a point of reference, in the high-complexity lineage this runtime elapsed between 8,000 update cycles (stint 0) and 2,000 update cycles (stint 100).
-Further detail in Supplementary Figures \labelcref{fig:num_updates_elapsed_heatmap,fig:num_updates_elapsed_barplot,fig:num_updates_elapsed_boxplot}).
-}
-To assess significance, we applied a two-tailed binomial exact test to net win count across 20 replicate competitions.
-
-In addition to this direct competition design, we also used a ``biotic background'' design --- similar in principle to mesocosm experiments integrating ecological context \citep{sala2000methods}.
-Biotic background trials were seeded by mixing competitors with a ``bystander'' strain in 25\%-25\%-50\% proportion.
-The bystander strain participates fully in the competition environment, but is excluded from end-state abundance assessment of competitors (Figure \ref{fig:fit:nobbg}).
-We also harnessed this biotic background competition design to test frequency-dependent selection effects; one competitor strain can effectively be updosed by including its facimile as bystander --- similar in principle to a replacement series experiment \citep{deWit1960competition}.
-
-\subsection{Measuring Complexity}
-\label{sec:measuringcomplexity}
-
-Defining and quanityfing complexity remains a nuanced, unresolved topic \citep{adami2002what,parrott2010measuring,bottcher2017molecules,tenaillon2007quantifying,bonchev2005complexity,hazen2007functional,marion2015extending,rebout2021measuring}.
-Here, we approach complexity as evolved structure that is functionally adaptive.
-To measure phenotypic complexity, we counted unique cell input/output interfaces providing context-specific information that boost fitness.
-This measure describes the richness of behavior across cell interfaces \citep{mcshea2000functional}, aiming to capture dynamic interaction essential to complex multicellularity \citep{knoll2011multiple}.
-To measure genetic complexity, we count genome sites that contribute to fitness \citep{dolson2019modes,adami2000evolution} as a representation of underlying control structure that direct phenotypic interactions.
-\unskip\footnote{%
-Promisingly, we find moderate correlation between these measures across replicates and, within the high-complexity case study, also find moderate correlation in evolutionary changes to these measures (Supplementary Figures \labelcref{fig:gpcomplex-correlation,fig:TODO}).
-}
-
-Because assessing adaptation through competition experiments is computationally expensive, our complexity measures rely on pragmatic, coarse assay designs.
-We estimated phenotype complexity via phenotype manipulation interventions in suite of wildtype-vs-degraded competition trials \citep{sinervo1996testing}, de-contextualizing (i.e., spatially shuffling) each of the 105 available readable ``sensor'' cell inputs and each of the 18 available writable ``actuator'' cell outputs.
-Phenotype complexity competition trials also screened for fitness degradation when intercepting and reflecting portions of message-passing traffic.
-To estimate genotype complexity, we used single-site knockouts to test the adaptive contribution of individual genome sites.
-Because knockout combinations are not tested, this measure is limited in detecting sites with compensatory redundancy or small fitness effects (i.e., below competition sensitivity threshold) \citep{moreno2024methods}.
-
-To tractably measure complexity across many replicates and timepoints, we streamlined workload by evaluating competition outcomes against a shared set of wildtype-vs-wildtype control trials and pre-filtering non-expressed genome sites.
-Supplementary materials further detail these procedures, including quality control measures.
-
 \subsection{Evolutionary Replicates}
 
 Ancestor populations for evolution experiments were randomly generated 100-instruction genomes, typically encoding on the order of 5 signal-response modules.
@@ -152,6 +105,53 @@ During this time, along focal lineages between 11.7k and 26.9k cell generations 
 In the replicate producing our high-complexity case study, 7,565,309 simulation time steps elapsed --- accreting 11,713 cell generations and 1,325 group generations.
 To accelerate the experiment, quadrants of simulation space were distributed across four asynchronous hardware threads.
 Further technical implementation details appear in supplementary material.
+
+\subsection{Measuring Fitness}
+\label{sec:measuringfitness}
+
+Mirroring nature, cell behavior and fate in DISHTINY emerges from stochastic interaction between expressed genetic traits and the local environment.
+% fitness effects of a mutation are not specified or determined \textit{a priori}.
+Because fitness thus arises as an implicit outcome, rather than an explicit trait, it is neither specified nor readily determined \textit{a priori} \citep{franklin2019mapping} --- it must be evaluated \textit{in situ}.
+Further, we cannot reliably evaluate fitness by looking at a cell or group in isolation, on account of dense biotic interaction between groups \citep{wadgymar2024defining}.
+
+Therefore, to assess fitness, we rely on inter-strain competition assays.
+\unskip\footnote{%
+Supplementary material also reports doubling-time fitness assays, which measure expansion into empty space.
+However, as our evolutionary trials begin and remain near carrying capacity, we did not find these assays informative of ability to compete for occupied space.
+}
+These assays began with available space filled by compared strains in an even mix.
+Then, after a 10 minute runtime, we evaluated relative abundances of compared strains (Figure \ref{fig:fit:nobbg}).
+\unskip\footnote{%
+As a point of reference, in the high-complexity lineage this runtime elapsed between 8,000 update cycles (stint 0) and 2,000 update cycles (stint 100).
+Further detail in Supplementary Figures \labelcref{fig:num_updates_elapsed_heatmap,fig:num_updates_elapsed_barplot,fig:num_updates_elapsed_boxplot}).
+}
+To assess significance, we applied a two-tailed binomial exact test to net win count across 20 replicate competitions.
+
+In addition to this direct competition design, we also used a ``biotic background'' design --- similar in principle to mesocosm experiments integrating ecological context \citep{sala2000methods}.
+Biotic background trials were seeded by mixing competitors with a ``bystander'' strain in 25\%-25\%-50\% proportion.
+The bystander strain participates fully in the competition environment, but is excluded from end-state abundance assessment of competitors (Figure \ref{fig:fit:nobbg}).
+We also harnessed this biotic background competition design to test frequency-dependent selection effects; one competitor strain can effectively be updosed by including its facimile as bystander --- similar in principle to a replacement series experiment \citep{deWit1960competition}.
+
+\subsection{Measuring Complexity}
+\label{sec:measuringcomplexity}
+
+Defining and quanityfing complexity remains a nuanced, unresolved topic \citep{adami2002what,parrott2010measuring,bottcher2017molecules,tenaillon2007quantifying,bonchev2005complexity,hazen2007functional,marion2015extending,rebout2021measuring}.
+Here, we approach complexity as evolved structure that is functionally adaptive.
+To measure phenotypic complexity, we counted unique cell input/output interfaces providing context-specific information that boost fitness.
+This measure describes the richness of behavior across cell interfaces \citep{mcshea2000functional}, aiming to capture dynamic interaction essential to complex multicellularity \citep{knoll2011multiple}.
+To measure genetic complexity, we count genome sites that contribute to fitness \citep{dolson2019modes,adami2000evolution} as a representation of underlying control structure that direct phenotypic interactions.
+\unskip\footnote{%
+Promisingly, we find moderate correlation between these measures across replicates and, within the high-complexity case study, also find moderate correlation in evolutionary changes to these measures (Supplementary Figures \labelcref{fig:gpcomplex-correlation,fig:TODO}).
+}
+
+Because assessing adaptation through competition experiments is computationally expensive, our complexity measures rely on pragmatic, coarse assay designs.
+We estimated phenotype complexity via phenotype manipulation interventions in suite of wildtype-vs-degraded competition trials \citep{sinervo1996testing}, de-contextualizing (i.e., spatially shuffling) each of the 105 available readable ``sensor'' cell inputs and each of the 18 available writable ``actuator'' cell outputs.
+Phenotype complexity competition trials also screened for fitness degradation when intercepting and reflecting portions of message-passing traffic.
+To estimate genotype complexity, we used single-site knockouts to test the adaptive contribution of individual genome sites.
+Because knockout combinations are not tested, this measure is limited in detecting sites with compensatory redundancy or small fitness effects (i.e., below competition sensitivity threshold) \citep{moreno2024methods}.
+
+To tractably measure complexity across many replicates and timepoints, we streamlined workload by evaluating competition outcomes against a shared set of wildtype-vs-wildtype control trials and pre-filtering non-expressed genome sites.
+Supplementary materials further detail these procedures, including quality control measures.
 
 \subsection{Data Availability}
 
