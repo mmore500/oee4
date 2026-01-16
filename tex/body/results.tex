@@ -38,20 +38,17 @@ This sample resembled the two-phase growth pattern of morph $g$, except that som
 
 \subsubsection{Complexity}
 
-Next, we sought to understand how these morphological changes co-occured with changes in complexity.
-In some cases, new morphology coincided with substantial increaes in genetic complexity or phentoypic complexity.
+To explore the relationship between these morphological novelties and complexity, we assayed genotype and phenotype complexity measures for each sampled specimens across the 100-stint lineage history (Figure \ref{fig:keyfig}, Supplementary Figure \ref{fig:complexity}).
+Interestingly, these measures identify several episodes where complexity increases as an abrupt spike, in addition to more gradual changes.
 For instance, the origination of morphology $d$ coincided with a spike in genetic complexity (25 to 43 sites), while the originaltino of morphology $e$ coincided with a phenotype complexity spike (5 to 17 interactions).
-However, large increases in complexity did not always accompany morphological novelty: the emergence of morphology $g$, by contrast, coincided with more modest changes in genome complexity and phenotype complexity (41 to 42 sites and 12 to 15 interactions).
-However, morph $e$ was not associated with major increases in complexity. TODO
+Substantial new complexity did not always accompany novel morphology, though, as was the case for morphologies $g$ and $j$.
+Reciporically, as well, an abrupt increase in genetic complexity occured at stint 12 (11 to 27 sites) without any accompanying qualitative morphological novelty.
 
-Although increases in complexity accompanied morphological novelty in several cases, we also observed substantial changes in complexity occurring outside this context.
-% In Figure \ref{fig:critical_fitness_complexity}, we can also observe notable increases in critical fitness complexity that did not coincide with apparent morphological innovation.
-For example, a spike in critical fitness complexity (11 to 27 sites) was observed between stints 11 and 12 --- with morphology $b$ exhibited at both timepoints.
-Similarly, morphology $e$ was retained across a long, gradual increase in critical fitness complexity (31 to 46 sites) between stints 15 and 36.
-Trajectories of complexity measures are summarized in Figure \ref{fig:keyfig} and shown in more detail in Supplementary Figure \ref{fig:complexity}.
-Split regression analysis supports that genetic complexity increased and then leveled off and decreased.
-To test whether this decrease in measured genetic complexity was due to gain of epistatic redundancy and robustness, we additionally performed complexity knockouts on skeletonized genomes with unexpressed sites removed.
-Supplementary Figure \ref{fig:complexity-cryptic-regression}.
+Shifting focus from discrete events to longer-term trends, split regression analysis supports a two-part trajectory for genetic complexity ($p < 10^{-14}$): increasing until stint 34 ($p < \text{TODO}$), and then decreasing ($p < 10^{-5}$) (Supplementary Figure \ref{fig:complexity-cryptic-regression:split}).
+This result raised the question of whether genome complexity was actually decreasing, or whether it was simply becoming harder to detect due to the evolution of robustness and the limited sensitivity of single-site knockouts.
+To test whether this decrease in measured genetic complexity was due to epistatic redundancy and robustness, we performed additional complexity assay knockouts on ``skeletonized'' genomes with unexpressed sites removed.
+Complexity values were generally comparable, but the trend of decreasing complexity was much weaker and no longer reached statistical significance ($p = 0.06$) --- especially beyond stint 40 ($p = 0.56$) (Supplementary Figures \labelcref{fig:complexity-cryptic-regression:gt34,fig:complexity-cryptic-regression:gt40}).
+Thus, after accounting for robustness, the long-term trajectory of genetic complexity in the case study lineage appears to be initial growth followed by stabilization.
 
 \subsubsection{Adaptation}
 
