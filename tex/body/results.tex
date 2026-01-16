@@ -2,102 +2,70 @@
 \input{lib/dissertationexclude.tex}
 \input{lib/dissertationonly.tex}
 
-\input{fig/fitness-background}
-\input{fig/timeshift}
-% \input{fig/mutagenized-replay-schematic}
-\input{fig/replay-background}
-
-\input{fig/complexty-fitness-correlation}
+\input{fig/16005-timelapse}
 
 \section{Results}
 
-\subsection{Emergence of a High-complexity Outlier}
+\subsection{Case-study population}
 
-\input{fig/16005-timelapse}
-
-We took complexity measurements every 10 stints.
-
-\subsection{Survey of Evolutionary History of High Coplexity outlier}
+Figures \labelcref{fig:16005-timelapse:genotype-complexity,fig:16005-timelapse:phenotype-complexity} compare trajectories of genetic and phenotypic complexity across our 40 evolutionary replicates, measured at 10-stint intervals using genetic knockout and phenotype interference assays.
+Among these trials, one replicate (blue highlight) stood out in exhibiting sustained complexity --- with mean values of both phenotype and genotype complexity falling outside 3$\times$ IQR (Figure \ref{fig:16005-timelapse:mean-complexity}).
+The lineage in question also exhibited a distinct multi-stage miulticellular life history.
+Lower panels (Figure \labelcref{fig:16005-timelapse:update64,fig:16005-timelapse:update256,fig:16005-timelapse:update832,fig:16005-timelapse:update6720,fig:16005-timelapse:update7616}) timelapse group compositions within a sample genome monoculture.
+Growing from a unicellular ancestor (\labelcref{fig:16005-timelapse:update64}), groups begin by elongating horizontally to establish an asymmetrical cigar-like morphology (Figure \labelcref{fig:16005-timelapse:update256,fig:16005-timelapse:update832}).
+Then, in a later secondary phase, groups expand in the vertical direction to establish an irregular boxed morphology (Figure \labelcref{fig:16005-timelapse:update6720,fig:16005-timelapse:update7616}).
 
 \input{fig/keyfig.tex}
 
-We performed a qualitative survey of the evolved life histories along the evolutionary timeline by reviewing video animations of the representative specimen from each stint in monoculture.
+\subsubsection{Morphology}
 
-Supplementary Table \ref{tab:morph_descriptions} summarizes the ten morphological categories we grouped specimens into.
-In brief, specimens from early stints largely grew as unicellular or small multicellular groups (morphs $a$, $b$).
-Then, the specimen from stint 14 grew as larger, symmetrical groups (morph $d$).
-At stint 15, a distinct, asymmetrical horizontal bar morphology evolved (morph $e$).
-%todo structure above is confusing
-% Consistently left/right, indicating that somehow broke symmetrical of the simulation.
-At stint 45, a delayed secondary spurt of group growth in the vertical direction arose (morph $g$).
-This morphology was sampled frequently until stint 60, when morph $e$ began to be sampled primarily again.
-However, morph $g$ was observed as late as stint 90.
+% Supplementary Table \ref{tab:morph_descriptions} provides more detailed descriptions of each qualitative morph category, as well as a video and still image example of each.
+% Supplementary Table \ref{tab:morph_by_stint} provides morph categorization for each stint as well as links to view the stint's specimen in a video or in-browser web simulation.
+To better understand how complexity stabilized in this lineage, we inspected its history in detail as a case study.
+We reviewed sampled genomes from each intermediate timepoint and categorized nine morphologies (``$b$'' through ``$j$'')\footnote{
+    Descriptions of morphs $h$ and $f$, which were sampled rarely, appear in supplementary material.
+} --- summarized along the top strip of Figure \ref{fig:keyfig} and cataloged in detail in Supplementary Tables \labelcref{tab:morph_descriptions,tab:morph_by_stint} and Supplementary Figure \ref{fig:phylo_parsimony_tree}).
+Sampled genomes from early stints mostly grew as an amalgam of unicells and small groups up to 4 cells (morph $b$), although our earliest sample from the case study lineage produced developed oversized groups through unchecked cell reproduction (moph $c$, stint 2).
+At stint 14, the sampled genome grew 10 to 15 cell groups as irregular but roughly symmetrical clumps (morph $d$).
+At stint 15, morph $e$ arose independently from morph $b$ --- exhibiting horizontal cigar-like patterning.
+At stint 45, groups began exhibiting a phase of vertical growth (morph $g$).
+Around stint 60, morph $e$ began to be sampled again --- an apparent reversion from morph $g$.
+However, morph $g$ was observed as late as stint 90, having reemerged from morph $e$ intermediates.
+Finally, at stint 100, we observed an instance of morph $j$, which resembled morph $g$ except some groups produced horizontal-bar propagules during the secondary ``box'' phase of morphology.
 
-Phylogenetic analysis (Supplementary Figure \ref{fig:phylo_parsimony_tree}) indicates that observations of morph $e$ at stint 53 and onward are instances of secondary loss rather than retention of trait $e$ by a separate lineage coexisting with the lineage expressing morph $g$.
-Three separate reversion events from morph $g$ to morph $e$ appear likely.
-Interestingly, morph $g$ individuals at stints 89 and 90 appear to represent subsequent trait re-gain after reversion from morph $g$ to morph $e$.
+\subsubsection{Complexity}
 
-Supplementary Table \ref{tab:morph_descriptions} provides more detailed descriptions of each qualitative morph category, as well as a video and still image example of each.
-Supplementary Table \ref{tab:morph_by_stint} provides morph categorization for each stint as well as links to view the stint's specimen in a video or in-browser web simulation.
+Next, we sought to understand how these morphological changes co-occured with changes in complexity.
+In some cases, new morphology coincided with substantial increaes in genetic complexity or phentoypic complexity.
+For instance, the origination of morphology $d$ coincided with a spike in genetic complexity (25 to 43 sites), while the originaltino of morphology $e$ coincided with a phenotype complexity spike (5 to 17 interactions).
+However, large increases in complexity did not always accompany morphological novelty: the emergence of morphology $g$, by contrast, coincided with more modest changes in genome complexity and phenotype complexity (41 to 42 sites and 12 to 15 interactions).
+However, morph $e$ was not associated with major increases in complexity. TODO
 
+Although increases in complexity accompanied morphological novelty in several cases, we also observed substantial changes in complexity occurring outside this context.
+% In Figure \ref{fig:critical_fitness_complexity}, we can also observe notable increases in critical fitness complexity that did not coincide with apparent morphological innovation.
+For example, a spike in critical fitness complexity (11 to 27 sites) was observed between stints 11 and 12 --- with morphology $b$ exhibited at both timepoints.
+Similarly, morphology $e$ was retained across a long, gradual increase in critical fitness complexity (31 to 46 sites) between stints 15 and 36.
+Trajectories of complexity measures are summarized in Figure \ref{fig:keyfig} and shown in more detail in Supplementary Figure \ref{fig:complexity}.
 Split regression analysis supports that genetic complexity increased and then leveled off and decreased.
 To test whether this decrease in measured genetic complexity was due to gain of epistatic redundancy and robustness, we additionally performed complexity knockouts on skeletonized genomes with unexpressed sites removed.
-Supplementar Figure \ref{fig:TODO}
+Supplementary Figure \ref{fig:complexity-cryptic-regression}.
 
-\subsection{Fitness}
+\subsubsection{Adaptation}
+
+Likewise, the sole observed specimen of morphology $d$ exhibited a significant fitness advantage in most, but not all, tested contexts.
+This latter set of novelties ($e$, $g$, and $d$) might be described as ``innovations,'' which \citet{hochberg2017innovation} define as qualitative novelty associated with an increase in fitness.
+Interestingly, though, the fitness effect sizes observed from these ``innovations'' appear generally comparable in magnitude to other stint-to-stint trials with no substantial novelties (Figure \ref{fig:median_fitness_differential_symlog}).
 
 whole-population fitness loss
-\input{fig/sign-change-prefatory-population}
-
-% \input{fig/fitness.tex}
-
-Of the 100 competition assays performed, 57 indicated significant fitness gain, 23 were neutral, and 20 indicated significant fitness loss (shown in upper right of Supplementary Figure \ref{fig:outcome_count_distns}, at the intersection of the ``Biotic Background, Without'' column and ``Assay Subject, Specimen'' row.)
-
-We were surprised by the frequency of deleterious outcomes, leading us to perform a second set of experiments to investigate whether these outcomes could be explained as sampling of ``dud'' representatives.
-In these competition assays, we competed the entire focal strain population against the focal strain population from the preceding stint.
 However, we observed a similar result: 50 assays indicated significant fitness gain, 34 were neutral, and 16 indicated significant fitness loss (shown in lower right of Supplementary Figure \ref{fig:outcome_count_distns}, at the intersection of the ``Biotic Background, Without'' column and ``Assay Subject, Population'' row.)
+Fitness differentials during the first 40 stints are generally higher magnitude than later fitness differentials, although a strong fitness differential occurs at stint 93 coincident with a genome duplication.
+
+\subsection{Ecological Interactions}
+
+\input{fig/sign-change-prefatory-population}
 
 Next, we investigated whether the presence of the background strain as a ``biotic background'' influenced fitness.
 We repeated the two experiments described above (specimen and population competition assays), but inserted the background strain as half of the initial well-mixed population.
-In one assay setup, we used the background strain population from the current stint.
-We refer to this as ``contemporary biotic background.''
-In another, which we call ``prefatory biotic background,'' we used the background strain population from the previous stint.
-We refer to the original competition assays absent the background strain as ``without biotic background.''
-Supplementary Figure \ref{fig:adaptation_assay_cartoon} summarizes these competition assay designs.
-
-After incorporating the background strain into our measure of fitness, we detected fewer whole-population deleterious outcomes --- only six under contemporary biotic background conditions and only three under prefatory biotic background conditions (Supplementary Figure \ref{fig:outcome_count_distns}).
-To determine whether the presence of the background strain caused the overall reduction in whole-population deleterious outcomes, we performed control competitions under biotic background conditions, but with the focal strain population substituted for the background strain population (Supplementary Figure \ref{fig:baseline_adaptation_control}).
-Under these conditions, nine of the stints where whole-population deleterious outcomes had been detected came up neutral;
-one, surprisingly, tested significantly adaptive (Supplementary Figure \ref{fig:baseline_fitness_gain_or_loss}).
-Dose-dependent fitness effects and/or reduced experimental sensitivity of the biotic background assay appear to play at least a partial role in explaining the reduction of detected whole-population deleterious outcomes.
-However, 10 stints still tested significantly deleterious with the control focal strain biotic background in addition to without biotic background.
-
-Four stints do provide strong, direct evidence of a selective effect by the background strain: four whole-population outcomes that were deleterious without their biotic background were actually significantly advantageous in the presence of both the prefatory and contemporary background strain populations (Supplementary Figure \ref{fig:outcome_count_joint_distns:population}).
-All four of these stints exhibited whole-population deleterious outcomes under the control focal strain biotic background, indicating that the observed fitness sign change was specifically due to the presence of the background strain (Supplementary Figure \ref{fig:baseline_fitness_gain_or_loss}).
-
-Additionally, we detected two deleterious outcomes without biotic background as significantly adaptive under the prefatory biotic background but as neutral under contemporary biotic background (Supplementary Figure \ref{fig:outcome_count_joint_distns:population}).
-Control focal strain biotic background experiments again suggest that the background strain, specifically, is responsible for this effect (Supplementary Figure \ref{fig:baseline_fitness_gain_or_loss}).
-
-% A further five outcomes were detected as significantly deleterious without biotic background but were not detected as significantly adaptive or deleterious (i.e., neutral) in the presence of both background strain populations (Figure \ref{fig:outcome_count_joint_distns:population}).
-We also found one whole-population outcome that was significantly advantageous without biotic background and in the presence of the prefatory background strain population but significantly deleterious in the presence of the contemporary background strain, possibly suggesting an ``arms race''-like evolutionary innovation on the part of the background strain over that stint (Supplementary Figure \ref{fig:outcome_count_joint_distns:population}).
-
-Nonetheless, we still saw three whole-population outcomes that were significantly deleterious under all three conditions (Supplementary Figure \ref{fig:outcome_count_joint_distns:population}).
-These whole-population outcomes were also deleterious under the control focal strain biotic background experiments (Supplementary Figure \ref{fig:baseline_fitness_gain_or_loss}).
-Muller's ratchet \citep{andersson1996muller} or maladaptation due to environmental change \citep{brady2019causes} may offer possible explanations, but a definitive answer will require further study.
-
-We also performed fitness assays on individual sampled specimens with both biotic backgrounds.
-Out of 100 stints tested, we observed 20 significantly deleterious outcomes without biotic background, 23 significantly deleterious outcomes under prefatory biotic background, and 12 significantly deleterious outcomes under contemporary biotic background (Supplementary Figure \ref{fig:outcome_count_distns}).
-Unlike the whole-population deleterious outcomes discussed above, observing some deleterious outcomes from sampled specimens is not surprising.
-Evolving populations naturally contain standing variation in fitness \citep{martin2016nonstationary}, so occasional sampling of less-fit individuals should be expected.
-Reciprocally, we observed 57 significantly adaptive outcomes without biotic background, 44 with prefatory biotic background, and 48 with contemporary biotic background (Supplementary Figure \ref{fig:outcome_count_distns}).
-Greater sensitivity of the ``without biotic background'' adaptation assay could account for the counterintuitive detection of more adaptive outcomes under abiotic conditions (i.e., the absence of the background strain).
-
-As before with the population-level adaptation assays, we detected four specimen outcomes that were deleterious without biotic background but significantly advantageous under both tested background strain populations (Supplementary Figure \ref{fig:outcome_count_joint_distns:specimen_with_dm}).
-Additionally, and again as before, we detected two deleterious outcomes without biotic background as significantly adaptive under the prefatory biotic background but as neutral under the contemporary biotic background (Figure \ref{fig:outcome_count_joint_distns:specimen_with_dm}).
-Control focal strain biotic background experiments confirm that the background strain, specifically, is responsible for these effects (Supplementary Figure \ref{fig:baseline_fitness_gain_or_loss}).
-
-We found no specimen outcomes that were advantageous under the prefatory biotic background but deleterious under the contemporary background.
-However, we found three stints with opposite dynamics: specimen outcomes deleterious under prefatory biotic background but advantageous under contemporary biotic background (Supplementary Figure \ref{fig:outcome_count_joint_distns:specimen_with_dm}), further suggesting coincident, interacting evolutionary innovations along focal and background strain lineages (Supplementary Figure \ref{fig:outcome_count_joint_distns:specimen_with_dm}).
 
 To better characterize the mechanism behind fitness effects caused by the background strain, we performed additional specimen adaptation assays under biotic background conditions with diversity maintenance disabled.
 This analysis allowed us to test whether action of the diversity maintenance mechanism, rather than direct interactions between the focal and background strains, caused the observed fitness effects.
@@ -111,16 +79,32 @@ In these experiments, we again found no evidence for impact from the diversity m
 (Supplementary Figure \ref{fig:baseline_fitness_gain_or_loss}).
 }
 
-Significant increases in fitness occur throughout the evolutionary history of the case study, but not at every stint.
-Figure \ref{fig:fitness_gain_or_loss} summarizes the outcome of all adaptation assays stint-by-stint across evolutionary history.
-Neutral outcomes appear to occur more frequently at later stints.
-This may be indicative of slower evolutionary innovation, but may also result to some extent from simulation of fewer generations during evolutionary stints (Supplementary Figure \ref{fig:simulation}) and during competition experiments (Supplementary Figure \ref{fig:num_updates_elapsed_barplot}) due to slower execution of later genomes.
+After incorporating the background strain into our measure of fitness, we detected fewer whole-population deleterious outcomes --- only six under contemporary biotic background conditions and only three under prefatory biotic background conditions (Supplementary Figure \ref{fig:outcome_count_distns}).
+To determine whether the presence of the background strain caused the overall reduction in whole-population deleterious outcomes, we performed control competitions under biotic background conditions, but with the focal strain population substituted for the background strain population (Supplementary Figure \ref{fig:baseline_adaptation_control}).
+Under these conditions, nine of the stints where whole-population deleterious outcomes had been detected came up neutral;
+one, surprisingly, tested significantly adaptive (Supplementary Figure \ref{fig:baseline_fitness_gain_or_loss}).
+Dose-dependent fitness effects and/or reduced experimental sensitivity of the biotic background assay appear to play at least a partial role in explaining the reduction of detected whole-population deleterious outcomes.
+However, 10 stints still tested significantly deleterious with the control focal strain biotic background in addition to without biotic background.
 
-Supplementary Figure \ref{fig:median_fitness_differential_symlog} shows the magnitudes of calculated fitness differentials for all adaptation assays.
-Fitness differentials during the first 40 stints are generally higher magnitude than later fitness differentials, although a strong fitness differential occurs at stint 93.
-Although the emergence of morphology $d$ was associated with significant increases in fitness in some specimen assays and morphologies $e$ and $g$ were associated with significant increases in fitness across all specimen assays (Supplementary Figure \ref{fig:fitness_gain_or_loss}), the magnitude of these fitness differentials appears ordinary compared to fitness differentials at other stints (Supplementary Figure \ref{fig:median_fitness_differential_symlog}).
-Supplementary Figure \ref{fig:mean_competition_prevalence} shows mean end-competition prevalence across assays, telling a similar story.
+Four stints do provide strong, direct evidence of a selective effect by the background strain: four whole-population outcomes that were deleterious without their biotic background were actually significantly advantageous in the presence of both the prefatory and contemporary background strain populations (Supplementary Figure \ref{fig:outcome_count_joint_distns:population}).
+All four of these stints exhibited whole-population deleterious outcomes under the control focal strain biotic background, indicating that the observed fitness sign change was specifically due to the presence of the background strain (Supplementary Figure \ref{fig:baseline_fitness_gain_or_loss}).
 
-In addition to competition assays, we also measured growth rate of specimen strains by tracking doubling time (in updates) when seeded into quarter-full toroidal grids (Supplementary Figure \ref{fig:doubling_time}).
-Morph $b$ exhibited a fast growth rate early on that was never matched by later morphs.
-This measure appears to be a poor overall proxy for fitness, highlighting the importance of biotic aspects of the simulation environment, which are not present in the empty space the assayed cells double into.
+We also found one whole-population outcome that was significantly advantageous without biotic background and in the presence of the prefatory background strain population but significantly deleterious in the presence of the contemporary background strain, possibly suggesting an ``arms race''-like evolutionary innovation on the part of the background strain over that stint (Supplementary Figure \ref{fig:outcome_count_joint_distns:population}).
+
+Nonetheless, we still saw three whole-population outcomes that were significantly deleterious under all three conditions (Supplementary Figure \ref{fig:outcome_count_joint_distns:population}).
+These whole-population outcomes were also deleterious under the control focal strain biotic background experiments (Supplementary Figure \ref{fig:baseline_fitness_gain_or_loss}).
+Muller's ratchet \citep{andersson1996muller} or maladaptation due to environmental change \citep{brady2019causes} may offer possible explanations, but a definitive answer will require further study.
+
+\input{fig/fitness-background}
+
+\subsection{Evolutionary Tracking}
+
+\input{fig/timeshift}
+
+\subsection{Complexity Maintenance}
+
+\input{fig/replay-background}
+
+\subsection{Complexity and Biotic Selection}
+
+\input{fig/complexty-fitness-correlation}
