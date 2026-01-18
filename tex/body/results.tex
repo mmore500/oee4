@@ -128,12 +128,42 @@ That is, for each stint $n$ we performed competitions in the presence of case st
 Comparing outcomes between contemporary and time-shifted backgrounds, exact contemporary self-context did indeed provide substantially greater fitness benefit (Mann-Whitney $U$ Test, $p<10^{-5}$, $\delta=0.45$; Figure \ref{fig:timeshift}).
 Nonetheless, time-shifted backgrounds did still provide some benefit in 78 of 98 tested cases.
 % --- including long temporal offsets of up to 50 stints (Supplementary Figure \ref{fig:timeshift-supp}).
-Thus, while the underlying mechanism of self-benefit appears to have remained somewhat stable, self-selection --- surprisingly --- did not freeze phenotypic characteristics that create self-benefit opportunity.
-Rather, these characteristics shifted meaningfully over time, and imposed ongoing moving-optimum selection for related traits necessary to take advantage of self-benefit opportunity.
+Thus, while the underlying mechanism of self-benefit appears to have remained somewhat stable, self-selection --- surprisingly --- did not freeze the phenotypic characteristics that create self-benefit opportunity.
+Rather, these characteristics shifted appreciably over time, and imposed moving-optimum selection for related traits necessary to take advantage of self-benefit opportunity.
 
 \subsection{Complexity Maintenance}
 
 \input{fig/replay-background}
+
+After confirming the existence of adaptation to self-context, we turned to test whether selection imposed by the case study strain --- as its own self-context --- contributed to maintenance of its complexity.
+To maximize causal rigor, we used evolutionary replay trials to carry out an intervention-based experiment,
+% rather than a retrospective analysis.
+% Our goal in this experiment was to screen for differences in end-state complexity between treatments including versus excluding self-context
+That is, set out to directly compare complexity outcomes in the presence of case study strain self-context against those in its absence.
+
+This experimental design, however, imposed a key practical challenge: some mechanism was needed to remove, or at least meaningfully abate, self-context.
+This problem is nontrivial because including the case study strain is necessary to test response in complexity outcomes, but inherently introduces some level of self-context.
+To overcome this challenge, we applied mutation to the focal strain population when seeding replay trials, in order to attenuate self-context.
+The mutational dose, 8 mutations, was chosen such that most (but not all) of seeded genomes were substantially disrupted.
+As a useful side-effect, this treatment also enhanced standing variation of intact complexity in the test populations --- enhancing our assay's sensitivity in detecting selection for complexity.
+% providing sufficient sensitivity to allow short 1-stint replays.
+
+As schematized in Figure \ref{fig:replay-background:design}, replays were conducted both under a ``self context'' treatment (seeded 50\% with intact case study strain genotypes) and an ``ecological context'' treatment (seeded 50\% with genotypes from a co-evolved lineage).
+To target the complexity-maintenance period of case study identified by split regression analysis, replays were conducted from case study strain populations at stint 33 onwards --- thus providing a sample size of 67 1-stint replays per treatment.
+At the end of each replay, we measured sampled a genotype from descendants of the mutagenized case study inoculum and measured its complexity.
+
+Across replays, self context indeed preserved greater genetic complexity in the case study strain, compared to co-evolved ecological context
+(Mann-Whitney $U$ test, $p < 0.01$, $\delta = 0.25$; Figure \ref{fig:replay-background:moderatedose}).
+Importantly, this result provides direct evidence that biotic selection effects exerted by the case study strain acts to stabilize its own complexity.
+
+To better understand the specificity of the case study strain in selecting for complexity, we repeated replay experiments with a higher dose of 50 mutations --- sufficient to ensure substantial disruption of all seeded case study genomes.
+% applied to seeded case study strain genotypes.
+Under these conditions, complexity outcomes were indistinguishable between self and ecological context treatments (Figure \ref{fig:replay-background:highdose}).
+Thus, the case study strain’s biotic effects appear specific to its own intact complexity.
+In other words, a niche construction effect --- with the case study strain effectively acting to ``lock in'' complexity by advantaging its own evolved functionality, rather than simply cultivating generic conditions condusive to complexity (e.g., weakening selection).
+
+% We measured genetic complexity as our response variable.
+% Having seen correlation between change in genetic complexity and phenotypic complexity in the case study strain, and as a more stable and sensitive measure of complexity, for these purposes we.
 
 % \subsection{Complexity and Biotic Selection}
 % \input{fig/complexty-fitness-correlation}
