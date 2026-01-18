@@ -4,7 +4,7 @@ SHELL=/bin/bash
 # this will be used to name othe output document
 BUILD_DIR := oee4
 
-
+SESSION_ID := x$(shell date +%s%3N)
 
 DRAFT_SUPPLEMENT_PAGE = $(shell pdftk ${BUILD_DIR}-draft.pdf dump_data_utf8 | pcregrep -M -o1 '^BookmarkBegin\nBookmarkTitle: Supplemental Material\nBookmarkLevel: 1\nBookmarkPageNumber: ([0-9]+)$$')
 
@@ -30,10 +30,14 @@ ${BUILD_DIR}-manuscript.pdf: ${BUILD_DIR}.pdf
 ${BUILD_DIR}-supplement.pdf: ${BUILD_DIR}.pdf
 	pdftk ${BUILD_DIR}.pdf cat $(RELEASE_SUPPLEMENT_PAGE)-end output ${BUILD_DIR}-supplement.pdf
 
-${BUILD_DIR}-draft.pdf: main.tex
+${BUILD_DIR}-draft.pdf: main.tex bibl.bib draft.tex $(shell find tex -type f) fig/* img/* lib/*
+	mkdir -p /tmp/${SESSION_ID}
 	latexmk -pdf -silent \
     -jobname=${BUILD_DIR}-draft \
+	-outdir=/tmp/${SESSION_ID} \
     -pdflatex="pdflatex -interaction=nonstopmode" draft.tex
+	mv /tmp/${SESSION_ID}/${BUILD_DIR}-draft.pdf ${BUILD_DIR}-draft.pdf
+	rm -rf /tmp/${SESSION_ID}
 
 ${BUILD_DIR}-draft.tex: main.tex
 	./script/latexpand.pl draft.tex > ${BUILD_DIR}-draft.tex
