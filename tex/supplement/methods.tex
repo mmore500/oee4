@@ -11,6 +11,11 @@
 The DISHTINY simulation environment tracks cells occupying tiles on a toroidal grid (size $120\times120$ by default).
 Cells collect a uniform inflow of continuous-valued resource.
 This resource can be spent in increments of $1.0$ to attempt asexual reproduction into any of a cell's four adjacent cells.
+\unskip\footnote{%
+All reproduction in this model was asexual.
+While sexual recombination can facilitate evolution of complexity by combining adaptive traits and purging deleterious mutations, these mechanisms are orthogonal to our focus on dynamics of emergent biotic selection.
+However, given the prevalence of sexual recombination among complex multicellular species, the interplay between sex and biotic selection merits dedicated treatment in further research.
+}
 A cell can only be replaced if it commands less than $1.0$ resource.
 If a cell rebuffs a reproduction attempt, its resource stockpile decrements by $1.0$ down to a minimum of $0.0$.
 
