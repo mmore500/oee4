@@ -1,30 +1,88 @@
-\section{Discussion}
+Complexity and novelty are not inevitable outcomes of Darwinian evolution \citep{stanley2017open}.
+Instead, how and why some lineages evolve novel traits and complex functionality merits explanation.
+% within some systems, under some conditions multicellular
+For this purpose, artificial model systems provide special utility in testing, through concrete experiments, whether sets of mechanistic building blocks are sufficient to reproduce outcomes observed in nature.
+Here, using a digital organism model of multicell evolution, we discovered high levels of genetic and phenotypic complexity stabilized by spontaneous niche construction effects --- under a basic set of mechanistic assumptions, largely shared in common with natural life.
+% (e.g., spatial structure, kin recognition, cell plasticity, etc.)
+Along a case study lineage with high sustained complexity, we replayed evolution with abated biotic context to directly test the causal role of niche construction in maintaining evolved complexity --- and traced a detailed account of how complexity, novelty, and adaptation developed across historical intermediates.
+% Likewise, exclusion of inherent properties of biological life allows to test their necessity to explain outcomes.
 
-Across the case study lineage, we describe an evolutionary sequence of ten qualitatively distinct multicellular morphologies (Table \ref{tab:morph_descriptions}).
-The emergence of some, but not all, of these morphologies coincided with an increase in fitness compared to the preceding population.
-Fitness assays from the sole observed specimen of morphology $c$ are significantly deleterious in all contexts.
-Similarly, the sole observed specimen of morphology $f$ exhibited an advantage only in the absence of the background strain (Figure \ref{fig:fitness_gain_or_loss}).
-By contrast, the geneses of morphologies $e$ and $g$ were associated with significant fitness gain in all contexts (Figure \ref{fig:fitness_gain_or_loss}).
-Likewise, the sole observed specimen of morphology $d$ exhibited a significant fitness advantage in most, but not all, tested contexts.
-This latter set of novelties ($e$, $g$, and $d$) might be described as ``innovations,'' which \citet{hochberg2017innovation} define as qualitative novelty associated with an increase in fitness.
-Interestingly, though, the fitness effect sizes observed from these ``innovations'' appear generally comparable in magnitude to other stint-to-stint trials with no substantial novelties (Figure \ref{fig:median_fitness_differential_symlog}).
+Out of necessity, modern biological science relies extensively on work with model systems.
+Indisputably, digital organisms differ from biological life in fundamental aspects of genetic makeup, biophyscial constraints, and environmental conditions --- and, unlike natural models, digital organisms lack the core biochemical homologies of the sort that link studies of \textit{E. coli} and the elephant.
+However, because digital evolution models and natural life nonetheless share core processes of reproduction, mutation, inheritance, and competition, they thus both undergo the same fundamental process of evolution by natural selection.
+On account of dynamic genome expression mechanisms, both systems can also exhibit rugged, nonlinear fitness landscapes, plasticity, and flexible information processsing behavior \citep{TODO}.
+Thus, like any model system, digital findings demonstrate what is possible and open the door to further tests of generality \citep{TODOflattest}.
+% Thus, caveats familiar to any biologist working with model organisms apply here in equal measure; although the degree of abstraction is higher, the requirement for careful contextualization and follow-up remains unchanged.
+% Thus, the same limitations that biologists are familiar with in interpreting results from a model system and the same follow-up studies that are necessary to further develop those results apply here --- albeit, to a higher degree.
+% Likewise, as is the case in experimental work \textit{in vivo} our assays depend on empirical competition trials to assess fitness and so are therefore limited in sensitivity.
 
-The relationship between innovation and complexity appears to be loosely coupled.
-On one hand, the origination of morphologies $d$ and $e$, respectively, coincided with a critical fitness complexity spike (25 to 43 sites) and an interface complexity spike (5 to 17 interactions).%
-\footnote{Note that phylogenetic analysis suggests that morphology $e$ was not a direct descendant of morphology $d$, but that both instead descended from morphology $b$.}
-The emergence of morphology $g$, by contrast, coincided with more modest changes in critical fitness complexity and interface complexity (41 to 42 sites and 12 to 15 interactions).
-At the opposite extreme, consider the morph $i$ origination observed at stint 75, which exhibited a significant fitness advantage across all tested contexts.
-In this case, innovation coincided with sharp decreases in both critical fitness complexity (33 to 3 sites) and interface complexity (12 to 0 interactions).
+To remain computationally tractable, our experiments do not reach vast generational timescales and large population sizes characteristic of biological evolution.
+Contemporary high-performance computing hardware --- leveraged here only at the single-node level --- offers immense potential to scale up digital evolution experiments, and harnessing them to explore how evolved complexity scales across time and space is an exciting direction for future work \citep{TODO}.
+Though we saw substantial growth in genome size and redundancy over the surveyed period of our case study, neutral evolution, in particular, should exert a cumulative influence that intensifies over longer timescales.
 
-Although increases in complexity accompanied morphological novelty in several cases, we also observed substantial changes in complexity occurring outside this context.
-% In Figure \ref{fig:critical_fitness_complexity}, we can also observe notable increases in critical fitness complexity that did not coincide with apparent morphological innovation.
-For example, a spike in critical fitness complexity (11 to 27 sites) was observed between stints 11 and 12 --- with morphology $b$ exhibited at both timepoints.
-Similarly, morphology $e$ was retained across a long, gradual increase in critical fitness complexity (31 to 46 sites) between stints 15 and 36.
+% , software design and implementation underlying DISHTINY is distributed-first and designed to scale to cluster-scale simulations \citep{TODOCONDUIT}.
 
-Finally, we also observed notable disjointedness between alternate measures of functional complexity.
-For instance, critical fitness complexity increased by 18 sites with the emergence of morph $d$, but interface complexity increased only marginally (5 to 6 interactions).
-Further, compared against morph $d$, the first specimen of morph $e$ exhibited near triple the interface complexity (6 vs. 17 interactions), but 12 fewer sites of critical fitness complexity.
-Consider also the increase in critical fitness complexity between stints 15 and 36 under morphology $e$ (31 to 46 sites), which is not accompanied by a clear change in interface complexity (Figures \ref{fig:complexity:genetic} and \ref{fig:complexity:phenotypic}).
-These discrepancies between alternate metrics for functional complexity suggest underlying multidimensionality, and underscore well-known difficulties in attempts to describe and quantify complexity \citep{bottcher2017molecules}.
+% Other similarities are pleiotropy (one mutation affects multiple traits) and epistasis (multiple mutations interact to determine the same trait), which emerge in both organic and digital life from the nonlinear processes by which genomes encode and produce phenotypic features.
 
-% TODO concluding remark: Rather than epistatic lock-in within organisms, epistatic lock-in at the ecosystem scale; in a sense; reconcile adaptationist and neutralist framings. --- constructive neutral complexity, but for ecosystems
+Despite these limitations, our reported experiments open a new window into possible ecological dynamics shaping early evolution of complex multicellularity, a threshold simultaneously unlocking vast new morphological possibilities and niche opportunities \citep{TODO}.
+While co-evolutionary arms race dynamics are well-recognized drivers of body enlargement and other complex traits \citep{TODO, our experiments reveal an alternate ecological pathway to complexity: adaptive entrenchment of new traits through niche construction effects.
+Specifically, we found that multicell adaptation to biotic environmental context can stabilize complexity underlying those evolved traits.
+This result extends the logic of constructive neutral evolution to the ecosystem level \citep{muozgmez2021constructive}, with the ratchet mechanisms of generative entrenchment acting via external niche construction rather than internal epistatic dependencies.
+Interestingly, such a mechanism captures aspects of both adaptationist and neutralist explanations for the evolution of complexity --- combining the active driving force of selection with passive structural lock-in of historical contingency.
+In concert with broader progress in experimental evolution, capturing emergent ecological dynamics of early multicellularity \textit{de novo} helps bridge dillemmas in theory beyond the hypothetical plausibility of abstract scenarios, challenging observers to explain outcomes of evolution in action in concrete instances.
+
+% open new questions up to be directly observed and tested with experimental evolution.
+% The movement towards studying evolution in action plays an important role in complementing classical retrospective and comparative approaches.
+% In contrast to classical work concerning hypothetical plausibility of isolated scenarios,
+% The former explains complex multicellularity as arising from positive selection for synergistic benefits of division of labor and economies of scale in somatic tissues, while the latter emphasizes drift accumulation of arbitrary functional contingencies under selection weakened by small population sizes.
+% Rather than epistatic lock-in within organisms, epistatic lock-in at the ecosystem scale; in a sense; reconcile adaptationist and neutralist framings. --- constructive neutral complexity, but for ecosystems \citep{TODOconstructiveneutralcomplexity}.
+% As such, this case study opens a concrete window into evolutionary origins of complexity and novelty under regimes of strong biotic interaction.
+% Additionally, subsequent availability of complexity and novelty potential within experimental substrates enables work to test and refine theory.
+
+% Despite these limitations, the methods proposed here represent a major advance on current practice and offer the prospect of vastly increasing our knowledge about levels, recent trends, and inequalities in child mortality.
+% If we are to make rapid progress with the unfinished agenda of reducing child deaths, policy and practice must be better informed by more comprehensive, relevant, and timely information.
+% Systematic application of the methods proposed here will establish that evidence base, and thereby increase accountability among countries and the global health community to accelerate efforts to reduce the global toll of child deaths.
+
+% \section{Discussion}
+
+% SCRAPS
+
+% The case study reported here tracks a lineage over two phenotypic innovations and several-fold increases in complexity.
+
+% Our case study suggests a loose coupling between novelty, complexity, and adaptation.
+% Loose coupling between the conceptual threads of novelty, complexity, and adaptation in this case study highlights the importance of considering these factors independently when developing theory around open-ended evolution --- inherent coupling cannot be assumed.
+
+% Finally, we also observed notable disjointedness between alternate measures of functional complexity.
+% These discrepancies between alternate metrics for functional complexity suggest underlying multidimensionality, and underscore well-known difficulties in attempts to describe and quantify complexity \citep{bottcher2017molecules}.
+
+% \section{Conclusion}
+
+% In future work, we are interested in developing statistical methodology to estimate without .
+
+
+% This
+% Future work exploring open-endedness should continue along the lines of the MODES framework , building a broad analytical toolbox that can distinguish disparate dimensions of open-endedness.
+
+% Continuing the work of MODES to broaden a toolbox rather than focus in on a single metric.
+
+% Serves as a trial balloon for future, more systematic exploration of the relationship between novelty, complexity, and adaptation.
+
+% For example, if that only activated in response to the other lineage then couldn't detect that
+
+% Especially in systems where fitness is implicit it's costly or impractical to do comprehensive analyses.
+% We need to continue develop methodology to statisticaly sample
+
+% Problem also that fitness depends on conditions, so there may be problems replicating conditions of evolution environment (presence of mutation, presence of other strains).
+% Real-time proof-of-concept but requires more thought about methodology to control for the slowing of evolutionary pace.
+
+% Ongoing methods development in digital evolution has brought the evolution of multicellularity within scope of such constructive science, and yielded important insights \citep{goldsby2012task, goldsby2014evolutionary}.
+% In this work we have relaxed common simulation constraints, enabling broad genetic determination of multicellular life history and allowing for unconstrained cellular interactions between multicellular bodies.
+% We have demonstrated that spontaneous niche construction can stabilizes substantially elevated genetic and phenotypic complexity.
+% Our experiments demonstrate the validity of the hypothesis, first articulated by Darwin and supported today by comparative and experimental evidence, that complex features generally evolve by modifying existing structures and functions
+
+% By using digital organisms,
+% Following this, we examine complexity, novelty, and adaptation across the genomic and phenotypic history of a case study lineage exhibiting high genetic complexity, high phenotypic complexity, and morphological innovation.
+% Further examining this high-complexity lineage, competition assays reveal it evolved to become fit when abundant --- in other words, when serving as its own environmental context.
+% Using further competition assays, we next test whether this niche construction effect substantially drive selection on the high-complexity lineage.
+% % unexpected that self-selection doesn't "freeze" evolution but that
+% Lastly, we use replay experiments along the high-complexity lineage's history to test the causal role of niche construction in maintaining evolved complexity.
