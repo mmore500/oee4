@@ -46,7 +46,7 @@ Among these, we arbitrarily chose one strain for primary study --- the ``focal''
 
 For compatibility with our compute cluster's scheduling system, evolutionary replicates were passaged in three hour increments, which we refer to as ``stints.''
 Each transfer carried over all population genomes, but no other simulation state.
-This protocol ensured strains remained capabile to grow from well-mixed inoculum.
+This protocol ensured strains remained capable to grow from well-mixed inoculum.
 Figure \ref{fig:stints} summarizes our serial transfer and diversity maintenance procedures.
 
 % import boto3
@@ -102,7 +102,7 @@ Figure \ref{fig:stints} summarizes our serial transfer and diversity maintenance
 
 We conducted 100 passages, amounting to just over 12.5 days of total compute time per each of 40 replicates.
 Across replicates, between 5.4M and 9.9M simulation time steps elapsed (mean 7.4M; SD 1.1M).
-During this time, along focal lineages between 11.7k and 26.9k cell generations elapsed (mean 18.5k; SD 3.4k) and between 1.2k and 3.4k group generations elapsed (mean 2.3k; SD 533)
+During this time, along focal lineages between 11.7k and 26.9k cell generations elapsed (mean 18.5k; SD 3.4k) and between 1.2k and 3.4k group generations elapsed (mean 2.3k; SD 533).
 In the replicate producing our high-complexity case study, 7,565,309 simulation time steps elapsed --- accreting 11,713 cell generations and 1,325 group generations.
 To accelerate the experiment, quadrants of simulation space were distributed across four asynchronous hardware threads for parallel evaluation.
 For this reason, phylogeny analyses relied on parsimony-based reconstruction rather than exact tracking \citep{moreno2022hereditary}.
@@ -134,7 +134,7 @@ To assess significance, we applied a two-tailed binomial exact test to net win c
 For some analyses, we also used a ``biotic background'' competition design --- similar in principle to mesocosm experiments integrating ecological context \citep{sala2000methods}.
 Biotic background assays were seeded by mixing competitors with a ``bystander'' strain in 25\%-25\%-50\% proportion.
 Although the bystander strain participates fully in the competition environment, it is then excluded from end-state abundance assessment of competitors (Figure \ref{fig:fit:nobbg}).
-In some cases, we purposed this biotic background competition design to test frequency-dependent selection effects; one competitor strain can effectively be updosed by including a facimile as bystander --- similar in principle to a replacement series experiment \citep{deWit1960competition}.
+In some cases, we purposed this biotic background competition design to test frequency-dependent selection effects; one competitor strain can effectively be updosed by including a facsimile as bystander --- similar in principle to a replacement series experiment \citep{deWit1960competition}.
 
 \subsection{Measuring Complexity}
 \label{sec:measuringcomplexity}
