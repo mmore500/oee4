@@ -16,21 +16,33 @@ Late
 All
 \end{minipage}
 
+\begin{subfigure}{\linewidth}
 \includegraphics[width=0.39\linewidth,trim={0 1.2cm 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/agg=True+viz=lmplot+when=early+x=genetic-complexity+y=focal-prevalence+ext=.pdf}
 \includegraphics[width=0.295\linewidth,trim={1.45cm 1.2cm 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/agg=True+viz=lmplot+when=late+x=genetic-complexity+y=focal-prevalence+ext=.pdf}
 \includegraphics[width=0.295\linewidth,trim={1.45cm 1.2cm 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/agg=True+viz=lmplot+when=all+x=genetic-complexity+y=focal-prevalence+ext=.pdf}
 
 \includegraphics[align=t,width=0.39\linewidth,trim={0 0.7cm 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/viz=lmplot+when=early+x=genotype-complexity+y=focal-prevalence-difference+ext=.pdf}
-\includegraphics[align=t,width=0.295\linewidth,trim={1.45cm 0 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/viz=lmplot+when=late+x=genotype-complexity+y=focal-prevalence-difference+ext=.pdf}
+\includegraphics[align=t,width=0.295\linewidth,trim={1.45cm 0.7cm 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/viz=lmplot+when=late+x=genotype-complexity+y=focal-prevalence-difference+ext=.pdf}
 \includegraphics[align=t,width=0.295\linewidth,trim={1.45cm 0.7cm 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/viz=lmplot+when=all+x=genotype-complexity+y=focal-prevalence-difference+ext=.pdf}
+\caption{\footnotesize
+genotype complexity
+}
+\label{fig:fit-advantage-correlations:genotype}
+\end{subfigure}
 
+\begin{subfigure}{\linewidth}
 \includegraphics[width=0.39\linewidth,trim={0 1.2cm 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/agg=True+viz=lmplot+when=early+x=phenotype-complexity+y=focal-prevalence+ext=.pdf}
 \includegraphics[width=0.295\linewidth,trim={1.45cm 1.2cm 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/agg=True+viz=lmplot+when=late+x=phenotype-complexity+y=focal-prevalence+ext=.pdf}
 \includegraphics[width=0.295\linewidth,trim={1.45cm 1.2cm 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/agg=True+viz=lmplot+when=all+x=phenotype-complexity+y=focal-prevalence+ext=.pdf}
 
 \includegraphics[align=t,width=0.39\linewidth,trim={0 0.7cm 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/viz=lmplot+when=early+x=phenotype-complexity+y=focal-prevalence-difference+ext=.pdf}
-\includegraphics[align=t,width=0.295\linewidth,trim={1.45cm 0 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/viz=lmplot+when=late+x=phenotype-complexity+y=focal-prevalence-difference+ext=.pdf}
+\includegraphics[align=t,width=0.295\linewidth,trim={1.45cm 0.7cm 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/viz=lmplot+when=late+x=phenotype-complexity+y=focal-prevalence-difference+ext=.pdf}
 \includegraphics[align=t,width=0.295\linewidth,trim={1.45cm 0.7cm 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/viz=lmplot+when=all+x=phenotype-complexity+y=focal-prevalence-difference+ext=.pdf}
+\caption{\footnotesize
+phenotype complexity
+}
+\label{fig:fit-advantage-correlations:phenotype}
+\end{subfigure}
 
 \caption{
 \textbf{Self adaptation drives complexity.}
@@ -38,7 +50,7 @@ All
 Given the strong association between self adaptation and complexity observed in the case study strain, we sought to assess whether this pattern generalized across replicates.
 For this purpose, we measured fitness of sample genomes drawn from each replicate at 10-stint intervals --- taken as the fraction of competition trials won against cross-replicate comparators, using a biotic background design to incorporate context effects (Figure \ref{fig:fit:bbg}).
 Self adaptation could then be calculated as the difference between fitness in self context versus co-evolved context.
-Across early stints ($\leq50$), we found self adaptation to co-occur with both genotype complexity and phenotype complexity.
+Across early stints ($\leq50$), we found self adaptation to co-occur with both genotype complexity (panel \ref{fig:fit-advantage-correlations:genotype}) and phenotype complexity (panel \ref{fig:fit-advantage-correlations:phenotype}).
 While association between self adaptation and genotype complexity dissipated in later stints, association with phenotype complexity strengthened.
 Surpringly, no correlation arose between genotype complexity and fitness or phenotype complexity and fitness.
 Here, fitness was measured against cross-replicate comparators using 50/50 competition trials (Figure \ref{fig:fit:nobbg}).
