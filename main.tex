@@ -1,6 +1,10 @@
 \documentclass[letterpaper]{article}
 \usepackage{authblk}
 
+% Use symbols for footnotes (*, †, ‡, §, etc.) instead of numbers
+% perpage resets the counter on each page to avoid running out of symbols
+\usepackage[symbol,perpage]{footmisc}
+
 \usepackage[footnotes,definitionLists,hashEnumerators,smartEllipses,hybrid]{markdown}
 \usepackage{adjustbox}
 \usepackage[super,comma,sort&compress]{natbib} \usepackage{alifeconf} %% The order is important
