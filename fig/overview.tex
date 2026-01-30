@@ -7,15 +7,15 @@
 % \includegraphics[height=2.7cm]{{img/environment-phenotype-vs.pdf}}
 % \hfill
 \centering
-\includegraphics[width=0.7\linewidth]{{img/environment-phenotype-select-construct.pdf}}
+\includegraphics[width=\linewidth]{{img/environment-phenotype-select-construct.pdf}}
 % \hfill
 % \includegraphics[height=2.7cm]{{img/environment-phenotype-cna.pdf}}
 
 \caption{
 \textbf{Overview of digital multicell model.}
 \footnotesize
-Model instantiates population of replicating computer programs on toroidal grid (panel $a$).
-On the population grid, cells may form local multicell groups --- shown as color-coded patches (panel $b$).
+Model instantiates population of replicating computer programs on toroidal grid.
+On the population grid, cells may form local multicell groups --- shown as color-coded patches ($a$).
 Replicating computer programs operate analogously to biological genomes.
 Cells replicate by copying program content into a chosen neighbor cell, and may choose to grow their existing multicell group ($c$) --- or splinter their offspring off to found a new group ($d$).
 Each cell's behavior is directed by evaluation of its genome content on an independent virtual CPU (panel $e$).
@@ -24,7 +24,7 @@ In addition to message-passing I/O, virtual CPUs accept input to sense local sim
 Sensory input occurs via a combination of special input registers and signal messages triggered by simulation conditions (panel $f$).
 In addition to external stimuli (i.e., message passing and simulation events), program code can also trigger arbitrary self-stimuli.
 Virtual hardware supports concurrent interaction handling via independent pseudo-cores, as well as dynamic plasticity through regulation of tag-matching affinities within each cardinal processor.
-In contrast to deme-based digital models where multicell life histories are evaluated in isolation \citep{goldsby2012task, goldsby2014evolutionary}, instantiating multicells within a unified spatial realm with dense biotic interaction introduces potential for rich feedbacks on selection for life history traits as multicells constitute their own environmental context (panel $g$).
+In contrast to deme-based digital models where multicell life histories are evaluated in isolation \citep{goldsby2012task, goldsby2014evolutionary}, instantiating multicells within a unified spatial realm with dense biotic interaction introduces potential for rich feedbacks on selection for life history traits as multicells constitute their own environmental context (panel $f$).
 }
 \label{fig:overview}
 \end{figure}
