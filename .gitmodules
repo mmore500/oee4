@@ -100,6 +100,12 @@
 	branch = binder-2025-12-20-external-bb-reciporical.ipynb
 	shallow = true
 
+[submodule "binder-2026-01-30-simple-keyfig.ipynb"]
+	path = binder-2026-01-30-simple-keyfig.ipynb
+	url = https://github.com/mmore500/oee4.git
+	branch = binder-2026-01-30-external-bb-reciporical.ipynb
+	shallow = true
+
 [submodule "binder-bucket=prq49--a=all_stints_all_series_profiles+endeavor=16--fitness_complexity.ipynb"]
 	path = binder-bucket=prq49--a=all_stints_all_series_profiles+endeavor=16--fitness_complexity.ipynb
 	url = https://github.com/mmore500/oee4.git
