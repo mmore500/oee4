@@ -14,13 +14,14 @@
 \caption{
 \textbf{Overview of digital multicell model.}
 \footnotesize
-Model instantiates a population of digital organisms on toroidal grid.
-Cells may form multicell groups --- shown as color-coded patches ($a$).
-Cells replicate by copying program content into a chosen neighbor cell, and may choose to grow their existing multicell group ($c$) --- or found a new group ($d$).
-Cell behavior arises from execution of genome instructions which may exchange messages with neighbors, sense local simulation state, and perform cell actions.
-Sensory input occurs via a combination of special input registers and signal messages triggered by simulation conditions (panel $f$).
-In addition to external stimuli (i.e., message passing and simulation events), program code can also trigger arbitrary self-stimuli.
-Instantiating multicells within a unified spatial realm with dense biotic interaction introduces potential for biotic selection because multicells constitute each other's environmental context (panel $f$).
+Population of digital organisms inhabit cells on toroidal grid, competing for available space.
+Digital organisms may form multicell groups --- shown as color-coded patches ($a$).
+An occupied cell replicates by replacing a chosen neighbor with its own daughter.
+Parent cells may choose to grow their existing multicell group ($c$) --- or found a new group ($d$).
+Cells execute heritable genetic programs analogous to biological genomes ($e$).
+Program instructions may sense local simulation state, dispatch cell-cell messages, and trigger cell actions (e.g., reproduce, apoptose, etc.).
+Tagged genome modules activate in response to local events (e.g., neighbor actions, incoming messages, etc.), and may be dynamically regulated to support signal-response plasticity.
+Instantiating multicells within a unified spatial realm with dense biotic interaction introduces potential for biotic selection feedbacks because multicells constitute each other's environmental context ($f$).
 }
 \label{fig:overview}
 \end{figure}
