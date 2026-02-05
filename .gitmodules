@@ -112,6 +112,12 @@
 	branch = binder-2026-02-04-complexity-drivers.ipynb
 	shallow = true
 
+[submodule "2026-02-04-cryptic-complexity.ipynb"]
+	path = 2026-02-04-cryptic-complexity.ipynb
+	url = https://github.com/mmore500/oee4.git
+	branch = 2026-02-04-cryptic-complexity.ipynb
+	shallow = true
+
 [submodule "binder-bucket=prq49--a=all_stints_all_series_profiles+endeavor=16--fitness_complexity.ipynb"]
 	path = binder-bucket=prq49--a=all_stints_all_series_profiles+endeavor=16--fitness_complexity.ipynb
 	url = https://github.com/mmore500/oee4.git
