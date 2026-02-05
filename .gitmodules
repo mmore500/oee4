@@ -103,7 +103,13 @@
 [submodule "binder-2026-01-30-simple-keyfig.ipynb"]
 	path = binder-2026-01-30-simple-keyfig.ipynb
 	url = https://github.com/mmore500/oee4.git
-	branch = binder-2026-01-30-external-bb-reciporical.ipynb
+	branch = binder-2026-01-30-simple-keyfig.ipynb
+	shallow = true
+
+[submodule "binder-2026-02-04-complexity-drivers.ipynb"]
+	path = binder-2026-02-04-complexity-drivers.ipynb
+	url = https://github.com/mmore500/oee4.git
+	branch = binder-2026-02-04-complexity-drivers.ipynb
 	shallow = true
 
 [submodule "binder-bucket=prq49--a=all_stints_all_series_profiles+endeavor=16--fitness_complexity.ipynb"]
@@ -139,3 +145,7 @@
 	path = submodule/dishtiny_event_tag_phylogenetics
 	url = https://github.com/rodsan0/dishtiny_event_tag_phylogenetics.git
 	shallow = true
+[submodule "binder-2026-02-04-complexity-drivers.ipynb"]
+	path = binder-2026-02-04-complexity-drivers.ipynb
+	url = https://github.com/mmore500/oee4.git
+	branch = binder-2026-02-04-complexity-drivers.ipynb
