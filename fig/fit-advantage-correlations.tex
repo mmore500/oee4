@@ -29,7 +29,7 @@
     \includegraphics[width=\linewidth,trim={1.6cm 3.3cm 1.6cm 0},clip]{binder-2026-02-04-complexity-drivers.ipynb/binder/teeplots/2026-02-04-complexity-drivers/viz=draw-plot+ext=.pdf}
 \end{subfigure}
 
-\vspace{-2.5ex}
+\vspace{-1.75ex}
 
 % --- Caption Row ---
 \begin{minipage}{\linewidth}%
@@ -37,11 +37,11 @@
         ~
     \end{minipage}
     \begin{subfigure}[t]{0.23\linewidth}
-      \caption{early}
+      \caption{early ($t\leq50$)}
       \label{fig:fit-advantage-correlations:early}
     \end{subfigure}%
     \begin{subfigure}[t]{0.23\linewidth}
-      \caption{late}
+      \caption{late (($t>50$)}
       \label{fig:fit-advantage-correlations:late}
     \end{subfigure}%
     \begin{subfigure}[t]{0.46\linewidth}
@@ -50,16 +50,18 @@
     \end{subfigure}
 \end{minipage}
 
+\vspace{-1ex}
+
 \caption{
-\textbf{Niche construction co-occurs with complexity across replicates.}
+\textbf{Niche construction co-occurs with phenotype and genotype complexity across replicates.}
 \footnotesize
-To test generality of association between self adaptation and complexity observed in the case study strain, we tested for correlation across replicates.
-Self adaptation is calculated as the difference between fitness in self context versus co-evolved context.
-Across early stints ($\leq50$), self adaptation co-occurred with both genotype complexity (blue, \ref{fig:fit-advantage-correlations:genotype}) and phenotype complexity (blue, \ref{fig:fit-advantage-correlations:phenotype}).
-While association with genotype complexity dissipated in later stints, association with phenotype complexity strengthened.
-No correlations arose between complexity and fitness (yellow, \labelcref{fig:fit-advantage-correlations:genotype,fig:fit-advantage-correlations:phenotype}.
-Pearson correlation and two-tail Wald tests reported.
-Supplementary Figure \ref{fig:fit-advantage-correlations-supp}.
+To test generality of the association between niche construction and complexity observed in the case study strain, we tested for correlation across replicates.
+We measure niche construction as self advantage, the difference between fitness in self context versus co-evolved context.
+Across early stints, self adaptation co-occurred with both genotype complexity and phenotype complexity (\ref{fig:fit-advantage-correlations:early}).
+Association with genotype complexity dissipated in later stints, but association with phenotype complexity strengthened (\ref{fig:fit-advantage-correlations:late}).
+During the later period, both lineage fitness ($p < 0.03$, $R^2 = 0.12$) and lineage age ($p < 0.05$, $R^2 = 0.02$) correlated positively with deep genotype complexity, which includes additional sites otherwise resilient to single knockouts (\ref{fig:fit-advantage-correlations:complexity-drivers}).
+Pearson correlation and two-tail Wald tests reported, detailed in Supplementary Figure \ref{fig:fit-advantage-correlations-supp}.
+% Notably, niche construction and phenotype complexity ($p < 5 \times 10^{-3}$, $R^2 = 0.19$)  and drift and deep genotype complexity across all time ($p = 1 \times 10^{-6}$, $R^2 = 0.06$).
 }
 \label{fig:fit-advantage-correlations}
 

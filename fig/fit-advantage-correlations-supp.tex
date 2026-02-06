@@ -1,9 +1,26 @@
 \begin{figure*}
 
 \begin{subfigure}{0.5\linewidth}
+\begin{minipage}{0.1\linewidth}
+~
+\end{minipage}%
+\begin{minipage}{0.3\linewidth}
+\centering
+\textit{Early}
+\end{minipage}%
+\begin{minipage}{0.3\linewidth}
+\centering
+\textit{Late}
+\end{minipage}%
+\begin{minipage}{0.3\linewidth}
+\centering
+\textit{All}
+\end{minipage}
+
+
 \includegraphics[width=0.39\linewidth,trim={0 1.2cm 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/agg=False+viz=lmplot+when=early+x=phenotype-complexity+y=stint+ext=.pdf}
-\includegraphics[width=0.295\linewidth,trim={1.45cm 1.2cm 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/agg=False+viz=lmplot+when=late+x=phenotype-complexity+y=stint+ext=.pdf}
-\includegraphics[width=0.295\linewidth,trim={1.45cm 1.2cm 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/agg=False+viz=lmplot+when=all+x=phenotype-complexity+y=stint+ext=.pdf}
+\includegraphics[width=0.295\linewidth,trim={0 1.2cm 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/agg=False+viz=lmplot+when=late+x=phenotype-complexity+y=stint+ext=.pdf}
+\includegraphics[width=0.295\linewidth,trim={0 1.2cm 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/agg=False+viz=lmplot+when=all+x=phenotype-complexity+y=stint+ext=.pdf}
 
 \includegraphics[width=0.39\linewidth,trim={0 1.2cm 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/agg=True+viz=lmplot+when=early+x=phenotype-complexity+y=focal-prevalence+ext=.pdf}
 \includegraphics[width=0.295\linewidth,trim={1.45cm 1.2cm 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/agg=True+viz=lmplot+when=late+x=phenotype-complexity+y=focal-prevalence+ext=.pdf}
@@ -36,8 +53,8 @@ phenotype complexity
 \textit{All}
 \end{minipage}
 \includegraphics[width=0.39\linewidth,trim={0 1.2cm 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/agg=False+viz=lmplot+when=early+x=genetic-complexity+y=stint+ext=.pdf}
-\includegraphics[width=0.295\linewidth,trim={1.45cm 1.2cm 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/agg=False+viz=lmplot+when=late+x=genetic-complexity+y=stint+ext=.pdf}
-\includegraphics[width=0.295\linewidth,trim={1.45cm 1.2cm 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/agg=False+viz=lmplot+when=all+x=genetic-complexity+y=stint+ext=.pdf}
+\includegraphics[width=0.295\linewidth,trim={0 1.2cm 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/agg=False+viz=lmplot+when=late+x=genetic-complexity+y=stint+ext=.pdf}
+\includegraphics[width=0.295\linewidth,trim={0 1.2cm 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/agg=False+viz=lmplot+when=all+x=genetic-complexity+y=stint+ext=.pdf}
 
 \includegraphics[width=0.39\linewidth,trim={0 1.2cm 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/agg=True+viz=lmplot+when=early+x=genetic-complexity+y=focal-prevalence+ext=.pdf}
 \includegraphics[width=0.295\linewidth,trim={1.45cm 1.2cm 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/agg=True+viz=lmplot+when=late+x=genetic-complexity+y=focal-prevalence+ext=.pdf}
@@ -83,19 +100,14 @@ genotype complexity
 
 \vspace{-0.75em}
 \caption{\footnotesize
-cryptic genotype complexity
+deep (cryptic) genotype complexity
 }
 \label{fig:fit-advantage-correlations-supp:deep-genotype-cryptic}
 \end{subfigure}
 
 \caption{
-\textbf{Niche construction co-occurs with complexity across replicates.}
+\textbf{Co-occurrence of drift (time), niche construction (self adaptation), and fitness with complexity across replicates.}
 \footnotesize
-To test generality of association between self adaptation and complexity observed in the case study strain, we tested for correlation across replicates.
-Self adaptation is calculated as the difference between fitness in self context versus co-evolved context.
-Across early stints ($\leq50$), self adaptation to co-occured with both genotype complexity (blue, \ref{fig:fit-advantage-correlations:genotype}) and phenotype complexity (blue, \ref{fig:fit-advantage-correlations:phenotype}).
-While association with genotype complexity dissipated in later stints, association with phenotype complexity strengthened.
-No correlations arose between complexity and fitness (yellow, \labelcref{fig:fit-advantage-correlations:genotype,fig:fit-advantage-correlations:genotype}.
 Pearson correlation and two-tail Wald tests reported.
 }
 \label{fig:fit-advantage-correlations-supp}
