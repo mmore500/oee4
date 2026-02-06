@@ -1,50 +1,54 @@
 \begin{figure}
 
-\begin{minipage}{0.1\linewidth}
-~
+\begin{minipage}[t]{0.54\linewidth}%
+    \vspace{0pt}
+    % --- Column 1: Early ---
+    \begin{minipage}[t]{0.59\linewidth}
+        \vspace{0pt}
+        \centering
+        \includegraphics[height=1.9cm,trim={0 1.2cm 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/viz=lmplot+when=early+x=focal-prevalence-difference+y=phenotype-complexity+ext=.pdf} \\
+        \includegraphics[height=2.1cm,trim={0 0.8cm 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/viz=lmplot+when=early+x=focal-prevalence-difference+y=genotype-complexity+ext=.pdf}
+    \end{minipage}%
+    % --- Column 2: Late ---
+    \begin{minipage}[t]{0.41\linewidth}
+        \vspace{0pt}
+        \centering
+        \includegraphics[height=1.9cm,trim={1.6cm 1.2cm 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/viz=lmplot+when=late+x=focal-prevalence-difference+y=phenotype-complexity+ext=.pdf} \\
+        \includegraphics[height=2.1cm,trim={1.6cm 0.8cm 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/viz=lmplot+when=late+x=focal-prevalence-difference+y=genotype-complexity+ext=.pdf}
+    \end{minipage}%
+
+    % --- Shared X-Axis Label ---
+    \centering
+    \vspace{-0.5ex} % Adjust spacing between plots and label
+    ~~~~~~~~~~~~~~\includegraphics[height=0.5cm,trim={1cm 0 0 3.4cm},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/viz=lmplot+when=early+x=focal-prevalence-difference+y=genotype-complexity+ext=.pdf}
 \end{minipage}%
-\begin{minipage}{0.3\linewidth}
-\centering
-\textit{Early}
-\end{minipage}%
-\begin{minipage}{0.3\linewidth}
-\centering
-\textit{Late}
-\end{minipage}%
-\begin{minipage}{0.3\linewidth}
-\centering
-\textit{All}
+% --- Right Figure ---
+\begin{subfigure}[t]{0.46\linewidth}
+    \vspace{0pt}
+    \centering
+    \includegraphics[width=\linewidth,trim={1.6cm 3.3cm 1.6cm 0},clip]{binder-2026-02-04-complexity-drivers.ipynb/binder/teeplots/2026-02-04-complexity-drivers/viz=draw-plot+ext=.pdf}
+\end{subfigure}
+
+\vspace{-2.5ex}
+
+% --- Caption Row ---
+\begin{minipage}{\linewidth}%
+    \begin{minipage}{0.07\linewidth}
+        ~
+    \end{minipage}
+    \begin{subfigure}[t]{0.23\linewidth}
+      \caption{early}
+      \label{fig:fit-advantage-correlations:early}
+    \end{subfigure}%
+    \begin{subfigure}[t]{0.23\linewidth}
+      \caption{late}
+      \label{fig:fit-advantage-correlations:late}
+    \end{subfigure}%
+    \begin{subfigure}[t]{0.46\linewidth}
+    \caption{complexity drivers}
+    \label{fig:fit-advantage-correlations:complexity-drivers}
+    \end{subfigure}
 \end{minipage}
-
-\begin{subfigure}{\linewidth}
-\includegraphics[width=0.39\linewidth,trim={0 1.2cm 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/agg=True+viz=lmplot+when=early+x=genetic-complexity+y=focal-prevalence+ext=.pdf}
-\includegraphics[width=0.295\linewidth,trim={1.45cm 1.2cm 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/agg=True+viz=lmplot+when=late+x=genetic-complexity+y=focal-prevalence+ext=.pdf}
-\includegraphics[width=0.295\linewidth,trim={1.45cm 1.2cm 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/agg=True+viz=lmplot+when=all+x=genetic-complexity+y=focal-prevalence+ext=.pdf}
-
-\includegraphics[align=t,width=0.39\linewidth,trim={0 0.7cm 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/viz=lmplot+when=early+x=genotype-complexity+y=focal-prevalence-difference+ext=.pdf}
-\includegraphics[align=t,width=0.295\linewidth,trim={1.45cm 0.7cm 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/viz=lmplot+when=late+x=genotype-complexity+y=focal-prevalence-difference+ext=.pdf}
-\includegraphics[align=t,width=0.295\linewidth,trim={1.45cm 0.7cm 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/viz=lmplot+when=all+x=genotype-complexity+y=focal-prevalence-difference+ext=.pdf}
-\vspace{-0.75em}
-\caption{\footnotesize
-genotype complexity
-}
-\label{fig:fit-advantage-correlations:genotype}
-\end{subfigure}
-
-\begin{subfigure}{\linewidth}
-\includegraphics[width=0.39\linewidth,trim={0 1.2cm 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/agg=True+viz=lmplot+when=early+x=phenotype-complexity+y=focal-prevalence+ext=.pdf}
-\includegraphics[width=0.295\linewidth,trim={1.45cm 1.2cm 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/agg=True+viz=lmplot+when=late+x=phenotype-complexity+y=focal-prevalence+ext=.pdf}
-\includegraphics[width=0.295\linewidth,trim={1.45cm 1.2cm 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/agg=True+viz=lmplot+when=all+x=phenotype-complexity+y=focal-prevalence+ext=.pdf}
-
-\includegraphics[align=t,width=0.39\linewidth,trim={0 0.7cm 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/viz=lmplot+when=early+x=phenotype-complexity+y=focal-prevalence-difference+ext=.pdf}
-\includegraphics[align=t,width=0.295\linewidth,trim={1.45cm 0.7cm 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/viz=lmplot+when=late+x=phenotype-complexity+y=focal-prevalence-difference+ext=.pdf}
-\includegraphics[align=t,width=0.295\linewidth,trim={1.45cm 0.7cm 0 0},clip]{binder-2025-12-10-complexty-fitness-correlation.ipynb/binder/teeplots/2025-12-10-complexty-fitness-correlation/viz=lmplot+when=all+x=phenotype-complexity+y=focal-prevalence-difference+ext=.pdf}
-\vspace{-0.75em}
-\caption{\footnotesize
-phenotype complexity
-}
-\label{fig:fit-advantage-correlations:phenotype}
-\end{subfigure}
 
 \caption{
 \textbf{Niche construction co-occurs with complexity across replicates.}
