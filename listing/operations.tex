@@ -19,7 +19,7 @@ Within the program section of each genome, each instruction contained
 \item three integer arguments, specifying which registers the operation should apply to (many operations do not use all arguments).
 \end{itemize}
 
-In the operation descriptions below, we refer to register access via the $n$th argument as \texttt{reg[arg\_n]}.
+In the operation descriptions below, we refer to register access via to the $n$th argument as \texttt{reg[arg\_n]}.
 Each core has its own eight \texttt{float} registers.
 All core registers are zeroed out at core launch.
 
@@ -393,7 +393,7 @@ To determine the target writable state, interprets the first 32 bits of the inst
 \opdef{1}{1}
 
 If \texttt{reg[arg\_0]} is nonzero, generates a message tagged with the instruction's tag that contains the core's current register state.
-Broadcasts this message to every other cardinal processor within the cell.
+Broadcasts this message to every other cardinal processors within the cell.
 
 \subsection{Multiply Own State}
 

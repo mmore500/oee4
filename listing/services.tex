@@ -76,7 +76,7 @@ Used for experimental manipulations testing the fitness effect of introspective 
 
 \cellsimservicedef{1}
 
-Executes a cell's genome on its cardinal processors for \texttt{HARDWARE\_EXECUTION\_CYCLES} virtual cycles.
+Executes a cell's genome on its cardinals processors for \texttt{HARDWARE\_EXECUTION\_CYCLES} virtual cycles.
 The order of cardinal evaluation is randomized.
 This is repeated \texttt{HARDWARE\_EXECUTION\_ROUNDS} times.
 
@@ -197,9 +197,9 @@ Intermittently resets introspective message count state.
 Performs distributed estimation of kin group size by simulation.
 
 Each cell has a single randomly-chosen index set within a fixed-length bitstring.
-(Depending on parameter settings, some cells may have index set --- all positions within the bitstring are zeroed out.)
+(Depending in parameter settings, some cells may have index set --- all positions within the bitstring are zeroed out.)
 
-Broadcasts bits known to be set to all neighbor cells within the same kin group.
+Broadcasts bits known to be set are to all neighbor cells within the same kin group.
 Incoming bitstrings from neighbors are ORed with known bits.
 
 The original neighbor each non-self bit was first learned from is recorded alongside that bit.
