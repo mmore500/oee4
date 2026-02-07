@@ -9,7 +9,7 @@
 \input{fig/overview.tex}
 
 DISHTINY is a software platform for conducting multicell evolution experiments using digital organisms \citep{moreno2019toward}.
-% Digital evolution experiments, closely related to agent-based modeling approaches, study populations of computer programs that compete to propagate themselves --- analogous to genomes within biological cells \citep{TODO}.
+% Digital evolution experiments, closely related to agent-based modeling approaches, study populations of computer programs that compete to propagate themselves --- analogous to genomes within biological cells \citep{DOTO}.
 These digital organisms populate cells in a 2D toroidal grid.
 Cell reproduction occurs by asexual budding to a chosen adjacent position, supplanting any preexisting occupant.
 
@@ -108,7 +108,7 @@ We conducted 100 passages, amounting to just over 12.5 days of compute time per 
 Across replicates, between 5.4M and 9.9M simulation time steps elapsed (mean 7.4M; SD 1.1M).
 During this time, between 11.7k and 26.9k cell generations elapsed (mean 18.5k; SD 3.4k) and between 1.2k and 3.4k group generations elapsed (mean 2.3k; SD 533).
 In the replicate producing our high-complexity case study, 7,565,309 simulation time steps elapsed --- accreting 11,713 cell generations and 1,325 group generations.
-To accelerate the experiment, quadrants of simulation space were distributed across four asynchronous hardware threads for parallel evaluation.
+To accelerate the experiment, quadrants of simulation space were distributed across four asynchronous hardware threads for parallel evaluation \citep{moreno2021conduit}.
 For this reason, phylogeny analyses relied on parsimony-based reconstruction rather than exact tracking \citep{moreno2022hereditary}.
 Further technical details appear in supplementary material.
 
@@ -170,6 +170,6 @@ Project data is archived under a CC-By Attribution 4.0 International license via
 
 \subsection{Code Availability}
 
-Project code is archived via Zenodo \citep{TODO}, available open source under MIT licenses.
+Project code is archived via Zenodo \citep{moreno_2025_16990564}, available open source under MIT licenses.
 Core DISHTINY software is hosted on GitHub at \url{https://github.com/mmore500/dishtiny}.
 This project benefited significantly from open-source scientific software and data standards \citep{2020SciPy-NMeth,harris2020array,reback2020pandas,mckinney-proc-scipy-2010,waskom2021seaborn,hunter2007matplotlib,moreno2023teeplot,seabold2010statsmodels,vostinar2024empirical,moreno2021signalgp,moreno2021conduit,cock2009biopython,lalejini2019data}.
