@@ -11,10 +11,10 @@
 \section{Introspective State}
 
 Introspective state refers to the collection of simulation-generated sensor values that evolving programs running within each cardinal processor can access via read-only operations.
-Each cardinal processor has an independent copy of each piece of introspective state state.
+Each cardinal processor has an independent copy of each piece of introspective state.
 (However, some introspective states representing cell state are set to identical values across cardinal processors within the same cell.)
 
-Each cardinal processor's introspective state regularly copied and dispatched to that cardinal processor's neighbor cell, where it serves as read-only extrospective state.
+Each cardinal processor's introspective state is regularly copied and dispatched to that cardinal processor's neighbor cell, where it serves as read-only extrospective state.
 
 Introspective state is organized into two categories:
 \begin{enumerate}
@@ -50,7 +50,7 @@ Is this cell's age less than \texttt{EVENT\_LAUNCHING\_SERVICE\_FREQUENCY}?
 \instrospectivestatedef{\texttt{char} (w/ boolean semantics)}{interpreted}
 
 Did this cardinal processor's neighbor cell spawn from this cell?
-That is, was neighbor was spawned from this cell and is this cell older than neighbor?
+That is, was neighbor spawned from this cell and is this cell older than neighbor?
 
 \subsection{Is Parent Group Of}
 
@@ -93,7 +93,7 @@ Is the neighbor's cell age less than \texttt{EVENT\_LAUNCHING\_SERVICE\_FREQUENC
 
 \instrospectivestatedef{\texttt{char} (w/ boolean semantics)}{interpreted}
 
-Is this cell's kin group age greater than 80\% of the this level's \texttt{GROUP\_EXPIRATION\_DURATIONS}?
+Is this cell's kin group age greater than 80\% of this level's \texttt{GROUP\_EXPIRATION\_DURATIONS}?
 
 \subsection{Neighbor Optimum Quorum Exceeded (0 thru $L-1$)}
 
@@ -112,7 +112,7 @@ Is this cell's kin group quorum count more than the simulation-defined target co
 \instrospectivestatedef{\texttt{char} (w/ boolean semantics)}{interpreted}
 
 Did the cell's parent die from fragmentation?
-That is, was the last cause of death on the current tile was fragmentation?
+That is, was the last cause of death on the current tile fragmentation?
 
 \subsection{Phylogenetic Root Match}
 
@@ -125,7 +125,7 @@ Does this cell's root ID equal the cardinal processor's cell neighbor's root ID?
 
 \instrospectivestatedef{\texttt{char} (w/ boolean semantics)}{interpreted}
 
-Does this cell's stockpile more resource than the cardinal processor's cell neighbor?
+Does this cell stockpile more resource than the cardinal processor's cell neighbor?
 
 \subsection{Stockpile Depleted}
 
@@ -194,7 +194,7 @@ Kin group ID of this cell.
 
 \instrospectivestatedef{\texttt{char}}{raw}
 
-What was this the most recent cause of death on this tile?
+What was the most recent cause of death on this tile?
 Encoded using the \texttt{CauseOfDeath} enum.
 
 \subsection{Num Known Quorum Bits (0 thru $L-1$)}
