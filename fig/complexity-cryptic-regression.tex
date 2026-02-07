@@ -5,21 +5,21 @@
 binder-2025-12-04-cryptic-complexity.ipynb/binder/teeplots/2025-12-04-cryptic-complexity/hue=variant+style=variant+viz=lineplot+x=stint+y=is-less-fit+ext=.pdf%
 }
 \caption{sites knockouts flagged deleterious}
-\label{fig:complexity-crypic-regression:deleterious}
+\label{fig:complexity-cryptic-regression:deleterious}
 \end{subfigure}%
 \begin{subfigure}{0.33\textwidth}
 \includegraphics[width=\textwidth]{%
 binder-2025-12-04-cryptic-complexity.ipynb/binder/teeplots/2025-12-04-cryptic-complexity/hue=variant+style=variant+viz=lineplot+x=stint+y=is-more-fit+ext=.pdf%
 }
 \caption{site knockouts flagged beneficial}
-\label{fig:complexity-crypic-regression:beneficial}
+\label{fig:complexity-cryptic-regression:beneficial}
 \end{subfigure}%
 \begin{subfigure}{0.33\textwidth}
 \includegraphics[width=\textwidth]{%
 binder-2025-12-04-cryptic-complexity.ipynb/binder/teeplots/2025-12-04-cryptic-complexity/hue=variant+style=variant+viz=lineplot+x=stint+y=is-neutral+ext=.pdf%
 }
 \caption{unflagged site knockouts (neutral)}
-\label{fig:complexity-crypic-regression:neutral}
+\label{fig:complexity-cryptic-regression:neutral}
 \end{subfigure}%
 
 \begin{subfigure}{0.33\textwidth}
@@ -27,21 +27,21 @@ binder-2025-12-04-cryptic-complexity.ipynb/binder/teeplots/2025-12-04-cryptic-co
 binder-2025-11-30-genome-complexity-regression.ipynb/binder/teeplots/2025-11-30-genme-complexity-regression/viz=plot-breakpoints+x=stint+y=genome_complexity+ext=.pdf%
 }
 \caption{wildtype genome complexity}
-\label{fig:complexity-crypic-regression:split}
+\label{fig:complexity-cryptic-regression:split}
 \end{subfigure}%
 \begin{subfigure}{0.33\textwidth}
 \includegraphics[width=\textwidth]{%
 binder-2025-12-04-cryptic-complexity.ipynb/binder/teeplots/2025-12-04-cryptic-complexity/hue=variant+site_max=1000+site_min=0+stint_max=100+stint_min=30+viz=lmplot+x=stint+y=is-less-fit+ext=.pdf%
 }
 \caption{$\geq$ stint 34}
-\label{fig:complexity-crypic-regression:geq34}
+\label{fig:complexity-cryptic-regression:geq34}
 \end{subfigure}%
 \begin{subfigure}{0.33\textwidth}
 \includegraphics[width=\textwidth]{%
 binder-2025-12-04-cryptic-complexity.ipynb/binder/teeplots/2025-12-04-cryptic-complexity/hue=variant+site_max=1000+site_min=0+stint_max=100+stint_min=40+viz=lmplot+x=stint+y=is-less-fit+ext=.pdf%
 }
 \caption{$\geq$ stint 40}
-\label{fig:complexity-crypic-regression:geq40}
+\label{fig:complexity-cryptic-regression:geq40}
 \end{subfigure}%
 
 \caption{%
@@ -50,11 +50,11 @@ binder-2025-12-04-cryptic-complexity.ipynb/binder/teeplots/2025-12-04-cryptic-co
 To assess genetic functionality not detectable by single-site knockout (e.g., due to redundancy), knockout targets were additionally assayed on ``skeletonized'' (rather than wildtype) genome variants.
 To create these variants, instructions were sequentially replaced with NOP placeholders until no more could be silenced without causing detectable phenotypic change.
 Fitness competitions were then conducted between skeletonized genomes and variants with all possible additional single-site knockouts.
-Panel \ref{fig:complexity-crypic-regression:deleterious} compares site knockout counts flagged deleterious for case study strain against skeletonized and wildtype backgrounds.
-For completeness, panels \ref{fig:complexity-crypic-regression:beneficial} and \ref{fig:complexity-crypic-regression:neutral} provide counts of knockouts flagged advantageous and those flagged neither advantageous nor deleterious, respectively.
-Regression analysis suggests that around stint 34 case study strain transitioned from early-evolution regimen of increasing complexity to a late-evolution regimen of decreasing complexity (panel \ref{fig:complexity-crypic-regression:split}, shaded area indicates 95\% CI).
-Applying Pearson regression analysis to the skeletonized genetic complexity measure (i.e., including possible cryptic genetic variation), the trend in decreasing complexity weakens --- with complexity remaining particularly more stable from stint 40 onwards (panel \ref{fig:complexity-crypic-regression:geq40}).
+Panel \ref{fig:complexity-cryptic-regression:deleterious} compares site knockout counts flagged deleterious for case study strain against skeletonized and wildtype backgrounds.
+For completeness, panels \ref{fig:complexity-cryptic-regression:beneficial} and \ref{fig:complexity-cryptic-regression:neutral} provide counts of knockouts flagged advantageous and those flagged neither advantageous nor deleterious, respectively.
+Regression analysis suggests that around stint 34 case study strain transitioned from early-evolution regimen of increasing complexity to a late-evolution regimen of decreasing complexity (panel \ref{fig:complexity-cryptic-regression:split}, shaded area indicates 95\% CI).
+Applying Pearson regression analysis to the skeletonized genetic complexity measure (i.e., including possible cryptic genetic variation), the trend in decreasing complexity weakens --- with complexity remaining particularly more stable from stint 40 onwards (panel \ref{fig:complexity-cryptic-regression:geq40}).
 }
-\label{fig:complexity-crypic-regression}
+\label{fig:complexity-cryptic-regression}
 
 \end{figure*}

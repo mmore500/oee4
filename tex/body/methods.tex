@@ -4,53 +4,22 @@
 
 \section{Methods} \label{sec:methods}
 
-\subsection{Experimental System}
-
-\input{fig/overview.tex}
-
-DISHTINY is a software platform for conducting multicell evolution experiments using digital organisms \citep{moreno2019toward}.
-% Digital evolution experiments, closely related to agent-based modeling approaches, study populations of computer programs that compete to propagate themselves --- analogous to genomes within biological cells \citep{TODO}.
-In DISHTINY, digital organisms occupy cells in a 2D toroidal grid.
-Cell reproduction occurs by asexual budding to a chosen adjacent position, supplanting any preexisting occupant.
-
-To introduce multicellular structure, DISHTINY allows parent cells to distinguish budded offspring between group expansion (i.e., agglomeration; Figure \ref{fig:overview}c) and new group establishment (i.e., propagule generation; Figure \ref{fig:overview}d).
-\unskip\footnote{%
-In earlier work, we found that more case studies of interest arose when two nested levels of group membership were tracked, as opposed to a single, unnested level of group membership \citep{moreno2021exploring}; we continue this approach here.
-Within this two-level framework, cells are given the choice to retain offspring within both groups, to expel offspring from both groups, or to expel offspring from the innermost group only.
-}
-As such, an implicit single-cell bottleneck arises in group establishment \citep{ratcliff2015origins}.
-Cells become eligible to reproduce by passively accruing energy, and we reward group formation by boosting energy inflow.
-Importantly, though, no extrinsic steering restricts cell behavior for cooperation or conflict within groups.
-As a practical matter, to ensure generational turnover, groups are broken into unicellular propagules after a fixed duration.
-
-In DISHTINY, neighboring cells interact by competing for space, sharing energy, exchanging messages, or sensing each other's state.
-Cell-cell interactions occur both within groups and between groups.
-Within-group cell-cell interactions allow dynamic development and patterning processes \citep{goldsby2012task,moreno2021exploring}, while between-group cell-cell interactions create an environment of free-form interface competition between abutting groups --- introducing feedback between organisms' phenotypes and their environment (Figure \ref{fig:overview}g).
-
-Individual cell behaviors arise from expression of genome subprograms in tagged modules \citep{lalejini2018evolving}.
-These modules selectively activate in response to incoming signals \citep{moreno2023matchmaker,holland2012signals} --- triggered by updates to the local environment, cell-cell messages, or expression of other modules within the cell (Figure \ref{fig:overview}f).
-To facilitate plasticity and differentiation, DISHTINY cells may dynamically regulate modules' signal-matching priority \citep{lalejini2021tag}.
-
-Within modules, programs consist of a linear instruction sequence (Figure \ref{fig:overview}f).
-Available instructions include floating point arithmetic operations, conditional control flow operations (e.g., looping, branching, etc.), input operations to sense local state, and output operations to trigger actions (e.g., resource sharing, reproduction, etc.).
-The full set of 56 available instruction types is described in supplementary material, alongside details for full simulation logic and parameter settings.
-
 \subsection{Evolutionary Replicates}
 
 Ancestor populations for evolution experiments were randomly generated 100-instruction genomes, typically encoding on the order of 5 signal-response modules.
-The configured population size of 14,400 cells reliably sufficed that some founding ancestors were viable replicators.
-When replicating, however, all offspring were subject to possible mutation: point mutations, single-site insertions and deletions, or multi-site duplications and deletions.
+Configured population size of 14,400 cells reliably sufficed that some founding ancestors were viable replicators.
+When replicating, all offspring were subject to possible mutation: point mutations, single-site insertions and deletions, or multi-site duplications and deletions.
 Mutations could also introduce new signal-response modules by creating new activation entrypoints.
 
 After initialization, competition for space drove most founding strains extinct.
-To ensure a heterogeneous biotic environment within each experimental replicate, we imposed a simple diversity balancing scheme: any strain exceeding half of available carrying capacity incurred progressive energy decay.
+To ensure a heterogeneous biotic environment within each experimental replicate, we imposed a simple diversity balancing scheme: any strain exceeding half of available carrying capacity incurred an escalating energy decay penalty.
 Thus, replicates converged to maintain at least two founding strains.
 Among these, we arbitrarily chose one strain for primary study --- the ``focal'' strain;
-another was sampled as a ``background'' (or ``co-evolved'') strain.
+another was sampled as the ``background'' (or ``co-evolved'') strain.
 
 For compatibility with our compute cluster's scheduling system, evolutionary replicates were passaged between fresh simulation runtimes in three hour increments, which we refer to as ``stints.''
 Each transfer carried over all population genomes, but no other simulation state.
-This protocol ensured strains remained capable of growth from well-mixed inoculum.
+As a benefit, this protocol ensured strains remained capable of growth from well-mixed inoculum.
 Supplementary Figure \ref{fig:stints} summarizes our serial transfer and diversity maintenance procedures.
 
 % import boto3
@@ -108,7 +77,7 @@ We conducted 100 passages, amounting to just over 12.5 days of compute time per 
 Across replicates, between 5.4M and 9.9M simulation time steps elapsed (mean 7.4M; SD 1.1M).
 During this time, between 11.7k and 26.9k cell generations elapsed (mean 18.5k; SD 3.4k) and between 1.2k and 3.4k group generations elapsed (mean 2.3k; SD 533).
 In the replicate producing our high-complexity case study, 7,565,309 simulation time steps elapsed --- accreting 11,713 cell generations and 1,325 group generations.
-To accelerate the experiment, quadrants of simulation space were distributed across four asynchronous hardware threads for parallel evaluation.
+To accelerate the experiment, quadrants of simulation space were distributed across four asynchronous hardware threads for parallel evaluation \citep{moreno2021conduit}.
 For this reason, phylogeny analyses relied on parsimony-based reconstruction rather than exact tracking \citep{moreno2022hereditary}.
 Further technical details appear in supplementary material.
 
@@ -119,7 +88,7 @@ Further technical details appear in supplementary material.
 
 Like nature, cell behavior and fate in DISHTINY emerges from stochastic interaction between expressed genetic traits and the local environment.
 % fitness effects of a mutation are not specified or determined \textit{a priori}.
-Because fitness thus arises as an implicit outcome, it is neither specified nor readily determined \textit{a priori} \citep{franklin2019mapping} and must instead be measured \textit{in situ}.
+Fitness thus is not readily determined \textit{a priori} \citep{franklin2019mapping} and must instead be measured \textit{in situ}.
 Further complicating matters, dense biotic interaction between groups prevents reliable fitness estimation on the basis of a single cell or group in isolation \citep{wadgymar2024defining}.
 
 Therefore, to assess fitness, we rely on competition assays.
@@ -127,7 +96,7 @@ Therefore, to assess fitness, we rely on competition assays.
 Supplementary material also reports doubling-time fitness assays, which measure rate of expansion into empty space.
 However, as our evolutionary trials begin and remain near carrying capacity, we did not find these assays informative of ability to compete for occupied space.
 }
-To begin a competition assay, available space is filled by an even mix of compared strains.
+In these competition assays, available space is filled by an even mix of compared strains.
 Then, after a 10 minute runtime, we evaluate the abundance of compared strains (Figure \ref{fig:fit:nobbg}).
 \unskip\footnote{%
 As a point of reference, in the high-complexity lineage this runtime elapsed between 8,000 update cycles (stint 0) and 2,000 update cycles (stint 100).
@@ -135,29 +104,31 @@ Further detail in Supplementary Figures \labelcref{fig:num_updates_elapsed_heatm
 }
 To assess significance, we repeat this procedure 20 times and apply a two-tailed binomial exact test to competition win/loss counts.
 
-For some analyses, we also used a ``biotic background'' competition design to integrate ecological context --- similar in principle to mesocosm experiments \citep{sala2000methods}.
-Biotic background assays were seeded by mixing competitors with a ``bystander'' strain in 25\%-25\%-50\% proportion.
+For some analyses, we also used a ``biotic background'' competition design to integrate environmental context --- similar in principle to mesocosm experiments \citep{sala2000methods}.
+Biotic background assays were seeded by mixing two competitors with a ``bystander'' strain in 25\%-25\%-50\% proportion.
 The bystander strain participates fully in the competition environment, but is excluded from end-state abundance assessment of competitors (Figure \ref{fig:fit:nobbg}).
-In some cases, we purposed this biotic background competition design to test frequency-dependent selection effects; prevalence of one competitor strain can be updosed by assigning a facsimile as bystander --- effectively emulating a replacement series experiment \citep{deWit1960competition}.
+In some cases, we used this biotic background competition design to test frequency-dependent selection effects; prevalence of one competitor strain can be updosed by assigning a facsimile as bystander --- effectively emulating a replacement series experiment \citep{deWit1960competition}.
 
 \subsection{Measuring Complexity}
 \label{sec:measuringcomplexity}
 
-Defining and quantifying complexity remains a nuanced, unresolved topic \citep{adami2002what,parrott2010measuring,bottcher2017molecules,tenaillon2007quantifying,bonchev2005complexity,hazen2007functional,marion2015extending,rebout2021measuring}.
+Defining and quantifying complexity remains a nuanced, unresolved topic \citep{adami2002what,parrott2010measuring,bottcher2017molecules,tenaillon2007quantifying,bonchev2005complexity,hazen2007functional,marion2015extending,rebout2021measuring,McShea1996}.
 Here, we consider complexity as evolved structure that is functionally adaptive.
 As a measure of phenotype complexity, we count cell input/output interfaces contributing to fitness.
 This measure describes the richness of behavior across cell interfaces \citep{mcshea2000functional}, to capture dynamic interaction essential to complex multicellularity \citep{knoll2011multiple,niklas2013origins,brunet2017origin}.
-To measure genotype complexity, we count genome sites contributing to fitness \citep{dolson2019modes,adami2000evolution}, to approximate underlying control structures that direct phenotypic interactions.
+To measure genotype complexity, we count genome sites contributing to fitness \citep{dolson2019modes,adami2000evolution} as a proxy for underlying control structures that direct phenotypic interactions.
 \unskip\footnote{%
 Promisingly, we find moderate correlation between these measures across replicates and, within the high-complexity case study, also find moderate correlation in evolutionary changes to these measures (Supplementary Figures \labelcref{fig:gpcomplex-correlation,fig:TODO}).
 }
+For tractability, our implementations of these complexity measures rely on pragmatic, coarse assay designs --- discussed next.
 
-Because assessing adaptation through competition experiments is computationally expensive, our complexity measures rely on pragmatic, coarse assay designs.
-We estimated phenotype complexity via manipulation interventions across a suite of wildtype-vs-degraded competition trials \citep{sinervo1996testing}.
+We measure phenotype complexity via manipulation interventions across a suite of wildtype-vs-degraded competition trials \citep{sinervo1996testing}.
 Each trial de-contextualized (i.e., spatially shuffled) one of the 105 available readable ``sensor'' cell inputs or one of the 18 available writable ``actuator'' cell outputs.
 Phenotype complexity trials also screened for message-passing functionality by intercepting and reflecting portions of message traffic.
-To estimate genotype complexity, we used single knockouts to screen functionality of individual genome sites.
+
+To measure genotype complexity, we used single knockouts to screen functionality of individual genome sites.
 Because combination knockouts were not tested, this measure is limited in detecting sites with compensatory redundancy or small fitness effects below the competition sensitivity threshold \citep{moreno2024methods}.
+Some such sites are captured by an extended ``deep'' genotype complexity measure, which applies knockouts to a ``skeletonized'' genome stripped of unexpressed sites.
 
 To reduce workload for measuring complexity across many replicates and timepoints, we evaluated single competition outcomes against wildtype-vs-wildtype control trials and pre-filtered non-expressed genome sites.
 Supplementary materials further detail these procedures, including quality control measures.
@@ -168,6 +139,6 @@ Project data is archived under a CC-By Attribution 4.0 International license via
 
 \subsection{Code Availability}
 
-Project code is archived via Zenodo \citep{TODO}, available open source under MIT licenses.
+Project code is archived via Zenodo \citep{moreno_2025_16990564}, available open source under MIT licenses.
 Core DISHTINY software is hosted on GitHub at \url{https://github.com/mmore500/dishtiny}.
 This project benefited significantly from open-source scientific software and data standards \citep{2020SciPy-NMeth,harris2020array,reback2020pandas,mckinney-proc-scipy-2010,waskom2021seaborn,hunter2007matplotlib,moreno2023teeplot,seabold2010statsmodels,vostinar2024empirical,moreno2021signalgp,moreno2021conduit,cock2009biopython,lalejini2019data}.
