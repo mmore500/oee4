@@ -1,0 +1,31 @@
+\section{Experimental System}
+\label{sec:system}
+
+\input{fig/overview.tex}
+
+DISHTINY is a software platform for conducting multicell evolution experiments using digital organisms \citep{moreno2019toward}.
+% Digital evolution experiments, closely related to agent-based modeling approaches, study populations of computer programs that compete to propagate themselves --- analogous to genomes within biological cells \citep{DOTO}.
+These digital organisms populate cells in a 2D toroidal grid.
+Cell reproduction occurs by asexual budding to a chosen adjacent position, supplanting any preexisting occupant.
+
+To introduce multicellular structure, DISHTINY allows parent cells to distinguish budded offspring between group expansion (i.e., agglomeration; Figure \ref{fig:overview}d) and new group establishment (i.e., propagule generation; Figure \ref{fig:overview}e).
+\unskip\footnote{%
+In earlier work, we found that more case studies of interest arose when two nested levels of group membership were tracked, as opposed to a single, unnested level of group membership \citep{moreno2021exploring}; we continue this approach here.
+Within this two-level framework, cells are given the choice to retain offspring within both groups, to expel offspring from both groups, or to expel offspring from the innermost group only.
+}
+As such, an implicit single-cell bottleneck arises in group establishment \citep{ratcliff2015origins}.
+Cells become eligible to reproduce by passively accruing energy, and we reward group formation by boosting energy inflow.
+Importantly, though, no extrinsic steering restricts cooperation or conflict among cells within groups.
+As a practical matter, to ensure generational turnover, groups are split into unicellular propagules after a fixed duration.
+
+Neighboring cells interact by competing for space, sharing energy, exchanging messages, and sensing each other's state.
+Cell-cell interactions occur both within groups and between groups.
+Within-group cell-cell interactions allow dynamic development and patterning processes \citep{goldsby2012task,moreno2021exploring}, while between-group cell-cell interactions create an environment of free-form interface competition --- introducing feedback between organisms' phenotypes and their environment (Figure \ref{fig:overview}g).
+
+Individual cell behaviors arise from expression of genome subprograms in tagged modules \citep{lalejini2018evolving}.
+These modules selectively activate in response to incoming signals \citep{moreno2023matchmaker,holland2012signals} --- triggered by updates to the local environment, cell-cell messages, or expression of other modules within the cell (Figure \ref{fig:overview}f).
+To facilitate plasticity and differentiation, DISHTINY cells may dynamically regulate modules' signal-matching priority \citep{lalejini2021tag}.
+
+Within modules, programs consist of a linear instruction sequence.
+Available instructions include floating point arithmetic operations, conditional control flow operations (e.g., looping, branching, etc.), input operations to sense local state, and output operations to trigger actions (e.g., resource sharing, reproduction, etc.).
+The full set of 56 available instruction types is described in supplementary material, alongside details for full simulation logic and parameter settings.
