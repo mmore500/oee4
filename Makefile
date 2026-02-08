@@ -32,11 +32,13 @@ ${BUILD_DIR}-supplement.pdf: ${BUILD_DIR}.pdf
 
 ${BUILD_DIR}-draft.pdf: main.tex bibl.bib draft.tex $(shell find tex -type f) fig/* img/* lib/*
 	mkdir -p /tmp/${SESSION_ID}
+	ln -sf /tmp/${SESSION_ID}/${BUILD_DIR}-draft.log ${BUILD_DIR}-draft.log
 	latexmk -pdf -silent \
     -jobname=${BUILD_DIR}-draft \
 	-outdir=/tmp/${SESSION_ID} \
     -pdflatex="pdflatex -interaction=nonstopmode" draft.tex
-	mv /tmp/${SESSION_ID}/${BUILD_DIR}-draft.pdf ${BUILD_DIR}-draft.pdf
+	mv -f /tmp/${SESSION_ID}/${BUILD_DIR}-draft.pdf ${BUILD_DIR}-draft.pdf
+	mv -f /tmp/${SESSION_ID}/${BUILD_DIR}-draft.log ${BUILD_DIR}-draft.log
 	rm -rf /tmp/${SESSION_ID}
 
 ${BUILD_DIR}-draft.tex: main.tex
