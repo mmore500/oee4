@@ -44,7 +44,7 @@ jobs:
           submodules: 'recursive'
       - name: Build LaTeX document
         run: |
-          trap 'cat *.log || true >> "$GITHUB_OUTPUT"' EXIT
+          trap 'cat *.log; pdflatex main.tex; cat *.log || true >> "$GITHUB_OUTPUT"' EXIT
           make
       - name: Prepare deploy directory
         run: |
