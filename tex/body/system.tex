@@ -5,8 +5,7 @@
 
 DISHTINY is a software platform for conducting multicell evolution experiments using digital organisms \citep{moreno2019toward}.
 % Digital evolution experiments, closely related to agent-based modeling approaches, study populations of computer programs that compete to propagate themselves --- analogous to genomes within biological cells \citep{DOTO}.
-These digital organisms populate cells in a 2D toroidal grid.
-Cell reproduction occurs by asexual budding to a chosen adjacent position, supplanting any preexisting occupant.
+These digital organisms populate cells in a 2D toroidal grid, and cell reproduction occurs by asexual budding to a chosen adjacent position --- supplanting any preexisting occupant.
 
 To introduce multicellular structure, DISHTINY allows parent cells to distinguish budded offspring between group expansion (i.e., agglomeration; Figure \ref{fig:overview}d) and new group establishment (i.e., propagule generation; Figure \ref{fig:overview}e).
 \unskip\footnote{%
@@ -20,12 +19,12 @@ As a practical matter, to ensure generational turnover, groups are split into un
 
 Neighboring cells interact by competing for space, sharing energy, exchanging messages, and sensing each other's state.
 Cell-cell interactions occur both within groups and between groups.
-Within-group cell-cell interactions allow dynamic development and patterning processes \citep{goldsby2012task,moreno2021exploring}, while between-group cell-cell interactions create an environment of free-form interface competition --- introducing feedback between organisms' phenotypes and their environment (Figure \ref{fig:overview}g).
+Within-group cell-cell interactions allow dynamic development and patterning processes \citep{goldsby2012task,moreno2021exploring}, while between-group cell-cell interactions produce an environment of free-form interface competition --- creating feedback between evolved phenotypes and the environment (Figure \ref{fig:overview}g).
 
-Individual cell behaviors arise from expression of genome subprograms in tagged modules \citep{lalejini2018evolving}.
+Cell behaviors arises from expression of genome subprograms in tagged modules \citep{lalejini2018evolving}.
 These modules selectively activate in response to incoming signals \citep{moreno2023matchmaker,holland2012signals} --- triggered by updates to the local environment, cell-cell messages, or expression of other modules within the cell (Figure \ref{fig:overview}f).
-To facilitate plasticity and differentiation, DISHTINY cells may dynamically regulate modules' signal-matching priority \citep{lalejini2021tag}.
+To facilitate plasticity and differentiation, cells may dynamically regulate their genome modules' signal-matching priorities \citep{lalejini2021tag}.
 
 Within modules, programs consist of a linear instruction sequence.
-Available instructions include floating point arithmetic operations, conditional control flow operations (e.g., looping, branching, etc.), input operations to sense local state, and output operations to trigger actions (e.g., resource sharing, reproduction, etc.).
+Available instructions include arithmetic operations, conditional control flow operations (e.g., looping, branching, etc.), input operations to sense local state, and output operations to trigger actions (e.g., resource sharing, reproduction, etc.).
 The full set of 56 available instruction types is described in supplementary material, alongside details for full simulation logic and parameter settings.

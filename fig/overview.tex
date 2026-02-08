@@ -12,16 +12,13 @@
 % \includegraphics[height=2.7cm]{{img/environment-phenotype-cna.pdf}}
 
 \caption{
-\textbf{Overview of digital multicell model.}
+\textbf{Digital multicell model.}
 \footnotesize
-Population of digital organisms inhabits cells on a toroidal grid ($a$), competing for available space.
-Digital organisms may form multicell groups --- depicted as color-coded patches ($b$).
-An occupied cell replicates by replacing a chosen neighbor with its own daughter ($c$).
-Parent cells may choose to grow their existing multicell group ($d$) --- or found a new group ($e$).
-Cells execute heritable genetic programs analogous to biological genomes ($f$).
-Program instructions may sense local simulation state, dispatch cell-cell messages, or trigger cell actions (e.g., reproduce, apoptose, etc.).
-Program submodules activate in response to local events (e.g., neighbor actions, incoming messages, etc.) and may be plastically regulated to reroute signal responses.
-Dense biotic interaction between multicells introduces potential for biotic selection feedbacks, because multicells constitute each other's environmental context ($g$).
+Digital organisms populate cells on a toroidal grid ($a$), competing to occupy limited space.
+Cells may grow multicell groups (color-coded patches; $b$).
+Replication occurs by asexual budding, replacing a chosen neighbor ($c$) --- either growing the parent's existing group ($d$) or founding a new group ($e$).
+Heritable genetic programs analogous to biological genomes control cell behaviors by activating submodules in response to local signals (e.g., neighbor actions, incoming messages, etc.; $f$).
+Because multicells constitute each other's environmental context, potential arises for biotic selection feedbacks ($g$).
 }
 \label{fig:overview}
 \end{figure}
