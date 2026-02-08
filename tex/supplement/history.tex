@@ -88,13 +88,17 @@ Although the phylogeny of stint representatives includes many instances that do 
 
 \subsection{Fitness Complexity}
 
-Figure \ref{fig:complexity:genetic} plots critical fitness complexity of specimens drawn from across the case study's evolutionary history.
+Figure \ref{fig:complexity:genetic} plots genotype complexity of specimens drawn from across the case study's evolutionary history.
 
-Critical fitness complexity reaches more than 20 under morph $b$, jumps to more than 40 under morph $d$, and drops to slightly more than 30 for morph $e$.
-Critical fitness complexity reaches a peak of 48 sites around stint 39, then levels out and decreases.
-This decrease may in part be due to declining sensitivity of competition experiments due to slower simulation resulting in execution of fewer updates within the fixed-duration jobs (Supplementary Figure \ref{fig:num_updates_elapsed_heatmap}).
+Genotype complexity reaches more than 20 under morph $b$, jumps to more than 40 under morph $d$, and drops to slightly more than 30 for morph $e$.
+Genotype complexity reaches a peak of 48 sites around stint 39, then levels out and decreases.
+% This decrease may in part be due to declining sensitivity of competition experiments due to slower simulation resulting in execution of fewer updates within the fixed-duration jobs (Supplementary Figure \ref{fig:num_updates_elapsed_heatmap}).
 
-Phylogenetic analysis (Supplementary Figure \ref{fig:phylo_parsimony_tree}) suggests independent origins of the critical fitness complexity in morph $d$ and morph $e$ --- the morph $d$ specimen from stint 14 is more closely related to the morph $b$ specimen from stint 13 than to the morph $e$ specimen from stint 15.
+In two independent sublineages --- both going extinct --- genotype and phenotype complexity simultaneously and abruptly crashed near zero.
+Both were morph $i$: unrestricted cell proliferation with small irregular groups.
+No complexity crash, however, appears in assays configured with biotic background --- suggesting a contingent dependency to this background may have developed (Supplementary Figure \ref{fig:bb-complexity}).
+
+Phylogenetic analysis (Supplementary Figure \ref{fig:phylo_parsimony_tree}) suggests independent origins of the genotype fitness complexity in morph $d$ and morph $e$ --- the morph $d$ specimen from stint 14 is more closely related to the morph $b$ specimen from stint 13 than to the morph $e$ specimen from stint 15.
 Likewise, specimens of lower complexity morphs $i$ and $b$ that appear past stint 70 appear to have independent evolutionary origins.
 
 % The evolution of morph $g$ is not associated with a clear change in critical fitness complexity.
@@ -107,16 +111,16 @@ Likewise, specimens of lower complexity morphs $i$ and $b$ that appear past stin
 % The highest best estimate of composite fitness complexity was 64 sites at stint 61.
 % The highest lower bound estimate of composite fitness complexity was 49 sites at stint 70.
 
-\subsection{Interface Complexity}
+\subsection{Phenotype Complexity}
 
-Supplementary Figure \ref{fig:interface_complexity} summarizes cardinal processor interface complexity, as well as its constituent components, for specimens drawn from across the case study's evolutionary history.
+Supplementary Figure \ref{fig:interface_complexity} summarizes phenotype complexity, as well as its constituent components, for specimens drawn from across the case study's evolutionary history.
 
-Notably, cardinal processor interface complexity more than doubles from 6 interactions to 17 interactions coincident with the emergence of morph $e$ (Supplementary Figure \ref{fig:interface_complexity:cardinal_interface_complexity}).
+Notably, cardinal processor phenotype complexity more than doubles from 6 interactions to 17 interactions coincident with the emergence of morph $e$ (Supplementary Figure \ref{fig:interface_complexity:cardinal_interface_complexity}).
 This is due to simultaneous increases in extrospective state sensing (2 to 9 states; Supplementary Figure \ref{fig:interface_complexity:extrospective_interface_complexity}), introspective state sensing (1 to 4 states; Supplementary Figure \ref{fig:interface_complexity:introspective_interface_complexity}), and writable state usage (1 to 2 states; Supplementary Figure \ref{fig:interface_complexity:writable_interface_complexity}).
 
-The emergence of morph $g$ coincided with an increase in writable state interface complexity from 1 to 3, as shown in Supplementary Figure \ref{fig:interface_complexity:writable_interface_complexity}.
-However, morph $g$ was not associated with other changes in other aspects of cardinal processor interface complexity.
-The greatest observed cardinal processor interface complexity was 22 interactions at stints 54 and 67.
+The emergence of morph $g$ coincided with an increase in writable state phenotype complexity from 1 to 3, as shown in Supplementary Figure \ref{fig:interface_complexity:writable_interface_complexity}.
+However, morph $g$ was not associated with other changes in other aspects of cardinal processor phenotype complexity.
+The greatest observed cardinal processor phenotype complexity was 22 interactions at stints 54 and 67.
 
 \subsection{Genome Size}
 

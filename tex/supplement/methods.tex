@@ -106,7 +106,7 @@ However, in further analyses we discovered that 21 phenotype-neutral nopouts fro
 This might be due to insufficient spatial or temporal scope to observe the expression of particular genome sites in our test for phenotypic divergence.
 %or effects of an instruction on the mutation.
 
-\subsection{Estimating Critical Fitness Complexity}
+\subsection{Estimating Genotype Complexity}
 
 Next, we sought to detect genome instructions that contributed to strain fitness.
 
@@ -122,8 +122,8 @@ We fit a $T$-distribution to the abundance outcomes observed under the control w
 This allowed us to screen for fitness effects of single-site nopouts while only performing a single competition per site.
 
 This process left us with a ``Fitness-noncritical Nopout'' variant of the wildtype genome where all remaining instructions contributed to the phenotype.
-We called the number of remaining instructions its ``critical fitness complexity.''
-We adjusted this figure downward for the expected 1\% rate of false-positive fitness differences among tested genome sites.
+We called the number of remaining instructions its ``genotype complexity.''
+% We adjusted this figure downward for the expected 1\% rate of false-positive fitness differences among tested genome sites.
 This metric mirrors the MODES complexity metric described by \citet{dolson2019modes} and the approximation of sequence complexity advanced by \citet{adami2000evolution}.
 
 % \subsection{Estimating Interpolated Fitness Complexity}
@@ -175,7 +175,7 @@ This metric mirrors the MODES complexity metric described by \citet{dolson2019mo
 % However, we were unable to perform this estimate because in 21 phenotype-neutral nopouts were significantly less fit than wildtype.
 % %todo fix this sentence; not sure what it should say
 
-\subsection{Estimating State Interface Complexity}
+\subsection{Estimating State Phenotype Complexity}
 \label{sec:estimating-state-interface-complexity;ch:measuring-cna}
 
 In addition to estimating the number of genome sites that contribute to fitness, we measured the number of different environmental cues and the number of different output mechanisms that cells adaptively incorporated into behavior.
@@ -192,21 +192,21 @@ A full description of each piece of introspective, extrospective, and writable s
 }
 We deemed a state as fitness-critical if this manipulation resulted in decreased fitness at significance $p < 0.01$ using a $T$-test parameterized by 20 control wildtype vs wildtype competitions.
 
-We describe the number of states that cells interact with to contribute to fitness as ``State Interface Complexity.''
+We describe the number of states that cells interact with to contribute to fitness as ``State Phenotype Complexity.''
 
-\subsection{Estimating Messaging Interface Complexity}
+\subsection{Estimating Messaging Phenotype Complexity}
 \label{sec:estimating-messaging-interface-complexity;ch:measuring-cna}
 
 In addition to estimating the number of input/output states cells use to interact with the environment, we also estimated the number of distinct intracellular messages cardinal processors within a cell use to coordinate, as well as the intercellular messages that cells use to coordinate.
-As with state interface complexity, distinguishing context-dependent behavior from contingent behavior is critical to attaining a meaningful measurement.
+As with state phenotype complexity, distinguishing context-dependent behavior from contingent behavior is critical to attaining a meaningful measurement.
 For example, a cardinal processor might depend on always receiving an intercellular message from a neighbor or an intracellular message from another cardinal processor.
 Although meaningless, if that message were blocked, fitness would decrease.
 So, instead of simply discarding messages to test for a fitness effect, we reroute messages back to the sending cardinal processor instead of their intended recipient.
 We deemed messages as fitness-critical if this manipulation resulted in decreased fitness at significance $p < 0.01$ using a $T$-test parameterized by 20 control wildtype vs wildtype competitions.
 
-We refer to the number of distinct messages that cells send to contribute to fitness as ``Messaging Interface Complexity.''
+We refer to the number of distinct messages that cells send to contribute to fitness as ``Messaging Phenotype Complexity.''
 
-We refer to the sum of State Interface Complexity, Intra-messaging Interface Complexity, and Inter-messaging Interface Complexity as ``Cardinal Interface Complexity.''
+We refer to the sum of State Phenotype Complexity, Intra-messaging Phenotype Complexity, and Inter-messaging Phenotype Complexity as ``Phenotype Complexity.''
 
 \subsection{Estimating Adaptation}
 \label{sec:measuring-adaptation;ch:measuring-cna}
