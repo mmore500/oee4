@@ -8,7 +8,7 @@
 
 Ancestor populations for evolution experiments were randomly generated 100-instruction genomes, typically encoding on the order of 5 signal-response modules.
 Configured population size of 14,400 cells reliably sufficed that some founding ancestors were viable replicators.
-When replicating, all offspring were subject to possible mutation: point mutations, single-site insertions and deletions, or multi-site duplications and deletions.
+When replicating, all offspring were subject to possible mutation: point mutations, single-site insertions and deletions, or multi-site duplications and deletions (Supplementary Section \ref{sec:generation_mutation}).
 Mutations could also introduce new signal-response modules by creating new activation entrypoints.
 
 After initialization, competition for space drove most founding strains extinct.
@@ -79,7 +79,7 @@ During this time, between 11.7k and 26.9k cell generations elapsed (mean 18.5k; 
 In the replicate producing our high-complexity case study, 7,565,309 simulation time steps elapsed --- accreting 11,713 cell generations and 1,325 group generations.
 To accelerate the experiment, quadrants of simulation space were distributed across four asynchronous hardware threads for parallel evaluation \citep{moreno2021conduit}.
 For this reason, phylogeny analyses relied on parsimony-based reconstruction rather than exact tracking \citep{moreno2022hereditary}.
-Further technical details appear in supplementary material.
+% Further technical details appear in supplementary material.
 
 \subsection{Measuring Fitness}
 \label{sec:measuringfitness}
@@ -93,10 +93,10 @@ Further complicating matters, dense biotic interaction between groups prevents r
 
 Therefore, to assess fitness, we rely on competition assays.
 \unskip\footnote{%
-Supplementary material also reports doubling-time fitness assays, which measure rate of expansion into empty space.
+Supplementary material also reports doubling-time fitness assays, which measure rate of expansion into empty space (Supplementary Figure \ref{fig:doubling_time}).
 However, as our evolutionary trials begin and remain near carrying capacity, we did not find these assays informative of ability to compete for occupied space.
 }
-In these competition assays, available space is filled by an even mix of compared strains.
+In these competition assays, available space is seeded with an even mix of compared strains.
 Then, after a 10 minute runtime, we evaluate the abundance of compared strains (Figure \ref{fig:fit:nobbg}).
 \unskip\footnote{%
 As a point of reference, in the high-complexity lineage this runtime elapsed between 8,000 update cycles (stint 0) and 2,000 update cycles (stint 100).
@@ -105,9 +105,9 @@ Further detail in Supplementary Figures \labelcref{fig:num_updates_elapsed_heatm
 To assess significance, we repeat this procedure 20 times and apply a two-tailed binomial exact test to competition win/loss counts.
 
 For some analyses, we also used a ``biotic background'' competition design to integrate environmental context --- similar in principle to mesocosm experiments \citep{sala2000methods}.
-Biotic background assays were seeded by mixing two competitors with a ``bystander'' strain in 25\%-25\%-50\% proportion.
-The bystander strain participates fully in the competition environment, but is excluded from end-state abundance assessment of competitors (Figure \ref{fig:fit:nobbg}).
-In some cases, we used this biotic background competition design to test frequency-dependent selection effects; prevalence of one competitor strain can be updosed by assigning a facsimile as bystander --- effectively emulating a replacement series experiment \citep{deWit1960competition}.
+Biotic background assays were seeded by mixing two competitors with a ``bystander'' strain in 25\%/25\%/50\% proportion.
+The bystander strain participates fully in the competition environment, but is excluded from end-state comparison of competitor abundances (Figure \ref{fig:fit:bbg}).
+In some cases, we used this biotic background competition design to test frequency-dependent selection effects: prevalence of one competitor strain was updosed by assigning a facsimile as bystander --- effectively emulating a replacement series experiment \citep{deWit1960competition}.
 
 \subsection{Measuring Complexity}
 \label{sec:measuringcomplexity}
@@ -116,7 +116,7 @@ Defining and quantifying complexity remains a nuanced, unresolved topic \citep{a
 Here, we consider complexity as evolved structure that is functionally adaptive.
 As a measure of phenotype complexity, we count cell input/output interfaces contributing to fitness.
 This measure describes the richness of behavior across cell interfaces \citep{mcshea2000functional}, to capture dynamic interaction essential to complex multicellularity \citep{knoll2011multiple,niklas2013origins,brunet2017origin,bonner2001first}.
-To measure genotype complexity, we count genome sites contributing to fitness \citep{dolson2019modes,adami2000evolution} as a proxy for underlying control structures that direct phenotypic interactions.
+To measure genotype complexity, we count genome sites contributing to fitness \citep{dolson2019modes,adami2000evolution} as a proxy for the richness of control structures directing phenotypic interactions.
 \unskip\footnote{%
 Promisingly, we find moderate correlation between these measures across replicates and, within the case study lineage, also find moderate correlation in evolutionary changes to these measures (Supplementary Figures \labelcref{fig:gpcomplex-correlation,fig:gpcomplex-correlation-multirep}).
 }
