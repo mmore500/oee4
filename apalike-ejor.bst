@@ -167,9 +167,17 @@ FUNCTION {output.year.check}
 
 FUNCTION {output.bibitem}
 { newline$
-  "\bibitem[" write$
+  "\bibitem[{" write$
   label write$
-  "]{" write$
+  "(" write$
+  year duplicate$ empty$
+    { pop$ "????" }
+    'skip$
+  if$
+  write$
+  ")" write$
+  extra.label write$
+  "}]{" write$
   cite$ write$
   "}" write$
   newline$
@@ -1015,15 +1023,11 @@ FUNCTION {calc.label}
   or
     'author.editor.key.label
     { type$ "proceedings" =
-        'editor.key.label                       % apalike ignores organization
-        'author.key.label                       % for labeling and sorting
+        'editor.key.label
+        'author.key.label
       if$
     }
   if$
-  ", "                                                  % these three lines are
-  *                                                     % for apalike, which
-  year field.or.null purify$ #-1 #4 substring$          % uses all four digits
-  *
   'label :=
 }
 
@@ -1136,75 +1140,30 @@ FUNCTION {presort}
   'sort.key$ :=
 }
 
-ITERATE {presort}
+% Compute labels for natbib compatibility (author names for \citet)
+ITERATE {calc.label}
 
-SORT            % by label, sort.label, title---for final label calculation
+% Count entries for \begin{thebibliography}{N} widest label
+INTEGERS { number.label }
 
-STRINGS { last.label next.extra }       % apalike labels are only for the text;
+FUNCTION {init.number.label}
+{ #0 'number.label := }
 
-INTEGERS { last.extra.num }             % there are none in the bibliography
+FUNCTION {count.entries}
+{ number.label #1 + 'number.label := }
 
-FUNCTION {initialize.extra.label.stuff} % and hence there is no `longest.label'
-{ #0 int.to.chr$ 'last.label :=
-  "" 'next.extra :=
-  #0 'last.extra.num :=
-}
+EXECUTE {init.number.label}
 
-FUNCTION {forward.pass}
-{ last.label label =
-    { last.extra.num #1 + 'last.extra.num :=
-      last.extra.num int.to.chr$ 'extra.label :=
-    }
-    { "a" chr.to.int$ 'last.extra.num :=
-      "" 'extra.label :=
-      label 'last.label :=
-    }
-  if$
-}
+ITERATE {count.entries}
 
-FUNCTION {reverse.pass}
-{ next.extra "b" =
-    { "a" 'extra.label := }
-    'skip$
-  if$
-  label extra.label * 'label :=
-  extra.label 'next.extra :=
-}
-
-EXECUTE {initialize.extra.label.stuff}
-
-ITERATE {forward.pass}
-
-REVERSE {reverse.pass}
-
-%                               Now that the label is right we sort for real,
-%                               on sort.label then year then title.  This is
-%                               for the second sorting pass.
-FUNCTION {bib.sort.order}
-{ sort.label
-  "    "
-  *
-  year field.or.null sortify
-  *
-  "    "
-  *
-  title field.or.null
-  sort.format.title
-  *
-  #1 entry.max$ substring$
-  'sort.key$ :=
-}
-
-ITERATE {bib.sort.order}
-
-SORT            % by sort.label, year, title---giving final bibliography order
+% No SORT: references appear in order of first citation
 
 FUNCTION {begin.bib}
-{ preamble$ empty$                              % no \etalchar in apalike
+{ preamble$ empty$
     'skip$
     { preamble$ write$ newline$ }
   if$
-  "\begin{thebibliography}{}" write$ newline$           % no labels in apalike
+  "\begin{thebibliography}{" number.label int.to.str$ * "}" * write$ newline$
 }
 
 EXECUTE {begin.bib}

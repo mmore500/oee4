@@ -215,35 +215,35 @@ Abstract}\vspace{0.5ex}\begin{quote}\small}{\par\end{quote}\vskip 1ex}
 
 
 
-% The material below is apalike.sty.
-% It is included here because alife9.bst = apalike.bst required it.
+% The apalike.sty overrides below are commented out so that natbib handles
+% bibliography formatting (numbered references ordered by appearance).
 
-\def\@cite#1#2{(#1\if@tempswa , #2\fi)}
-\def\@biblabel#1{}
+%\def\@cite#1#2{(#1\if@tempswa , #2\fi)}
+%\def\@biblabel#1{}
 
 % \newlength{\bibhang}     \\ Commented out as natbib defines it already
 \setlength{\bibhang}{2em}
 
-\@ifundefined{chapter}{\def\thebibliography#1{\section*{References\@mkboth
-  {REFERENCES}{REFERENCES}}\list
-  {\relax}{\setlength{\labelsep}{0em}
-    \setlength{\itemindent}{-\bibhang}
-    \setlength{\leftmargin}{\bibhang}}
-    \def\newblock{\hskip .11em plus .33em minus .07em}
-    \sloppy\clubpenalty4000\widowpenalty4000
-    \sfcode`\.=1000\relax}}%
-{\def\thebibliography#1{\chapter*{Bibliography\@mkboth
-  {BIBLIOGRAPHY}{BIBLIOGRAPHY}}\list
-  {\relax}{\setlength{\labelsep}{0em}
-    \setlength{\itemindent}{-\bibhang}
-    \setlength{\leftmargin}{\bibhang}}
-    \def\newblock{\hskip .11em plus .33em minus .07em}
-    \sloppy\clubpenalty4000\widowpenalty4000
-    \sfcode`\.=1000\relax}}
+%\@ifundefined{chapter}{\def\thebibliography#1{\section*{References\@mkboth
+%  {REFERENCES}{REFERENCES}}\list
+%  {\relax}{\setlength{\labelsep}{0em}
+%    \setlength{\itemindent}{-\bibhang}
+%    \setlength{\leftmargin}{\bibhang}}
+%    \def\newblock{\hskip .11em plus .33em minus .07em}
+%    \sloppy\clubpenalty4000\widowpenalty4000
+%    \sfcode`\.=1000\relax}}%
+%{\def\thebibliography#1{\chapter*{Bibliography\@mkboth
+%  {BIBLIOGRAPHY}{BIBLIOGRAPHY}}\list
+%  {\relax}{\setlength{\labelsep}{0em}
+%    \setlength{\itemindent}{-\bibhang}
+%    \setlength{\leftmargin}{\bibhang}}
+%    \def\newblock{\hskip .11em plus .33em minus .07em}
+%    \sloppy\clubpenalty4000\widowpenalty4000
+%    \sfcode`\.=1000\relax}}
 
-\def\@citex[#1]#2{\if@filesw\immediate\write\@auxout{\string\citation{#2}}\fi
-  \def\@citea{}\@cite{\@for\@citeb:=#2\do
-    {\@citea\def\@citea{; }\@ifundefined
-       {b@\@citeb}{{\bf ?}\@warning
-       {Citation `\@citeb' on page \thepage \space undefined}}%
-{\csname b@\@citeb\endcsname}}}{#1}}
+%\def\@citex[#1]#2{\if@filesw\immediate\write\@auxout{\string\citation{#2}}\fi
+%  \def\@citea{}\@cite{\@for\@citeb:=#2\do
+%    {\@citea\def\@citea{; }\@ifundefined
+%       {b@\@citeb}{{\bf ?}\@warning
+%       {Citation `\@citeb' on page \thepage \space undefined}}%
+%{\csname b@\@citeb\endcsname}}}{#1}}
