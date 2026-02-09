@@ -174,6 +174,7 @@ FUNCTION {output.bibitem}
     { pop$ "????" }
     'skip$
   if$
+  write$
   ")" write$
   extra.label write$
   "}]{" write$
