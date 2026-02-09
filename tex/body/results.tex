@@ -6,17 +6,16 @@
 
 \section{Results}
 
-\subsection{Case-study population}
+\section{Case-study Lineage}
 
 Figures \labelcref{fig:16005-timelapse:genotype-complexity,fig:16005-timelapse:phenotype-complexity,fig:16005-timelapse:mean-complexity} compare genotype and phenotype complexity across our 40 evolutionary replicates, measured using genetic knockouts and phenotype interference assays.  % at 10-stint intervals
 Among replicates, extreme outlying complexity arose in one replicate with mean sustained complexity exceeding 3$\times$ IQR in both complexity measures (blue highlight, Figure \ref{fig:16005-timelapse:mean-complexity}).
+
 This lineage also exhibited patterned growth and multi-stage life history.
 Growing from unicellular inoculum (Figure \labelcref{fig:16005-timelapse:update64}), groups first elongate horizontally to establish an asymmetrical cigar-like morphology (Figure \labelcref{fig:16005-timelapse:update256,fig:16005-timelapse:update832}).
 Then, in a secondary phase of growth, groups expand in the vertical direction to establish an irregular ``box-like'' morphology (Figure \labelcref{fig:16005-timelapse:update6720,fig:16005-timelapse:update7616}).
 
 To investigate how complexity arose and stabilized in this lineage, we investigated its history in detail as a case study --- reported next.
-
-\section{Evolutionary History of Case-study Population}
 
 \input{fig/keyfig.tex}
 
@@ -33,12 +32,12 @@ Morph $a$ arose on an early independent lineage then rapidly driven extinct.
 
 Early sampled genomes mostly grew as unicells and small groups up to 4 cells (morph $b$), although our earliest sample from the case study lineage formed oversized groups through unchecked cell proliferation (morph $c$, stint 2).
 
-The case study lineage's asymmetric cigar-like patterning first arose at stint 15 (morph $e$).
+The case study lineage's cigar-like patterning first arose at stint 15 (morph $e$).
 % Earlier, at stint 14, we also saw large group formation (morph $d$, irregular clumps of 10 to 15 cells), but the sample's lineage appears to have subsequently gone extinct.
 Subsequently, the secondary phase of box-like vertical growth arose at stint 45 (morph $g$).
 However, around stint 60, cigar-like morph $e$ began to be sampled as a reversion from morph $g$.
-Finally, at stint 100, we first observed morph $j$ (Figure \labelcref{fig:16005-timelapse:update256,fig:16005-timelapse:update832,fig:16005-timelapse:update6720,fig:16005-timelapse:update7616}).
-This morph resembled the two-phase growth pattern of morph $g$, except that some groups produced cigar-like daughter propagules during the secondary box-like growth phase.
+Finally, at stint 100, we first observed morph $j$ as shown in Figure \labelcref{fig:16005-timelapse:update64,fig:16005-timelapse:update256,fig:16005-timelapse:update832,fig:16005-timelapse:update6720,fig:16005-timelapse:update7616}).
+This morph presented the two-phase growth pattern of morph $g$, except that some groups produced cigar-like daughter propagules during the secondary growth phase.
 
 \subsubsection{Complexity}
 
@@ -46,7 +45,7 @@ Next, we assayed genotype and phenotype complexity across lineage history (Figur
 
 In several instances, complexity increased abruptly with new morphology.
 For instance, at stint 14, morph $d$ (irregular clumps of 10 to 15 cells) coincided with a spike in genotype complexity from 28 to 44 sites.
-At stint 15, morph $e$ grew phenotype complexity from 5 to 17 interactions.
+At stint 15, cigar-like morph $e$ grew phenotype complexity over threefold from 5 to 17 interactions.
 
 % In two independent sublineages --- both going extinct --- genotype and phenotype complexity simultaneously and abruptly crashed near zero.
 % Both were morph $i$: unrestricted cell proliferation with small irregular groups.
@@ -65,36 +64,35 @@ Thus, the evolutionary trajectory of genotype complexity appears to be initial g
 \subsubsection{Adaptation}
 
 Next, we examined fitness changes along the case study lineage.
-For this purpose, we competed samples from successive passages to test for fitness gains.
+For this purpose, we competed samples from successive passages to test for fitness gains at each step.
 Across 100 such assays, 57 sampled genotypes outcompeted their predecessor by a significant margin (Figure \ref{fig:keyfig:morph}, Supplementary Figures \labelcref{fig:median_fitness_differential_symlog,fig:fitness_gain_or_loss}).
 Fitness gains became somewhat more sparse at later time points --- a notable exception, though, being a strong fitness gain from 500-site genome expansion at stint 93.
 % Fitness differentials during the first 40 stints are generally higher magnitude than later fitness differentials, although a strong fitness differential occurs at stint 93 coincident with a genome duplication.
 
 Besides the 57 adaptive steps discussed above, 23 steps were neutral and --- surprisingly --- 20 were deleterious (Figure \ref{fig:keyfig:morph}).
-To assess whether these apparent fitness losses were artifacts of within-population variation, we repeated assays to compete whole-population samples rather than monoclonal isolates.
+To assess whether these apparent fitness losses could be explained by within-population variation, we repeated assays to compete whole-population samples rather than monoclonal isolates.
 However, whole-population competition results remained similar: 50 assays indicated significant fitness gain, 34 were neutral, and 16 indicated significant fitness loss (Supplementary Figure \ref{fig:keyfig-Prefatory}).
 
 Although rarer than fitness gains ($p < 10^{-4}$; exact Binomial test), nearly one in five lineage intermediates thus appeared maladaptive.
-While such maladaptation could occur through drift effects (carrying capacity supported only around 500 multicell groups in the case study lineage), it could also arise from trade-offs imposed by exogenous environmental factors \citep{brady2019causes}.
-We investigate this possibility next.
+While such maladaptation could occur through drift effects (carrying capacity supported only around 500 multicell groups in the case study lineage), it could also arise from trade-offs imposed by exogenous environmental factors \citep{brady2019causes} --- a possibility we investigate next.
 
 \subsection{Adaptation to Co-evolved Ecological Context}
 
 \input{fig/sign-change-prefatory-population}
 
-Recall that our experimental configuration maintained long-term co-existence of an additional independent lineage alongside the case study strain.
-To test whether co-evolutionary interactions with this background strain could account for apparent maladaptations, we repeated earlier competitions to incorporate the co-evolved lineage as a biotic background (Figure \ref{fig:fit:bbg}).
+Recall that our experiment maintained long-term co-existence of an additional independent lineage alongside the case study strain.
+To test whether co-evolutionary interactions with this background strain could account for apparent maladaptations, we repeated earlier competitions to incorporate the co-evolved lineage as biotic context (Figure \ref{fig:fit:bbg}).
 % \unskip\footnote{%
 % For this purpose, we used genomes collected from the co-evolved lineage at ``prefatory'' stint $n$, rather than $n + 1$.
 % Results using co-evolved genomes from ``contemporary'' stint $n + 1$ were generally similar, and are included in supplementary material.
 % }
 
-After incorporating the co-evolved into our measure of fitness, whole-population maladaptations decreased from 16 to 3 (Figure \ref{fig:sign-change-prefatory-population}).
+After incorporating the co-evolved lineage into our measure of fitness, whole-population maladaptations decreased from 16 to 3 (Figure \ref{fig:sign-change-prefatory-population}).
 Lower assay sensitivity might partially explain this result, as no fitness effect was detected in nearly twice as many cases (23 vs. 53).
-However, in 6 cases presence of the co-evolved strain reversed fitness losses to fitness gains.
+However, in 6 cases, what had appeared as fitness losses were actually fitness gains present the co-evolved lineage.
 % We saw no instances of the reverse, as all 3 outcomes deleterious in ecological context were also deleterious without it.
 
-Having found that co-evolved biotic context exerted at least transient selection on the case study strain, we next sought to more closely assess these ecological interactions, and whether they contributed to complexity in the case study strain.
+Having found that co-evolved biotic context to exert at least transient selection on the case study strain, we next sought to more closely assess these ecological interactions --- and if they contributed to complexity in the case study strain.
 
 \subsection{Fitness Effects of Biotic Context in Case Study Strain}
 
@@ -102,38 +100,37 @@ Having found that co-evolved biotic context exerted at least transient selection
 
 % Having discovered sign-change fitness interactions between the high-complexity case study strain and its co-evolved ecological context,
 % As a putative explanation for development and maintenance of complexity in the case study strain, we next sought to identify how the case study strain's co-evolved ecological context exerted biotic selection on it.
-To characterize the case study lineage's co-evolutionary interactions, we first set out to test if they were mutualistic or antagonistic in nature.
+To characterize the case study lineage's co-evolutionary interactions, we first set out to test if these interactions were mutualistic or antagonistic.
 
 %For this purpose, we needed an absolute (rather than relative) measure of fitness.
 As a proxy for absolute fitness, we assembled a biotic ``measuring stick'' at each stint by drawing genome samples from each of our 40 independent replicates.
-Competing a sample against members of the pool thus provided a fitness measure between 0 (all losses) and 1 (all wins).
+Competitions against members of the pool provided a fitness measure between 0 (all losses) and 1 (all wins).
 
-Excluding biotic context, case study strain fitness was volatile during early evolution, but settled near or below 0.5 from stint 30 onwards (solid line, Figure \ref{fig:fitness-background}) --- meaning it underperformed most other replicates.
+By this measure, case study lineage fitness was volatile during early evolution, but settled near or below 0.5 from stint 30 onwards (solid line, Figure \ref{fig:fitness-background}) --- meaning it underperformed most other replicates.
 
-To measure the effect of co-evolved biotic context on fitness, we repeated these ``measuring stick'' competitions using the co-evolved context mostly (dashed line, Figure \ref{fig:fitness-background}).
-Fitness in co-evolved context for the most part closely tracked baseline fitness --- though, in several brief episodes, strong fitness advantages appeared.
-Additionally, in one episode at stint 30, co-evolved biotic context imposed a strong fitness penalty.
+To test how biotic context affected fitness, we repeated these ``measuring stick'' competitions co incorporate the co-evolved lineage (dashed line, Figure \ref{fig:fitness-background}).
+Fitness in co-evolved context closely tracked baseline fitness, with strong fitness advantage in several transient episodes and a strong fitness penalty at stint 30.
 
-These results --- in conjunction with reciprocal experiments testing how the case study strain, in turn, influences fitness of its co-evolved counterpart (Supplementary Figure \ref{fig:external-bb-reciporical}) --- suggest a relationship of transient commensalist interactions between the two strains, rather than systematic cooperation or antagonism.
+These results --- in conjunction with reciprocal experiments testing how the case study strain, influences its co-evolved counterpart (Supplementary Figure \ref{fig:external-bb-reciporical}) --- suggest a relationship of transient commensalist interaction, rather than systematic cooperation or antagonism.
 
-For completeness, we also assayed fitness with the case study lineage itself as its own biotic context (dot-dash line, Figure \ref{fig:fitness-background}).
-(These conditions boosted concentration of the case study strain from 50\% to 75\%.)
-Surprisingly, this self-context produced a strong, sustained fitness benefit from stint 15 onward (Mann-Whitney test, $p < 10^{-25}$; \ref{fig:fitness-background:distribution}).
-The strength of this effect --- and its coincidence with cigar-like morphology $e$ --- led us to consider an alternate explanation for the case study strain's complexity: self-acting biotic selection driven by the case study strain itself.
+For completeness, we additionally tested fitness where the case study lineage served as its own biotic context (dot-dash line, Figure \ref{fig:fitness-background}).
+(In effect, these conditions boosted initial concentration of the case study strain from 50\% to 75\%.)
+Surprisingly, this self-context produced a strong, sustained fitness benefit from stint 15 onward (Mann-Whitney test, $p < 10^{-25}$; Cliff's delta $\delta=0.93$; \ref{fig:fitness-background:distribution}).
+The strength of this effect --- and its origination with cigar-like morph $e$ --- led us to consider an alternate complexity driver: self-acting biotic selection driven by the case study strain itself.
 
 \subsection{Self-acting Selection in Case Study Strain}
 
 \input{fig/timeshift}
 
-Having identified that the case study strain developed an advantage in self-dense contexts, we next sought to assess whether this apparent biogenic niche construction produced self-acting selection.
+Having identified that the case study strain's cigar-like biogenic structure provided a competitive advantage against other strains, we next sought to assess whether this niche construction produced self-acting selection.
 Such selection, were it to have occurred, could then be tested for connections to the case study strain's complexity.
 
 To detect self-acting selection, we tested whether the case study strain's self-benefit exhibited adaptive tracking over time.
-For this purpose, we repeated fitness assays against the ``measuring stick'' of cross-replicate comparators.
-However, for these new assays, we time-shifted self-context background.
-That is, for each stint we performed competitions in the presence of case study strain samples from fixed timepoints at stint 33, 40, 50, 66, 75, 90, and 99 --- rather than contemporary self-context, as before.
+For this purpose, we repeated competitions against our ``measuring stick'' of cross-replicate comparators.
+However, for these new assays, we used time-shifted self-context.
+That is, for each stint we performed competitions in the presence of case study lineage samples from fixed timepoints after the emergence of morph $e$ --- rather than contemporary self-context, as before.
 
-Compared to time-shifted self backgrounds, contemporary self-context did indeed provide substantially greater fitness benefit (Mann-Whitney test, $p<10^{-5}$, $\delta=0.45$; Figure \ref{fig:timeshift}).
+Compared to time-shifted context, contemporary self-context did indeed provide substantially greater fitness benefit (Mann-Whitney test, $p<10^{-5}$, Cliff's delta $\delta=0.45$; Figure \ref{fig:timeshift}).
 Nonetheless, time-shifted backgrounds still provided some benefit in 78 of 98 tested cases.
 % --- including long temporal offsets of up to 50 stints (Supplementary Figure \ref{fig:timeshift-supp}).
 Thus, while the underlying mechanism of niche construction appears to have remained generally stable, traits responsible for exploiting this niche adapted over time to track changes in self-context.
@@ -142,27 +139,26 @@ Thus, while the underlying mechanism of niche construction appears to have remai
 
 \input{fig/replay-background}
 
-Seeing evidence that the case study lineage's biogenic structure exerted feedback on selection, we next turned to test whether this selection favored complexity.
-To address this question, we carried out evolutionary replay trials to compare complexity outcomes with and without self-context.
+Seeing evidence that the case study lineage's biogenic structure exerted selection, we next turned to test whether this selection favored complexity.
+To address this question, we carried out evolutionary replay trials, comparing complexity outcomes with and without self-context.
 
-Such an experiment, however, imposes a key practical challenge: some means is needed to remove --- or at least meaningfully abate --- self-context.
-This problem is nontrivial, because including the case study strain to test complexity outcomes inherently introduces some level of self-context.
-To overcome this challenge, we attenuated the case study strain by applying mutation when seeding replay trials.
-We tuned the mutational dose (8 mutations) such that most, but not all, seeded genomes were substantially disrupted.
-As an additional benefit, applying mutation also enhanced seeded populations' standing variation --- improving our assay's sensitivity to detect selection on complexity (Figure \ref{fig:replay-background:design}).
+A key practical challenge presents itself, however: some means is needed to remove --- or at least meaningfully abate --- self-context.
+This problem is nontrivial, because any amount of the case study strain inherently introduces some degree of self-context.
+To overcome this challenge, we mutationally attenuated the case study strain when seeding replay trials.
+Mutagenic dose (8 mutations) was chosen such that most, but not all, seeded genomes were substantially disrupted.
+As an additional benefit, applying mutation also enhanced standing variation of seeded populations --- improving sensitivity to detect selection on complexity (Figure \ref{fig:replay-background:design}).
 % providing sufficient sensitivity to allow short 1-stint replays.
 
-Replays were conducted both under a ``self context'' treatment (seeded 50\% with intact case study genotypes) and a ``co-evolved context'' treatment (seeded 50\% with co-evolved genotypes).
+Replays were conducted under both a ``self context'' treatment and a ``co-evolved context'' treatment, seeded with 50\% intact case study lineage genomes or co-evolved genomes.
 To target the complexity maintenance period identified by split regression analysis, replays were conducted from stint 33 onwards --- thus, providing a sample of 67 1-stint replays per treatment.
-At the end of each replay, we sampled a genotype descended the mutagenized case study inoculum and measured its complexity.
+As the endpoint of each replay, we sampled a genome descended from the mutagenized case study inoculum and measured its complexity.
 
-Across replays, self context preserved greater genotype complexity than co-evolved ecological context
-(Mann-Whitney test, $p < 0.01$, $\delta = 0.25$; Figure \ref{fig:replay-background:moderatedose}).
-Biotic selection exerted by the case study strain indeed acted to stabilize its own complexity.
+Across replays, self context preserved higher genotype complexity than co-evolved ecological context
+(Mann-Whitney test, $p < 0.01$, $\delta = 0.25$; Figure \ref{fig:replay-background:moderatedose}) --- biotic selection exerted by the case study strain indeed acted to stabilize its own complexity.
 
 As a control treatment, we repeated replay experiments with a higher dose of 50 mutations --- sufficient to ensure substantial disruption to seeded genomes.
 % applied to seeded case study strain genotypes.
-Under these conditions, complexity outcomes were indistinguishable between self and ecological context treatments (Figure \ref{fig:replay-background:highdose}).
+Under these conditions, complexity outcomes were indistinguishable between self and co-evolved context treatments (Figure \ref{fig:replay-background:highdose}).
 Thus, the case study strain’s biotic selection appears to act specifically in maintaining its own evolved complexity.
 In other words, evolved traits acted to ``lock in'' complexity by advantaging themselves, as opposed to simply cultivating generic conditions conducive to complexity (e.g., weakening selection).
 
@@ -173,19 +169,19 @@ In other words, evolved traits acted to ``lock in'' complexity by advantaging th
 
 \input{fig/fit-advantage-correlations}
 
-Having found that niche construction helped maintain evolved complexity in the case study strain, we next sought to assess whether this pattern manifested more broadly across replicates.
+Having found that niche construction helped maintain evolved complexity in the case study lineage, we next sought to assess whether this pattern manifested more broadly across replicates.
 
-To screen for similar niche construction effects, we measured self adaptation across all 40 replicates, calculated as the difference between ``measuring stick'' fitness in self versus co-evolved contexts.
-Other stints also exhibited self-advantage (Supplementary Figure \ref{fig:external-bb-all}), and across replicates, mean self adaptation correlates positively with mean genotype and phenotype complexity (Wald test; $p = 0.01$ and $p = 5\times10^{-3}$; Supplementary Figure \ref{fig:fit-advantage-correlations-supp}).
+To screen for analogous niche construction effects, we measured self adaptation across all 40 replicates --- calculated as the difference between ``measuring stick'' fitness in self versus co-evolved contexts.
+Other stints also exhibited self-advantage (Supplementary Figure \ref{fig:external-bb-all}) and, across replicates, mean self adaptation correlates positively with mean genotype and phenotype complexity (Wald test; $p = 0.01$ and $p = 5\times10^{-3}$; Supplementary Figure \ref{fig:fit-advantage-correlations-supp}).
 
-For genotype complexity, correlation with self-adaptation focused in early evolution (stints 10 to 50, Figure \ref{fig:fit-advantage-correlations:early}; Wald test, $p=8\times10^{-6}$; $R^2=0.41$), and dissipated during later time periods (stints 60 to 100, Figure \ref{fig:fit-advantage-correlations:late}; Wald test, $p=0.3$).
-By contrast, phenotype complexity --- which reflects the richness of evolved cell interactions --- correlated significantly with self adaptation across both time periods (Wald tests; $p=0.05$, $p=0.01$; $R^2=0.1$, $R^2=0.16$; Figure \labelcref{fig:fit-advantage-correlations:early,fig:fit-advantage-correlations:late}).
+For genotype complexity, correlation with self-adaptation focused in early evolution (stints 10 to 50, Figure \ref{fig:fit-advantage-correlations:early}; Wald test, $p=8\times10^{-6}$; $R^2=0.41$), and dissipated later (stints 60 to 100, Figure \ref{fig:fit-advantage-correlations:late}; Wald test, $p=0.3$).
+By contrast, phenotype complexity --- which reflects the richness of evolved cell-cell interactions --- correlated significantly with self adaptation across both time periods (Wald tests; $p=0.05$, $p=0.01$; $R^2=0.1$, $R^2=0.16$; Figure \labelcref{fig:fit-advantage-correlations:early,fig:fit-advantage-correlations:late}).
 
-In line with both adaptationist and neutralist hypotheses for the evolution of complexity, deep genotype complexity --- including sites otherwise masked by robustness --- correlated with both fitness and elapsed duration, during later evolution (panels \labelcref{fig:fit-advantage-correlations:complexity-drivers}).
+In line with both adaptationist and neutralist hypotheses for the evolution of complexity, deep genotype complexity --- which includes sites otherwise masked by robustness --- correlated with both fitness and elapsed duration during later evolution (panel \labelcref{fig:fit-advantage-correlations:complexity-drivers}).
 Drift effects, in particular, manifested robustly over the longer whole-experiment timespan (Wald test, $p \leq 1 \times 10^{-6}$; $R^2 = 0.06$; Supplementary Figure \ref{fig:fit-advantage-correlations-supp}).
 
-Thus, functional complexity appears to be significantly driven by density-dependent self-adaptation --- a signature of biogenic niche construction in this system.
-Although fitness-critical genotype complexity only associated significantly with niche construction during early evolution, niche construction more lastingly stabilized phenotype complexity.
-It is likely that later selection for robustness erodes early accrual of fragile genotype complexity --- as seen above in split-regression analysis of the case study strain (Supplementary Figure \ref{fig:complexity-cryptic-regression}).
+Thus, functional complexity appears to be significantly influenced by density-dependent self-adaptation --- a signature of biogenic niche construction in our model system.
+Although fitness-critical genotype complexity only associated with niche construction during early evolution, niche construction more lastingly stabilized phenotype complexity.
+It is likely that later selection for robustness eroded early accrual of mutationally-sensitive genotype complexity --- as seen above in split-regression analysis of the case study strain (Supplementary Figure \ref{fig:complexity-cryptic-regression}).
 % Given genotype complexity did not systematically increase, drift accumulation of neutral contingent complexity appears unlikely.
 % Such an explanation also would not account for elevation of functional phenotype complexity.
