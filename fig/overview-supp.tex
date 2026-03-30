@@ -19,7 +19,7 @@ To accelerate the feasible evolutionary duration of experiments, population subg
 At subgrid boundaries where inter-cell interactions reach between different threads or processes, communication between cells is handled on a best-effort basis via the underlying Conduit library.
 On the population grid, cells may form local multicell groups --- shown as color-coded patches (panel $b$).
 Cells replicate by copying program content into a chosen neighbor cell, and may choose to grow their existing multicell group ($c$) --- or splinter their offspring off to found a new group ($d$).
-Within each cell, behavior is directed by a collection of four virtual CPUs (``cardinal'' processors), each independently managing the cell's interactions with N, S, E, or W neighbor cell (panel $c$).
+Within each cell, behavior is directed by a collection of four virtual CPUs (``cardinal'' processors), each independently managing the cell's interactions with N, S, E, or W neighbor cell (panel $e$).
 Each cardinal processor can interact with other cardinal processors in its own cell via message passing.
 A cardinal processor can also exchange messages with its counterpart in the abutting neighbor cell, allowing arbitrary inter-cell communication.
 In addition to message-passing I/O, cardinal processors accept input to sense local simulation state and create output to perform cell actions (panel $f$).
