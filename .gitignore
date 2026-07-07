@@ -5,8 +5,10 @@ venv/
 
 oee4.pdf
 oee4-draft.pdf
+oee4-lba.pdf
 main.pdf
 main-draft.pdf
+main-lba.pdf
 
 ## Core latex/pdflatex auxiliary files:
 *.aux

@@ -14,6 +14,13 @@ all: ${BUILD_DIR}-draft.pdf
 
 draft: ${BUILD_DIR}-draft.pdf ${BUILD_DIR}-manuscript-draft.pdf ${BUILD_DIR}-supplement-draft.pdf ${BUILD_DIR}-draft.tex
 
+lba: ${BUILD_DIR}-lba.pdf
+
+${BUILD_DIR}-lba.pdf: main-lba.tex bibl.bib tex/abstract.tex $(shell find tex/lba -type f) fig/overview.tex fig/fitness-background-lba.tex img/* lib/*
+	latexmk -pdf -silent \
+    -jobname=${BUILD_DIR}-lba \
+    -pdflatex="pdflatex -interaction=nonstopmode" main-lba.tex
+
 release: ${BUILD_DIR}.pdf ${BUILD_DIR}-manuscript.pdf ${BUILD_DIR}-supplement.pdf ${BUILD_DIR}.tex
 
 ${BUILD_DIR}.pdf: main.tex
@@ -61,6 +68,7 @@ clean:
 	rm -f ${BUILD_DIR}-manuscript-draft.pdf
 	rm -f ${BUILD_DIR}-supplement.pdf
 	rm -f ${BUILD_DIR}-supplement-draft.pdf
+	rm -f ${BUILD_DIR}-lba.pdf
 
 sview:
 	xdg-open ${BUILD_DIR}-draft.pdf 2>/dev/null
@@ -71,4 +79,4 @@ cleaner: clean
 	find . -type f -name ${BUILD_DIR}"*" ! -name '*.tex' ! -name '*.bib' -delete
 	rm -rf *.bbl *.blg *.aux
 
-.PHONY: draft release clean sview cleaner fresh
+.PHONY: draft release clean sview cleaner fresh lba
