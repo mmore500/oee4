@@ -136,6 +136,18 @@
 	branch = binder-bucket=prq49--a=all_stints_all_series_profiles+endeavor=16--x=complexity-fitness.ipynb
 	shallow = true
 
+[submodule "binder-2026-06-22-eco-gwas.ipynb"]
+	path = binder-2026-06-22-eco-gwas.ipynb
+	url = https://github.com/mmore500/oee4.git
+	branch = binder-2026-06-22-eco-gwas.ipynb
+	shallow = true
+
+[submodule "binder-2026-07-06-pcomplexity-gee.ipynb"]
+	path = binder-2026-07-06-pcomplexity-gee.ipynb
+	url = https://github.com/mmore500/oee4.git
+	branch = binder-2026-07-06-pcomplexity-gee.ipynb
+	shallow = true
+
 [submodule "submodule/dishtiny"]
 	path = submodule/dishtiny
 	url = https://github.com/mmore500/dishtiny.git
