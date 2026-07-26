@@ -148,6 +148,12 @@
 	branch = binder-2026-07-06-pcomplexity-gee.ipynb
 	shallow = true
 
+[submodule "binder-2026-07-25-ecoselfcontext-pgcomplex-screen.ipynb"]
+	path = binder-2026-07-25-ecoselfcontext-pgcomplex-screen.ipynb
+	url = https://github.com/mmore500/oee4.git
+	branch = binder-2026-07-25-ecoselfcontext-pgcomplex-screen.ipynb
+	shallow = true
+
 [submodule "submodule/dishtiny"]
 	path = submodule/dishtiny
 	url = https://github.com/mmore500/dishtiny.git
