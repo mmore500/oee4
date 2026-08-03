@@ -16,6 +16,7 @@ Growing from unicellular inoculum (Figure \labelcref{fig:16005-timelapse:update6
 Then, in a secondary phase of growth, groups expand in the vertical direction to establish an irregular ``box-like'' morphology (Figure \labelcref{fig:16005-timelapse:update6720,fig:16005-timelapse:update7616}).
 
 To investigate how complexity arose and stabilized in this lineage, we investigated its history in detail as a case study --- reported next.
+Then, motivated by case study findings, we look across trials to test the role of biotic selection in shaping evolved multicell complexity.
 
 \input{fig/keyfig.tex}
 
@@ -165,23 +166,37 @@ In other words, evolved traits acted to ``lock in'' complexity by advantaging th
 % We measured genetic complexity as our response variable.
 % Having seen correlation between change in genetic complexity and phenotypic complexity in the case study strain, and as a more stable and sensitive measure of complexity, for these purposes we.
 
-\subsection{Self Adaptation Drives Functional Complexity}
-
-Having found that niche construction helped maintain evolved complexity in the case study lineage, we next sought to assess whether this pattern manifested more broadly across replicates.
-
-To screen for analogous niche construction effects, we measured self adaptation across all 40 replicates --- calculated as the difference between ``measuring stick'' fitness in self versus co-evolved contexts.
-Other stints also exhibited self-advantage (Supplementary Figure \ref{fig:external-bb-all}) and, across replicates, mean self adaptation correlates positively with mean genotype and phenotype complexity (Wald test; $p = 0.01$ and $p = 5\times10^{-3}$; Supplementary Figure \ref{fig:fit-advantage-correlations-supp}).
-
-For genotype complexity, correlation with self-adaptation focused in early evolution (stints 10 to 50, Figure \ref{fig:fit-advantage-correlations:early}; Wald test, $p=8\times10^{-6}$; $R^2=0.41$), and dissipated later (stints 60 to 100, Figure \ref{fig:fit-advantage-correlations:late}; Wald test, $p=0.3$).
-By contrast, phenotype complexity --- which reflects the richness of evolved cell-cell interactions --- correlated significantly with self adaptation across both time periods (Wald tests; $p=0.05$, $p=0.01$; $R^2=0.1$, $R^2=0.16$; Figure \labelcref{fig:fit-advantage-correlations:early,fig:fit-advantage-correlations:late}).
-
-In line with both adaptationist and neutralist hypotheses for the evolution of complexity, deep genotype complexity --- which includes sites otherwise masked by robustness --- correlated with both fitness and elapsed duration during later evolution (panel \labelcref{fig:fit-advantage-correlations:complexity-drivers}).
-Drift effects, in particular, manifested robustly over the longer whole-experiment timespan (Wald test, $p \leq 1 \times 10^{-6}$; $R^2 = 0.06$; Supplementary Figure \ref{fig:fit-advantage-correlations-supp}).
-
-Thus, functional complexity appears to be significantly influenced by density-dependent self-adaptation --- a signature of biogenic niche construction in our model system.
-Although fitness-critical genotype complexity only associated with niche construction during early evolution, niche construction more lastingly stabilized phenotype complexity.
-It is likely that later selection for robustness eroded early accrual of mutationally-sensitive genotype complexity --- as seen above in split-regression analysis of the case study strain (Supplementary Figure \ref{fig:complexity-cryptic-regression}).
-% Given genotype complexity did not systematically increase, drift accumulation of neutral contingent complexity appears unlikely.
-% Such an explanation also would not account for elevation of functional phenotype complexity.
+\subsection{Biotic Selection Drives Multicell Complexity}
 
 \input{fig/general.tex}
+
+Having found that niche construction drove evolved complexity in the case study lineage, we next sought to assess whether this pattern generalized more broadly across replicates.
+
+To screen for analogous niche construction effects in other replicates, we tested for self-adaptation --- whether a strain better outcompetes others in self-dense biotic contexts.
+Such self-adaptation arose repeatedly, with suggestive evidence in at least 10/39 additional lineages (Mann-Whitney tests $\alpha = 0.05$; Supplementary Figures \creflabel{fig:external-bb-all,fig:general-supp:eco-vs-self}).
+
+Where it did arise, we next tested whether self-adaptation influenced evolved multicell complexity.
+Due to large variability in genome sizes, we performed comparison vis-a-vis phenotype complexity --- how many distinct input/output interactions contribute to strain fitness, which reflects the richness of evolved cell-cell interactions.
+Compared to fitness in co-evolved biotic context, fitness in self-dense biotic context exhibited stronger association with complexity (binomial GEE, $p < 0.001$; $p = 0.003$ excluding case study replicate; Figure \ref{fig:general:gee-base}).
+As such self-adaptation can reflect biogenic niche construction, this finding suggests niche construction to act broadly in stabilizing evolved multicell complexity.
+
+We also sought to directly test whether high multicell complexity, such as the case study strain, tends to evolve under niche construction feedbacks.
+For this purpose, we screened extreme outcomes across 400 additional 20-stint trials, isolating the top 5\% by joint exceedance in genotype and phenotype complexity.
+Among these high-complexity strains, 90\% measured greater fitness in self-dense contexts, consistent with niche construction effects.
+By contrast, only 56\% of lower-complexity strains exhibited such self-advantage (Fisher's exact test, $p = 0.004$, RR 1.58; Figure \ref{fig:general:pgcomplex-ecoself}).
+
+% 17028, 21036, 28020
+Among screened high-complexity strains, 3/20 exhibit apparent cigar-like morphologies analogous to the case study strain.
+However, while the case study's evolutionary trajectory thus appears qualitatively reproducible, it only accounts for a small fraction of possible high-complexity outcomes --- and these alternate high-complexity outcomes still exhibit disproportionate niche construction effects (16/17 vs. 216/380; Fisher's exact test, $p = 0.002$, RR 1.66).
+% Thus, the mechanism of self-acting selection appears more general than one particular life history.
+
+\input{fig/ecogwas.tex}
+
+In addition to self-acting niche construction effects, biological multicells engage wide ranging ecological lineages.
+To assess the broader role of ecological interactions in the evolutionary origins of multicell complexiity, we next investigated how selection between co-evolving lineages can produce evolved complexity.
+For this purpose, we examined genotype complexity within the co-evolved ``background'' partner of the case study strain.
+
+Under self-context conditions, competing the wildtype background strain against single-site knockouts identified 14 sites as adaptive (Figure \ref{fig:ecogwas}).
+These 14 identified sites remained adaptive when tested in the presence of the case study strain, rather than self-context conditions.
+In addition, however, competition experiments identified 18 further sites under selection, exclusively in the presence of the case study strain.
+Thus, co-evolutionary interactions appear as a strong driver of evolved complexity in the case of this ``background'' strain --- among adaptations detected at 32 sites, 56\% of this evolved genotype complexity reflects adaptation to its co-evolved ecological partner.
