@@ -13,18 +13,18 @@ In earlier work, we found that more case studies of interest arose with two nest
 Cells may thus retain offspring within both groups, expel offspring from both groups, or expel offspring from the innermost group only.
 }
 As such, an implicit single-cell bottleneck arises in group establishment \citep{ratcliff2015origins}.
-Cells become eligible to reproduce by passively accruing energy, and we reward group formation by boosting energy inflow.
-Importantly, though, no extrinsic steering restricts cooperation or conflict among cells within groups.
-As a practical matter to ensure generational turnover, groups are split into unicellular propagules after a fixed duration.
+Cells reproduce by passively accruing energy, and we reward group formation by boosting energy inflow.
+However, no extrinsic steering restricts cooperation or conflict among cells within groups.
+As a practical matter to ensure generational turnover, groups are split into unicellular propagules after a fixed duration (approx. 20 cell generations in case study).
 
-Neighboring cells interact by competing for space, sharing energy, exchanging messages, and sensing each other's state.
+Adjacent cells interact by competing for space, sharing energy, exchanging messages, and sensing each other's state.
 % Cell-cell interactions occur both within groups and between groups.
-Within-group cell-cell interactions allow dynamic development and patterning processes \citep{goldsby2012task,moreno2021exploring}, while between-group cell-cell interactions build an environment of free-form interface competition --- creating feedback between evolved phenotypes and the environment (Figure \ref{fig:overview}g).
+Within-group cell-cell interactions allow dynamic development and patterning processes \citep{goldsby2012task,moreno2021exploring}, while between-group cell-cell interaction produces an environment of free-form interface competition --- establishing feedback from evolved phenotypes on environmental context (Figure \ref{fig:overview}g).
 
-Cell behavior arises from activation of genome subprograms in tagged modules \citep{lalejini2018evolving}.
-These modules selectively activate in response to incoming signals \citep{moreno2023matchmaker,holland2012signals} --- triggered by updates to the local environment, cell-cell messages, or expression of other modules (Figure \ref{fig:overview}f).
+Cell behavior stems from activation of genome subprograms in tagged modules \citep{lalejini2018evolving}.
+These modules selectively activate in response to incoming signals \citep{moreno2023matchmaker,holland2012signals} --- triggered by the local environment, cell-cell messages, or expression of other modules (Figure \ref{fig:overview}f).
 To facilitate plasticity and differentiation, cells may dynamically regulate their genome modules' signal-matching priorities \citep{lalejini2021tag}.
 
 Within modules, programs consist of a linear instruction sequence.
 Available instructions include arithmetic operations, conditional control flow operations (e.g., looping, branching, etc.), input operations to sense local state, and output operations to trigger actions (e.g., resource sharing, reproduction, etc.).
-The full set of 56 available instruction types is described in supplementary material, alongside details for full simulation logic and parameter settings.
+The full set of 56 available instruction types is described in supplementary material.
