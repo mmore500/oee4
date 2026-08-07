@@ -169,3 +169,8 @@
 	path = submodule/dishtiny_event_tag_phylogenetics
 	url = https://github.com/rodsan0/dishtiny_event_tag_phylogenetics.git
 	shallow = true
+
+[submodule "paper"]
+	path = paper
+	url = https://github.com/mmore500/oee4.git
+	branch = paper
