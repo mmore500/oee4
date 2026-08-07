@@ -30,7 +30,7 @@ ${BUILD_DIR}-manuscript.pdf: ${BUILD_DIR}.pdf
 ${BUILD_DIR}-supplement.pdf: ${BUILD_DIR}.pdf
 	pdftk ${BUILD_DIR}.pdf cat $(RELEASE_SUPPLEMENT_PAGE)-end output ${BUILD_DIR}-supplement.pdf
 
-${BUILD_DIR}-draft.pdf: main.tex bibl.bib draft.tex $(shell find tex -type f) fig/* img/* lib/*
+${BUILD_DIR}-draft.pdf: main.tex bibl.bib draft.tex $(shell find tex -type f)
 	mkdir -p /tmp/${SESSION_ID}
 	ln -sf /tmp/${SESSION_ID}/${BUILD_DIR}-draft.log ${BUILD_DIR}-draft.log
 	latexmk -pdf -silent \

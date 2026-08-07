@@ -1,7 +1,7 @@
 name: CI
 on:
   push:
-    branches: [ master, main, dev, tex ]
+    branches: [ master, main, dev, paper ]
   pull_request:
     branches:
       - '**'
@@ -27,12 +27,7 @@ jobs:
       - name: Free Disk Space (Ubuntu)
         uses: jlumbroso/free-disk-space@main
         with:
-          # this might remove tools that are actually needed,
-          # if set to "true" but frees about 6 GB
           tool-cache: false
-
-          # all of these default to true, but feel free to set to
-          # "false" if necessary for your workflow
           android: true
           dotnet: true
           haskell: true
@@ -44,7 +39,7 @@ jobs:
           submodules: 'recursive'
       - name: Build LaTeX document
         run: |
-          trap 'cat *.log; pdflatex main.tex; cat *.log || true >> "$GITHUB_OUTPUT"' EXIT
+          trap 'cat *.log || true >> "$GITHUB_OUTPUT"' EXIT
           make
       - name: Prepare deploy directory
         run: |
@@ -63,102 +58,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-  # adapted from https://code.dblock.org/2021/09/03/generating-task-matrix-by-looping-over-repo-files-with-github-actions.html
-  list-notebooks:
-    runs-on: ubuntu-22.04
-    outputs:
-      matrix: ${{ steps.set-matrix.outputs.matrix }}
-    steps:
-      - uses: actions/checkout@v2
-      - id: set-matrix
-        run: |
-          cd binder
-          echo "::set-output name=matrix::$(ls *.ipynb | jq -R -s -c 'split("\n")[:-1]')"
-
-  binder-notebook:
-    needs: list-notebooks
-    runs-on: ubuntu-22.04
-    env:
-      # RE https://stackoverflow.com/a/40184923/17332200
-      PIP_NO_CACHE_DIR: 1
-    strategy:
-      fail-fast: false
-      matrix:
-        notebook: ${{ fromJson(needs.list-notebooks.outputs.matrix) }}
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          submodules: recursive
-          fetch-depth: 1
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
-      - name: Setup headless display
-        uses: pyvista/setup-headless-display-action@v2
-      - run: |
-          sudo apt-get update -y
-          sudo apt-get install -y ghostscript imagemagick python3-pil libgif-dev ffmpeg mat2 texlive-latex-recommended  dvipng texlive-latex-extra texlive-fonts-recommended cm-super
-          python -m pip install pip --upgrade
-          sudo python -m pip install pip --upgrade
-          sudo python -m pip install uv --upgrade
-          sudo python -m uv pip install -r requirements.txt  --system
-      # Adapted from https://askubuntu.com/a/524368
-      - run: ./binder/execute_notebooks.sh "${{ matrix.notebook }}"
-      - run: rm -rf binder/**/*.json
-      - run: rm -rf $(ls -A | grep -vx binder)
-      # adapted from https://unix.stackexchange.com/a/545630
-      - run: find -type f -name "*.pdf" -exec bash -c 'gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dBATCH -dQUIET -sOutputFile="new.pdf" "{}"; rm "{}"; mv "new.pdf" "{}";' {} \;
-      - name: Strip PDF metadata
-        run: |
-          find -type f -name "*.pdf" -exec mat2 --lightweight --inplace --unknown-members keep "{}" \;
-      - run: |
-          git init
-          sed -i '/teeplots\//d' binder/.gitignore
-          rm -rf .gitmodules
-      - uses: fregante/setup-git-user@v1
-      - run: git commit --allow-empty -m "Initial commit"
-      - uses: JamesIves/github-pages-deploy-action@4.0.0
-        with:
-          branch: binder-${{ matrix.notebook }} # The branch the action should deploy to.
-          folder: . # The folder the action should deploy.
-
-  binder:
-    runs-on: ubuntu-22.04
-    env:
-      # RE https://stackoverflow.com/a/40184923/17332200
-      PIP_NO_CACHE_DIR: 1
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          submodules: recursive
-          fetch-depth: 1
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
-      - name: Setup headless display
-        uses: pyvista/setup-headless-display-action@v2
-      - run: |
-          sudo apt-get update -y
-          sudo apt-get install -y ghostscript imagemagick python3-pil libgif-dev ffmpeg texlive-latex-recommended  dvipng texlive-latex-extra texlive-fonts-recommended cm-super
-          python -m pip install pip --upgrade
-          sudo python -m pip install pip --upgrade
-          sudo python -m pip install uv --upgrade
-          sudo python -m uv pip install -r requirements.txt  --system
-      # Adapted from https://askubuntu.com/a/524368
-      - run: ./binder/execute_notebooks.sh
-      - run: rm -rf binder/**/*.json
-      - run: rm -rf $(ls -A | grep -vx binder)
-      # adapted from https://unix.stackexchange.com/a/545630
-      - run: find -type f -name "*.pdf" -exec bash -c 'gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dBATCH -dQUIET -sOutputFile="new.pdf" "{}"; rm "{}"; mv "new.pdf" "{}";' {} \;
-      - run: |
-          git init
-          sed -i '/teeplots\//d' binder/.gitignore
-          rm -rf .gitmodules
-      - uses: fregante/setup-git-user@v1
-      - run: git commit --allow-empty -m "Initial commit"
-      - uses: JamesIves/github-pages-deploy-action@4.0.0
-
-        with:
-          branch: binder # The branch the action should deploy to.
-          folder: . # The folder the action should deploy.
