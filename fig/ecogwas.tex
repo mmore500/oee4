@@ -4,13 +4,25 @@
 
 \vspace{-2ex}
 
+\begin{subfigure}{\linewidth}
+\centering
+\includegraphics[width=0.48\linewidth]{binder-2026-08-13-eco-gwas-weakstrong.ipynb/binder/teeplots/2026-08-13-eco-gwas-weakstrong/col=classification+hue=classification+style=classification+viz=relplot+x=focal-prevalence-backgroundbb+y=focal-prevalence-focalbb+ythresh=0.45+ext=.pdf}%
+\includegraphics[width=0.48\linewidth,trim={1.1cm 0 0 0},clip]{binder-2026-08-13-eco-gwas-weakstrong.ipynb/binder/teeplots/2026-08-13-eco-gwas-weakstrong/color=white+viz=boxplot+x=classification+y=count+ythresh=0.45+ext=.pdf}
+
+\caption{\footnotesize stub --- classification robustness check at alternate threshold ($y$-threshold = 0.45); paired competition-outcome scatter (left) and site counts by classification (right); write-up pending (cf.\ $y$-threshold = 0.5 variant, Supplementary Figure \ref{fig:ecogwas-supp})}
+\label{fig:ecogwas:ythresh045}
+\end{subfigure}
+
 % https://github.com/mmore500/oee4/blob/4a76b3624f7723879530f9b48310c96f8bc68b2a/binder/2026-06-22-eco-gwas.ipynb
+% https://github.com/mmore500/oee4/blob/ccbfe1efa6a599fb8b8e7b8f5bc0b48dc210debf/binder/2026-08-13-eco-gwas-weakstrong.ipynb
 \caption{%
 \textbf{Case study strain selects for genotype complexity in co-evolved partner.}
 \footnotesize
 In stint-100 isolate of case study background strain, 14 genome sites exhibited strong adaptive benefit compared to single-site knockouts when tested with case study strain absent.
 However, with case study strain present, adaptive benefit was detected at an additional 18 genome sites.
 Co-evolutionary adaptation to case study strain thus accounts for 56\% (18/32) of detected genotype complexity in background strain.
+Panel \ref{fig:ecogwas:ythresh045} previews a robustness check reclassifying competition outcomes under an alternate win/loss threshold; a further alternate threshold is reported in Supplementary Figure \ref{fig:ecogwas-supp}.
+Write-up pending.
 }
 \label{fig:ecogwas}
 \end{figure}
