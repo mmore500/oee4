@@ -2,3 +2,9 @@
 	path = tex
 	url = https://github.com/mmore500/oee4.git
 	branch = tex
+
+[submodule "binder-2026-08-13-eco-gwas-weakstrong.ipynb"]
+	path = binder-2026-08-13-eco-gwas-weakstrong.ipynb
+	url = https://github.com/mmore500/oee4.git
+	branch = binder-2026-08-13-eco-gwas-weakstrong.ipynb
+	shallow = true
