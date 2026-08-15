@@ -17,7 +17,7 @@ Thus, replicates maintained at least two founding strains.
 Among these, we arbitrarily chose one strain for primary study --- the ``focal'' strain;
 another was sampled as the ``background'' (or ``co-evolved'') strain.
 
-For compatibility compute scheduling policy, evolutionary replicates were passaged between fresh simulation runtimes in three hour intervals, which we refer to as ``stints.''
+For compatibility compute scheduling policy, evolutionary replicates were passaged between fresh simulation runtimes in three hour intervals, which we refer to as ``transfer rounds.''
 Each transfer carried over all population genomes, but no other simulation state.
 As a benefit, this protocol ensured strains remained capable of growth from well-mixed inoculum.
 Supplementary Figure \ref{fig:stints} summarizes our serial transfer and diversity maintenance procedures.
@@ -82,7 +82,7 @@ To accelerate the experiment, quadrants of simulation space were distributed acr
 For this reason, phylogeny analyses relied on parsimony-based reconstruction rather than exact tracking \citep{moreno2022hereditary}.
 
 Additional work tested the reproducibility of extreme-complexity outcomes observed in the case study strain, screening 400 additional evolutionary replicates.
-To economize resource usage, these additional replicates used a single 60-hour passaging window (cf. 20 stints).
+To economize resource usage, these additional replicates used a single 60-hour passaging window (cf. 20 transfer rounds).
 % Further technical details appear in supplementary material.
 
 \subsection{Measuring Fitness}
@@ -103,7 +103,7 @@ Therefore, to assess fitness, we rely on competition assays.
 In these competition assays, available space is seeded with an even mix of compared strains.
 Then, after a 10 minute runtime, we evaluate strain abundances (Figure \ref{fig:fit:nobbg}).
 \unskip\footnote{%
-For reference, the case lineage elapses between 8,000 update cycles (stint 0) and 2,000 update cycles (stint 100) during this runtime.
+For reference, the case lineage elapses between 8,000 update cycles (transfer round 0) and 2,000 update cycles (transfer round 100) during this runtime.
 In cases, update-matched competitions were conducted to control for fixed-duration effects.
 Further detail in Supplementary Figures \labelcref{fig:num_updates_elapsed_heatmap,fig:num_updates_elapsed_barplot,fig:num_updates_elapsed_boxplot}.
 }
