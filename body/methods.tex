@@ -17,7 +17,7 @@ Thus, replicates maintained at least two founding strains.
 Among these, we arbitrarily chose one strain for primary study --- the ``focal'' strain;
 another was sampled as the ``background'' (or ``co-evolved'') strain.
 
-For compatibility compute scheduling policy, evolutionary replicates were passaged between fresh simulation runtimes in three hour intervals, which we refer to as ``transfer rounds.''
+For compatibility with compute scheduling policy, evolutionary replicates were passaged between fresh simulation runtimes in three-hour intervals, which we refer to as ``transfer rounds.''
 Each transfer carried over all population genomes, but no other simulation state.
 As a benefit, this protocol ensured strains remained capable of growth from well-mixed inoculum.
 Supplementary Figure \ref{fig:stints} summarizes our serial transfer and diversity maintenance procedures.
@@ -73,7 +73,7 @@ Supplementary Figure \ref{fig:stints} summarizes our serial transfer and diversi
 % median          7.447568e+06
 % std             1.075930e+06
 
-We conducted 100 passages, amounting to just over 12.5 days of compute time per each of 40 replicates.
+We conducted 100 passages, amounting to just over 12.5 days of compute time for each of 40 replicates.
 Across replicates, between 5.4M and 9.9M simulation time steps elapsed (mean 7.4M; SD 1.1M).
 During this time, between 11.7k and 26.9k cell generations elapsed (mean 18.5k; SD 3.4k) and between 1.2k and 3.4k group generations elapsed (mean 2.3k; SD 533).
 In the replicate producing our high-complexity case study, 7,565,309 simulation time steps elapsed --- accreting 11,713 cell generations and 1,325 group generations.
@@ -90,7 +90,7 @@ To economize resource usage, these additional replicates used a single 60-hour p
 
 \input{fig/fit.tex}
 
-Like nature, cell behavior and fate in DISHTINY emerges from stochastic interaction between expressed genetic traits and the local environment.
+As in nature, cell behavior and fate in DISHTINY emerge from stochastic interaction between expressed genetic traits and the local environment.
 % fitness effects of a mutation are not specified or determined \textit{a priori}.
 Fitness is thus not readily determined \textit{a priori} \citep{franklin2019mapping} and must instead be measured \textit{in situ}.
 Further complicating matters, dense biotic interaction between groups prevents reliable fitness estimation on the basis of a single cell or group in isolation \citep{wadgymar2024defining}.
@@ -101,10 +101,10 @@ Therefore, to assess fitness, we rely on competition assays.
 %However, as our evolutionary trials begin and remain near carrying capacity, we did not find these assays informative of ability to compete for occupied space.
 %}
 In these competition assays, available space is seeded with an even mix of compared strains.
-Then, after a 10 minute runtime, we evaluate strain abundances (Figure \ref{fig:fit:nobbg}).
+Then, after a 10-minute runtime, we evaluate strain abundances (Figure \ref{fig:fit:nobbg}).
 \unskip\footnote{%
-For reference, the case lineage elapses between 8,000 update cycles (transfer round 0) and 2,000 update cycles (transfer round 100) during this runtime.
-In cases, update-matched competitions were conducted to control for fixed-duration effects.
+For reference, the case study lineage elapses between 8,000 update cycles (transfer round 0) and 2,000 update cycles (transfer round 100) during this runtime.
+In some cases, update-matched competitions were conducted to control for fixed-duration effects.
 Further detail in Supplementary Figures \labelcref{fig:num_updates_elapsed_heatmap,fig:num_updates_elapsed_barplot,fig:num_updates_elapsed_boxplot}.
 }
 To assess significance, we repeat this procedure 20 times and apply a two-tailed binomial test to competition win/loss counts.
@@ -133,7 +133,7 @@ Phenotype complexity trials also screened for message-passing functionality by i
 
 To measure genotype complexity, we screened functionality via single-site knockouts.
 Because combination knockouts were not tested, this measure is limited in detecting sites with compensatory redundancy or small fitness effects below the competition sensitivity threshold \citep{moreno2024methods}.
-Some such sites are captured by an extended ``deep'' genotype complexity measure, which applies knockouts to a ``skeletonized'' genome stripped of unexpressed sites (Supplementary Section \ref{sec:TODO}).
+Some such sites are captured by an extended ``deep'' genotype complexity measure, which applies knockouts to a ``skeletonized'' genome stripped of unexpressed sites (Supplementary Section \ref{sec:supp-genotype-complexity}).
 
 To reduce workload in measuring complexity across many replicates and timepoints, we evaluated single competition outcomes against wildtype-vs-wildtype control trials and skipped non-expressed genome sites.
 Supplementary materials further detail these procedures, including quality control measures.

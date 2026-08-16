@@ -13,7 +13,7 @@ Simulation logic is applied to each cell through a collection of distinct functo
 
 All services specified to run on a particular update are applied in sequence to a single cell.
 (Some services run only every $n$th update.)
-Then, to another randomly-chosen cell in a \texttt{thread\_local} population, and another until the entire population has been updated.
+They are then applied to another randomly-chosen cell in a \texttt{thread\_local} population, and another, until the entire population has been updated.
 
 See \url{https://github.com/mmore500/dishtiny/tree/prq49/include/dish2/services} for source code implementing these services.
 
@@ -76,7 +76,7 @@ Used for experimental manipulations testing the fitness effect of introspective 
 
 \cellsimservicedef{1}
 
-Executes a cell's genome on its cardinals processors for \texttt{HARDWARE\_EXECUTION\_CYCLES} virtual cycles.
+Executes a cell's genome on its cardinal processors for \texttt{HARDWARE\_EXECUTION\_CYCLES} virtual cycles.
 The order of cardinal evaluation is randomized.
 This is repeated \texttt{HARDWARE\_EXECUTION\_ROUNDS} times.
 
@@ -164,7 +164,7 @@ This effect strengthens exponentially with excess cell quorum count.
 
 \cellsimservicedef{16}
 
-Flushes each cardinal processors' inter-process and inter-thread output conduits.
+Flushes each cardinal processor's inter-process and inter-thread output conduits.
 
 \subsection{Inter Message Launching Service}
 
@@ -197,9 +197,9 @@ Intermittently resets introspective message count state.
 Performs distributed estimation of kin group size by simulation.
 
 Each cell has a single randomly-chosen index set within a fixed-length bitstring.
-(Depending in parameter settings, some cells may have index set --- all positions within the bitstring are zeroed out.)
+(Depending on parameter settings, some cells may have no index set --- all positions within the bitstring are zeroed out.)
 
-Broadcasts bits known to be set are to all neighbor cells within the same kin group.
+Broadcasts bits known to be set to all neighbor cells within the same kin group.
 Incoming bitstrings from neighbors are ORed with known bits.
 
 The original neighbor each non-self bit was first learned from is recorded alongside that bit.
