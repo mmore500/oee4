@@ -15,7 +15,9 @@ This section enumerates simulation parameters and reports the settings used for 
 See \url{https://github.com/mmore500/dishtiny/blob/prq49/include/dish2/config/ConfigBase.hpp} for source code defining run time parameters.
 Settings reported here are taken from the \texttt{evolvejob} configuration file at \url{https://github.com/mmore500/dishtiny/tree/prq49/configpacks/bucket=prq49+diversity=0.50_series+mut_freq=1.00+mut_sever=1.00}; other assays (competition, monoculture, nopout, etc.) used equivalent settings defined in their own configuration files from the same configpack.
 
-Several parameters were further overridden on the command line by the evolution runscript (\url{https://github.com/mmore500/dishtiny/tree/prq49/slurm}), which set \texttt{N\_THREADS} to 4, \texttt{WEAK\_SCALING} to 1, and \texttt{N\_CELLS} to 3,600 --- giving the 14,400-cell population reported in the main text --- along with \texttt{RUN\_SECONDS} 10800 (the three-hour stint duration), \texttt{DATA\_DUMP} and \texttt{ARTIFACTS\_DUMP} 1, and per-stint values of \texttt{STINT}, \texttt{SERIES}, \texttt{TREATMENT}, and \texttt{GENESIS}.
+Where the evolution runscript (\url{https://github.com/mmore500/dishtiny/tree/prq49/slurm}) overrode a configuration file setting on the command line, the value reported below is the value as run.
+In particular, population size was set via \texttt{WEAK\_SCALING} with \texttt{N\_CELLS} 3,600 per thread across 4 threads, giving the 14,400-cell population reported in the main text.
+A few settings varied from run to run, and so are reported at their configuration file values: \texttt{STINT}, \texttt{SERIES}, and \texttt{TREATMENT} identify the individual run; \texttt{GENESIS} was ``generate'' for stint 0 and ``reconstitute'' thereafter; and \texttt{ALL\_DRAWINGS\_WRITE}, \texttt{RUNNINGLOGS\_DUMP}, and \texttt{CENSUS\_WRITE} were enabled on every tenth stint.
 
 Three array-valued parameter types appear below, indexed by kin group level (\texttt{DISH2\_NLEV}, which is $L=2$ in this work):
 \begin{itemize}
@@ -30,7 +32,7 @@ Three array-valued parameter types appear below, indexed by kin group level (\te
 
 \subsubsection{N\_THREADS}
 
-\confdef{size\_t}{1}
+\confdef{size\_t}{4}
 
 How many threads should we run with?
 
@@ -48,7 +50,7 @@ How many updates should we run the experiment for?
 
 \subsubsection{RUN\_SECONDS}
 
-\confdef{double}{0}
+\confdef{double}{10800}
 
 How many seconds should we run the experiment for?
 
@@ -84,7 +86,7 @@ How often updates occur synchronously across threads and processes for async mod
 
 \subsubsection{RNG\_PRESEED}
 
-\confdef{uint64\_t}{18446744073709551615}
+\confdef{uint64\_t}{std::numeric\_limits<uint64\_t>::max()}
 
 Optionally override the calculated rng preseed.
 
@@ -102,7 +104,7 @@ Should we throw an exception if populations go extinct?
 
 \subsubsection{RUN\_SLUG}
 
-\confdef{std::string}{default}
+\confdef{std::string}{``default''}
 
 Run-identifying slug.
 
@@ -139,7 +141,7 @@ What replicate are we running?
 
 \subsubsection{TREATMENT}
 
-\confdef{std::string}{none}
+\confdef{std::string}{``none''}
 
 What experimental treatment has been applied?
 
@@ -151,7 +153,7 @@ If we are seeding the population, what fraction of available slots should we fil
 
 \subsubsection{GENESIS}
 
-\confdef{std::string}{generate}
+\confdef{std::string}{``generate''}
 
 How should we initialize the population?
 Can be ``generate'' to randomly generate a new population, ``reconstitute'' to load a population from file, ``monoculture'' to load a single genome from file, or ``inoculate'' to load genomes annotated with root ID keyname attributes from file.
@@ -164,13 +166,13 @@ Can be ``generate'' to randomly generate a new population, ``reconstitute'' to l
 
 \subsubsection{N\_CELLS}
 
-\confdef{size\_t}{10000}
+\confdef{size\_t}{3600}
 
 How many cells should be simulated?
 
 \subsubsection{WEAK\_SCALING}
 
-\confdef{bool}{0}
+\confdef{bool}{1}
 
 Should number of total cells be multiplied by the total number of threads (num procs times threads per proc)?
 
@@ -616,7 +618,7 @@ Must also enable DATA\_DUMP.
 
 \subsubsection{DATA\_DUMP}
 
-\confdef{bool}{0}
+\confdef{bool}{1}
 
 Should we record data on the final state of the simulation?
 
@@ -636,7 +638,7 @@ Must also enable DATA\_DUMP.
 
 \subsubsection{ARTIFACTS\_DUMP}
 
-\confdef{bool}{0}
+\confdef{bool}{1}
 
 Should we record data on the final state of the simulation?
 
