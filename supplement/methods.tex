@@ -29,6 +29,7 @@ Per-cell resource collection rate increases linearly with group size up to a cap
 Beyond 12 members, the decay rate of cells' resource stockpiles begins to increase exponentially.
 These mechanisms select for medium-sized groups; in particular, the harsh penalization of oversized groups prevents any single group from consuming the entire population.
 Undersized groups, on the other hand, do not receive resource bonuses.
+Groups that are too large receive a penalty.
 To ensure group turnover, we force groups to fragment into unicells after 8,192 ($2^{13}$) updates.
 
 % Like physical attachment in biology, these kin groups do not in and of themselves  with respect to functional individuality.
@@ -200,7 +201,7 @@ We describe the number of states that cells interact with to contribute to fitne
 In addition to estimating the number of input/output states cells use to interact with the environment, we also estimated the number of distinct intracellular messages cardinal processors within a cell use to coordinate, as well as the intercellular messages that cells use to coordinate.
 As with state phenotype complexity, distinguishing context-dependent behavior from contingent behavior is critical to attaining a meaningful measurement.
 For example, a cardinal processor might depend on always receiving an intercellular message from a neighbor or an intracellular message from another cardinal processor.
-Although that message is meaningless, fitness would decrease if it were blocked.
+Although meaningless, fitness would decrease if that message were blocked.
 So, instead of simply discarding messages to test for a fitness effect, we reroute messages back to the sending cardinal processor instead of their intended recipient.
 We deemed messages as fitness-critical if this manipulation resulted in decreased fitness at significance $p < 0.01$ using a $T$-test parameterized by 20 control wildtype vs wildtype competitions.
 
