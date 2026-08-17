@@ -27,7 +27,7 @@ See \url{https://github.com/mmore500/dishtiny/tree/prq49/configpacks/bucket=prq4
 
 How many threads should we run with?
 
-\subsubsection{RUN\_UPDATES}
+\subsubsection{RUN}
 
 \confdef{bool}{\texttt{false}}
 
@@ -43,7 +43,7 @@ How many updates should we run the experiment for?
 
 \confdef{double}{0}
 
-How many updates should we run the experiment for?
+How many seconds should we run the experiment for?
 
 \subsubsection{MAIN\_TIMEOUT\_SECONDS}
 
@@ -241,7 +241,7 @@ How much resource should cells accrue per update?
 
 \subsubsection{OPTIMAL\_QUORUM\_COUNT}
 
-\confdef{internal::nlev\_float\_t}{internal::nlev\_size\_\_t\{12\}}
+\confdef{internal::nlev\_size\_t\_t}{internal::nlev\_size\_t\_t\{12\}}
 
 What group size does collective harvest work most effectively at?
 
@@ -275,7 +275,7 @@ How many instructions should programs be capped at?
 
 \subsubsection{MUTATION\_RATE}
 
-\confdef{internal::nlev\_float\_t}{internal::nreplev\_float\_t\{0.1\}}
+\confdef{internal::nreplev\_float\_t}{internal::nreplev\_float\_t\{0.1\}}
 
 For each replev, what fraction of cells should be mutated at all?
 

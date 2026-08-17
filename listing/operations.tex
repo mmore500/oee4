@@ -204,7 +204,7 @@ If \texttt{reg[arg\_1]} is nonzero, resets registers.
 
 \opdef{1}{2}
 
-Jumps the current core to a global anchor that matches the instruction tag if \texttt{reg[arg\_0]} is nonzero.
+Jumps the current core to a global anchor that matches the instruction tag if \texttt{reg[arg\_0]} is zero.
 If \texttt{reg[arg\_1]} is zero, resets registers.
 
 \subsection{Protected Regulator Adjust}
@@ -294,7 +294,7 @@ If no tag matches, a no-op is performed.
 
 \opdef{1}{1}
 
-Sets the regulator value of global jump table tags matching this instruction's tag to \texttt{reg[arg\_0]}.
+Sets the regulator value of local jump table tags matching this instruction's tag to \texttt{reg[arg\_0]}.
 
 \subsection{Decrement}
 
