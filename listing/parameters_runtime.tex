@@ -13,7 +13,7 @@
 This section enumerates simulation parameters and reports the settings used for evolutionary runs.
 
 See \url{https://github.com/mmore500/dishtiny/blob/prq49/include/dish2/config/ConfigBase.hpp} for source code defining run time parameters.
-Settings reported here are taken from the \texttt{evolvejob} configuration file at \url{https://github.com/mmore500/dishtiny/tree/prq49/configpacks/bucket=prq49+diversity=0.50_series+mut_freq=1.00+mut_sever=1.00}; other assays (competition, monoculture, nopout, etc.) used their own configuration files from the same configpack.
+Settings reported here are taken from the \texttt{evolvejob} configuration file at \url{https://github.com/mmore500/dishtiny/tree/prq49/configpacks/bucket=prq49+diversity=0.50_series+mut_freq=1.00+mut_sever=1.00}; other assays (competition, monoculture, nopout, etc.) used equivalent settings defined in their own configuration files from the same configpack.
 
 Several parameters were further overridden on the command line by the evolution runscript (\url{https://github.com/mmore500/dishtiny/tree/prq49/slurm}), which set \texttt{N\_THREADS} to 4, \texttt{WEAK\_SCALING} to 1, and \texttt{N\_CELLS} to 3,600 --- giving the 14,400-cell population reported in the main text --- along with \texttt{RUN\_SECONDS} 10800 (the three-hour stint duration), \texttt{DATA\_DUMP} and \texttt{ARTIFACTS\_DUMP} 1, and per-stint values of \texttt{STINT}, \texttt{SERIES}, \texttt{TREATMENT}, and \texttt{GENESIS}.
 
