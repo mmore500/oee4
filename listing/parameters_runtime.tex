@@ -38,7 +38,7 @@ How many threads should we run with?
 
 \subsubsection{RUN}
 
-\confdef{bool}{1}
+\confdef{bool}{true}
 
 Should we run evolution or skip directly to post-processing and data collection?
 
@@ -56,7 +56,7 @@ How many seconds should we run the experiment for?
 
 \subsubsection{MAIN\_TIMEOUT\_SECONDS}
 
-\confdef{double}{13500}
+\confdef{double}{10800}
 
 After how many seconds should we time out and fail with an error?
 
@@ -92,7 +92,7 @@ Optionally override the calculated rng preseed.
 
 \subsubsection{THROW\_ON\_EXTINCTION}
 
-\confdef{bool}{1}
+\confdef{bool}{true}
 
 Should we throw an exception if populations go extinct?
 
@@ -126,12 +126,14 @@ How many cells should we simulate while testing for phenotypic divergence?
 \confdef{uint64\_t}{4294967295}
 
 How many evolutionary stints have elapsed?
+Adjusted per transfer round.
 
 \subsubsection{SERIES}
 
 \confdef{uint64\_t}{4294967295}
 
 Which evolutionary series are we running?
+Adjusted per replicate.
 
 \subsubsection{REPLICATE}
 
@@ -172,7 +174,7 @@ How many cells should be simulated?
 
 \subsubsection{WEAK\_SCALING}
 
-\confdef{bool}{1}
+\confdef{bool}{true}
 
 Should number of total cells be multiplied by the total number of threads (num procs times threads per proc)?
 
@@ -579,20 +581,20 @@ Must be a power of 2.
 
 \subsubsection{PHENOTYPE\_EQUIVALENT\_NOPOUT}
 
-\confdef{bool}{0}
+\confdef{bool}{false}
 
 Should we make and record a phenotype equivalent nopout strain at the end of the run? Must also enable ARTIFACTS\_DUMP.
 
 \subsubsection{BATTLESHIP\_PHENOTYPE\_EQUIVALENT\_NOPOUT}
 
-\confdef{bool}{0}
+\confdef{bool}{false}
 
 Should we make and record a phenotype equivalent nopout strain at the end of the run?
 Must also enable ARTIFACTS\_DUMP.
 
 \subsubsection{JENGA\_PHENOTYPE\_EQUIVALENT\_NOPOUT}
 
-\confdef{bool}{0}
+\confdef{bool}{false}
 
 Should we make and record a phenotype equivalent nopout strain at the end of the run?
 Must also enable ARTIFACTS\_DUMP.
@@ -605,46 +607,46 @@ After how many seconds should we save nop-out progress and quit?
 
 \subsubsection{TEST\_INTERROOT\_PHENOTYPE\_DIFFERENTIATION}
 
-\confdef{bool}{0}
+\confdef{bool}{false}
 
 Should we test for phenotype differentiation between roots?
 
 \subsubsection{ALL\_DRAWINGS\_WRITE}
 
-\confdef{bool}{0}
+\confdef{bool}{false}
 
 Should we generate and record drawings of the final state of the simulation?
 Must also enable DATA\_DUMP.
 
 \subsubsection{DATA\_DUMP}
 
-\confdef{bool}{1}
+\confdef{bool}{true}
 
 Should we record data on the final state of the simulation?
 
 \subsubsection{RUNNINGLOGS\_DUMP}
 
-\confdef{bool}{0}
+\confdef{bool}{false}
 
 Should we dump running logs at the end of the simulation?
 Must also enable DATA\_DUMP.
 
 \subsubsection{CENSUS\_WRITE}
 
-\confdef{bool}{0}
+\confdef{bool}{false}
 
 Should we write the cell census at the end of the simulation?
 Must also enable DATA\_DUMP.
 
 \subsubsection{ARTIFACTS\_DUMP}
 
-\confdef{bool}{1}
+\confdef{bool}{true}
 
 Should we record data on the final state of the simulation?
 
 \subsubsection{BENCHMARKING\_DUMP}
 
-\confdef{bool}{0}
+\confdef{bool}{false}
 
 Should we record data for benchmarking the simulation?
 
@@ -714,7 +716,7 @@ Provide slugified drawer names separated by colons.
 
 \subsubsection{ANIMATE\_FRAMES}
 
-\confdef{bool}{0}
+\confdef{bool}{false}
 
 Should we stitch the output images into a video?
 Only valid if DRAWING\_FREQ is not 0.
