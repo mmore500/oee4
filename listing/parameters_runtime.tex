@@ -17,7 +17,7 @@ Settings reported here are taken from the \texttt{evolvejob} configuration file 
 
 Where the evolution runscript (\url{https://github.com/mmore500/dishtiny/tree/prq49/slurm}) overrode a configuration file setting on the command line, the value reported below is the value as run.
 In particular, population size was set via \texttt{WEAK\_SCALING} with \texttt{N\_CELLS} 3,600 per thread across 4 threads, giving the 14,400-cell population reported in the main text.
-A few settings varied from run to run, and so are reported at their configuration file values: \texttt{STINT}, \texttt{SERIES}, and \texttt{TREATMENT} identify the individual run; \texttt{GENESIS} was ``generate'' for stint 0 and ``reconstitute'' thereafter; and \texttt{ALL\_DRAWINGS\_WRITE}, \texttt{RUNNINGLOGS\_DUMP}, and \texttt{CENSUS\_WRITE} were enabled on every tenth stint.
+A few settings varied from run to run: \texttt{STINT}, \texttt{SERIES}, and \texttt{TREATMENT} identify the individual run, and are noted below as adjusted rather than given a value; \texttt{GENESIS} was ``generate'' for stint 0 and ``reconstitute'' thereafter; and \texttt{ALL\_DRAWINGS\_WRITE}, \texttt{RUNNINGLOGS\_DUMP}, and \texttt{CENSUS\_WRITE} were enabled on every tenth stint.
 
 Three array-valued parameter types appear below, indexed by kin group level (\texttt{DISH2\_NLEV}, which is $L=2$ in this work):
 \begin{itemize}
@@ -124,17 +124,15 @@ How many cells should we simulate while testing for phenotypic divergence?
 
 \subsubsection{STINT}
 
-\confdef{uint64\_t}{4294967295}
+\confdef{uint64\_t}{adjusted per transfer round}
 
 How many evolutionary stints have elapsed?
-Adjusted per transfer round.
 
 \subsubsection{SERIES}
 
-\confdef{uint64\_t}{4294967295}
+\confdef{uint64\_t}{adjusted per replicate}
 
 Which evolutionary series are we running?
-Adjusted per replicate.
 
 \subsubsection{REPLICATE}
 
