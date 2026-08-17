@@ -63,7 +63,7 @@ Full details on the instruction set and event library used, as well as simulatio
 We performed evolution in three-hour windows for compatibility with our compute cluster's scheduling system.
 We refer to these windows as ``stints.''
 \unskip\footnote{In the main text, these windows are referred to as ``transfer rounds'' instead.}
-We randomly generated 100-instruction genomes at the outset of the initial stint, stint 0.
+We randomly generated 128-instruction genomes at the outset of the initial stint, stint 0.
 At the end of each three-hour window, the system harvested and stored genomes in a population file.
 We then seeded subsequent stints with the previous stint's population.
 No simulation state besides genome content was preserved between stints.
