@@ -6,16 +6,23 @@
         >{\columncolor[HTML]{C0C0C0}}l |l|}
         \hline
         Type & \texttt{#1} \\ \hline
-        Default   & \texttt{#2} \\ \hline
+        Setting   & \texttt{#2} \\ \hline
     \end{tabular}
 }
 
-This section enumerates simulation parameters and provides default settings that were used.
+This section enumerates simulation parameters and reports the settings used for evolutionary runs.
 
 See \url{https://github.com/mmore500/dishtiny/blob/prq49/include/dish2/config/ConfigBase.hpp} for source code defining run time parameters.
+Settings reported here are taken from the \texttt{evolvejob} configuration file at \url{https://github.com/mmore500/dishtiny/tree/prq49/configpacks/bucket=prq49+diversity=0.50_series+mut_freq=1.00+mut_sever=1.00}; other assays (competition, monoculture, nopout, etc.) used their own configuration files from the same configpack.
 
-Some parameter settings were overridden in some assays.
-See \url{https://github.com/mmore500/dishtiny/tree/prq49/configpacks/bucket=prq49+diversity=0.50_series+mut_freq=1.00+mut_sever=1.00} for configuration files used in each assay and \url{https://github.com/mmore500/dishtiny/tree/prq49/slurm} for runscripts used in each assay.
+Several parameters were further overridden on the command line by the evolution runscript (\url{https://github.com/mmore500/dishtiny/tree/prq49/slurm}), which set \texttt{N\_THREADS} to 4, \texttt{WEAK\_SCALING} to 1, and \texttt{N\_CELLS} to 3,600 --- giving the 14,400-cell population reported in the main text --- along with \texttt{RUN\_SECONDS} 10800 (the three-hour stint duration), \texttt{DATA\_DUMP} and \texttt{ARTIFACTS\_DUMP} 1, and per-stint values of \texttt{STINT}, \texttt{SERIES}, \texttt{TREATMENT}, and \texttt{GENESIS}.
+
+Three array-valued parameter types appear below, indexed by kin group level (\texttt{DISH2\_NLEV}, which is $L=2$ in this work):
+\begin{itemize}
+\item \texttt{internal::nlev\_float\_t} is \texttt{emp::array<float, DISH2\_NLEV>};
+\item \texttt{internal::nlev\_size\_t\_t} is \texttt{emp::array<size\_t, DISH2\_NLEV>}; and
+\item \texttt{internal::nreplev\_float\_t} is \texttt{emp::array<float, DISH2\_NLEV + 1>}, carrying one extra entry for offspring sharing no kin group with the parent.
+\end{itemize}
 
 \subsection{EXECUTION}
 
@@ -23,13 +30,13 @@ See \url{https://github.com/mmore500/dishtiny/tree/prq49/configpacks/bucket=prq4
 
 \subsubsection{N\_THREADS}
 
-\confdef{size\_t}{4}
+\confdef{size\_t}{1}
 
 How many threads should we run with?
 
 \subsubsection{RUN}
 
-\confdef{bool}{\texttt{false}}
+\confdef{bool}{1}
 
 Should we run evolution or skip directly to post-processing and data collection?
 
@@ -47,7 +54,7 @@ How many seconds should we run the experiment for?
 
 \subsubsection{MAIN\_TIMEOUT\_SECONDS}
 
-\confdef{double}{10800}
+\confdef{double}{13500}
 
 After how many seconds should we time out and fail with an error?
 
@@ -77,13 +84,13 @@ How often updates occur synchronously across threads and processes for async mod
 
 \subsubsection{RNG\_PRESEED}
 
-\confdef{uint64\_t}{std::numeric\_limits<uint64\_t>::max()}
+\confdef{uint64\_t}{18446744073709551615}
 
 Optionally override the calculated rng preseed.
 
 \subsubsection{THROW\_ON\_EXTINCTION}
 
-\confdef{bool}{true}
+\confdef{bool}{1}
 
 Should we throw an exception if populations go extinct?
 
@@ -95,7 +102,7 @@ Should we throw an exception if populations go extinct?
 
 \subsubsection{RUN\_SLUG}
 
-\confdef{std::string}{``default''}
+\confdef{std::string}{default}
 
 Run-identifying slug.
 
@@ -114,13 +121,13 @@ How many cells should we simulate while testing for phenotypic divergence?
 
 \subsubsection{STINT}
 
-\confdef{uint64\_t}{std::numeric\_limits<uint64\_t>::max()}
+\confdef{uint64\_t}{4294967295}
 
 How many evolutionary stints have elapsed?
 
 \subsubsection{SERIES}
 
-\confdef{uint64\_t}{std::numeric\_limits<uint64\_t>::max()}
+\confdef{uint64\_t}{4294967295}
 
 Which evolutionary series are we running?
 
@@ -132,19 +139,19 @@ What replicate are we running?
 
 \subsubsection{TREATMENT}
 
-\confdef{std::string}{``none''}
+\confdef{std::string}{none}
 
 What experimental treatment has been applied?
 
 \subsubsection{SEED\_FILL\_FRACTION}
 
-\confdef{double}{1.0}
+\confdef{double}{1}
 
 If we are seeding the population, what fraction of available slots should we fill?
 
 \subsubsection{GENESIS}
 
-\confdef{std::string}{"generate"}
+\confdef{std::string}{generate}
 
 How should we initialize the population?
 Can be ``generate'' to randomly generate a new population, ``reconstitute'' to load a population from file, ``monoculture'' to load a single genome from file, or ``inoculate'' to load genomes annotated with root ID keyname attributes from file.
@@ -163,19 +170,19 @@ How many cells should be simulated?
 
 \subsubsection{WEAK\_SCALING}
 
-\confdef{bool}{false}
+\confdef{bool}{0}
 
 Should number of total cells be multiplied by the total number of threads (num procs times threads per proc)?
 
 \subsubsection{N\_DIMS}
 
-\confdef{size\_t}{DISH2\_NLEV}
+\confdef{size\_t}{2}
 
 What dimensionality should the toroidal mesh have?
 
 \subsubsection{GROUP\_EXPIRATION\_DURATIONS}
 
-\confdef{internal::nlev\_size\_t\_t}{internal::nlev\_size\_t\_t\{ 256, 1024 \}}
+\confdef{internal::nlev\_size\_t\_t}{[ 256 1024 ]}
 
 After how many \texttt{epochs} should groups stop collecting resource?
 
@@ -235,13 +242,13 @@ How much resource should cells accrue per update?
 
 \subsubsection{COLLECTIVE\_HARVEST\_RATE}
 
-\confdef{internal::nlev\_float\_t}{internal::nlev\_float\_t\{0.25\}}
+\confdef{internal::nlev\_float\_t}{[ 0.25 0.25 ]}
 
 How much resource should cells accrue per update?
 
 \subsubsection{OPTIMAL\_QUORUM\_COUNT}
 
-\confdef{internal::nlev\_size\_t\_t}{internal::nlev\_size\_t\_t\{12\}}
+\confdef{internal::nlev\_size\_t\_t}{[ 12 12 ]}
 
 What group size does collective harvest work most effectively at?
 
@@ -253,11 +260,29 @@ What group size does collective harvest work most effectively at?
 
 \subsubsection{P\_SET\_QUORUM\_BIT}
 
-\confdef{internal::nlev\_float\_t}{internal::nlev\_float\_t\{1.0\}}
+\confdef{internal::nlev\_float\_t}{[ 1 1 ]}
 
 What fraction of cells should have a quorum bit set?
 
 % end of QUORUM
+
+\subsection{QUORUM\_CAPS}
+
+% start of QUORUM_CAPS
+
+\subsubsection{QUORUM\_CAP}
+
+\confdef{internal::nlev\_size\_t\_t}{[ 12 36 ]}
+
+At what quorum size should cell death be triggered?
+
+\subsubsection{P\_QUORUM\_CAP\_KILL}
+
+\confdef{internal::nlev\_float\_t}{[ 0.0825 0.0825 ]}
+
+With what probability should quorum death be enforced?
+
+% end of QUORUM_CAPS
 
 \subsection{GENOME}
 
@@ -275,7 +300,7 @@ How many instructions should programs be capped at?
 
 \subsubsection{MUTATION\_RATE}
 
-\confdef{internal::nreplev\_float\_t}{internal::nreplev\_float\_t\{0.1\}}
+\confdef{internal::nreplev\_float\_t}{[ 0.1 0.1 1 ]}
 
 For each replev, what fraction of cells should be mutated at all?
 
@@ -339,30 +364,37 @@ Must be a power of 2.
 Run service every ?? updates.
 Must be a power of 2.
 
-\subsubsection{CONDUIT\_FLUSH\_SERVICE\_FREQUENCY}
+\subsubsection{CELL\_AGE\_SERVICE\_FREQUENCY}
 
 \confdef{size\_t}{1}
 
 Run service every ?? updates.
 Must be a power of 2.
 
-\subsubsection{COLLECTIVE\_HARVESTING\_SERVICE\_FREQUENCY}
+\subsubsection{CONDUIT\_FLUSH\_SERVICE\_FREQUENCY}
 
 \confdef{size\_t}{16}
 
 Run service every ?? updates.
 Must be a power of 2.
 
-\subsubsection{CPU\_EXECUTION\_SERVICE\_FREQUENCY}
+\subsubsection{COLLECTIVE\_HARVESTING\_SERVICE\_FREQUENCY}
 
 \confdef{size\_t}{4}
 
 Run service every ?? updates.
 Must be a power of 2.
 
-\subsubsection{GROUP\_EXPIRATION\_SERVICE\_FREQUENCY}
+\subsubsection{CPU\_EXECUTION\_SERVICE\_FREQUENCY}
 
 \confdef{size\_t}{1}
+
+Run service every ?? updates.
+Must be a power of 2.
+
+\subsubsection{GROUP\_EXPIRATION\_SERVICE\_FREQUENCY}
+
+\confdef{size\_t}{64}
 
 Run service every ?? updates.
 Must be a power of 2.
@@ -376,14 +408,14 @@ Must be a power of 2.
 
 \subsubsection{DIVERSITY\_MAINTENANCE\_SERVICE\_FREQUENCY}
 
-\confdef{size\_t}{64}
+\confdef{size\_t}{8}
 
 Run service every ?? updates.
 Must be a power of 2.
 
 \subsubsection{DIVERSITY\_MAINTENANCE\_PREVALENCE}
 
-\confdef{double}{0.25}
+\confdef{double}{0.50}
 
 If an originally-seeded ancestor's descendants constitute more than this fraction of the population, decay their resource stockpiles.
 
@@ -545,20 +577,20 @@ Must be a power of 2.
 
 \subsubsection{PHENOTYPE\_EQUIVALENT\_NOPOUT}
 
-\confdef{bool}{false}
+\confdef{bool}{0}
 
 Should we make and record a phenotype equivalent nopout strain at the end of the run? Must also enable ARTIFACTS\_DUMP.
 
 \subsubsection{BATTLESHIP\_PHENOTYPE\_EQUIVALENT\_NOPOUT}
 
-\confdef{bool}{false}
+\confdef{bool}{0}
 
 Should we make and record a phenotype equivalent nopout strain at the end of the run?
 Must also enable ARTIFACTS\_DUMP.
 
 \subsubsection{JENGA\_PHENOTYPE\_EQUIVALENT\_NOPOUT}
 
-\confdef{bool}{false}
+\confdef{bool}{0}
 
 Should we make and record a phenotype equivalent nopout strain at the end of the run?
 Must also enable ARTIFACTS\_DUMP.
@@ -571,46 +603,46 @@ After how many seconds should we save nop-out progress and quit?
 
 \subsubsection{TEST\_INTERROOT\_PHENOTYPE\_DIFFERENTIATION}
 
-\confdef{bool}{false}
+\confdef{bool}{0}
 
 Should we test for phenotype differentiation between roots?
 
 \subsubsection{ALL\_DRAWINGS\_WRITE}
 
-\confdef{bool}{false}
+\confdef{bool}{0}
 
 Should we generate and record drawings of the final state of the simulation?
 Must also enable DATA\_DUMP.
 
 \subsubsection{DATA\_DUMP}
 
-\confdef{bool}{false}
+\confdef{bool}{0}
 
 Should we record data on the final state of the simulation?
 
 \subsubsection{RUNNINGLOGS\_DUMP}
 
-\confdef{bool}{false}
+\confdef{bool}{0}
 
 Should we dump running logs at the end of the simulation?
 Must also enable DATA\_DUMP.
 
 \subsubsection{CENSUS\_WRITE}
 
-\confdef{bool}{false}
+\confdef{bool}{0}
 
 Should we write the cell census at the end of the simulation?
 Must also enable DATA\_DUMP.
 
 \subsubsection{ARTIFACTS\_DUMP}
 
-\confdef{bool}{false}
+\confdef{bool}{0}
 
 Should we record data on the final state of the simulation?
 
 \subsubsection{BENCHMARKING\_DUMP}
 
-\confdef{bool}{false}
+\confdef{bool}{0}
 
 Should we record data for benchmarking the simulation?
 
@@ -637,13 +669,13 @@ How many updates should elapse between checking for coalescence? If 0, never che
 
 \subsubsection{ABORT\_AT\_LIVE\_CELL\_FRACTION}
 
-\confdef{double}{0.0}
+\confdef{double}{0}
 
 Should we terminate once a live cell fraction is reached? If 0, will not terminate.
 
 \subsubsection{REGULATION\_VIZ\_CLAMP}
 
-\confdef{double}{10.0}
+\confdef{double}{10}
 
 What bounds should we clamp regulation values into before running PCA visualization?
 
@@ -661,13 +693,13 @@ How many updates should elapse between outputting snapshot images?
 
 \subsubsection{DRAWING\_WIDTH\_PX}
 
-\confdef{double}{500.0}
+\confdef{double}{500}
 
 What should the width of the drawings be, in pixels?
 
 \subsubsection{DRAWING\_HEIGHT\_PX}
 
-\confdef{double}{500.0}
+\confdef{double}{500}
 
 What should the height of the drawings be, in pixels?
 
@@ -680,7 +712,7 @@ Provide slugified drawer names separated by colons.
 
 \subsubsection{ANIMATE\_FRAMES}
 
-\confdef{bool}{false}
+\confdef{bool}{0}
 
 Should we stitch the output images into a video?
 Only valid if DRAWING\_FREQ is not 0.
