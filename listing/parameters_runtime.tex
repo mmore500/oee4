@@ -77,7 +77,7 @@ How often updates occur synchronously across threads and processes for async mod
 
 \subsubsection{RNG\_PRESEED}
 
-\confdef{utin64\_t}{std::numeric\_limits<uint64\_t>::max()}
+\confdef{uint64\_t}{std::numeric\_limits<uint64\_t>::max()}
 
 Optionally override the calculated rng preseed.
 
@@ -114,13 +114,13 @@ How many cells should we simulate while testing for phenotypic divergence?
 
 \subsubsection{STINT}
 
-\confdef{utin64\_t}{std::numeric\_limits<uint64\_t>::max()}
+\confdef{uint64\_t}{std::numeric\_limits<uint64\_t>::max()}
 
 How many evolutionary stints have elapsed?
 
 \subsubsection{SERIES}
 
-\confdef{utin64\_t}{std::numeric\_limits<uint64\_t>::max()}
+\confdef{uint64\_t}{std::numeric\_limits<uint64\_t>::max()}
 
 Which evolutionary series are we running?
 
@@ -147,7 +147,7 @@ If we are seeding the population, what fraction of available slots should we fil
 \confdef{std::string}{"generate"}
 
 How should we initialize the population?
-Can be ``generate'' to randomly generate a new population,  ``reconstitute'' to load a population from file, ``monoculture'' to load a single genome from file, or ``inoculate'' to load genomes annotated with root ID keyname attributes from file.
+Can be ``generate'' to randomly generate a new population, ``reconstitute'' to load a population from file, ``monoculture'' to load a single genome from file, or ``inoculate'' to load genomes annotated with root ID keyname attributes from file.
 
 % end of EXPERIMENT
 
@@ -321,7 +321,7 @@ How many hardware cycles to run per round?
 
 \confdef{float}{0.0005}
 
-At what rate should bits should be flipped in writable memory?"
+At what rate should bits be flipped in writable memory?
 
 \subsection{SERVICES}
 
@@ -405,7 +405,7 @@ If a seeded or reconstituted stint-originating ancestor's descendants constitute
 \confdef{size\_t}{32}
 
 Run service every ?? updates.
-                                                                                                        Must be a power of 2.
+Must be a power of 2.
 
 \subsubsection{EPOCH\_ADVANCE\_SERVICE\_FREQUENCY}
 
