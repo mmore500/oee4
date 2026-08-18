@@ -6,7 +6,7 @@
 
 \vspace{-2ex}
 
-\caption{\footnotesize TODO}
+\caption{\footnotesize genotype complexity, mean per replicate}
 \label{fig:complexity-fitness-correlation-genetic:genetic-agg}
 \end{subfigure}
 \begin{subfigure}{0.49\linewidth}
@@ -15,7 +15,7 @@
 
 \vspace{-2ex}
 
-\caption{\footnotesize TODO}
+\caption{\footnotesize genotype complexity, replicate samples taken at 10-stint intervals}
 \label{fig:complexity-fitness-correlation-genetic:genetic-unagg}
 \end{subfigure}
 
@@ -25,7 +25,7 @@
 
 \vspace{-2ex}
 
-\caption{\footnotesize TODO}
+\caption{\footnotesize phenotype complexity, mean per replicate}
 \label{fig:complexity-fitness-correlation-genetic:phenotype-agg}
 \end{subfigure}
 \begin{subfigure}{0.49\linewidth}
@@ -34,7 +34,7 @@
 
 \vspace{-2ex}
 
-\caption{\footnotesize TODO}
+\caption{\footnotesize phenotype complexity, replicate samples taken at 10-stint intervals}
 \label{fig:complexity-fitness-correlation-genetic:phenotype-unagg}
 \end{subfigure}
 
@@ -42,9 +42,14 @@
 
 % https://github.com/mmore500/oee4/blob/1b3210d2b948acfd371d7b6025a7e92d8fd8022f/binder/2025-12-10-complexty-fitness-correlation.ipynb
 \caption{%
-\textbf{TODO}
+\textbf{No detected correlation between fitness and complexity measures across 100-stint replicates.}
 \footnotesize
-TODO
+Pearson correlation statistics annotated.
+Shaded bands indicate bootstrap 95\% confidence for OLS regression.
+Fitness values represent proportion ``measuring stick'' competitions won against comparator strains under no-background conditions.
+Samples drawn from original 40-replicate/100-stint trials, which includes case study replicate.
+Note that disaggregation artificially inflates statistical power in panels \labelcref{fig:complexity-fitness-correlation-genetic:genetic-unagg,fig:complexity-fitness-correlation-genetic:phenotype-unagg} due to introducing pseudoreplication; regardless, no relationship is detected in either case.
+Supplementary Figure \ref{fig:general-supp-nobg} analyzes fitness-complexity relationship in secondary 400-replicate/20-stint trials.
 }
 \label{fig:complexity-fitness-correlation-genetic}
 
