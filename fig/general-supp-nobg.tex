@@ -6,7 +6,7 @@
 
 \vspace{-2ex}
 
-\caption{\footnotesize TODO}
+\caption{\footnotesize fitness versus phenotype complexity}
 \label{fig:general-supp-nobg:regplot-phenotype}
 \end{subfigure}
 \begin{subfigure}{0.32\linewidth}
@@ -15,7 +15,7 @@
 
 \vspace{-2ex}
 
-\caption{\footnotesize TODO}
+\caption{\footnotesize fitness versus genotype complexity}
 \label{fig:general-supp-nobg:regplot-genotype}
 \end{subfigure}
 \begin{subfigure}{0.32\linewidth}
@@ -24,7 +24,7 @@
 
 \vspace{-2ex}
 
-\caption{\footnotesize TODO}
+\caption{\footnotesize fitness versus joint exceedance complexity}
 \label{fig:general-supp-nobg:regplot-pgjoint}
 \end{subfigure}
 
@@ -34,7 +34,7 @@
 
 \vspace{-2ex}
 
-\caption{\footnotesize TODO}
+\caption{\footnotesize phenotype complexity by fitness}
 \label{fig:general-supp-nobg:split-phenotype}
 \end{subfigure}
 \begin{subfigure}{0.32\linewidth}
@@ -43,7 +43,7 @@
 
 \vspace{-2ex}
 
-\caption{\footnotesize TODO}
+\caption{\footnotesize genotype complexity by fitness}
 \label{fig:general-supp-nobg:split-genotype}
 \end{subfigure}
 \begin{subfigure}{0.32\linewidth}
@@ -52,7 +52,7 @@
 
 \vspace{-2ex}
 
-\caption{\footnotesize TODO}
+\caption{\footnotesize joint exceedance complexity by fitness}
 \label{fig:general-supp-nobg:split-pgjoint}
 \end{subfigure}
 
@@ -62,7 +62,7 @@
 
 \vspace{-2ex}
 
-\caption{\footnotesize TODO}
+\caption{\footnotesize fitness by phenotype complexity}
 \label{fig:general-supp-nobg:split-fitness-phenotype}
 \end{subfigure}
 \begin{subfigure}{0.32\linewidth}
@@ -71,7 +71,7 @@
 
 \vspace{-2ex}
 
-\caption{\footnotesize TODO}
+\caption{\footnotesize fitness by genotype complexity}
 \label{fig:general-supp-nobg:split-fitness-genotype}
 \end{subfigure}
 \begin{subfigure}{0.32\linewidth}
@@ -80,7 +80,7 @@
 
 \vspace{-2ex}
 
-\caption{\footnotesize TODO}
+\caption{\footnotesize fitness by joint exceedance complexity}
 \label{fig:general-supp-nobg:split-fitness-pgjoint}
 \end{subfigure}
 
@@ -88,9 +88,17 @@
 
 % https://github.com/mmore500/oee4/blob/2b6c64b966ff3df1c6985272af27861193359991/binder/2026-08-15-nobg-pgcomplex-screen.ipynb
 \caption{%
-\textbf{TODO}
+\textbf{Negligible correlation between fitness and complexity measures across 20-stint replicates.}
 \footnotesize
-TODO
+In panels \labelcref{fig:general-supp-nobg:regplot-phenotype,fig:general-supp-nobg:regplot-genotype,fig:general-supp-nobg:regplot-pgjoint}, annotations provide Pearson $r$ and Spearman $\rho$ correlation statistics, and shaded bands indicate bootstrap 95\% confidence interval for OLS regression.
+Panels \labelcref{fig:general-supp-nobg:split-phenotype, fig:general-supp-nobg:split-genotype, fig:general-supp-nobg:split-pgjoint, fig:general-supp-nobg:split-fitness-phenotype, fig:general-supp-nobg:split-fitness-genotype, fig:general-supp-nobg:split-fitness-pgjoint} report Mann-Whitney tests screening for differences in fitness distribution between low-/high-complexity replicates or differences in complexity distribution between low-/high-fitness replicates, at threshods applied in Figure \ref{fig:general:pgcomplex-ecoself} (i.e., top $n=10,20,30$ --- additionally, plus top 50\%).
+Joint exceedance is a compound measure, scoring replicates by the lesser of their percentile ranking in genotype or phenotye complexity.
+Fitness values represent proportion ``measuring stick'' competitions won against comparator strains under no-background conditions.
+Samples drawn from endpoint of secondary 400-replicate/20-stint trials.
+Tests suggest statistically marginal ($0.1 > p > 0.05$) relationship of negligible strength ($r=0.09,\rho=0.1$) between phenotype complexity and fitness.
+Unlike niche construction measure, no consistent relationship arises between top-complexity replicates and fitness (or between top-fitness replicates and complexity) --- although 2 of 24 tested comparisons nominally reach significance threshold ($0.05 > p > 0.01$).
+To maximize sensitivity, no corrections are made for multiple comparison.
+Supplementary Figure \ref{fig:complexity-fitness-correlation-genetic} analyzes relationship between fitness and complexity for original 40-replicate/100-stint trials.
 }
 \label{fig:general-supp-nobg}
 
