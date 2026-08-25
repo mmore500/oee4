@@ -17,7 +17,19 @@ jobs:
       image: ghcr.io/mmore500/teximage:sha-77b8179
       options: --user root
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout paper branch (build scaffolding + binder figure submodules)
+        uses: actions/checkout@v3
+        with:
+          ref: paper
+          submodules: recursive
+      - name: Drop pinned tex submodule
+        run: |
+          git submodule deinit -f tex
+          rm -rf tex .git/modules/tex
+      - name: Checkout tex content under test in its place
+        uses: actions/checkout@v3
+        with:
+          path: tex
       - name: Build LaTeX document
         run: |
           trap 'cat *.log || true >> "$GITHUB_OUTPUT"' EXIT
