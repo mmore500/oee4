@@ -18,15 +18,6 @@ jobs:
       options: --user root
     steps:
       - uses: actions/checkout@v3
-      - name: Fetch binder figure outputs as sibling checkouts
-        run: |
-          mkdir -p ../binder
-          while read -r dir branch; do
-            [ -z "$dir" ] && continue
-            git clone --quiet --depth 1 --branch "$branch" \
-              "https://github.com/${GITHUB_REPOSITORY}.git" "../binder/$dir" &
-          done < .github/binder-submodules.txt
-          wait
       - name: Build LaTeX document
         run: |
           trap 'cat *.log || true >> "$GITHUB_OUTPUT"' EXIT
