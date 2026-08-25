@@ -17,19 +17,16 @@ jobs:
       image: ghcr.io/mmore500/teximage:sha-77b8179
       options: --user root
     steps:
-      - name: Checkout paper branch (build scaffolding + binder figure submodules)
-        uses: actions/checkout@v3
-        with:
-          ref: paper
-          submodules: recursive
-      - name: Drop pinned tex submodule
+      - uses: actions/checkout@v3
+      - name: Fetch binder figure outputs as sibling checkouts
         run: |
-          git submodule deinit -f tex
-          rm -rf tex .git/modules/tex
-      - name: Checkout tex content under test in its place
-        uses: actions/checkout@v3
-        with:
-          path: tex
+          mkdir -p ../binder
+          while read -r dir branch; do
+            [ -z "$dir" ] && continue
+            git clone --quiet --depth 1 --branch "$branch" \
+              "https://github.com/${GITHUB_REPOSITORY}.git" "../binder/$dir" &
+          done < .github/binder-submodules.txt
+          wait
       - name: Build LaTeX document
         run: |
           trap 'cat *.log || true >> "$GITHUB_OUTPUT"' EXIT

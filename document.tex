@@ -141,6 +141,26 @@
 % \setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{2}
 
+% Figures reference generated plot outputs (Jupyter binder teeplots) that
+% live in sibling checkouts outside this repository. \allowmissingfigures
+% is defined only by this repo's own Makefile (not by the paper
+% superproject's), so a standalone build here tolerates a missing figure
+% with a draft placeholder box, while the paper build still hard-fails if
+% any of its pinned binder submodules are missing a referenced file.
+\ifdefined\nofake
+\ifdefined\allowmissingfigures
+\makeatletter
+\let\oee@includegraphics\includegraphics
+\renewcommand{\includegraphics}[2][]{%
+  \IfFileExists{#2}%
+    {\oee@includegraphics[#1]{#2}}%
+    {\PackageWarning{oee4}{Graphic `#2' not found; substituting draft placeholder}%
+     \oee@includegraphics[#1,draft]{#2}}%
+}
+\makeatother
+\fi
+\fi
+
 % *****************
 %  Requirements:
 % *****************

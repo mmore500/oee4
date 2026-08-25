@@ -13,13 +13,13 @@ release: ${BUILD_DIR}.pdf
 ${BUILD_DIR}.pdf: main.tex
 	latexmk -pdf -interaction=nonstopmode -file-line-error -g \
     -jobname=${BUILD_DIR} \
-    -usepretex='\def\nofake{}\def\nodraft{}' \
+    -usepretex='\def\nofake{}\def\nodraft{}\def\allowmissingfigures{}' \
     main.tex
 
 ${BUILD_DIR}-draft.pdf: main.tex
 	latexmk -pdf -interaction=nonstopmode -file-line-error -g \
     -jobname=${BUILD_DIR}-draft \
-    -usepretex='\def\nofake{}' \
+    -usepretex='\def\nofake{}\def\allowmissingfigures{}' \
     main.tex
 
 fresh: clean all
