@@ -158,3 +158,9 @@
 	url = https://github.com/mmore500/oee4.git
 	branch = binder-2026-08-15-nobg-pgcomplex-screen.ipynb
 	shallow = true
+
+[submodule "binder/binder-bucket=prq49--a=all_stints_all_series_profiles+endeavor=16--case_study_16005.ipynb"]
+	path = binder/binder-bucket=prq49--a=all_stints_all_series_profiles+endeavor=16--case_study_16005.ipynb
+	url = https://github.com/mmore500/oee4.git
+	branch = binder-bucket=prq49--a=all_stints_all_series_profiles+endeavor=16--case_study_16005.ipynb
+	shallow = true
