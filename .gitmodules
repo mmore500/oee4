@@ -164,3 +164,9 @@
 	url = https://github.com/mmore500/oee4.git
 	branch = binder-bucket=prq49--a=all_stints_all_series_profiles+endeavor=16--case_study_16005.ipynb
 	shallow = true
+
+[submodule "binder/binder-2026-08-18-complexty-fitness-correlation.ipynb"]
+	path = binder/binder-2026-08-18-complexty-fitness-correlation.ipynb
+	url = https://github.com/mmore500/oee4.git
+	branch = binder-2026-08-18-complexty-fitness-correlation.ipynb
+	shallow = true
