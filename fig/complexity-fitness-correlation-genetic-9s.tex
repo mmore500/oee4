@@ -1,0 +1,59 @@
+\begin{figure}
+
+\begin{subfigure}{0.49\linewidth}
+\centering
+\includegraphics[width=\linewidth]{../binder/binder-2026-08-18-complexty-fitness-correlation.ipynb/binder/teeplots/2026-08-18-complexty-fitness-correlation/agg=True+viz=lmplot+when=all+x=genetic-complexity+y=focal-prevalence+ext=.pdf}
+
+\vspace{-2ex}
+
+\caption{\footnotesize genotype complexity, mean per replicate}
+\label{fig:complexity-fitness-correlation-genetic-9s:genetic-agg}
+\end{subfigure}
+\begin{subfigure}{0.49\linewidth}
+\centering
+\includegraphics[width=\linewidth]{../binder/binder-2026-08-18-complexty-fitness-correlation.ipynb/binder/teeplots/2026-08-18-complexty-fitness-correlation/agg=False+viz=lmplot+when=all+x=genetic-complexity+y=focal-prevalence+ext=.pdf}
+
+\vspace{-2ex}
+
+\caption{\footnotesize genotype complexity, replicate samples taken at 10-stint intervals}
+\label{fig:complexity-fitness-correlation-genetic-9s:genetic-unagg}
+\end{subfigure}
+
+\begin{subfigure}{0.49\linewidth}
+\centering
+\includegraphics[width=\linewidth]{../binder/binder-2026-08-18-complexty-fitness-correlation.ipynb/binder/teeplots/2026-08-18-complexty-fitness-correlation/agg=True+viz=lmplot+when=all+x=phenotype-complexity+y=focal-prevalence+ext=.pdf}
+
+\vspace{-2ex}
+
+\caption{\footnotesize phenotype complexity, mean per replicate}
+\label{fig:complexity-fitness-correlation-genetic-9s:phenotype-agg}
+\end{subfigure}
+\begin{subfigure}{0.49\linewidth}
+\centering
+\includegraphics[width=\linewidth]{../binder/binder-2026-08-18-complexty-fitness-correlation.ipynb/binder/teeplots/2026-08-18-complexty-fitness-correlation/agg=False+viz=lmplot+when=all+x=phenotype-complexity+y=focal-prevalence+ext=.pdf}
+
+\vspace{-2ex}
+
+\caption{\footnotesize phenotype complexity, replicate samples taken at 10-stint intervals}
+\label{fig:complexity-fitness-correlation-genetic-9s:phenotype-unagg}
+\end{subfigure}
+
+\vspace{-1ex}
+
+% https://github.com/mmore500/oee4/blob/757995fa9b0b474395acd58e609ed6510ac9f4ca/binder/2026-08-18-complexty-fitness-correlation.ipynb
+\caption{%
+\textbf{Negligible correlation between fitness and complexity measures across 100-stint replicates, assayed at stints 9, 19, 29, 39, 49, 59, 69, 79, 89, 99.}
+\footnotesize
+Pearson correlation statistics annotated.
+Shaded bands indicate bootstrap 95\% confidence for OLS regression.
+Fitness values represent proportion ``measuring stick'' competitions won against comparator strains under no-background conditions.
+Samples drawn from original 40-replicate/100-stint trials, which includes case study replicate.
+Note that disaggregation artificially inflates statistical power in panels \labelcref{fig:complexity-fitness-correlation-genetic-9s:genetic-unagg,fig:complexity-fitness-correlation-genetic-9s:phenotype-unagg} due to introducing pseudoreplication; regardless, no relationship is detected in either case.
+To maximize sensitivity, no corrections are made for multiple comparison.
+Supplementary Figure \ref{fig:complexity-fitness-correlation-genetic} reports equivalent assays taken at stints 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 --- which suffered sporadic assay job failures due to intermittent compute node/network failures arising with our service provider, but are included for completeness; regardless, a similar negligible relationship between fitness and genotype/phenotype complexity is detected in these trials.
+(Due to practical considerations, it was operationally simpler and more relaible to cleanly collect new data at alternate timepoints after intermittent failure conditions had been remediated; this strategy also provided the opportunity to replicate original findings with independent --- i.e., offset by one stint --- specimen samples.)
+Supplementary Figure \ref{fig:general-supp-nobg} analyzes fitness-complexity relationship in secondary 400-replicate/20-stint trials.
+}
+\label{fig:complexity-fitness-correlation-genetic-9s}
+
+\end{figure}

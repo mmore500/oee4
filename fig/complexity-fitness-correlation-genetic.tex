@@ -42,7 +42,7 @@
 
 % https://github.com/mmore500/oee4/blob/1b3210d2b948acfd371d7b6025a7e92d8fd8022f/binder/2025-12-10-complexty-fitness-correlation.ipynb
 \caption{%
-\textbf{Negligible correlation between fitness and complexity measures across 100-stint replicates.}
+\textbf{Negligible correlation between fitness and complexity measures across 100-stint replicates, assayed at stints 10, 20, 30, 40, 50, 60, 70, 80, 90, 100.}
 \footnotesize
 Pearson correlation statistics annotated.
 Shaded bands indicate bootstrap 95\% confidence for OLS regression.
@@ -50,6 +50,9 @@ Fitness values represent proportion ``measuring stick'' competitions won against
 Samples drawn from original 40-replicate/100-stint trials, which includes case study replicate.
 Note that disaggregation artificially inflates statistical power in panels \labelcref{fig:complexity-fitness-correlation-genetic:genetic-unagg,fig:complexity-fitness-correlation-genetic:phenotype-unagg} due to introducing pseudoreplication; regardless, no relationship is detected in either case.
 To maximize sensitivity, no corrections are made for multiple comparison.
+Supplementary Figure \ref{fig:complexity-fitness-correlation-genetic} reports equivalent assays taken at stints 9, 19, 29, 39, 49, 59, 69, 79, 89, 99.
+Assays at stints 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 suffered sporadic assay job failures due to intermittent compute node/network failures arising with our service provider, but are included for completeness; regardless, a similar negligible relationship between fitness and genotype/phenotype complexity is detected in both trials.
+(Due to practical considerations, it was operationally simpler and more relaible to cleanly collect new data at alternate timepoints after intermittent failure conditions had been remediated; this strategy also provided the opportunity to replicate original findings with independent --- i.e., offset by one stint --- specimen samples.)
 Supplementary Figure \ref{fig:general-supp-nobg} analyzes fitness-complexity relationship in secondary 400-replicate/20-stint trials.
 }
 \label{fig:complexity-fitness-correlation-genetic}
