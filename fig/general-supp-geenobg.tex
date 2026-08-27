@@ -1,0 +1,77 @@
+\begin{figure*}
+\centering
+\captionsetup[subfigure]{font=footnotesize,skip=0pt}
+
+% https://github.com/mmore500/oee4/blob/2ea1d0ce69465b976f47fe74930c1c0fafb65afc/binder/2026-07-06-pcomplexity-gee.ipynb
+\begin{subfigure}[t]{0.32\linewidth}
+\centering
+\includegraphics[width=\linewidth]{../binder/binder-2026-07-06-pcomplexity-gee.ipynb/binder/teeplots/2026-07-06-pcomplexity-gee/other=none+viz=subplots+what=base+ext=.pdf}
+\caption{GEE, no background baseline (interaction coef. 0.1257)}
+\label{fig:general-supp-geenobg:base}
+\end{subfigure}
+\hfill
+\begin{subfigure}[t]{0.32\linewidth}
+\centering
+\includegraphics[width=\linewidth]{../binder/binder-2026-07-06-pcomplexity-gee.ipynb/binder/teeplots/2026-07-06-pcomplexity-gee/other=none+viz=subplots+what=exclude+ext=.pdf}
+\caption{GEE, excluding case study replicate 16005 (interaction coef. 0.1087)}
+\label{fig:general-supp-geenobg:exclude}
+\end{subfigure}
+\hfill
+\begin{subfigure}[t]{0.32\linewidth}
+\centering
+\includegraphics[width=\linewidth]{../binder/binder-2026-07-06-pcomplexity-gee.ipynb/binder/teeplots/2026-07-06-pcomplexity-gee/other=none+viz=subplots+what=disagg+ext=.pdf}
+\caption{GEE, disaggregated by stint within replicates (interaction coef. 0.0482; autoregressive param. 0.256)}
+\label{fig:general-supp-geenobg:disagg}
+\end{subfigure}
+
+\caption{%
+\textbf{Generality of Relationship Between Biogenic Niche Construction and Complexity, no-background baseline.}
+\footnotesize
+Across GEE test designs, phenotype complexity consistently drove self-context fitness increases compared to co-evolved context fitness (panels \labelcref{fig:general-supp-geenobg:base,fig:general-supp-geenobg:excl,fig:general-supp-geenobg:disagg}).
+95\% CI for interaction coefficients are 0.1257 (0.085, 0.1667), 0.1087 (0.017, 0.200), and 0.0482 (0.006, 0.090), respectively.
+Reported GEE tests were performed on 40-replicate/100-stint trials assayed at stints 9, 19, 29, 39, 49, 59, 69, 79, 89, 99 --- replicating exploratory tests performed over stints 10, 20, 30, 40, 50, 60, 70, 80, 90, 100.
+(See note in Supplementary Figure \ref{fig:complexity-fitness-correlation-genetic-9s}.)
+Phenotype complexity was chosen over genotype complexity, due to better comparability between strains and over time (fixed number of trials per genome, across possible I/O types).
+GEE test takes form \texttt{Q("Fitness") \textasciitilde{} C("Fitness Kind") * Q("Phenotype Complexity")} with binomial family configuration.
+Bands denote 95\% confidence interval.
+Supplement to Figure \ref{fig:general}.
+}
+\label{fig:general-supp-geenobg}
+
+\end{figure*}
+
+% \begin{subfigure}{0.49\linewidth}
+% \centering
+% \includegraphics[width=\linewidth]{../binder/binder-2026-07-06-pcomplexity-gee.ipynb/binder/teeplots/2026-07-06-pcomplexity-gee/other=none+viz=subplots+what=exclude+ext=.pdf}
+% \caption{excluding case-study replicate 16005, self vs.\ no background}
+% \label{fig:general-supp:exclude-none}
+% \end{subfigure}
+
+% \begin{subfigure}{0.49\linewidth}
+% \centering
+% \includegraphics[width=\linewidth]{../binder/binder-2026-07-06-pcomplexity-gee.ipynb/binder/teeplots/2026-07-06-pcomplexity-gee/other=none+viz=subplots+what=disagg+ext=.pdf}
+% \caption{stints disaggregated, self vs.\ no background}
+% \label{fig:general-supp:disagg-none}
+% \end{subfigure}
+
+% \begin{subfigure}{0.49\linewidth}
+% \centering
+% \includegraphics[width=\linewidth]{../binder/binder-2026-07-06-pcomplexity-gee.ipynb/binder/teeplots/2026-07-06-pcomplexity-gee/other=none+viz=subplots+what=disagg-excl+ext=.pdf}
+% \caption{stints disaggregated, excluding replicate 16005, self vs.\ no background}
+% \label{fig:general-supp:disagg-excl-none}
+% \end{subfigure}
+
+% \begin{subfigure}{0.49\linewidth}
+% \centering
+% \includegraphics[width=\linewidth]{../binder/binder-2026-07-06-pcomplexity-gee.ipynb/binder/teeplots/2026-07-06-pcomplexity-gee/other=none+viz=subplots+what=base+ext=.pdf}
+% \caption{base condition, self vs.\ no background}
+% \label{fig:general-supp:base-none}
+% \end{subfigure}
+% \hfill
+
+% \begin{subfigure}{\linewidth}
+% \centering
+% \includegraphics[width=0.9\linewidth]{../binder/binder-2026-07-06-pcomplexity-gee.ipynb/binder/teeplots/2026-07-06-pcomplexity-gee/other=none+viz=subplots+ext=.png}
+% \caption{self vs.\ no-background fitness prevalence, compared across independent replicates}
+% \label{fig:general-supp:overview-none}
+% \end{subfigure}
