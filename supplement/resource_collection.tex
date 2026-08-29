@@ -7,7 +7,7 @@ Each cell held a 64-bit bitstring with one chosen bit fixed.
 We estimated group size by counting the number of distinct set bits (out of 64 available slots) that were contained within a kin group.
 We refer to this count of distinct set bits as a group's ``quorum count.''
 
-At every update within each tile, the simulation system broadcasts all bits that were known to be set within that tile's kin group.
+At every update within each tile, the simulation system broadcast all bits that were known to be set within that tile's kin group.
 This broadcast was only sent to neighboring tiles that were part of the same kin group as the broadcasting tile.
 Each tile tracked which neighbor it learned of each set bit from so that when tiles left the kin group, their set bits could be forgotten from the bits known to be set within the kin group.
 
