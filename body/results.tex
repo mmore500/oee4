@@ -6,14 +6,14 @@
 
 \section{Results}
 
-Our investigation begins with a case study dissecting how a particularly complex multicell life history evolved (Sections \labelcref{sec:case-study-lineage,sec:adaptation-to-coevolved-ecological-context,sec:biotic-context-influences-fitness,sec:case-study-strain-produces-biotic-selection,sec:self-acting-selection-maintains-complexity-in-case-study-strain}).
-Then, motivated by this case study, we explore how biotic selection effects influence evolved complexity more generally across evolutionary trials (Sections \labelcref{sec:biotic-selection-drives-multicell-complexity,sec:biotic-selection-acts-between-coevolving-lineages}).
+Our investigation begins with a case study dissecting the evolution of a particularly complex multicell life history (Sections \labelcref{sec:case-study-lineage,sec:adaptation-to-coevolved-ecological-context,sec:biotic-context-influences-fitness,sec:case-study-strain-produces-biotic-selection,sec:self-acting-selection-maintains-complexity-in-case-study-strain}).
+Then, motivated by this case study, we explore how biotic selection influences evolved complexity more generally across evolutionary trials (Sections \labelcref{sec:biotic-selection-drives-multicell-complexity,sec:biotic-selection-acts-between-coevolving-lineages}).
 
 \subsection{Case-study Lineage}
 \label{sec:case-study-lineage}
 
-To screen structural and functional complexity across evolutionary replicates, we singled out distinct adaptations by genetic knockout and phenotypic interference competitions (Figures \labelcref{fig:16005-timelapse:genotype-complexity,fig:16005-timelapse:phenotype-complexity}, Section \ref{sec:measuringcomplexity}).
-Among 40 replicates, an extreme outlier in genotype and phenotype complexity sustained in excess of 3$\times$ IQR across both dimensions (blue highlight, Figure \ref{fig:16005-timelapse:mean-complexity}).
+To screen structural and functional complexity across evolutionary replicates, we singled out distinct adaptations using genetic knockout and phenotypic interference competitions (Figures \labelcref{fig:16005-timelapse:genotype-complexity,fig:16005-timelapse:phenotype-complexity}, Section \ref{sec:measuringcomplexity}).
+Among 40 replicates, an extreme outlier in resulting measures of genotype and phenotype complexity sustained in excess of 3$\times$ IQR across both dimensions (blue highlight, Figure \ref{fig:16005-timelapse:mean-complexity}).
 
 Closer examination revealed this lineage to exhibit unique patterned growth and multi-stage life history.
 Growing from unicellular inoculum (Figure \labelcref{fig:16005-timelapse:update64}), group bodies first elongate horizontally to establish an asymmetrical ``cigar-like'' morphology (Figure \labelcref{fig:16005-timelapse:update256,fig:16005-timelapse:update832}).
@@ -46,19 +46,19 @@ Finally, at transfer round 100, we first observed morph $j$ (panels \labelcref{f
 \subsubsection{Complexity}
 
 After cataloging morphology, we next sought to characterize its relationship to measures of structural and functional complexity.
-We thus conducted additional knockout and interference trials to assay genotype and phenotype complexity of samples from each transfer round (Figure \labelcref{fig:keyfig:gcomplexity,fig:keyfig:pcomplexity}, Supplementary Figure \ref{fig:complexity}).
+We thus conducted additional knockout and interference trials to assay genotype and phenotype complexity at each transfer round (Figure \labelcref{fig:keyfig:gcomplexity,fig:keyfig:pcomplexity}, Supplementary Figure \ref{fig:complexity}).
 
 In several instances, complexity measures increased abruptly with new morphology.
 For instance, at transfer round 14, morph $d$ (irregular clumps of 10 to 15 cells) coincided with a spike in genotype complexity from 27 to 46 sites.
 At transfer round 15, cigar-like morph $e$ grew phenotype complexity over threefold from 5 to 17 interactions.
-However, in contrast to these abrupt innovations, genotype complexity grew in a more gradual phase after the rise of cigar-like morph $e$ from 28 to 52 sites between transfer rounds 16 and 39.
+However, in contrast to these abrupt innovations, genotype complexity grew in a more gradual phase after the rise of cigar-like morph $e$ --- from 28 to 52 sites between transfer rounds 16 and 39.
 
 % In two independent sublineages --- both going extinct --- genotype and phenotype complexity simultaneously and abruptly crashed near zero.
 % Both were morph $i$: unrestricted cell proliferation with small irregular groups.
 % No complexity crash, however, appears in assays configured with biotic background --- suggesting a contingent dependency to this background may have developed (Supplementary Figure \ref{fig:DOTO}).
 
 % https://github.com/mmore500/oee4/blob/binder-2025-11-30-genome-complexity-regression.ipynb/binder/2025-11-30-genome-complexity-regression.ipynb
-Split regression analysis suggests genotype complexity developed in two distinct regimes (Davies test, $p < 10^{-14}$, adj. $R^2=0.43$): increasing until transfer round 34 (Wald test, $R^2 = 0.59$, $p < 10^{-6}$), and then decreasing (Wald test, $R^2 = 0.24$, $p < 10^{-4}$) (Supplementary Figure \ref{fig:complexity-cryptic-regression:split}) --- likely due to gains in mutational robustness masking knockout sensitivity (Supplementary Section \ref{sec:supp-genotype-complexity}).
+Split regression analysis suggests genotype complexity developed in two distinct regimes (Davies test, $p < 10^{-14}$, adj. $R^2=0.43$; Supplementary Figure \ref{fig:complexity-cryptic-regression:split}): increasing until transfer round 34 (Wald test, $R^2 = 0.59$, $p < 10^{-6}$), and then decreasing (Wald test, $R^2 = 0.24$, $p < 10^{-4}$) --- likely due to gains in mutational robustness masking knockout sensitivity (Supplementary Section \ref{sec:supp-genotype-complexity}).
 % Thus, the evolutionary trajectory of genotype complexity appears to be initial growth followed by stabilization.
 
 \subsubsection{Adaptation}
@@ -66,11 +66,11 @@ Split regression analysis suggests genotype complexity developed in two distinct
 Next, we examined fitness change along the case study lineage.
 For this purpose, we competed successive samples to test for fitness gains at each step.
 Across 100 assays, 57 sampled genotypes outcompeted their predecessor by a significant margin (Figure \ref{fig:keyfig:morph}, Supplementary Figures \labelcref{fig:median_fitness_differential_symlog,fig:fitness_gain_or_loss}).
-Fitness gains became more sparse at later timepoints --- a notable exception, though, being strong fitness gain with 500-site genome expansion at transfer round 93 (Figure \ref{fig:keyfig}).
+Later fitness gains became more sparse --- a notable exception, though, being a strong fitness gain with 500-site genome expansion at transfer round 93 (Figure \ref{fig:keyfig}).
 % Fitness differentials during the first 40 transfer rounds are generally higher magnitude than later fitness differentials, although a strong fitness differential occurs at transfer round 93 coincident with a genome duplication.
 
 Besides the 57 adaptive steps discussed above, 23 steps were neutral and --- surprisingly --- 20 were deleterious (Figure \ref{fig:keyfig:morph}).
-To assess whether these apparent fitness losses could be explained by within-population variation, we repeated assays to compete whole-population samples rather than monoclonal isolates.
+To assess whether these apparent fitness losses could be an artifact of within-population variation, we repeated assays to compete whole-population samples rather than monoclonal isolates.
 However, whole-population competition results remained similar: 50 steps were adaptive, 34 neutral, and 16 deleterious (Supplementary Figure \ref{fig:keyfig-Prefatory}).
 
 Although rarer than fitness gains ($p < 10^{-4}$; exact Binomial test), nearly one in five lineage intermediates thus appeared maladaptive.
@@ -88,7 +88,7 @@ To test whether selection imposed by this ``background'' strain could explain se
 
 In co-evolved context, whole-population maladaptations decreased from 16 to 3 (Supplementary Figure \ref{fig:sign-change-prefatory-population}).
 Lower assay sensitivity might partially explain this result (no detected effect in 52 vs. 23 cases).
-However, 6 cases did evidence sign-change effects: where fitness losses became fitness gains in co-evolved context.
+However, strong evidence for biotic selection arose in 6 cases, where fitness losses were actually fitness gains when measured in co-evolved context.
 % We saw no instances of the reverse, as all 3 outcomes deleterious in ecological context were also deleterious without it.
 
 Thus, having found biotic context to exert selection on the case study strain, we next set out to test how such ecological interactions influenced its evolved complexity.
@@ -104,9 +104,9 @@ To characterize the case study lineage's co-evolutionary interactions, we first 
 
 %For this purpose, we needed an absolute (rather than relative) measure of fitness.
 As a proxy for absolute fitness, we assembled a biotic ``measuring stick'' at each transfer round by drawing comparator samples from each of our 40 independent replicates.
-Based on competition outcomes, our comparator-based fitness measure then ranged from 0 (all losses) to 1 (all wins) (Figure \ref{fig:fit:comparator-fitness}).
+Based on competition outcomes, this comparator-based fitness measure ranged from 0 (all losses) to 1 (all wins) (Figure \ref{fig:fit:comparator-fitness}).
 
-By this measure, case study lineage fitness was volatile during early evolution, but settled near or below 0.5 from transfer round 30 onwards (solid line, Figure \ref{fig:fitness-background}) --- meaning it undercompeted most other replicates.
+By this measuring stick, case study lineage fitness was volatile during early evolution, but settled near or below 0.5 from transfer round 30 onwards (solid line, Figure \ref{fig:fitness-background}) --- meaning it undercompeted most other replicates.
 
 To test how biotic context affected fitness, we repeated comparator competitions to incorporate the co-evolved lineage as biotic context (dashed line, Figure \ref{fig:fitness-background}).
 Fitness in co-evolved context closely tracked baseline fitness, although with several transient fitness advantages and one brief penalty.
@@ -215,6 +215,6 @@ Thus, in this case, co-evolutionary interactions with the case study strain subs
 
 Having found that co-evolutionary interactions drove complexity in the case study's co-evolved partner, we next sought to assess whether biotic selection between lineages produced genotype complexity more broadly.
 For this purpose, we surveyed our 400 additional 20-round trials to sample replicates with weak co-evolutionary adaptation, and compared them to replicates with strong co-evolutionary adaptation --- measured by competitive advantage specific to co-evolved context.
-Among sampled strains, adaptive sites specific to co-evolved context were detected in 6 of 7 exhibiting strong co-evolutionary adaptation --- more than 2 of 7 detected under weak co-evolutionary adaptation (Mann-Whitney test; $p=0.016$, Cliff's $\delta=0.75$; Figure \ref{fig:ecogwas:ythresh045}).
+Among sampled strains, adaptive sites specific to co-evolved context were detected in 6 of 7 exhibiting strong co-evolutionary adaptation --- more than 2 of 7 detected under weak co-evolutionary adaptation (Mann-Whitney U test; $p=0.016$, Cliff's $\delta=0.75$; Figure \ref{fig:ecogwas:ythresh045}).
 Thus, partner-specific selection appears to have additionally acted in creating evolved genotype complexity.
 Taken together, these results implicate biotic selection in general --- self-generated and co-evolved alike --- as a key driver of multicellular complexity.
