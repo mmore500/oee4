@@ -7,7 +7,7 @@ When an event's criteria were met in the simulation, the genome's corresponding 
 All events are also exposed to the cell as a corresponding input sensor.
 The state of the event (0 for false, 1 for true) is stored in the sensor prior to virtual CPU execution.
 In fact, events are triggered based on the reading of the sensor register (not by re-reading the underlying simulation state).
-This means that experimental perturbations that perturb sensor input also disrupted event-handling, allowing the state interface complexity metric to measure both event-driven and sensor-based behaviors.
+This means that experimental perturbations that perturb sensor input also disrupt event-handling, allowing the state interface complexity metric to measure both event-driven and sensor-based behaviors.
 
 The source code controlling events can be found at \url{https://github.com/mmore500/dishtiny/tree/prq49/include/dish2/events} and \url{https://github.com/mmore500/dishtiny/blob/prq49/include/dish2/services/InterpretedIntrospectiveStateRefreshService.hpp}.
 

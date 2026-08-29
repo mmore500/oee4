@@ -7,7 +7,7 @@
 \subsection{Evolutionary Replicates}
 
 Ancestor populations for evolution experiments were randomly generated 128-instruction genomes, typically encoding on the order of 5 signal-response modules.
-Configured population size of 14,400 cells reliably sufficed that some founding ancestors were viable replicators.
+A configured population size of 14,400 cells reliably sufficed to ensure that some founding ancestors were viable replicators.
 All offspring were subject to possible mutation: point mutations, single-site insertions and deletions, or multi-site duplications and deletions (Supplementary Section \ref{sec:generation_mutation}).
 Mutations could also introduce new signal-response modules by inserting new activation entrypoints.
 
@@ -17,7 +17,7 @@ Thus, replicates maintained at least two founding strains.
 Among these, we arbitrarily chose one strain for primary study --- the ``focal'' strain;
 another was sampled as the ``background'' (or ``co-evolved'') strain.
 
-For compatibility with compute scheduling policy, evolutionary replicates were passaged between fresh simulation runtimes in three-hour intervals, which we refer to as ``transfer rounds.''
+For compatibility with compute scheduling policy, evolutionary replicates were passaged between fresh simulation runtimes at three-hour intervals, which we refer to as ``transfer rounds.''
 Each transfer carried over all population genomes, but no other simulation state.
 As a benefit, this protocol ensured strains remained capable of growth from well-mixed inoculum.
 Supplementary Figure \ref{fig:stints} summarizes our serial transfer and diversity maintenance procedures.
@@ -73,7 +73,7 @@ Supplementary Figure \ref{fig:stints} summarizes our serial transfer and diversi
 % median          7.447568e+06
 % std             1.075930e+06
 
-We conducted 100 passages, amounting to just over 12.5 days of compute time per each of 40 replicates.
+We conducted 100 passages, amounting to just over 12.5 days of compute time for each of 40 replicates.
 Across replicates, between 5.4M and 9.9M simulation time steps elapsed (mean 7.4M; SD 1.1M).
 During this time, between 11.7k and 26.9k cell generations elapsed (mean 18.5k; SD 3.4k) and between 1.2k and 3.4k group generations elapsed (mean 2.3k; SD 533).
 In the replicate producing our high-complexity case study, 7,565,309 simulation time steps elapsed --- accreting 11,713 cell generations and 1,325 group generations.
