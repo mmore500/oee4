@@ -26,7 +26,7 @@ In addition to this cooperative resource collection mechanism, cells enjoyed a c
 The source code controlling base resource inflow can be found at \url{https://github.com/mmore500/dishtiny/blob/master/include/dish2/services/ResourceHarvestingService.hpp}.
 
 To penalize groups that expanded beyond the simulation-defined target quorum count, we decayed held resource by a multiplicative factor of $0.9995^{2^n}$, where $n$ is the excess quorum count beyond the simulation-defined target.
-The source code controlling collective resource decay can be found at \url{https://github.com/mmore500/dishtiny/blob/prq49/include/dish2/services/CollectiveResourceDecayService.hpp}.
+The source code controlling cooperative resource collection can be found at \url{https://github.com/mmore500/dishtiny/blob/prq49/include/dish2/services/CollectiveResourceDecayService.hpp}.
 
 In addition to any decay due to group size, held resource decayed at a rate of 0.05\% per update.
 Received resource was decayed by 0.099975\% upon receipt.

@@ -13,7 +13,7 @@ Then, motivated by this case study, we test how biotic selection effects influen
 \label{sec:case-study-lineage}
 
 To screen structural and functional complexity across evolutionary replicates, we isolated distinct adaptations via genetic knockout and phenotypic interference competitions (Figures \labelcref{fig:16005-timelapse:genotype-complexity,fig:16005-timelapse:phenotype-complexity}, Section \ref{sec:measuringcomplexity}).
-Among 40 replicates, an extreme outlier in genotype and phenotype complexity sustained an excess of 3$\times$ IQR in both dimensions (blue highlight, Figure \ref{fig:16005-timelapse:mean-complexity}).
+Among 40 replicates, an extreme outlier in genotype and phenotype complexity sustained excess of 3$\times$ IQR in both dimensions (blue highlight, Figure \ref{fig:16005-timelapse:mean-complexity}).
 
 Closer examination revealed this lineage to exhibit unique patterned growth and multi-stage life history.
 Growing from unicellular inoculum (Figure \labelcref{fig:16005-timelapse:update64}), group bodies first elongate horizontally to establish an asymmetrical ``cigar-like'' morphology (Figure \labelcref{fig:16005-timelapse:update256,fig:16005-timelapse:update832}).
@@ -151,7 +151,7 @@ Mutagenic dose (8 mutations) was chosen such that most, but not all, seeded geno
 As an additional benefit, applying mutation also enhanced standing variation --- improving sensitivity to detect selection on complexity.
 % providing sufficient sensitivity to allow short 1-round replays.
 
-Replays were compared between both a ``self context'' treatment and a ``co-evolved context'' treatment, with background context differing between intact case study lineage genomes and co-evolved lineage genomes (Figure \ref{fig:replay-background:design}).
+Replays were compared between both a ``self context'' treatment and a ``co-evolved context'' treatment, with background context differing as intact case study lineage genomes or co-evolved lineage genomes (Figure \ref{fig:replay-background:design}).
 To target the complexity maintenance period identified by split regression analysis, replays were conducted from transfer round 33 onwards --- thus, providing a sample of 67 single-round replays per treatment.
 Endpoint complexity was measured on a surviving descendant of the mutagenized case study inoculum.
 
@@ -178,7 +178,7 @@ Having found biotic selection to stabilize evolved complexity on the case study 
 To test whether analogous niche construction effects arose at all in other replicates, we screened for self-adaptation --- competitive advantage against cross-replicate comparators in self-dense biotic context.
 Such self-adaptation arose repeatedly, with evidence in at least 10/39 additional lineages (Mann-Whitney tests, $\alpha = 0.05$; Supplementary Figures \labelcref{fig:external-bb-all,fig:general-supp:eco-vs-self}).
 
-Seeing that it did arise, we next tested whether self-adaptation influenced evolved complexity.
+Seeing it did arise, we next tested whether self-adaptation influenced evolved complexity.
 To sidestep wide variation in genome size after 100 transfer rounds, we compared across replicates using phenotype complexity --- how many distinct cell I/O operations contribute to strain fitness, reflecting the richness of evolved cell-cell interactions.
 Where self-adaptation acts to maintain complexity, we would expect fitness under self-context and co-evolved context to diverge with complexity.
 Comparing these fitness measures across our original $n=40$ replicates, we indeed found a stronger relationship between complexity and self-context fitness (binomial GEE, $p < 0.001$; $p = 0.003$ excluding case study replicate; Figure \ref{fig:general:gee-base}).
