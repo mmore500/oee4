@@ -2,21 +2,25 @@ To whom it may concern,
 
 For your consideration, please find enclosed our manuscript “TITLE TBD.”
 
-At the heart of evolutionary biology is the capability to explain “why” and not just “how,” which arise in a broad assortment of scenarios across a taxa and model systems.
-The crux of this wonder is the surprising constructive and seemingly creative outcomes observed in the natural world.
-Key, and certainly most visible, in this question around nature is complex multicellularity.
+At the heart of evolutionary biology is a desire to explain not only how, but also *why* the incredible biota inhabiting our world came to be.
+Such questions are often most tractable when narrow and specific, as they can be directly tested by experiment.
 
-While the topic of complex multicellularity has been a subject of extensive speculation and theoretical modeling (cite), clear concrete consensus explanation(s) have yet to materialize.
-This situation has been greatly improved by experimental evolution work making inroads on clonal, undifferentiated multicellularity (cite).
+Among the most surprising products of evolution's constructive power is the spontaneous eruption of complex multicellularity.
+While numerous verbal theories and modeling efforts have illuminated the topic (cite), concrete consensus explanation of why complex multicellularity came to exist remains elusive.
 
-In present work, we investigate the paradox of complexity using a digital organism model.
+To establish a concrete --- yet tractable --- purchase on this question, we conducted investigation using a digital organism system.
+In contrast to existing work in this area (cite), experimental design provided no explicit ladder selecting for complexity.
+To our surprise, aspects of complex multicellularity arose nonetheless: evolving multicells spontaneously selected on eachother to produce complex traits.
+
+<!--
 We find:
 - spontaneous niche construction can arise in the transition to multicellularity
 - this niche construction can act to stabilize evolved structural and functional complexity by directly selecting for it
 - evolved complexity correlates with strength of niche construction, not absolute fitness; the highest-complexity evolutionary outcomes disproportionately involve niche construction dynamics
 - co-evolutionary interactions within an ecosystem can spontaneously select for genetic complexity in the partners
+-->
 
-Mirroring the path of discovery taken in this work, the work begins as a case study.
+Mirroring our course of investigation, the manuscript begins in dissecting how complex traits arose in a replicate exhibiting patterned, multi-stage history.
 The case study allows us to illustrate the findings and patterns in concrete detail and with clear detailed causal experiments within tractable scope.
 Importantly, the case study also provides strong motivations for general questions around the role of ecological interactions and niche construction in the evolution of complexity, which we then pursue investigation of and reveal surprising patterns we would not have thought to have looked for otherwise.
 
@@ -38,12 +42,13 @@ In addition to crystallizing a clear picture and a proof of concept, preliminary
 Beyond multicellularity, broader conversation over the topic of niche construction and constructive neutral evolution has been dogged by vaguery and poorly grounded/unconstructive arguments over abstractions and anecdotes (cites).
 Present work crystallizes a clear picture of spontaneous niche construction in action, and suggests clear experimental next steps and methods to deepen investigation of it and advance the extended evolutionary synthesis.
 
-Speaking for myself, as lead author on this work, it is my personal pleasure to deliver it for your consideration.
-Since its original presentation at the Fourth Workshop on Open-Ended Evolution in 2021, the surprising evolutionary outcome has remained a gordian knot seemingly evading any clear explanation.
-Once we started pulling on the right strings, this work revealed itself in an entirely unanticipated direction.
-In my experience, it is a rare and privileged experience in science for a such a puzzle to dispense the picture on the box.
+Early work on this project (presented at the Fourth Workshop on Open-Ended Evolution in 2021) identified, but could not explain, complex outcomes.
+Only later did explanation reveal itself, and in an entirely unanticipated direction.
+In my experience, it is a rare and privileged experience for such a puzzle to dispense the picture on the box.
+For this reason, speaking as lead author on this work, it is my personal pleasure to deliver it for your consideration.
 
 On behalf of the authors,
+
 Matthew Andres Moreno
 
 Suggested Reviewers:
