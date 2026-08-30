@@ -1,29 +1,28 @@
 To whom it may concern,
 
-At the heart of evolutionary biology is a desire to explain not only how, but also *why* the incredible biota inhabiting our world came to be.
-Such questions are often most tractable when narrow and specific, as they can be directly tested by experiment.
-
+At the heart of evolutionary biology is a desire to explain not just how, but also *why* biota inhabiting our world came to be.
 Among the most surprising products of evolution's constructive power is the spontaneous eruption of complex multicellularity.
-While numerous verbal theories and modeling efforts have illuminated the topic (cite), concrete consensus explanation of why complex multicellularity came to exist remains elusive.
-Beyond multicellularity, broader conversation over the topic of niche construction and constructive neutral evolution has been dogged by vaguery and poorly grounded/unconstructive arguments over abstractions and anecdotes (cites).
 
-To establish a concrete --- yet tractable --- purchase on the question of complex multicellularity, we conducted investigation using a digital organism system of cell-like gemetic programs.
-In contrast to existing work in this area (cite), experimental design provided no explicit ladder selecting for complexity.
-To our surprise, aspects of complex multicellularity arose nonetheless: evolving multicells spontaneously selected on eachother to produce complex traits.
+While verbal theory and conceptual modeling efforts have illuminated numerous possiblities (cite) --- and biological experiments have made notable headway in \textit{de novo} stages of multicellularity (cite) --- a concrete consensus explanation why sone multicellular life has evolved radically sophisticated organization remains unresolved.
+Similarly, topics of niche construction and constructive neutral evolution (CNE) --- also touched on in this work --- have struggled to gain traction in concrete applications (cites).
 
-Mirroring our course of investigation, our findings begin in dissecting an evolutionary history producing a high-complexity multicell strain exhibiting patterned multicellular growth and multi-stage life history.
+To establish a concrete --- yet tractable --- purchase on these questions, we conducted experiments on concrete instances this phenomenon using a digital organism system of cell-like gemetic programs.
+In contrast to seminal digital evolution studies of complexity and multicellularity (cite), experimental design witholds selection along a prescribed ladder for complex traits and life history.
+To our surprise, aspects of complex multicellularity arise nonetheless: evolving multicells spontaneously selected on eachother to produce complex traits.
+
+Mirroring our course of investigation, our report begins in dissecting an evolutionary history producing a high-complexity multicell strain exhibiting patterned multicellular growth and multi-stage life history.
 In this case study, we discover:
 
-- multicell morphological innovation reshaped selection, imposing crowding interference on other strains,
-- niche construction from collective biogenic structure imposed selection preserving evolved complexity (tested directly by replay experiments), and
+- multicell morphological innovation reshaped selection, imposing crowding interference on other strains;
+- niche construction from collective biogenic structure imposed selection preserving evolved complexity (tested directly by replay experiments); and
 - constructed biogenic structure slso selected for complexity in a sympatric coxevolving strain.
 
 Based on these findings, we then examine drivers of complexity observed across replicates.
 Surprisingly, we find no relationship between fitness and complexity;
 in head-to-head competitions, complex strains do no better than simple strains.
 Instead, we find complexity measures to be associated with biotic selection driven by niche construction.
-That is, the competitive advantafe of complex strains arises in familiar context.
-We find evidence of strains in selecting on their own complexity, as well as for complexity im co-ecolving counterparts.
+That is, the competitive advantage of complex strains arises in familiar context.
+We find evidence of strains in selecting on their own complexity, as well as for complexity in co-ecolving counterparts.
 
 <!--
 The case study allows us to illustrate the findings and patterns in concrete detail and with clear detailed causal experiments within tractable scope.
@@ -43,6 +42,9 @@ Investigating further, we find that complex traits arose not only in self-constr
 These findings realize a long-theorized mechanism thought to drive complex multicellularity: biotic selection as a complexity ratchet.
 -->
 
+Digital disclaimer...
+a major challenge arises in the difficulty of directly testing by experiment.
+While , digital efforts allow us to take a first stab at it.
 A hugely influential piece of work shaping the direction and ambitions/objectives of present work is Lenski et al.’s "The evolutionary origin of complex features" (2003), which applied a digital organism model to clearly demonstrate the building block model of complexity.
 While providing a succinct, concrete proof of concept foundation for this hypothesis, the impact of this work has been so much broader in shaping progress and thought within the field.
 
