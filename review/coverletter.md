@@ -1,7 +1,7 @@
 To whom it may concern,
 
 At the heart of evolutionary biology is a desire to explain not just how, but also *why* biota inhabiting our world came to be.
-Among the most surprising products of evolution's constructive power is the spontaneous eruption of complex multicellularity.
+Among the most surprising products of evolution's constructive power awaiting such an explanation is the spontaneous eruption of complex multicellularity.
 
 While verbal theory and conceptual modeling efforts have illuminated numerous possiblities (cite) --- and biological experiments have made notable headway in \textit{de novo} stages of multicellularity (cite) --- a concrete consensus explanation why sone multicellular life has evolved radically sophisticated organization remains unresolved.
 Similarly, topics of niche construction and constructive neutral evolution (CNE) --- also touched on in this work --- have struggled to gain traction in concrete applications (cites).
@@ -10,12 +10,12 @@ To establish a concrete --- yet tractable --- purchase on these questions, we co
 In contrast to seminal digital evolution studies of complexity and multicellularity (cite), experimental design witholds selection along a prescribed ladder for complex traits and life history.
 To our surprise, aspects of complex multicellularity arise nonetheless: evolving multicells spontaneously selected on eachother to produce complex traits.
 
-Mirroring our course of investigation, our report begins in dissecting an evolutionary history producing a high-complexity multicell strain exhibiting patterned multicellular growth and multi-stage life history.
+Reflecting the course of investigation, our report begins in dissecting an evolutionary history producing a high-complexity multicell strain exhibiting patterned multicellular growth and multi-stage life history.
 In this case study, we discover:
 
 - multicell morphological innovation reshaped selection, imposing crowding interference on other strains;
 - niche construction from collective biogenic structure imposed selection preserving evolved complexity; and
-- constructed biogenic structure slso selected for complexity in a sympatric coxevolving strain.
+- constructed biogenic structure also selected for complexity in a sympatric coxevolving strain.
 
 Based on these findings, we then examine drivers of complexity observed across replicates.
 Surprisingly, we find no relationship between fitness and complexity;
@@ -30,8 +30,8 @@ An influential precedent guiding scientific objectives of present work is Lenski
 As is the case for any model system in bioscience, this work's intellectual impact has served both to anchor discourse in theory (cite) and, importantly, to prompt further tests of generality --- including experiments *in vivo* (cite).
 Broader legacy of these digital evolution experiments has also tangibly shaped the public imagination, ultimately inspiring hands-on classroom activites and public-facing media (cite AvidaED).
 
-In addition to crystallizing a clear picture and a proof of concept, preliminary work in the digital system can show the necessary and sufficient conditions for further investigation.
-Present work crystallizes a clear picture of spontaneous niche construction in action, and suggests clear experimental next steps and methods to deepen investigation of it and further anchor ongoing development of the extended evolutionary synthesis.
+Here, we seek to crystallize a similarly rigorous, concrete, and clear picture of spontaneous niche construction in action at the origin of complex multicellularity.
+We hope this work to provide both an anchor in ongoing development of the extended evolutionary synthesis and a foothold for further experiment-based investigation.
 
 Early work on this project (presented at the Fourth Workshop on Open-Ended Evolution in 2021) identified, but could not explain, complex evolutionary outcomes seen in our case study.
 Only much later did explanation reveal itself --- and in an entirely unanticipated direction.
