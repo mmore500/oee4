@@ -46,7 +46,7 @@ Finally, at transfer round 100, we first observed morph $j$ (panels \labelcref{f
 \subsubsection{Complexity}
 
 After cataloging morphology, we next sought to characterize its relationship to measures of structural and functional complexity.
-We thus conducted additional knockout and interference trials to assay genotype and phenotype complexity at each transfer round (Figure \labelcref{fig:keyfig:gcomplexity,fig:keyfig:pcomplexity}, Supplementary Figure \ref{fig:complexity}).
+We thus conducted additional competitions to identify genotype and phenotype complexity across every transfer round (Figure \labelcref{fig:keyfig:gcomplexity,fig:keyfig:pcomplexity}, Supplementary Figure \ref{fig:complexity}).
 
 In several instances, complexity measures increased abruptly with new morphology.
 For instance, at transfer round 14, morph $d$ (irregular clumps of 10 to 15 cells) coincided with a spike in genotype complexity from 27 to 46 sites.
@@ -88,7 +88,7 @@ To test whether selection imposed by this ``background'' strain could explain se
 
 In co-evolved context, whole-population maladaptations decreased from 16 to 3 (Supplementary Figure \ref{fig:sign-change-prefatory-population}).
 Lower assay sensitivity might partially explain this result (no detected effect in 52 vs. 23 cases).
-However, strong evidence for biotic selection arose in 6 cases, where fitness losses were actually fitness gains when measured in co-evolved context.
+However, strong evidence for biotic selection arose in 6 cases, where fitness losses became fitness gains in co-evolved context.
 % We saw no instances of the reverse, as all 3 outcomes deleterious in ecological context were also deleterious without it.
 
 Thus, having found biotic context to exert selection on the case study strain, we next set out to test how such ecological interactions influenced its evolved complexity.
@@ -109,15 +109,17 @@ Based on competition outcomes, this comparator-based fitness measure ranged from
 By this measuring stick, case study lineage fitness was volatile during early evolution, but settled near or below 0.5 from transfer round 30 onwards (solid line, Figure \ref{fig:fitness-background}) --- meaning it undercompeted most other replicates.
 
 To test how biotic context affected fitness, we repeated comparator competitions to incorporate the co-evolved lineage as biotic context (dashed line, Figure \ref{fig:fitness-background}).
-Fitness in co-evolved context closely tracked baseline fitness, although with several transient fitness advantages and one brief penalty.
+Fitness in co-evolved context closely tracked baseline fitness, with only transient influences on competitiveness against comparators.
 
-These results --- in conjunction with reciprocal experiments testing how the case study strain influenced its co-evolved counterpart (Supplementary Figure \ref{fig:external-bb-reciporical}) --- suggest a relationship of commensalist interaction, rather than systematic cooperation or antagonism.
-Notably, both strains tended overall to gain competitive advantage when tested with their co-evolved partner present (both $p < 10^{-4}$, exact Binomial tests; Supplementary Figure \ref{fig:external-bb-reciporical}).
+These results --- in conjunction with reciprocal experiments testing how the case study strain influenced its co-evolved counterpart (Supplementary Figure \ref{fig:external-bb-reciporical}) --- suggest a relationship of primarily commensalist interaction, rather than systematic cooperation or antagonism.
+Notably, though, both strains tended overall to gain competitive advantage when tested with their co-evolved partner present (both $p < 10^{-4}$, exact Binomial tests; Supplementary Figure \ref{fig:external-bb-reciporical}).
 
 For completeness, we additionally tested comparator fitness where the case study lineage served as its own biotic context (dot-dash line, Figure \ref{fig:fitness-background}).
-(In effect, these conditions boost concentration of the case study strain from 50\% to 75\%; Figure \ref{fig:fit}.)
+\unskip\footnote{%
+In effect, these conditions boost concentration of the case study strain from 50\% to 75\%; Figure \ref{fig:fit}.
+}
 To our surprise, self-context produced a strong, sustained fitness benefit from transfer round 15 onward (Mann-Whitney test, $p < 10^{-25}$; Cliff's $\delta=0.93$; Figure \ref{fig:fitness-background:distribution}).
-The strength of this effect --- and its co-origination with cigar-like morph $e$ --- led us to consider an alternate driver of complexity: self-acting biotic selection arising from the case study strain itself.
+The strength of this effect --- and its co-origin with cigar-like morph $e$ --- led us to consider an alternate driver of complexity: self-acting biotic selection arising from the case study strain itself.
 
 \subsection{Case Study Strain Produces Biotic Selection}
 \label{sec:case-study-strain-produces-biotic-selection}
@@ -142,17 +144,17 @@ Thus, while the underlying mechanism of niche construction appears to have remai
 
 \input{fig/replay-background}
 
-Seeing evidence that the case study lineage's biogenic structure exerted self-acting selection, we next turned to test whether this selection stabilized its complexity.
+Seeing evidence that the case study lineage's biogenic structure exerted self-acting selection, we next turned to test whether this selection stabilized complexity.
 To address this question, we carried out evolutionary replay trials, comparing complexity outcomes with and without self-context.
 
 A practical challenge presents itself, however, in the task of removing --- or at least meaningfully abating --- self-context.
-This problem is nontrivial, because any amount of the case study strain inherently introduces some degree of self-context.
+Any remaining amount of the case study strain inherently introduces some degree of self-context.
 To overcome this challenge, we mutationally attenuated the case study strain when seeding replay trials.
 Mutagenic dose (8 mutations) was chosen such that most, but not all, seeded genomes were substantially disrupted.
 As an additional benefit, applying mutation also enhanced standing variation --- improving sensitivity to detect selection on complexity.
 % providing sufficient sensitivity to allow short 1-round replays.
 
-Replays were compared between both a ``self context'' treatment and a ``co-evolved context'' treatment, with background context differing as intact case study lineage genomes or co-evolved lineage genomes (Figure \ref{fig:replay-background:design}).
+Replays were compared between both a ``self context'' treatment and a ``co-evolved context'' treatment, with the former using intact case study lineage genomes as context (Figure \ref{fig:replay-background:design}).
 To target the complexity maintenance period identified by split regression analysis, replays were conducted from transfer round 33 onwards --- thus, providing a sample of 67 single-round replays per treatment.
 Endpoint complexity was measured on a surviving descendant of the mutagenized case study inoculum.
 
@@ -162,9 +164,9 @@ Thus, biotic selection exerted by the case study strain indeed acted to stabiliz
 
 As a control experiment, we repeated replay experiments with a higher dose of 50 mutations --- sufficient to ensure substantial disruption to all seeded genomes.
 % applied to seeded case study strain genotypes.
-Under these conditions, complexity outcomes were indistinguishable between intact-self and co-evolved context treatments (Figure \ref{fig:replay-background:highdose}).
+Under these conditions, complexity outcomes were indistinguishable between intact-self and co-evolved treatments (Figure \ref{fig:replay-background:highdose}).
 Thus, the case study strain's biotic selection appears to act specifically in maintaining its own evolved complexity.
-In other words, evolved traits act to ``lock in'' complexity, as opposed to simply cultivating generic conditions conducive to complexity (e.g., weakening selection).
+In other words, evolved traits acted specificially to ``lock in'' complexity, as opposed to simply cultivating generic conditions conducive to complexity (e.g., weakening selection).
 
 % We measured genetic complexity as our response variable.
 % Having seen correlation between change in genetic complexity and phenotypic complexity in the case study strain, and as a more stable and sensitive measure of complexity, for these purposes we.
@@ -176,20 +178,21 @@ In other words, evolved traits act to ``lock in'' complexity, as opposed to simp
 
 Having found biotic selection to stabilize evolved complexity on the case study lineage, we next sought to assess whether this pattern generalized more broadly across replicates.
 
-To test whether analogous niche construction effects arose at all in other replicates, we screened for self-adaptation --- competitive advantage against cross-replicate comparators in self-dense biotic context.
-Such self-adaptation arose repeatedly, with robust evidence in at least 5/39 additional lineages (Mann-Whitney tests, $n=10$ paired observations, $\alpha = 0.05$; Supplementary Figures \labelcref{fig:external-bb-all,fig:general-supp:eco-vs-self}).
+To test whether analogous niche construction effects arose at all in other replicates, we screened for self-adaptation --- competitive advantage against cross-replicate comparators specific to self-dense context.
+Such self-adaptation did arise in other instances, with robust evidence in at least 5/39 additional lineages (Mann-Whitney tests, $n=10$ paired observations, $\alpha = 0.05$; Supplementary Figures \labelcref{fig:external-bb-all,fig:general-supp:eco-vs-self}).
 
-Seeing it did arise, we next tested whether self-adaptation influenced evolved complexity.
-To sidestep wide variation in genome size after 100 transfer rounds, we compared across replicates using phenotype complexity --- how many distinct cell I/O operations contribute to strain fitness, reflecting the richness of evolved cell-cell interactions.
+Seeing broader self-adaptation, we next tested whether it influenced evolved complexity.
+Due to wide variation in genome size after 100 transfer rounds, we compared using phenotype complexity --- how many distinct cell I/O operations contribute to strain fitness, reflecting the richness of evolved cell-cell interactions.
+
 Where self-adaptation acts to maintain complexity, we would expect fitness under self-context and co-evolved context to diverge with complexity.
-Comparing these fitness measures across our original $n=40$ replicates, we indeed found a stronger relationship between complexity and self-context fitness (binomial GEE, $p < 0.001$; $p = 0.003$ excluding case study replicate; Figure \ref{fig:general:gee-base}).
-Further regression analysis confirms a direct relationship between self-adaptation and phenotype complexity (Supplementary Figure \ref{fig:reg-self-adaptation}).
+Comparing fitness measures across our original $n=40$ replicates, we indeed found a more positive relationship between complexity and self-context fitness (binomial GEE, $p < 0.001$; $p = 0.003$ excluding case study replicate; Figure \ref{fig:general:gee-base}).
+Direct regression analysis ruther supports a direct relationship between self-adaptation and phenotype complexity (Supplementary Figure \ref{fig:reg-self-adaptation}).
 Interestingly, no such relationship arose between fitness and phenotype complexity (Supplementary Figures \labelcref{fig:complexity-fitness-correlation-genetic-9s:phenotype-unagg,fig:complexity-fitness-correlation-genetic-9s:phenotype-agg,fig:complexity-fitness-correlation-genetic:phenotype-unagg,fig:complexity-fitness-correlation-genetic:phenotype-agg}).
 
 Next, we sought to directly test whether highest-complexity multicell strains, such as the case study, rely on niche construction feedbacks.
 For this purpose, we screened 400 additional 20-round trials, isolating the 20 most complex outcomes (top 5\%) by joint exceedance in genotype and phenotype complexity (Figure \ref{fig:general:pgcomplex-ecoself}, left).
-Compared to lower-complexity strains, more high-complexity strains gained competitive advantage in self-dense contexts, consistent with niche construction effects.
-In contrast to 85\% of high-complexity strains, only 54\% of lower-complexity strains gained such self-advantage (Fisher's exact test, $p = 0.005$, RR 1.58; Figure \ref{fig:general:pgcomplex-ecoself}, right).
+Compared to lower-complexity strains, more high-complexity strains gained competitive advantage in self-dense contexts --- consistent with niche construction effects.
+In contrast to 85\% of high-complexity strains, only 54\% of lower-complexity strains exhibited such self-advantage (Fisher's exact test, $p = 0.005$, RR 1.58; Figure \ref{fig:general:pgcomplex-ecoself}, right).
 
 % 17028, 21036, 28020
 Among screened high-complexity strains, only 3 of 20 exhibit cigar-like morphologies analogous to the case study strain.
@@ -202,19 +205,21 @@ Biotic selection on complexity thus appears to act more generally beyond the spe
 
 \input{fig/ecogwas.tex}
 
-In addition to conspecific peers, natural multicells encounter numerous heterospecific biota from co-evolving lineages.
-To assess the role of such broader interactions in the evolutionary origins of multicell complexity, we next investigated how selection between co-evolving lineages can produce evolved complexity.
+Alongside conspecific peers, natural multicells additionally encounter numerous heterospecific biota from co-evolving lineages.
+To assess the role of such between-lineage interactions on multicell complexity, we next investigated whether selection between co-evolving lineages produced evolved complexity.
 
 Recall, as noted earlier, that the case study strain and its co-evolved partner both adapted to each other, exhibiting competitive advantage in co-evolved context (Supplementary Figure \ref{fig:external-bb-reciporical}).
-Thus, to begin, we examined whether --- in addition to selecting on itself --- the case study strain selected for genotype complexity in its co-evolved ``background'' partner.
-Under self-context conditions, single-site knockout trials identified 17 sites as adaptive (Figure \ref{fig:ecogwas:sites}).
+Thus, to begin, we examined whether --- in addition to selecting on itself --- the case study strain selected for genotype complexity in its co-evolved partner.
+
+Under self-context conditions, knockouts on the co-evolved partner strain identified 17 sites as adaptive (Figure \ref{fig:ecogwas:sites}).
 
 These 17 identified sites remained adaptive when tested in the presence of the case study strain, rather than self-context conditions.
-However, in addition, competition experiments identified 15 further sites adaptive exclusively in the presence of the case study strain.
-Thus, in this case, co-evolutionary interactions with the case study strain substantially drove evolved complexity in its co-evolved partner --- among 32 adaptive sites, 47\% arose by biotic selection between lineages.
+However, competition experiments also identified 15 further sites adaptive exclusively in the presence of the case study strain.
+Thus, co-evolutionary interactions with the case study strain substantially drove evolved complexity in its co-evolved partner --- among 32 adaptive sites, 47\% arose by between-lineage selection.
 
 Having found that co-evolutionary interactions drove complexity in the case study's co-evolved partner, we next sought to assess whether biotic selection between lineages produced genotype complexity more broadly.
 For this purpose, we surveyed our 400 additional 20-round trials to sample replicates with weak co-evolutionary adaptation, and compared them to replicates with strong co-evolutionary adaptation --- measured by competitive advantage specific to co-evolved context.
-Among sampled strains, adaptive sites specific to co-evolved context were detected in 6 of 7 exhibiting strong co-evolutionary adaptation --- more than 2 of 7 detected under weak co-evolutionary adaptation (Mann-Whitney U test; $p=0.016$, Cliff's $\delta=0.75$; Figure \ref{fig:ecogwas:ythresh045}).
+Among sampled strains, adaptive sites specific to co-evolved context were detected in 6 of 7 exhibiting strong co-evolutionary adaptation --- more than 2 of 7 detected under weak co-evolutionary adaptation (Mann-Whitney test, $p=0.016$; Cliff's $\delta=0.75$; Figure \ref{fig:ecogwas:ythresh045}).
 Thus, partner-specific selection appears to have additionally acted in creating evolved genotype complexity.
-Taken together, these results implicate biotic selection in general --- self-generated and co-evolved alike --- as a key driver of multicellular complexity.
+
+Taken together, reported results implicate biotic selection in general --- self-generated and co-evolved alike --- as a viable driver of multicellular complexity.
