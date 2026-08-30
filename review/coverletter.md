@@ -14,7 +14,7 @@ Mirroring our course of investigation, our report begins in dissecting an evolut
 In this case study, we discover:
 
 - multicell morphological innovation reshaped selection, imposing crowding interference on other strains;
-- niche construction from collective biogenic structure imposed selection preserving evolved complexity (tested directly by replay experiments); and
+- niche construction from collective biogenic structure imposed selection preserving evolved complexity; and
 - constructed biogenic structure slso selected for complexity in a sympatric coxevolving strain.
 
 Based on these findings, we then examine drivers of complexity observed across replicates.
@@ -22,21 +22,20 @@ Surprisingly, we find no relationship between fitness and complexity;
 in head-to-head competitions, complex strains do no better than simple strains.
 Instead, we find complexity measures to be associated with biotic selection driven by niche construction.
 That is, the competitive advantage of complex strains arises in familiar context.
-We find evidence of strains in selecting on their own complexity, as well as for complexity in co-ecolving counterparts.
+We find evidence of strains in selecting on their own complexity, as well as for complexity in co-evolving counterparts.
 
-Taken together, our findings realize a long-theorized mechanism thought to drive complex multicellularity: biotic selection as a complexity ratchet.
+Taken together, these findings realize a mechanism long-hypothesized to drive complex multicellularity: biotic selection as a complexity ratchet.
 
-An influential precedent guiding scientific objectives of present work is Lenski et al.’s "The evolutionary origin of complex features" (2003), which applied a digital organism model to bring about direct experimental tests for long-hypothesized building block models of complexity.
-As is the case for any model system in bioscience, intellectual impact of this work has anchored subsequent theory and discussion (cite) and enabled further tests of generality --- including experiments *in vivo* (cite).
-widely-adopted experimental framework for TODO (TODO).
-The observability of but also broader discussions of the topic of evolution in educational and public conversations (cite AvidaED).
+An influential precedent guiding scientific objectives of present work is Lenski et al.'s "The evolutionary origin of complex features" (2003), which applied a digital organism model to perform direct experimental tests of long-hypothesized building block models of complexity.
+As is the case for any model system in bioscience, this work's intellectual impact has served both to anchor discourse in theory (cite) and, importantly, to prompt further tests of generality --- including experiments *in vivo* (cite).
+Broader legacy of these digital evolution experiments has also tangibly shaped the public imagination, ultimately inspiring hands-on classroom activites and public-facing media (cite AvidaED).
 
-In addition to crystallizing a clear picture and a proof of concept, preliminary work in the digital system can show the necessary and sufficient conditions for TODO.
+In addition to crystallizing a clear picture and a proof of concept, preliminary work in the digital system can show the necessary and sufficient conditions for further investigation.
 Present work crystallizes a clear picture of spontaneous niche construction in action, and suggests clear experimental next steps and methods to deepen investigation of it and further anchor ongoing development of the extended evolutionary synthesis.
 
 Early work on this project (presented at the Fourth Workshop on Open-Ended Evolution in 2021) identified, but could not explain, complex evolutionary outcomes seen in our case study.
-Only later did explanation reveal itself --- and in an entirely unanticipated direction.
-In my experience, it is a rare and privileged experience for such a puzzle to dispense the picture on the box.
+Only much later did explanation reveal itself --- and in an entirely unanticipated direction.
+In my experience, it is a rare and privileged experience for such a puzzle to ultimately dispense the picture on the box.
 For this reason, as lead author on this work, it is my personal pleasure to deliver it for your consideration.
 
 On behalf of the authors, please find enclosed our manuscript "TITLE TODO."
