@@ -10,7 +10,7 @@ To establish a concrete --- yet tractable --- purchase on these questions, we co
 In contrast to seminal digital evolution studies of complexity and multicellularity (cite), experimental design withholds selection along a prescribed ladder for complex traits and life history.
 To our surprise, aspects of complex multicellularity arise nonetheless: evolving multicells spontaneously selected on each other to produce complex traits.
 
-Reflecting the course of investigation, our report begins by dissecting an evolutionary history producing a high-complexity multicell strain exhibiting patterned multicellular growth and multi-stage life history.
+Reflecting the course of investigation, our report begins in dissecting an evolutionary history producing a high-complexity multicell strain exhibiting patterned multicellular growth and multi-stage life history.
 In this case study, we discover:
 
 - multicell morphological innovation reshaped selection, imposing crowding interference on other strains;
@@ -31,11 +31,11 @@ As is the case for any model system in bioscience, this work's intellectual impa
 Broader legacy of these digital evolution experiments has also tangibly shaped the public imagination, ultimately inspiring hands-on classroom activities and public-facing media (cite AvidaED).
 
 Here, we seek to crystallize a similarly rigorous, concrete, and clear picture of spontaneous niche construction in action at the origin of complex multicellularity.
-We hope this work provides both an anchor in ongoing development of the extended evolutionary synthesis and a foothold for further experiment-based investigation.
+We hope this work to provide both an anchor in ongoing development of the extended evolutionary synthesis and a foothold for further experiment-based investigation.
 
 Early work on this project (presented at the Fourth Workshop on Open-Ended Evolution in 2021) identified, but could not explain, complex evolutionary outcomes seen in our case study.
 Only much later did explanation reveal itself --- and in an entirely unanticipated direction.
-In my experience, it is a rare privilege for such a puzzle to ultimately dispense the picture on the box.
+In my experience, it is a rare and privileged experience for such a puzzle to ultimately dispense the picture on the box.
 For this reason, as lead author on this work, it is my personal pleasure to deliver it for your consideration.
 
 On behalf of the authors, please find enclosed our manuscript "TITLE TODO."
