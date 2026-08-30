@@ -24,6 +24,8 @@ Instead, we find complexity measures to be associated with biotic selection driv
 That is, the competitive advantage of complex strains arises in familiar context.
 We find evidence of strains in selecting on their own complexity, as well as for complexity in co-ecolving counterparts.
 
+Taken together, our findings realize a long-theorized mechanism thought to drive complex multicellularity: biotic selection as a complexity ratchet.
+
 <!--
 The case study allows us to illustrate the findings and patterns in concrete detail and with clear detailed causal experiments within tractable scope.
 Importantly, the case study also provides strong motivations for general questions around the role of ecological interactions and niche construction in the evolution of complexity, which we then pursue investigation of and reveal surprising patterns we would not have thought to have looked for
@@ -39,44 +41,38 @@ In replay experiments, we found that this strain's complex traits, in fact, were
 That is, emergent eco-evolutionary feedback locked in complex multicellularity.
 Surprisingly, across trials, we found no substantial association between complexity and general multicell fitness --- instead, mirroring the case study, complexity consistently associated with signatures of biotic selection.
 Investigating further, we find that complex traits arose not only in self-constructed niches, but also under selection by co-evolving ecological partners.
-These findings realize a long-theorized mechanism thought to drive complex multicellularity: biotic selection as a complexity ratchet.
 -->
 
-Digital disclaimer...
-a major challenge arises in the difficulty of directly testing by experiment.
+An influential precedent guiding scientific objectives of present work is Lenski et al.’s "The evolutionary origin of complex features" (2003), which applied a digital organism model to bring about direct experimental tests for long-hypothesized building block models of complexity.
+By definition a concrete and self-consistent instantiation of a *bona fide* evolving system (cite).
+concretely demonstrate
+-- both in defining a widely-adopted experimental framework for TODO (TODO) and much as has been the case in benchtop evolution experiments following on (cite).
+
 While , digital efforts allow us to take a first stab at it.
-A hugely influential piece of work shaping the direction and ambitions/objectives of present work is Lenski et al.’s "The evolutionary origin of complex features" (2003), which applied a digital organism model to clearly demonstrate the building block model of complexity.
-While providing a succinct, concrete proof of concept foundation for this hypothesis, the impact of this work has been so much broader in shaping progress and thought within the field.
+an enduring contribution of Lenski et al’s work defined an experimental framework where complexity could be quantified and studied in a systematic, structured manner that has proven hugely influential in allowing for follow-up work.
 
-Within important limitations and considerations in generality of experiments using a digital organism model.
-By definition a concrete and self-consistent instantiation of a bona fide evolving system (cite).
 Within the structure of these limitations, however, the digital evolution work can have broad intellectual impact in creating a concrete scaffold for broader thinking to branch off of.
-
-Most obviously, an enduring contribution of Lenski et al’s work defined an experimental framework where complexity could be quantified and studied in a systematic, structured manner that has proven hugely influential in allowing for follow-up work.
-Whereas mathematical modeling has been restricted to studying abstract instances of complexity, and digital evolution work has studied complexity in a hand-designed scale with a clear maximum endpoint and trivial solutions, present works makes.a small step towards studying complexity in a more naturalistic and functionally oriented setting.
-Our goal in present work is to do a similar contribution in how complexity can arise in arbitrary creative (but functional) complexity as opposed to prescribed rubric.
-
 In a single stroke, the early digital evolution work by Lenski et al also crystallized a clear mental model example that has provided a foothold for follow-on studies — but also broader discussions of the topic of evolution in educational and public conversations (cite).
-
-In addition to crystallizing a clear picture and a proof of concept, preliminary work in the digital system can show the necessary and sufficient conditions, much as has been the case in benchtop evolution experiments following on Lenski et al.’s digital evolution work (cite).
+In addition to crystallizing a clear picture and a proof of concept, preliminary work in the digital system can show the necessary and sufficient conditions,
 Present work crystallizes a clear picture of spontaneous niche construction in action, and suggests clear experimental next steps and methods to deepen investigation of it and advance the extended evolutionary synthesis.
 
-Early work on this project (presented at the Fourth Workshop on Open-Ended Evolution in 2021) identified, but could not explain, complex evolutionary outcomes.
-Only later did explanation reveal itself, and in an entirely unanticipated direction.
+Early work on this project (presented at the Fourth Workshop on Open-Ended Evolution in 2021) identified, but could not explain, complex evolutionary outcomes seen in our case study.
+Only later did explanation reveal itself --- and in an entirely unanticipated direction.
 In my experience, it is a rare and privileged experience for such a puzzle to dispense the picture on the box.
 For this reason, as lead author on this work, it is my personal pleasure to deliver it for your consideration.
 
-On behalf of the authors, please find enclosed our manuscript “TITLE TBD.”
+On behalf of the authors, please find enclosed our manuscript "TITLE TODO."
+We have also suggested possible reviewers below.
 
 Best,
 
 Matthew Andres Moreno
 
-Suggested Reviewers:
+## Suggested Reviewers:
 - TODO
 
-Possible Conflicted Reviewer:
+## Likely Conflicted Reviewers:
 - TODO
 
-References
+## References
 TODO
