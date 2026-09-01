@@ -174,3 +174,9 @@
 	path = binder/binder-2026-08-29-pcomplexity-gee-0s.ipynb
 	url = https://github.com/mmore500/oee4.git
 	branch = binder-2026-08-29-pcomplexity-gee-0s.ipynb
+
+[submodule "binder/binder-2026-09-01-replay-phenotypes.ipynb"]
+	path = binder/binder-2026-09-01-replay-phenotypes.ipynb
+	url = https://github.com/mmore500/oee4.git
+	branch = binder-2026-09-01-replay-phenotypes.ipynb
+	shallow = true
