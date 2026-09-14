@@ -6,7 +6,7 @@ Among the most surprising products of evolution's constructive power still await
 While verbal theory and conceptual modeling efforts have illuminated numerous possibilities (cite) --- and biological experiments have made notable headway in producing *de novo* stay-together multicellularity (cite) --- a concrete consensus explanation why some multicellular life has evolved radically sophisticated organization remains unresolved.
 Other topics touched on in this work, namely niche construction and constructive neutral evolution (CNE), have also struggled to gain traction in concrete applications (cites).
 
-To establish a concrete --- yet tractable --- purchase on these questions, we conducted experiments on concrete instances of this phenomenon using a digital organism system of cell-like genetic programs.
+To establish a concrete --- yet tractable --- purchase on these questions, we conducted experiments on concrete instances of this phenomenon using a digital organism model allowing multicell agglomeration of cell-like genetic programs.
 In contrast to seminal digital evolution studies of complexity and multicellularity (cite), experimental design withholds selection along a prescribed ladder for complex traits and life history.
 To our surprise, aspects of complex multicellularity arise nonetheless: evolving multicells spontaneously selected on each other to produce complex traits.
 
