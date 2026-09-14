@@ -7,7 +7,7 @@ While verbal theory and conceptual modeling efforts have illuminated numerous po
 Other topics touched on in this work, namely niche construction and constructive neutral evolution (CNE), have also struggled to gain traction in concrete applications (cites).
 
 To establish a concrete --- yet tractable --- purchase on these questions, we conducted experiments on concrete instances of this phenomenon using a digital organism model allowing multicell agglomeration of cell-like genetic programs.
-In contrast to seminal digital evolution studies of complexity and multicellularity (cite), experimental design withholds selection along a prescribed ladder for complex traits and life history.
+In contrast to seminal digital evolution studies of complexity and multicellularity (cite), present experiments withhold selection along a prescribed ladder for complex traits and life history.
 To our surprise, aspects of complex multicellularity arise nonetheless: evolving multicells spontaneously selected on each other to produce complex traits.
 
 Reflecting the course of investigation, our report begins in dissecting an evolutionary history producing a high-complexity multicell strain exhibiting patterned multicellular growth and multi-stage life history.
