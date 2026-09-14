@@ -4,7 +4,7 @@ At the heart of evolutionary biology is a desire to explain not just how, but al
 Among the most surprising products of evolution's constructive power still awaiting such an explanation is the spontaneous eruption of complex multicellularity.
 
 While verbal theory and conceptual modeling efforts have illuminated numerous possibilities (cite) --- and biological experiments have made notable headway in producing *de novo* stay-together multicellularity (cite) --- a concrete consensus explanation why some multicellular life has evolved radically sophisticated organization remains unresolved.
-Similarly, topics of niche construction and constructive neutral evolution (CNE) --- also touched on in this work --- have struggled to gain traction in concrete applications (cites).
+Other topics touched on in this work, namely niche construction and constructive neutral evolution (CNE), have also struggled to gain traction in concrete applications (cites).
 
 To establish a concrete --- yet tractable --- purchase on these questions, we conducted experiments on concrete instances of this phenomenon using a digital organism system of cell-like genetic programs.
 In contrast to seminal digital evolution studies of complexity and multicellularity (cite), experimental design withholds selection along a prescribed ladder for complex traits and life history.
