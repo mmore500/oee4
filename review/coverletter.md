@@ -21,22 +21,22 @@ Based on these findings, we then examine drivers of complexity observed across r
 Surprisingly, we find no relationship between fitness and complexity;
 in head-to-head competitions, complex strains do no better than simple strains.
 Instead, we find complexity measures to be associated with biotic selection driven by niche construction.
-That is, the competitive advantage of complex strains arises in familiar context.
+That is, the competitive advantage of complex strains arises exclusively in evolved biotic context.
 We find evidence of strains selecting on their own complexity, as well as for complexity in co-evolving counterparts.
 
 Taken together, these findings realize a mechanism long-hypothesized to drive complex multicellularity: biotic selection as a complexity ratchet.
 
 An influential precedent guiding scientific objectives of present work is Lenski et al.'s "The evolutionary origin of complex features" (2003), which applied a digital organism model to perform direct experimental tests of long-hypothesized building block models of complexity.
-As is the case for any model system in bioscience, this work's intellectual impact has served both to anchor discourse in theory (cite) and, importantly, to prompt further tests of generality --- including experiments *in vivo* (cite).
-Broader legacy of these digital evolution experiments has also tangibly shaped the public imagination, ultimately inspiring hands-on classroom activities and public-facing media (cite AvidaED).
+As is the case for any model system in bioscience, impact of Lenski et al.’s work intellectual impact has both anchored discourse in theory (cite) and, importantly, prompted further tests of generality --- including experiments *in vivo* (cite).
+Broader legacy of these digital evolution experiments has also tangibly shaped the public imagination, ultimately inspiring hands-on classroom activities and popular-science media (cite AvidaED).
 
 Here, we seek to crystallize a similarly rigorous, concrete, and clear picture of spontaneous niche construction in action at the origin of complex multicellularity.
 We hope this work to provide both an anchor in ongoing development of the extended evolutionary synthesis and a foothold for further experiment-based investigation.
 
 Early work on this project (presented at the Fourth Workshop on Open-Ended Evolution in 2021) identified, but could not explain, complex evolutionary outcomes seen in our case study.
 Only much later did explanation reveal itself --- and in an entirely unanticipated direction.
-In my experience, it is a rare and privileged experience for such a puzzle to ultimately dispense the picture on the box.
-For this reason, as lead author on this work, it is my personal pleasure to deliver it for your consideration.
+Speaking as lead author on the work, it is in my experience a rare and privileged experience for such a puzzle to ultimately dispense the picture on the box.
+For this reason, it is my personal pleasure to deliver it for your consideration.
 
 On behalf of the authors, please find enclosed our manuscript "TITLE TODO."
 We have also suggested possible reviewers below.
