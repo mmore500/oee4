@@ -3,7 +3,7 @@ To whom it may concern,
 At the heart of evolutionary biology is a desire to explain not just how, but also *why* biota inhabiting our world came to be.
 Among the most surprising products of evolution's constructive power still awaiting such an explanation is the spontaneous eruption of complex multicellularity.
 
-While verbal theory and conceptual modeling efforts have illuminated numerous possibilities (cite) --- and biological experiments have made notable headway in *de novo* stages of multicellularity (cite) --- a concrete consensus explanation why some multicellular life has evolved radically sophisticated organization remains unresolved.
+While verbal theory and conceptual modeling efforts have illuminated numerous possibilities (cite) --- and biological experiments have made notable headway in producing *de novo* stay-together multicellularity (cite) --- a concrete consensus explanation why some multicellular life has evolved radically sophisticated organization remains unresolved.
 Similarly, topics of niche construction and constructive neutral evolution (CNE) --- also touched on in this work --- have struggled to gain traction in concrete applications (cites).
 
 To establish a concrete --- yet tractable --- purchase on these questions, we conducted experiments on concrete instances of this phenomenon using a digital organism system of cell-like genetic programs.
