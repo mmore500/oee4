@@ -10,7 +10,7 @@ To establish a concrete --- yet tractable --- purchase on these questions, we co
 In contrast to seminal digital evolution studies of complexity and multicellularity (cite), present experiments withhold selection along a prescribed ladder for complex traits and life history.
 To our surprise, aspects of complex multicellularity arise nonetheless: evolving multicells spontaneously selected on each other to produce complex traits.
 
-Reflecting the course of investigation, our report begins in dissecting an evolutionary history producing a high-complexity multicell strain exhibiting patterned multicellular growth and multi-stage life history.
+Our report begins in dissecting an evolutionary history producing a high-complexity multicell strain exhibiting patterned multicellular growth and multi-stage life history.
 In this case study, we discover:
 
 - multicell morphological innovation reshaped selection, imposing crowding interference on other strains;
