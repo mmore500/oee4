@@ -37,22 +37,19 @@
   boxsep=3pt,
   width=\linewidth,
 ]
-\begin{minipage}[c]{0.055\linewidth}
+\begin{minipage}[c]{0.09\linewidth}
 \centering
 \rotatebox{90}{%
   \begin{tabular}{@{}c@{}}
-    \bfseries\footnotesize morph~\raisebox{0pt}[0pt][0pt]{%
-      \rotatebox{-90}{%
-        \tikz[baseline=(morphjbadge.base)]{%
-          \node[draw=black,very thick,fill=morphj,circle,inner sep=1pt,minimum size=1.3em,text=white] (morphjbadge) {$\boldsymbol{j}$};%
-        }%
-      }%
-    }~life history\\[3pt]
-    \footnotesize(video animation:~\href{https://hopth.us/hr}{\texttt{\footnotesize hopth.us/hr}})
+    \bfseries\footnotesize morph\\[1pt]
+    \bfseries\footnotesize\tikz[baseline=(morphjbadge.base)]{%
+      \node[draw=black,very thick,fill=morphj,circle,inner sep=1pt,minimum size=1.1em,text=white] (morphjbadge) {$\boldsymbol{j}$};%
+    }~life history\\[1pt]
+    \scriptsize\textit{video animation:}~\href{https://hopth.us/hr}{\texttt{\scriptsize hopth.us/hr}}
   \end{tabular}%
 }
 \end{minipage}%
-\begin{minipage}[c]{0.94\linewidth}
+\begin{minipage}[c]{0.9\linewidth}
 \begin{subfigure}{0.2\linewidth}
 \centering
 \includegraphics[width=0.9\linewidth,trim=4cm 4cm 4cm 4cm,clip]{img/a=kin-group-id+idx=0+proc=0+series=16005+stint=100+thread=0+update=16-8752_16/frame_0001.png}%
