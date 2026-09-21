@@ -6,6 +6,7 @@ channel = "stable-24_05"
 
 [env]
 GIT_EDITOR = "vim"
+CLAUDE_CONFIG_DIR = "/home/runner/workspace/.claude_config"
 
 [[ports]]
 localPort = 8000
