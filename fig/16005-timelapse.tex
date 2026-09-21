@@ -29,17 +29,25 @@
 \end{subfigure}
 
 \begin{tcolorbox}[
-  colframe=morphj,
-  colback=morphj!8!white,
-  colbacktitle=morphj!30!white,
+  enhanced,
+  colframe=morphj!30!white,
+  colback=morphj!4!white,
+  attach boxed title to top left={yshift=-2mm,xshift=3mm},
+  boxed title style={
+    colframe=morphj!30!white,
+    colback=morphj!30!white,
+    boxrule=0.8pt,
+    arc=2pt,
+    left=4pt,right=4pt,top=2pt,bottom=2pt,
+  },
   coltitle=black,
   fonttitle=\bfseries\footnotesize,
   title={%
     morph\ \raisebox{0pt}[0pt][0pt]{%
       \tikz[baseline=(morphjbadge.base)]{%
-        \node[draw=black,very thick,fill=morphj,circle,inner sep=1pt,minimum size=1.3em,text=white] (morphjbadge) {$j$};%
+        \node[draw=black,very thick,fill=morphj,circle,inner sep=1pt,minimum size=1.3em,text=white] (morphjbadge) {$\boldsymbol{j}$};%
       }%
-    }\ life history\ (\href{https://hopth.us/hr}{\texttt{\footnotesize hopth.us/hr}})%
+    }\ life history\ (video animation: \href{https://hopth.us/hr}{\texttt{\footnotesize hopth.us/hr}})%
   },
   boxrule=0.8pt,
   arc=1pt,
