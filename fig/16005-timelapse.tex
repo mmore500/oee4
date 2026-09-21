@@ -31,9 +31,14 @@
 \begin{tcolorbox}[
   colframe=morphj,
   colback=morphj!8!white,
-  coltitle=white,
+  colbacktitle=morphj!30!white,
+  coltitle=black,
   fonttitle=\bfseries\footnotesize,
-  title=morph $j$ life history,
+  title={%
+    \tikz[baseline=(morphjbadge.base)]{%
+      \node[draw=black,very thick,fill=morphj,ellipse,inner sep=1.5pt,text=white] (morphjbadge) {morph $j$};%
+    }\ life history%
+  },
   boxrule=0.8pt,
   arc=1pt,
   boxsep=3pt,
@@ -73,7 +78,12 @@
 \caption{update 952}
 \label{fig:16005-timelapse:update7616}
 \end{subfigure}
+
+\vspace{-2ex}
+
 \end{tcolorbox}
+
+\vspace{-1ex}
 
 \caption{%
 \textbf{Case study strain.}
