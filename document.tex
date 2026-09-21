@@ -34,14 +34,6 @@
 % matches matplotlib's tab:cyan, used for morph j in the case-study plots
 \definecolor{morphj}{HTML}{17BECF}
 
-% small "lollipop" marker chip used to flag morph classification in figures
-% #1 = xcolor color name, #2 = label text
-\newcommand{\lollipop}[2]{%
-  \tikz[baseline=-0.15em]{%
-    \draw[#1,line width=0.5pt] (0,0) -- (0,0.16);%
-    \filldraw[#1] (0,0.16) circle (0.035);%
-  }\,\textcolor{#1}{\fontsize{5.5}{5.5}\selectfont#2}\hspace{4pt}%
-}
 \usepackage{orcidlink}
 \usepackage{placeins}
 \usepackage{graphbox}
