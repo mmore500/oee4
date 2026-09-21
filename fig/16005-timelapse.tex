@@ -32,28 +32,27 @@
   enhanced,
   colframe=morphj!30!white,
   colback=morphj!4!white,
-  attach boxed title to top left={yshift=-2mm,xshift=3mm},
-  boxed title style={
-    colframe=morphj!30!white,
-    colback=morphj!30!white,
-    boxrule=0.8pt,
-    arc=2pt,
-    left=4pt,right=4pt,top=2pt,bottom=2pt,
-  },
-  coltitle=black,
-  fonttitle=\bfseries\footnotesize,
-  title={%
-    morph\ \raisebox{0pt}[0pt][0pt]{%
-      \tikz[baseline=(morphjbadge.base)]{%
-        \node[draw=black,very thick,fill=morphj,circle,inner sep=1pt,minimum size=1.3em,text=white] (morphjbadge) {$\boldsymbol{j}$};%
-      }%
-    }\ life history\ (video animation: \href{https://hopth.us/hr}{\texttt{\footnotesize hopth.us/hr}})%
-  },
   boxrule=0.8pt,
   arc=1pt,
   boxsep=3pt,
   width=\linewidth,
 ]
+\begin{minipage}[c]{0.055\linewidth}
+\centering
+\rotatebox{90}{%
+  \begin{tabular}{@{}c@{}}
+    \bfseries\footnotesize morph~\raisebox{0pt}[0pt][0pt]{%
+      \rotatebox{-90}{%
+        \tikz[baseline=(morphjbadge.base)]{%
+          \node[draw=black,very thick,fill=morphj,circle,inner sep=1pt,minimum size=1.3em,text=white] (morphjbadge) {$\boldsymbol{j}$};%
+        }%
+      }%
+    }~life history\\[3pt]
+    \footnotesize(video animation:~\href{https://hopth.us/hr}{\texttt{\footnotesize hopth.us/hr}})
+  \end{tabular}%
+}
+\end{minipage}%
+\begin{minipage}[c]{0.94\linewidth}
 \begin{subfigure}{0.2\linewidth}
 \centering
 \includegraphics[width=0.9\linewidth,trim=4cm 4cm 4cm 4cm,clip]{img/a=kin-group-id+idx=0+proc=0+series=16005+stint=100+thread=0+update=16-8752_16/frame_0001.png}%
@@ -88,8 +87,7 @@
 \caption{update 952}
 \label{fig:16005-timelapse:update7616}
 \end{subfigure}
-
-\vspace{-2ex}
+\end{minipage}
 
 \end{tcolorbox}
 
