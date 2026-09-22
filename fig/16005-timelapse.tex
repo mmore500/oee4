@@ -55,10 +55,24 @@
 % so the gap to the teal frame reads the same on top, right, and bottom
 \setlength{\panelcolwd}{\dimexpr\linewidth-\wd\morphjtitlebox-12pt\relax}
 \setlength{\panelpad}{0.01\panelcolwd}
+% the panel column ends in a caption band --- \abovecaptionskip plus one
+% line of subcaption text --- that the images themselves do not occupy,
+% so centering the side title on the row would set it low against the
+% pictures.
+% Lifting it by half that band, less half the pad above the images,
+% centers it on the images instead.
+% The other two terms correct for where the title lands otherwise: the
+% saved box hangs \dp below its own baseline, and array heads every m{}
+% cell with a row strut that drops the cell's baseline half a strut below
+% the row's center (\arraystretch is 1 just below, so the row strut is
+% \strutbox).
+\sbox0{\footnotesize(h) update 952}
+\setlength{\panellift}{\dimexpr(\abovecaptionskip+\ht0+\dp0-\panelpad
+  -\ht\morphjtitlebox+\dp\morphjtitlebox+\ht\strutbox)/2\relax}
 \setlength{\tabcolsep}{0pt}
 \renewcommand{\arraystretch}{1}
 \begin{tabular}{@{}>{\centering\arraybackslash\cellcolor{morphj!25!white}}m{\dimexpr\wd\morphjtitlebox+8pt\relax}@{\hspace{4pt}}m{\panelcolwd}@{}}
-\usebox{\morphjtitlebox}
+\raisebox{\panellift}[0pt][0pt]{\usebox{\morphjtitlebox}}
 &
 \vspace*{\panelpad}%
 \begin{subfigure}{0.2\linewidth}
