@@ -60,13 +60,44 @@
   \includegraphics[width=0.18\panelcolwd,trim=4cm 4cm 4cm 4cm,clip]{img/a=kin-group-id+idx=0+proc=0+series=16005+stint=100+thread=0+update=16-8752_16/frame_0001.png}%
 }
 \setlength{\panelimght}{\dimexpr\ht\panelimgbox+\dp\panelimgbox\relax}
-% Save the panel row so the band below the pictures can be measured
-% instead of derived from \abovecaptionskip and the caption package's
-% own skips, which differ between TeX distributions.
+% a specimen subcaption, twice: strutted, to measure the line it is set
+% on, and bare, to measure how far its letters actually reach.
+% The difference is the slack the line leaves over and under them, which
+% counts towards the white space the reader sees.
+\savebox{\panelcapbox}{\footnotesize\strut(h) update 952}
+\savebox{\panelcapinkbox}{\footnotesize(h) update 952}
+% A probe panel: the same picture captioned the same way, but unnumbered,
+% so it steps no counter and writes no list-of-figures entry.
+% What it holds beyond the picture and that line is the skip the caption
+% package leaves above a subcaption, which differs between TeX
+% distributions --- so the figure tightens it by proportion below rather
+% than replacing it with a length of its own.
+\savebox{\panelprobebox}{%
+  \begin{subfigure}{0.2\panelcolwd}
+  \centering
+  \includegraphics[width=0.9\linewidth,trim=4cm 4cm 4cm 4cm,clip]{img/a=kin-group-id+idx=0+proc=0+series=16005+stint=100+thread=0+update=16-8752_16/frame_0001.png}%
+  \caption*{update 8}
+  \end{subfigure}%
+}
+\setlength{\panelcapskip}{\dimexpr\ht\panelprobebox+\dp\panelprobebox
+  -\panelimght-\ht\panelcapbox-\dp\panelcapbox\relax}
+% the white space actually on show above and below a subcaption
+\setlength{\panelcapabove}{\dimexpr\panelcapskip
+  +\ht\panelcapbox-\ht\panelcapinkbox\relax}
+\setlength{\panelcapbelow}{\dimexpr\panelcapskip
+  +\dp\panelcapbox-\dp\panelcapinkbox\relax}
+% take a third off the gap above the subcaptions and half off the gap
+% below them, both measured as seen
+\setlength{\panelcaptrim}{0.33\panelcapabove}
+\setlength{\panelcappad}{0.5\panelcapbelow}
+\addtolength{\panelcappad}{\dimexpr\dp\panelcapinkbox-\dp\panelcapbox\relax}
+% Save the panel row so its height is measured rather than derived from
+% lengths that vary between TeX distributions.
 \savebox{\panelrowbox}{%
 \begin{subfigure}{0.2\panelcolwd}
 \centering
 \includegraphics[width=0.9\linewidth,trim=4cm 4cm 4cm 4cm,clip]{img/a=kin-group-id+idx=0+proc=0+series=16005+stint=100+thread=0+update=16-8752_16/frame_0001.png}%
+\vspace{-\panelcaptrim}%
 \caption{update 8}
 \label{fig:16005-timelapse:update64}
 \end{subfigure}%
@@ -74,6 +105,7 @@
 \centering
 \includegraphics[width=0.9\linewidth,trim=4cm 4cm 4cm 4cm,clip]{img/a=kin-group-id+idx=0+proc=0+series=16005+stint=100+thread=0+update=16-8752_16/frame_0016.png}%
 \footnotesize
+\vspace{-\panelcaptrim}%
 \caption{update 32}
 \label{fig:16005-timelapse:update256}
 \end{subfigure}%
@@ -81,6 +113,7 @@
 \centering
 \includegraphics[width=0.9\linewidth,trim=4cm 4cm 4cm 4cm,clip]{img/a=kin-group-id+idx=0+proc=0+series=16005+stint=100+thread=0+update=16-8752_16/frame_0052.png}%
 \footnotesize
+\vspace{-\panelcaptrim}%
 \caption{update 104}
 \label{fig:16005-timelapse:update832}
 \end{subfigure}%
@@ -88,6 +121,7 @@
 \centering
 \includegraphics[width=0.9\linewidth,trim=4cm 4cm 4cm 4cm,clip]{img/a=kin-group-id+idx=0+proc=0+series=16005+stint=100+thread=0+update=16-8752_16/frame_0420.png}%
 \footnotesize
+\vspace{-\panelcaptrim}%
 \caption{update 840}
 \label{fig:16005-timelapse:update6720}
 \end{subfigure}%
@@ -95,20 +129,13 @@
 \centering
 \includegraphics[width=0.9\linewidth,trim=4cm 4cm 4cm 4cm,clip]{img/a=kin-group-id+idx=0+proc=0+series=16005+stint=100+thread=0+update=16-8752_16/frame_0476.png}%
 \footnotesize
+\vspace{-\panelcaptrim}%
 \caption{update 952}
 \label{fig:16005-timelapse:update7616}
 \end{subfigure}%
 }
-% a specimen subcaption, strutted so it measures the line the subcaption
-% is set on rather than just the reach of its letters
-\savebox{\panelcapbox}{\footnotesize\strut(h) update 952}
-% Whatever the saved row holds below the pictures beyond that line is the
-% gap above the subcaptions; leave the same amount underneath so they sit
-% midway between the pictures and the bottom of the frame.
-\setlength{\panelcapgap}{\dimexpr\ht\panelrowbox+\dp\panelrowbox
-  -\panelimght-\ht\panelcapbox-\dp\panelcapbox\relax}
 \setlength{\panelrowht}{\dimexpr\panelpad+\ht\panelrowbox+\dp\panelrowbox
-  +\panelcapgap\relax}
+  +\panelcappad\relax}
 \setlength{\tabcolsep}{0pt}
 \renewcommand{\arraystretch}{1}
 \begin{tabular}{@{}>{\cellcolor{morphj!25!white}}m{\dimexpr\wd\morphjtitlebox+8pt\relax}@{\hspace{4pt}}m{\panelcolwd}@{}}
