@@ -29,6 +29,21 @@
 \usepackage{fancyheadings}
 \usepackage{tikz}
 \usetikzlibrary{calc}
+\usetikzlibrary{shapes.geometric}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+
+% matches matplotlib's tab:cyan, used for morph j in the case-study plots
+\definecolor{morphj}{HTML}{17BECF}
+
+% holds the case-study side title so its box can be measured, letting the
+% figure size its columns to the title instead of guessing; the panel
+% column's width then sets the padding that frames the panels
+\newsavebox{\morphjtitlebox}
+\newlength{\panelcolwd}
+\newlength{\panelpad}
+\newlength{\panellift}
+
 \usepackage{orcidlink}
 \usepackage{placeins}
 \usepackage{graphbox}

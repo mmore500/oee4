@@ -2,7 +2,7 @@
 
 \begin{subfigure}{0.425\linewidth}
 \centering
-\includegraphics[width=\linewidth,trim=0 0.2cm 0 0,clip]{../binder/binder-bucket=prq49--a=all_stints_all_series_profiles+endeavor=16--fitness_complexity.ipynb/binder/teeplots/bucket=prq49--a=all_stints_all_series_profiles+endeavor=16--fitness_complexity/hue=series+viz=lineplot+what=16005+x=stint+y=flagged-advantageous-sites+ext=.pdf}
+\includegraphics[width=\linewidth,trim=0 0.2cm 0 0,clip]{../binder/binder-bucket=prq49--a=all_stints_all_series_profiles+endeavor=16--fitness_complexity.ipynb/binder/teeplots/bucket=prq49--a=all_stints_all_series_profiles+endeavor=16--fitness_complexity/annot=morph+hue=series+viz=lineplot+what=16005+x=stint+y=flagged-advantageous-sites+ext=.pdf}
 
 \vspace{-1ex}
 
@@ -11,7 +11,7 @@
 \end{subfigure}%
 \begin{subfigure}{0.425\linewidth}
 \centering
-\includegraphics[width=\linewidth,trim=0 0.2cm 0 0,clip]{../binder/binder-bucket=prq49--a=all_stints_all_series_profiles+endeavor=16--interface_complexity.ipynb/binder/teeplots/bucket=prq49--a=all_stints_all_series_profiles+endeavor=16--interface_complexity/hue=series+viz=lineplot+what=16005+x=stint+y=cardinal-interface-complexity+ext=.pdf}
+\includegraphics[width=\linewidth,trim=0 0.2cm 0 0,clip]{../binder/binder-bucket=prq49--a=all_stints_all_series_profiles+endeavor=16--interface_complexity.ipynb/binder/teeplots/bucket=prq49--a=all_stints_all_series_profiles+endeavor=16--interface_complexity/annot=morph+hue=series+viz=lineplot+what=16005+x=stint+y=cardinal-interface-complexity+ext=.pdf}
 
 \vspace{-1ex}
 
@@ -28,8 +28,53 @@
 \label{fig:16005-timelapse:mean-complexity}
 \end{subfigure}
 
-\vspace{2ex}
-
+\begin{tcolorbox}[
+  enhanced,
+  colframe=morphj!30!white,
+  colback=morphj!4!white,
+  boxrule=0.8pt,
+  arc=1pt,
+  boxsep=0pt,
+  left=0pt,right=0pt,top=0pt,bottom=0pt,
+  width=\linewidth,
+]
+\savebox{\morphjtitlebox}{%
+  \begin{tabular}{@{}c@{}}
+    \bfseries\footnotesize morph~\tikz[baseline=(morphjbadge.base)]{%
+      \node[draw=black,very thick,fill=morphj,circle,inner sep=1pt,minimum size=1.1em,text=white] (morphjbadge) {$\boldsymbol{j}$};%
+    }\\[2pt]
+    \bfseries\footnotesize life history\\[3pt]
+    \scriptsize video animation:\\[-2pt]
+    \scriptsize\href{https://hopth.us/hr}{\texttt{\scriptsize hopth.us/hr}}
+  \end{tabular}%
+}
+% each of the 5 panels is 0.2\panelcolwd wide and holds an image set at
+% 0.9 of that, so 0.01\panelcolwd of slack already sits at the column's
+% outer edge; leading the panel row with the same amount lets the
+% vertically centered m{} column spread matching slack above and below,
+% so the gap to the teal frame reads the same on top, right, and bottom
+\setlength{\panelcolwd}{\dimexpr\linewidth-\wd\morphjtitlebox-12pt\relax}
+\setlength{\panelpad}{0.01\panelcolwd}
+% the panel column ends in a caption band --- \abovecaptionskip plus one
+% line of subcaption text --- that the images themselves do not occupy,
+% so centering the side title on the row would set it low against the
+% pictures.
+% Lifting it by half that band, less half the pad above the images,
+% centers it on the images instead.
+% The other two terms correct for where the title lands otherwise: the
+% saved box hangs \dp below its own baseline, and array heads every m{}
+% cell with a row strut that drops the cell's baseline half a strut below
+% the row's center (\arraystretch is 1 just below, so the row strut is
+% \strutbox).
+\sbox0{\footnotesize(h) update 952}
+\setlength{\panellift}{\dimexpr(\abovecaptionskip+\ht0+\dp0-\panelpad
+  -\ht\morphjtitlebox+\dp\morphjtitlebox+\ht\strutbox)/2\relax}
+\setlength{\tabcolsep}{0pt}
+\renewcommand{\arraystretch}{1}
+\begin{tabular}{@{}>{\centering\arraybackslash\cellcolor{morphj!25!white}}m{\dimexpr\wd\morphjtitlebox+8pt\relax}@{\hspace{4pt}}m{\panelcolwd}@{}}
+\raisebox{\panellift}[0pt][0pt]{\usebox{\morphjtitlebox}}
+&
+\vspace*{\panelpad}%
 \begin{subfigure}{0.2\linewidth}
 \centering
 \includegraphics[width=0.9\linewidth,trim=4cm 4cm 4cm 4cm,clip]{img/a=kin-group-id+idx=0+proc=0+series=16005+stint=100+thread=0+update=16-8752_16/frame_0001.png}%
@@ -63,7 +108,13 @@
 \footnotesize
 \caption{update 952}
 \label{fig:16005-timelapse:update7616}
-\end{subfigure}
+\end{subfigure}%
+\\
+\end{tabular}
+
+\end{tcolorbox}
+
+\vspace{-1.5ex}
 
 \caption{%
 \textbf{Case study strain.}
@@ -75,7 +126,6 @@ Hue denotes, and black borders divide, multicell groups; white borders reflect i
 From initial unicell groups (\ref{fig:16005-timelapse:update64}), cells replicate to form horizontal ``cigar-like'' bodies (\labelcref{fig:16005-timelapse:update256,fig:16005-timelapse:update832}).
 In a delayed second stage of growth, groups expand vertically to produce a ``box-like'' final morphology (\labelcref{fig:16005-timelapse:update6720,fig:16005-timelapse:update7616}).
 During this secondary phase of growth, some groups establish cigar-like propagules (\labelcref{fig:16005-timelapse:update7616}).
-Video animation: \href{https://hopth.us/hr}{\texttt{hopth.us/hr}}.
 }
 \label{fig:16005-timelapse}
 
