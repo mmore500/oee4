@@ -36,6 +36,10 @@
 % matches matplotlib's tab:cyan, used for morph j in the case-study plots
 \definecolor{morphj}{HTML}{17BECF}
 
+% holds the rotated case-study side title so its box can be measured,
+% letting the figure size its columns to the title instead of guessing
+\newsavebox{\morphjtitlebox}
+
 \usepackage{orcidlink}
 \usepackage{placeins}
 \usepackage{graphbox}

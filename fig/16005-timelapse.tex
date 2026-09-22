@@ -38,21 +38,23 @@
   left=0pt,right=0pt,top=0pt,bottom=0pt,
   width=\linewidth,
 ]
+\savebox{\morphjtitlebox}{%
+  \rotatebox{90}{%
+    \begin{tabular}{@{}c@{}}
+      \bfseries\footnotesize morph~\tikz[baseline=(morphjbadge.base)]{%
+        \node[draw=black,very thick,fill=morphj,circle,inner sep=1pt,minimum size=1.1em,text=white] (morphjbadge) {$\boldsymbol{j}$};%
+      }\\[2pt]
+      \bfseries\footnotesize life history\\[3pt]
+      \scriptsize\textit{video animation:}\\
+      \scriptsize\href{https://hopth.us/hr}{\texttt{\scriptsize hopth.us/hr}}
+    \end{tabular}%
+  }%
+}
 \setlength{\tabcolsep}{0pt}
 \renewcommand{\arraystretch}{1}
-\begin{tabular}{@{}>{\centering\arraybackslash\cellcolor{morphj!25!white}}m{0.09\linewidth}@{\hspace{3pt}}m{0.91\linewidth}@{}}
-\rotatebox{90}{%
-  \begin{tabular}{@{}c@{}}
-    \bfseries\footnotesize morph~\tikz[baseline=(morphjbadge.base)]{%
-      \node[draw=black,very thick,fill=morphj,circle,inner sep=1pt,minimum size=1.1em,text=white] (morphjbadge) {$\boldsymbol{j}$};%
-    }\\[3pt]
-    \bfseries\footnotesize life history\\[4pt]
-    \scriptsize\textit{video animation:}\\
-    \scriptsize\href{https://hopth.us/hr}{\texttt{\scriptsize hopth.us/hr}}
-  \end{tabular}%
-}
+\begin{tabular}{@{}>{\centering\arraybackslash\cellcolor{morphj!25!white}}m{\dimexpr\wd\morphjtitlebox+8pt\relax}@{\hspace{4pt}}m{\dimexpr\linewidth-\wd\morphjtitlebox-12pt\relax}@{}}
+\usebox{\morphjtitlebox}
 &
-\vspace{3pt}
 \begin{subfigure}{0.2\linewidth}
 \centering
 \includegraphics[width=0.9\linewidth,trim=4cm 4cm 4cm 4cm,clip]{img/a=kin-group-id+idx=0+proc=0+series=16005+stint=100+thread=0+update=16-8752_16/frame_0001.png}%
@@ -87,7 +89,6 @@
 \caption{update 952}
 \label{fig:16005-timelapse:update7616}
 \end{subfigure}
-\vspace{3pt}
 \\
 \end{tabular}
 
