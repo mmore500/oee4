@@ -48,11 +48,19 @@
     \scriptsize\href{https://hopth.us/hr}{\texttt{\scriptsize hopth.us/hr}}
   \end{tabular}%
 }
+% each of the 5 panels is 0.2\panelcolwd wide and holds an image set at
+% 0.9 of that, so 0.01\panelcolwd of slack already sits at the column's
+% outer edge; leading the panel row with the same amount lets the
+% vertically centered m{} column spread matching slack above and below,
+% so the gap to the teal frame reads the same on top, right, and bottom
+\setlength{\panelcolwd}{\dimexpr\linewidth-\wd\morphjtitlebox-12pt\relax}
+\setlength{\panelpad}{0.01\panelcolwd}
 \setlength{\tabcolsep}{0pt}
 \renewcommand{\arraystretch}{1}
-\begin{tabular}{@{}>{\centering\arraybackslash\cellcolor{morphj!25!white}}m{\dimexpr\wd\morphjtitlebox+8pt\relax}@{\hspace{4pt}}m{\dimexpr\linewidth-\wd\morphjtitlebox-12pt\relax}@{}}
+\begin{tabular}{@{}>{\centering\arraybackslash\cellcolor{morphj!25!white}}m{\dimexpr\wd\morphjtitlebox+8pt\relax}@{\hspace{4pt}}m{\panelcolwd}@{}}
 \usebox{\morphjtitlebox}
 &
+\vspace*{\panelpad}%
 \begin{subfigure}{0.2\linewidth}
 \centering
 \includegraphics[width=0.9\linewidth,trim=4cm 4cm 4cm 4cm,clip]{img/a=kin-group-id+idx=0+proc=0+series=16005+stint=100+thread=0+update=16-8752_16/frame_0001.png}%
@@ -86,7 +94,7 @@
 \footnotesize
 \caption{update 952}
 \label{fig:16005-timelapse:update7616}
-\end{subfigure}
+\end{subfigure}%
 \\
 \end{tabular}
 
