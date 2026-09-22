@@ -34,12 +34,13 @@
   colback=morphj!4!white,
   boxrule=0.8pt,
   arc=1pt,
-  boxsep=3pt,
+  boxsep=0pt,
+  left=0pt,right=0pt,top=0pt,bottom=0pt,
   width=\linewidth,
 ]
-\colorbox{morphj!25!white}{%
-\begin{minipage}[c][3.4cm][c]{0.09\linewidth}
-\centering
+\setlength{\tabcolsep}{0pt}
+\renewcommand{\arraystretch}{1}
+\begin{tabular}{@{}>{\centering\arraybackslash\cellcolor{morphj!25!white}}m{0.09\linewidth}@{\hspace{3pt}}m{0.91\linewidth}@{}}
 \rotatebox{90}{%
   \begin{tabular}{@{}c@{}}
     \bfseries\footnotesize morph~\tikz[baseline=(morphjbadge.base)]{%
@@ -49,9 +50,8 @@
     \scriptsize\href{https://hopth.us/hr}{\texttt{\scriptsize hopth.us/hr}}
   \end{tabular}%
 }
-\end{minipage}%
-}%
-\begin{minipage}[c]{0.9\linewidth}
+&
+\vspace{3pt}
 \begin{subfigure}{0.2\linewidth}
 \centering
 \includegraphics[width=0.9\linewidth,trim=4cm 4cm 4cm 4cm,clip]{img/a=kin-group-id+idx=0+proc=0+series=16005+stint=100+thread=0+update=16-8752_16/frame_0001.png}%
@@ -86,7 +86,9 @@
 \caption{update 952}
 \label{fig:16005-timelapse:update7616}
 \end{subfigure}
-\end{minipage}
+\vspace{3pt}
+\\
+\end{tabular}
 
 \end{tcolorbox}
 
