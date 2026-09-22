@@ -36,13 +36,19 @@
 % matches matplotlib's tab:cyan, used for morph j in the case-study plots
 \definecolor{morphj}{HTML}{17BECF}
 
-% holds the case-study side title so its box can be measured, letting the
-% figure size its columns to the title instead of guessing; the panel
-% column's width then sets the padding that frames the panels
+% Figure 2's case-study row sizes itself from its own contents rather
+% than from the caption and strut lengths that vary between TeX
+% distributions, so it keeps boxes for the side title, one panel picture,
+% the whole panel row and a specimen subcaption, and measures those.
 \newsavebox{\morphjtitlebox}
+\newsavebox{\panelimgbox}
+\newsavebox{\panelrowbox}
+\newsavebox{\panelcapbox}
 \newlength{\panelcolwd}
 \newlength{\panelpad}
-\newlength{\panellift}
+\newlength{\panelimght}
+\newlength{\panelcapgap}
+\newlength{\panelrowht}
 
 \usepackage{orcidlink}
 \usepackage{placeins}

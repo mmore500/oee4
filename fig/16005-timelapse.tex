@@ -48,67 +48,87 @@
     \scriptsize\href{https://hopth.us/hr}{\texttt{\scriptsize hopth.us/hr}}
   \end{tabular}%
 }
-% each of the 5 panels is 0.2\panelcolwd wide and holds an image set at
+% each of the 5 panels is 0.2\panelcolwd wide and holds a picture set at
 % 0.9 of that, so 0.01\panelcolwd of slack already sits at the column's
-% outer edge; leading the panel row with the same amount lets the
-% vertically centered m{} column spread matching slack above and below,
-% so the gap to the teal frame reads the same on top, right, and bottom
+% outer edge; leading the panel row with the same amount gives the frame
+% the same clearance on top and right
 \setlength{\panelcolwd}{\dimexpr\linewidth-\wd\morphjtitlebox-12pt\relax}
 \setlength{\panelpad}{0.01\panelcolwd}
-% the panel column ends in a caption band --- \abovecaptionskip plus one
-% line of subcaption text --- that the images themselves do not occupy,
-% so centering the side title on the row would set it low against the
-% pictures.
-% Lifting it by half that band, less half the pad above the images,
-% centers it on the images instead.
-% The other two terms correct for where the title lands otherwise: the
-% saved box hangs \dp below its own baseline, and array heads every m{}
-% cell with a row strut that drops the cell's baseline half a strut below
-% the row's center (\arraystretch is 1 just below, so the row strut is
-% \strutbox).
-\sbox0{\footnotesize(h) update 952}
-\setlength{\panellift}{\dimexpr(\abovecaptionskip+\ht0+\dp0-\panelpad
-  -\ht\morphjtitlebox+\dp\morphjtitlebox+\ht\strutbox)/2\relax}
-\setlength{\tabcolsep}{0pt}
-\renewcommand{\arraystretch}{1}
-\begin{tabular}{@{}>{\centering\arraybackslash\cellcolor{morphj!25!white}}m{\dimexpr\wd\morphjtitlebox+8pt\relax}@{\hspace{4pt}}m{\panelcolwd}@{}}
-\raisebox{\panellift}[0pt][0pt]{\usebox{\morphjtitlebox}}
-&
-\vspace*{\panelpad}%
-\begin{subfigure}{0.2\linewidth}
+% The pictures are cropped, so how tall they come out is not something to
+% assume; set one and measure it.
+\savebox{\panelimgbox}{%
+  \includegraphics[width=0.18\panelcolwd,trim=4cm 4cm 4cm 4cm,clip]{img/a=kin-group-id+idx=0+proc=0+series=16005+stint=100+thread=0+update=16-8752_16/frame_0001.png}%
+}
+\setlength{\panelimght}{\dimexpr\ht\panelimgbox+\dp\panelimgbox\relax}
+% Save the panel row so the band below the pictures can be measured
+% instead of derived from \abovecaptionskip and the caption package's
+% own skips, which differ between TeX distributions.
+\savebox{\panelrowbox}{%
+\begin{subfigure}{0.2\panelcolwd}
 \centering
 \includegraphics[width=0.9\linewidth,trim=4cm 4cm 4cm 4cm,clip]{img/a=kin-group-id+idx=0+proc=0+series=16005+stint=100+thread=0+update=16-8752_16/frame_0001.png}%
 \caption{update 8}
 \label{fig:16005-timelapse:update64}
 \end{subfigure}%
-\begin{subfigure}{0.2\linewidth}
+\begin{subfigure}{0.2\panelcolwd}
 \centering
 \includegraphics[width=0.9\linewidth,trim=4cm 4cm 4cm 4cm,clip]{img/a=kin-group-id+idx=0+proc=0+series=16005+stint=100+thread=0+update=16-8752_16/frame_0016.png}%
 \footnotesize
 \caption{update 32}
 \label{fig:16005-timelapse:update256}
 \end{subfigure}%
-\begin{subfigure}{0.2\linewidth}
+\begin{subfigure}{0.2\panelcolwd}
 \centering
 \includegraphics[width=0.9\linewidth,trim=4cm 4cm 4cm 4cm,clip]{img/a=kin-group-id+idx=0+proc=0+series=16005+stint=100+thread=0+update=16-8752_16/frame_0052.png}%
 \footnotesize
 \caption{update 104}
 \label{fig:16005-timelapse:update832}
 \end{subfigure}%
-\begin{subfigure}{0.2\linewidth}
+\begin{subfigure}{0.2\panelcolwd}
 \centering
 \includegraphics[width=0.9\linewidth,trim=4cm 4cm 4cm 4cm,clip]{img/a=kin-group-id+idx=0+proc=0+series=16005+stint=100+thread=0+update=16-8752_16/frame_0420.png}%
 \footnotesize
 \caption{update 840}
 \label{fig:16005-timelapse:update6720}
 \end{subfigure}%
-\begin{subfigure}{0.2\linewidth}
+\begin{subfigure}{0.2\panelcolwd}
 \centering
 \includegraphics[width=0.9\linewidth,trim=4cm 4cm 4cm 4cm,clip]{img/a=kin-group-id+idx=0+proc=0+series=16005+stint=100+thread=0+update=16-8752_16/frame_0476.png}%
 \footnotesize
 \caption{update 952}
 \label{fig:16005-timelapse:update7616}
 \end{subfigure}%
+}
+% a specimen subcaption, strutted so it measures the line the subcaption
+% is set on rather than just the reach of its letters
+\savebox{\panelcapbox}{\footnotesize\strut(h) update 952}
+% Whatever the saved row holds below the pictures beyond that line is the
+% gap above the subcaptions; leave the same amount underneath so they sit
+% midway between the pictures and the bottom of the frame.
+\setlength{\panelcapgap}{\dimexpr\ht\panelrowbox+\dp\panelrowbox
+  -\panelimght-\ht\panelcapbox-\dp\panelcapbox\relax}
+\setlength{\panelrowht}{\dimexpr\panelpad+\ht\panelrowbox+\dp\panelrowbox
+  +\panelcapgap\relax}
+\setlength{\tabcolsep}{0pt}
+\renewcommand{\arraystretch}{1}
+\begin{tabular}{@{}>{\cellcolor{morphj!25!white}}m{\dimexpr\wd\morphjtitlebox+8pt\relax}@{\hspace{4pt}}m{\panelcolwd}@{}}
+% Both cells are boxes of the same measured height, so they line up top
+% and bottom whatever the surrounding lengths happen to be; the title
+% then centers on the pictures by sitting in a box exactly as tall as
+% they are.
+\parbox[c][\panelrowht][t]{\dimexpr\wd\morphjtitlebox+8pt\relax}{%
+  \vspace*{\panelpad}%
+  \vbox to \panelimght{%
+    \vfil
+    \hbox to \linewidth{\hfil\usebox{\morphjtitlebox}\hfil}%
+    \vfil
+  }%
+}
+&
+\parbox[c][\panelrowht][t]{\panelcolwd}{%
+  \vspace*{\panelpad}%
+  \usebox{\panelrowbox}%
+}
 \\
 \end{tabular}
 
