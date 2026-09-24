@@ -1,0 +1,217 @@
+\newcommand{\rootsnap}[1]{%
+\includegraphics[width=1.95cm]{img/multiculture-root-snapshots-by-stint/#1}%
+}
+% raise so the label's own vertical center lands at half the (square)
+% image height, regardless of the label's length (self-correcting, unlike
+% a fixed raise or a narrow array m{} column which clipped/misaligned it)
+\newcommand{\stintlabel}[1]{%
+\raisebox{\dimexpr 0.975cm-0.5\height\relax}{\rotatebox{90}{Stint #1}}%
+}
+
+\begingroup
+\setlength{\tabcolsep}{3pt}
+\begin{longtable}{c*{8}{c}}
+\caption{%
+\textbf{Spatial segregation between case study focal and background strains.}
+\footnotesize
+Snapshots visualize spatial distribution of focal and background strains on toroidal grid at fixed points in time (updates) across after-the-fact isolate co-cultures (Supplementary Section \ref{sec:cultured-phenotype-videos}).
+Each cell is depicted as a small square tile.
+Color coding marks case study ``focal'' strain as pink and ``background'' strain as green.
+Black cells are empty.
+Black borders divide outermost kin groups and white borders divide innermost kin groups.
+Video animations are provided at \url{https://hopth.us/hy}{\texttt{hopth.us/hy}}.
+} \label{tab:multiculture_root_snapshots_by_stint} \\
+& Update 64 & Update 128 & Update 256 & Update 512 & Update 1024 & Update 2048 & Update 4096 & Update 8192 \\
+\endfirsthead
+\caption*{\tablename{} \thetable{} (cont'd)} \\
+& Update 64 & Update 128 & Update 256 & Update 512 & Update 1024 & Update 2048 & Update 4096 & Update 8192 \\
+\endhead
+\stintlabel{10} &
+\rootsnap{s10_u64.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=10/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=10+thread=0+update=64-49152%64+ext=.mp4, frame 0
+&
+\rootsnap{s10_u128.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=10/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=10+thread=0+update=64-49152%64+ext=.mp4, frame 1
+&
+\rootsnap{s10_u256.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=10/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=10+thread=0+update=64-49152%64+ext=.mp4, frame 3
+&
+\rootsnap{s10_u512.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=10/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=10+thread=0+update=64-49152%64+ext=.mp4, frame 7
+&
+\rootsnap{s10_u1024.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=10/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=10+thread=0+update=64-49152%64+ext=.mp4, frame 15
+&
+\rootsnap{s10_u2048.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=10/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=10+thread=0+update=64-49152%64+ext=.mp4, frame 31
+&
+\rootsnap{s10_u4096.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=10/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=10+thread=0+update=64-49152%64+ext=.mp4, frame 63
+&
+\rootsnap{s10_u8192.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=10/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=10+thread=0+update=64-49152%64+ext=.mp4, frame 127
+\\[12pt]
+\stintlabel{15} &
+\rootsnap{s15_u64.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=15/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=15+thread=0+update=64-16384%64+ext=.mp4, frame 0
+&
+\rootsnap{s15_u128.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=15/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=15+thread=0+update=64-16384%64+ext=.mp4, frame 1
+&
+\rootsnap{s15_u256.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=15/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=15+thread=0+update=64-16384%64+ext=.mp4, frame 3
+&
+\rootsnap{s15_u512.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=15/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=15+thread=0+update=64-16384%64+ext=.mp4, frame 7
+&
+\rootsnap{s15_u1024.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=15/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=15+thread=0+update=64-16384%64+ext=.mp4, frame 15
+&
+\rootsnap{s15_u2048.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=15/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=15+thread=0+update=64-16384%64+ext=.mp4, frame 31
+&
+\rootsnap{s15_u4096.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=15/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=15+thread=0+update=64-16384%64+ext=.mp4, frame 63
+&
+\rootsnap{s15_u8192.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=15/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=15+thread=0+update=64-16384%64+ext=.mp4, frame 127
+\\[12pt]
+\stintlabel{20} &
+\rootsnap{s20_u64.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=20/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=20+thread=0+update=64-57664%64+ext=.mp4, frame 0
+&
+\rootsnap{s20_u128.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=20/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=20+thread=0+update=64-57664%64+ext=.mp4, frame 1
+&
+\rootsnap{s20_u256.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=20/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=20+thread=0+update=64-57664%64+ext=.mp4, frame 3
+&
+\rootsnap{s20_u512.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=20/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=20+thread=0+update=64-57664%64+ext=.mp4, frame 7
+&
+\rootsnap{s20_u1024.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=20/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=20+thread=0+update=64-57664%64+ext=.mp4, frame 15
+&
+\rootsnap{s20_u2048.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=20/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=20+thread=0+update=64-57664%64+ext=.mp4, frame 31
+&
+\rootsnap{s20_u4096.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=20/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=20+thread=0+update=64-57664%64+ext=.mp4, frame 63
+&
+\rootsnap{s20_u8192.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=20/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=20+thread=0+update=64-57664%64+ext=.mp4, frame 127
+\\[12pt]
+\stintlabel{30} &
+\rootsnap{s30_u64.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=30/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=30+thread=0+update=64-44480%64+ext=.mp4, frame 0
+&
+\rootsnap{s30_u128.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=30/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=30+thread=0+update=64-44480%64+ext=.mp4, frame 1
+&
+\rootsnap{s30_u256.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=30/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=30+thread=0+update=64-44480%64+ext=.mp4, frame 3
+&
+\rootsnap{s30_u512.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=30/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=30+thread=0+update=64-44480%64+ext=.mp4, frame 7
+&
+\rootsnap{s30_u1024.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=30/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=30+thread=0+update=64-44480%64+ext=.mp4, frame 15
+&
+\rootsnap{s30_u2048.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=30/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=30+thread=0+update=64-44480%64+ext=.mp4, frame 31
+&
+\rootsnap{s30_u4096.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=30/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=30+thread=0+update=64-44480%64+ext=.mp4, frame 63
+&
+\rootsnap{s30_u8192.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=30/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=30+thread=0+update=64-44480%64+ext=.mp4, frame 127
+\\[12pt]
+\stintlabel{40} &
+\rootsnap{s40_u64.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=40/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=40+thread=0+update=64-40896%64+ext=.mp4, frame 0
+&
+\rootsnap{s40_u128.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=40/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=40+thread=0+update=64-40896%64+ext=.mp4, frame 1
+&
+\rootsnap{s40_u256.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=40/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=40+thread=0+update=64-40896%64+ext=.mp4, frame 3
+&
+\rootsnap{s40_u512.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=40/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=40+thread=0+update=64-40896%64+ext=.mp4, frame 7
+&
+\rootsnap{s40_u1024.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=40/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=40+thread=0+update=64-40896%64+ext=.mp4, frame 15
+&
+\rootsnap{s40_u2048.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=40/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=40+thread=0+update=64-40896%64+ext=.mp4, frame 31
+&
+\rootsnap{s40_u4096.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=40/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=40+thread=0+update=64-40896%64+ext=.mp4, frame 63
+&
+\rootsnap{s40_u8192.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=40/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=40+thread=0+update=64-40896%64+ext=.mp4, frame 127
+\\[12pt]
+\stintlabel{50} &
+\rootsnap{s50_u64.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=50/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=50+thread=0+update=64-38912%64+ext=.mp4, frame 0
+&
+\rootsnap{s50_u128.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=50/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=50+thread=0+update=64-38912%64+ext=.mp4, frame 1
+&
+\rootsnap{s50_u256.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=50/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=50+thread=0+update=64-38912%64+ext=.mp4, frame 3
+&
+\rootsnap{s50_u512.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=50/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=50+thread=0+update=64-38912%64+ext=.mp4, frame 7
+&
+\rootsnap{s50_u1024.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=50/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=50+thread=0+update=64-38912%64+ext=.mp4, frame 15
+&
+\rootsnap{s50_u2048.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=50/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=50+thread=0+update=64-38912%64+ext=.mp4, frame 31
+&
+\rootsnap{s50_u4096.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=50/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=50+thread=0+update=64-38912%64+ext=.mp4, frame 63
+&
+\rootsnap{s50_u8192.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=50/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=50+thread=0+update=64-38912%64+ext=.mp4, frame 127
+\\[12pt]
+\stintlabel{60} &
+\rootsnap{s60_u64.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=60/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=60+thread=0+update=64-16384%64+ext=.mp4, frame 0
+&
+\rootsnap{s60_u128.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=60/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=60+thread=0+update=64-16384%64+ext=.mp4, frame 1
+&
+\rootsnap{s60_u256.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=60/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=60+thread=0+update=64-16384%64+ext=.mp4, frame 3
+&
+\rootsnap{s60_u512.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=60/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=60+thread=0+update=64-16384%64+ext=.mp4, frame 7
+&
+\rootsnap{s60_u1024.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=60/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=60+thread=0+update=64-16384%64+ext=.mp4, frame 15
+&
+\rootsnap{s60_u2048.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=60/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=60+thread=0+update=64-16384%64+ext=.mp4, frame 31
+&
+\rootsnap{s60_u4096.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=60/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=60+thread=0+update=64-16384%64+ext=.mp4, frame 63
+&
+\rootsnap{s60_u8192.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=60/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=60+thread=0+update=64-16384%64+ext=.mp4, frame 127
+\\[12pt]
+\stintlabel{70} &
+\rootsnap{s70_u64.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=70/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=70+thread=0+update=64-15424%64+ext=.mp4, frame 0
+&
+\rootsnap{s70_u128.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=70/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=70+thread=0+update=64-15424%64+ext=.mp4, frame 1
+&
+\rootsnap{s70_u256.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=70/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=70+thread=0+update=64-15424%64+ext=.mp4, frame 3
+&
+\rootsnap{s70_u512.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=70/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=70+thread=0+update=64-15424%64+ext=.mp4, frame 7
+&
+\rootsnap{s70_u1024.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=70/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=70+thread=0+update=64-15424%64+ext=.mp4, frame 15
+&
+\rootsnap{s70_u2048.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=70/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=70+thread=0+update=64-15424%64+ext=.mp4, frame 31
+&
+\rootsnap{s70_u4096.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=70/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=70+thread=0+update=64-15424%64+ext=.mp4, frame 63
+&
+\rootsnap{s70_u8192.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=70/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=70+thread=0+update=64-15424%64+ext=.mp4, frame 127
+\\[12pt]
+\stintlabel{80} &
+\rootsnap{s80_u64.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=80/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=80+thread=0+update=64-36032%64+ext=.mp4, frame 0
+&
+\rootsnap{s80_u128.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=80/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=80+thread=0+update=64-36032%64+ext=.mp4, frame 1
+&
+\rootsnap{s80_u256.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=80/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=80+thread=0+update=64-36032%64+ext=.mp4, frame 3
+&
+\rootsnap{s80_u512.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=80/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=80+thread=0+update=64-36032%64+ext=.mp4, frame 7
+&
+\rootsnap{s80_u1024.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=80/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=80+thread=0+update=64-36032%64+ext=.mp4, frame 15
+&
+\rootsnap{s80_u2048.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=80/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=80+thread=0+update=64-36032%64+ext=.mp4, frame 31
+&
+\rootsnap{s80_u4096.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=80/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=80+thread=0+update=64-36032%64+ext=.mp4, frame 63
+&
+\rootsnap{s80_u8192.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=80/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=80+thread=0+update=64-36032%64+ext=.mp4, frame 127
+\\[12pt]
+\stintlabel{90} &
+\rootsnap{s90_u64.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=90/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=90+thread=0+update=64-38272%64+ext=.mp4, frame 0
+&
+\rootsnap{s90_u128.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=90/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=90+thread=0+update=64-38272%64+ext=.mp4, frame 1
+&
+\rootsnap{s90_u256.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=90/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=90+thread=0+update=64-38272%64+ext=.mp4, frame 3
+&
+\rootsnap{s90_u512.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=90/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=90+thread=0+update=64-38272%64+ext=.mp4, frame 7
+&
+\rootsnap{s90_u1024.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=90/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=90+thread=0+update=64-38272%64+ext=.mp4, frame 15
+&
+\rootsnap{s90_u2048.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=90/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=90+thread=0+update=64-38272%64+ext=.mp4, frame 31
+&
+\rootsnap{s90_u4096.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=90/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=90+thread=0+update=64-38272%64+ext=.mp4, frame 63
+&
+\rootsnap{s90_u8192.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=90/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=90+thread=0+update=64-38272%64+ext=.mp4, frame 127
+\\[12pt]
+\stintlabel{100} &
+\rootsnap{s100_u64.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=100/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=100+thread=0+update=64-18816%64+ext=.mp4, frame 0
+&
+\rootsnap{s100_u128.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=100/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=100+thread=0+update=64-18816%64+ext=.mp4, frame 1
+&
+\rootsnap{s100_u256.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=100/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=100+thread=0+update=64-18816%64+ext=.mp4, frame 3
+&
+\rootsnap{s100_u512.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=100/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=100+thread=0+update=64-18816%64+ext=.mp4, frame 7
+&
+\rootsnap{s100_u1024.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=100/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=100+thread=0+update=64-18816%64+ext=.mp4, frame 15
+&
+\rootsnap{s100_u2048.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=100/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=100+thread=0+update=64-18816%64+ext=.mp4, frame 31
+&
+\rootsnap{s100_u4096.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=100/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=100+thread=0+update=64-18816%64+ext=.mp4, frame 63
+&
+\rootsnap{s100_u8192.png} % s3://prq49/endeavor=16/multicultures-lowestandhighestroot-extended/videos/stage=1+what=generated/stint=100/series=16005/a=phylogenetic-root+idx=0+proc=0+series=16005+stint=100+thread=0+update=64-18816%64+ext=.mp4, frame 127
+\\[12pt]
+\end{longtable}
+\endgroup

@@ -29,6 +29,33 @@
 \usepackage{fancyheadings}
 \usepackage{tikz}
 \usetikzlibrary{calc}
+\usetikzlibrary{shapes.geometric}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+
+% matches matplotlib's tab:cyan, used for morph j in the case-study plots
+\definecolor{morphj}{HTML}{17BECF}
+
+% Figure 2's case-study row sizes itself from its own contents rather
+% than from the caption and strut lengths that vary between TeX
+% distributions, so it keeps boxes for the side title, one panel picture,
+% the whole panel row and a specimen subcaption, and measures those.
+\newsavebox{\morphjtitlebox}
+\newsavebox{\panelimgbox}
+\newsavebox{\panelprobebox}
+\newsavebox{\panelrowbox}
+\newsavebox{\panelcapbox}
+\newsavebox{\panelcapinkbox}
+\newlength{\panelcolwd}
+\newlength{\panelpad}
+\newlength{\panelimght}
+\newlength{\panelcapskip}
+\newlength{\panelcapabove}
+\newlength{\panelcapbelow}
+\newlength{\panelcaptrim}
+\newlength{\panelcappad}
+\newlength{\panelrowht}
+
 \usepackage{orcidlink}
 \usepackage{placeins}
 \usepackage{graphbox}
