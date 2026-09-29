@@ -18,7 +18,10 @@ jobs:
           fi
       - name: Update tex submodule to latest on tex
         run: |
-          git submodule update --init --remote --depth 1 tex
+          git submodule update --init --depth 1 tex
+          branch="$(git config -f .gitmodules submodule.tex.branch)"
+          git -C tex fetch --depth 1 origin "${branch}"
+          git -C tex checkout --detach FETCH_HEAD
           git add tex
           git diff --cached --quiet || git commit -m "bump tex pin"
       - run: git push origin HEAD
