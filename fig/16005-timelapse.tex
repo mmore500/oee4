@@ -39,18 +39,24 @@
   width=\linewidth,
 ]
 \savebox{\morphjtitlebox}{%
+  % Rows in a tabular are held open by a strut sized from the font in
+  % force when the tabular starts, not from what each row contains, so
+  % the panel stayed as tall as normalsize text however small its own
+  % lines were set --- and overran the frame. Start it at the size the
+  % unbolded lines use, and each row is sized by what is in it.
+  \scriptsize
   \begin{tabular}{@{}c@{}}
     \bfseries\footnotesize morph~\tikz[baseline=(morphjbadge.base)]{%
       \node[draw=black,very thick,fill=morphj,circle,inner sep=1pt,minimum size=1.1em,text=white] (morphjbadge) {$\boldsymbol{j}$};%
     }\\[2pt]
-    \bfseries\footnotesize life history\\[-2pt]
-    \footnotesize over one\\[-2pt]
-    \footnotesize multicell\\[-2pt]
-    \footnotesize generation,\\[-2pt]
-    \footnotesize grown from\\[-2pt]
-    \footnotesize unicellular\\[-2pt]
-    \footnotesize inoculate\\[3pt]
-    \scriptsize video animation:\\[-2pt]
+    \bfseries\footnotesize life history\\
+    \scriptsize over one\\
+    \scriptsize multicell\\
+    \scriptsize generation,\\
+    \scriptsize grown from\\
+    \scriptsize unicellular\\
+    \scriptsize inoculate\\[3pt]
+    \scriptsize video animation:\\
     \scriptsize\href{https://hopth.us/hr}{\texttt{\scriptsize hopth.us/hr}}
   \end{tabular}%
 }
