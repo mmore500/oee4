@@ -2,23 +2,18 @@
 
 % Source: data/genome-16005-stint100-highestroot.json is the gunzipped copy of
 % s3://prq49/endeavor=16/genomes/stage=1+what=extracted/stint=100/series=16005/a=genome+criteria=abundance_highest_root+morph=wildtype+proc=0+series=16005+stint=100+thread=0+variation=master+ext=.json.gz
-% One row per genome site.  The rows live in a generated data file rather than
-% inline here: data/annotated-genome-16005-stint100-highestroot.tex is written by
-% script/make_annotated_genome_table.py straight from the committed annotated
-% genome JSON, alongside an RFC 4180 CSV of the same records for analysis.
-% Instruction semantics contain TeX-special characters (%, &, ~, ^, _, |), so
-% the generator escapes them on the way into the rows file; the CSV keeps them
-% verbatim.
-\newcommand{\genomerow}[8]{%
-  #1 & #2 & #3 & \texttt{#4} & \texttt{#5} & \texttt{#6}
-    & \texttt{#7} & \texttt{#8} \\
-}
+% Rows are read straight from the tab-separated file that script/make_annotated_genome_table.sh
+% writes from the committed genome JSON.  Instruction semantics contain
+% TeX-special characters (%, &, ~, ^, |), which csvsimple-l3 passes through
+% untouched under its "respect all" option (the file is tab-separated because
+% csvsimple does not understand RFC 4180 quoting of fields containing commas).
 
-\newcommand{\genomerowb}[8]{%
-  \textbf{#1} & \textbf{#2} & \textbf{#3} & \textbf{\texttt{#4}}
-    & \textbf{\texttt{#5}} & \textbf{\texttt{#6}}
-    & \textbf{\texttt{#7}} & \textbf{\texttt{#8}} \\
-}
+% Sites flagged in the single-site knockout screens are set in bold.
+\csvreader[respect all]{data/knockout-highlighted-sites-16005-stint100-highestroot.csv}%
+  {site=\hlsite}{\expandafter\gdef\csname genomehl@\hlsite\endcsname{}}
+
+\newcommand{\gtext}[1]{\ifcsname genomehl@\gsite\endcsname\textbf{#1}\else#1\fi}
+\newcommand{\gtt}[1]{\gtext{\texttt{#1}}}
 
 \newcommand{\genomehead}{%
 \textbf{Site} & \textbf{Mod.} & \textbf{Off.} & \textbf{Operation}
@@ -49,6 +44,13 @@
 \endhead
 \bottomrule
 \endlastfoot
-\input{data/annotated-genome-16005-stint100-highestroot.tex}%
+\csvreader[respect all,separator=tab]{data/annotated-genome-16005-stint100-highestroot.tsv}{%
+  site=\gsite, module=\gmodule, module_offset=\goffset, operation=\goperation,
+  summary=\gsummary, arg_a=\garga, arg_b=\gargb, arg_c=\gargc,
+  target_label=\gtarget, value=\gvalue}{%
+  \gtext{\gsite} & \gtext{\gmodule} & \gtext{\goffset} & \gtt{\goperation}
+    & \gtt{\gsummary} & \gtt{\garga,\gargb,\gargc} & \gtt{\gtarget}
+    & \gtt{\gvalue} \\
+}%
 \end{longtable}
 \end{landscape}

@@ -9,6 +9,7 @@
 % perpage resets the counter on each page to avoid running out of symbols
 \usepackage[symbol*,perpage]{footmisc}
 
+\PassOptionsToPackage{l3}{csvsimple} % markdown loads csvsimple; the genome table needs its l3 variant
 \usepackage[footnotes,definitionLists,hashEnumerators,smartEllipses,hybrid]{markdown}
 \usepackage{adjustbox}
 \usepackage[super,comma,sort&compress]{natbib} \usepackage{alifeconf} %% The order is important
@@ -18,6 +19,7 @@
 \renewcommand{\thesubtable}{\Alph{subtable}}
 \usepackage{longtable}
 \usepackage{booktabs}
+\usepackage{csvsimple}
 \usepackage{listings}
 \usepackage{amsmath}
 \usepackage{hyperref,cleveref}
