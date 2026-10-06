@@ -26,14 +26,14 @@
 }
 
 \begin{landscape}
-\begin{scriptsize}
+\fontsize{5.5}{6.6}\selectfont
 % nine columns of default padding would push the table past the text block
 \setlength{\tabcolsep}{2pt}
 \begin{longtable}{%
-  r@{\hspace{0.6em}}r@{\hspace{0.6em}}r
+  r@{\hspace{0.8em}}r@{\hspace{0.8em}}r@{\hspace{1.2em}}
   >{\raggedright\arraybackslash}p{5cm}
   >{\raggedright\arraybackslash}p{8.2cm}
-  c
+  @{\hspace{1.2em}}c@{\hspace{1.2em}}
   >{\raggedright\arraybackslash}p{5.5cm}
   r
 }
@@ -49,5 +49,4 @@
 \endlastfoot
 \input{data/annotated-genome-16005-stint100-root1.tex}%
 \end{longtable}
-\end{scriptsize}
 \end{landscape}
