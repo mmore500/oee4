@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Flatten an annotated DISHTINY genome JSON into a CSV, one row per site.
+"""Flatten an annotated DISHTINY genome JSON into a TSV, one row per site.
 
 The JSON that DISHTINY dumps for a specimen carries, for each instruction, its
 operation name, its three raw argument bytes, its 64-bit tag, and a list of
@@ -15,23 +15,41 @@ prefix with the nop substituted by single-site knockouts, every ``Nop``
 performs no operation.
 
 One column is derived rather than copied: ``target_label`` joins a state
-target with its index.  Every other column is copied verbatim out of the JSON.
+target with its index.  Every other column is copied out of the JSON.
 
-Requires pandas.
+Requires pandas.  Run from the repository root with no arguments.
 
 The output is tab-separated (no field contains a tab or a quote) rather than
-comma-separated, because csvsimple-l3, which the LaTeX table reads it with
-(``respect all``), does not understand RFC 4180 quoting of fields that contain
-commas, and instruction semantics such as ``if a, terminate core`` do.
-
-Usage:
-    ./make_annotated_genome_table.py <genome.json> <out.tsv>
+comma-separated, because csvsimple does not understand RFC 4180 quoting of
+fields that contain commas, and instruction semantics such as ``if a, terminate
+core`` do.  Text fields are written already TeX-escaped (``a = b & c`` becomes
+``a = b \\& c``), because instruction semantics contain ``%``, ``&``, ``~``,
+``^`` and ``|``, which a LaTeX table cannot read safely out of a data file
+otherwise.
 """
 
 import json
-import sys
 
 import pandas as pd
+
+GENOME_PATH = "data/genome-16005-stint100-highestroot.json"
+TSV_PATH = "data/annotated-genome-16005-stint100-highestroot.tsv"
+
+TEX_ESCAPES = str.maketrans(
+    {
+        "\\": r"\textbackslash{}",
+        "&": r"\&",
+        "%": r"\%",
+        "$": r"\$",
+        "#": r"\#",
+        "_": r"\_",
+        "{": r"\{",
+        "}": r"\}",
+        "~": r"\textasciitilde{}",
+        "^": r"\textasciicircum{}",
+        "|": r"\textbar{}",
+    }
+)
 
 COLUMNS = [
     "site",
@@ -69,13 +87,7 @@ IGNORED_DESCRIPTORS = {"argument a", "argument b", "argument c"}
 
 
 def main():
-    try:
-        __, genome_path, tsv_path = sys.argv
-    except ValueError:
-        print(__doc__)
-        sys.exit(1)
-
-    with open(genome_path) as handle:
+    with open(GENOME_PATH) as handle:
         program = json.load(handle)["value0"]["program"]
 
     descriptors = pd.DataFrame(
@@ -107,9 +119,11 @@ def main():
     )
 
     df = df.astype({c: "Int64" for c in ("module", "module_offset", "module_size")})
-    df[COLUMNS].to_csv(tsv_path, sep="\t", index=False, lineterminator="\n")
+    text = df.select_dtypes(exclude="number").columns
+    df[text] = df[text].apply(lambda col: col.str.translate(TEX_ESCAPES))
+    df[COLUMNS].to_csv(TSV_PATH, sep="\t", index=False, lineterminator="\n")
 
-    print(f"wrote {len(df)} sites to {tsv_path}")
+    print(f"wrote {len(df)} sites to {TSV_PATH}")
 
 
 if __name__ == "__main__":

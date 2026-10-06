@@ -2,14 +2,13 @@
 
 % Source: data/genome-16005-stint100-highestroot.json is the gunzipped copy of
 % s3://prq49/endeavor=16/genomes/stage=1+what=extracted/stint=100/series=16005/a=genome+criteria=abundance_highest_root+morph=wildtype+proc=0+series=16005+stint=100+thread=0+variation=master+ext=.json.gz
-% Rows are read straight from the tab-separated file that script/make_annotated_genome_table.sh
-% writes from the committed genome JSON.  Instruction semantics contain
-% TeX-special characters (%, &, ~, ^, |), which csvsimple-l3 passes through
-% untouched under its "respect all" option (the file is tab-separated because
+% Rows are read straight from the tab-separated file that
+% script/make_annotated_genome_table.py writes from the committed genome JSON
+% (text fields are TeX-escaped in that file, and it is tab-separated because
 % csvsimple does not understand RFC 4180 quoting of fields containing commas).
 
 % Sites flagged in the single-site knockout screens are set in bold.
-\csvreader[respect all]{data/knockout-highlighted-sites-16005-stint100-highestroot.csv}%
+\csvreader{data/knockout-highlighted-sites-16005-stint100-highestroot.csv}%
   {site=\hlsite}{\expandafter\gdef\csname genomehl@\hlsite\endcsname{}}
 
 \newcommand{\gtext}[1]{\ifcsname genomehl@\gsite\endcsname\textbf{#1}\else#1\fi}
@@ -26,31 +25,27 @@
 \fontsize{5.5}{6.6}\selectfont
 % nine columns of default padding would push the table past the text block
 \setlength{\tabcolsep}{2pt}
-\begin{longtable}{%
-  r@{\hspace{0.8em}}r@{\hspace{0.8em}}r@{\hspace{1.2em}}
-  >{\raggedright\arraybackslash}p{5cm}
-  >{\raggedright\arraybackslash}p{8.2cm}
-  @{\hspace{1.2em}}c@{\hspace{1.2em}}
-  >{\raggedright\arraybackslash}p{5.5cm}
-  r
-}
-\caption{TODO. TODO.} \label{tab:annotated_genome} \\
-\toprule
-\genomehead
-\endfirsthead
-\caption*{\tablename{} \thetable{} (cont'd)} \\
-\toprule
-\genomehead
-\endhead
-\bottomrule
-\endlastfoot
-\csvreader[respect all,separator=tab]{data/annotated-genome-16005-stint100-highestroot.tsv}{%
+\csvreader[
+  separator=tab,
+  longtable={%
+    r@{\hspace{0.8em}}r@{\hspace{0.8em}}r@{\hspace{1.2em}}
+    >{\raggedright\arraybackslash}p{5cm}
+    >{\raggedright\arraybackslash}p{8.2cm}
+    @{\hspace{1.2em}}c@{\hspace{1.2em}}
+    >{\raggedright\arraybackslash}p{5.5cm}
+    r},
+  table head={%
+    \caption{TODO. TODO.} \label{tab:annotated_genome} \\
+    \toprule \genomehead \endfirsthead
+    \caption*{\tablename{} \thetable{} (cont'd)} \\
+    \toprule \genomehead \endhead
+    \bottomrule \endlastfoot},
+  late after line=\\
+]{data/annotated-genome-16005-stint100-highestroot.tsv}{%
   site=\gsite, module=\gmodule, module_offset=\goffset, operation=\goperation,
   summary=\gsummary, arg_a=\garga, arg_b=\gargb, arg_c=\gargc,
   target_label=\gtarget, value=\gvalue}{%
   \gtext{\gsite} & \gtext{\gmodule} & \gtext{\goffset} & \gtt{\goperation}
     & \gtt{\gsummary} & \gtt{\garga,\gargb,\gargc} & \gtt{\gtarget}
-    & \gtt{\gvalue} \\
-}%
-\end{longtable}
+    & \gtt{\gvalue}}
 \end{landscape}
