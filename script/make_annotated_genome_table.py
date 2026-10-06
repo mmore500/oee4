@@ -17,6 +17,8 @@ performs no operation.
 One column is derived rather than copied: ``target_label`` joins a state
 target with its index.  Every other column is copied verbatim out of the JSON.
 
+Requires pandas.
+
 The output is tab-separated (no field contains a tab or a quote) rather than
 comma-separated, because csvsimple-l3, which the LaTeX table reads it with
 (``respect all``), does not understand RFC 4180 quoting of fields that contain
@@ -26,24 +28,10 @@ Usage:
     ./make_annotated_genome_table.py <genome.json> <out.tsv>
 """
 
-import csv
 import json
 import sys
 
-# descriptor keys this script knows how to place
-KNOWN_DESCRIPTORS = [
-    "summary",
-    "argument a",
-    "argument b",
-    "argument c",
-    "value",
-    "probability",
-    "target",
-    "target index",
-    "target jump table",
-    "tag moniker",
-    "tag bits",
-]
+import pandas as pd
 
 COLUMNS = [
     "site",
@@ -65,30 +53,19 @@ COLUMNS = [
     "tag_bits",
 ]
 
+DESCRIPTORS = {
+    "summary": "summary",
+    "value": "value",
+    "probability": "probability",
+    "target": "target",
+    "target index": "target_index",
+    "target jump table": "target_jump_table",
+    "tag moniker": "tag_moniker",
+    "tag bits": "tag_bits",
+}
 
-def load_program(path):
-    with open(path) as handle:
-        return json.load(handle)["value0"]["program"]
-
-
-def module_bounds(program):
-    """Return one (module_index, module_start, module_end) triple per site."""
-    anchors = [
-        idx for idx, inst in enumerate(program) if inst["operation"] == "Global Anchor"
-    ]
-
-    out = []
-    for site in range(len(program)):
-        preceding = [anchor for anchor in anchors if anchor <= site]
-        if not preceding:
-            out.append((None, None, None))
-            continue
-        module = len(preceding) - 1
-        start = anchors[module]
-        end = anchors[module + 1] if module + 1 < len(anchors) else len(program)
-        out.append((module, start, end))
-
-    return out
+# register-argument descriptors are redundant with the raw args
+IGNORED_DESCRIPTORS = {"argument a", "argument b", "argument c"}
 
 
 def main():
@@ -98,57 +75,41 @@ def main():
         print(__doc__)
         sys.exit(1)
 
-    program = load_program(genome_path)
-    bounds = module_bounds(program)
+    with open(genome_path) as handle:
+        program = json.load(handle)["value0"]["program"]
 
-    with open(tsv_path, "w", newline="") as handle:
-        writer = csv.DictWriter(
-            handle, fieldnames=COLUMNS, delimiter="\t", lineterminator="\n"
-        )
-        writer.writeheader()
-
-        for site, inst in enumerate(program):
-            descriptors = {
-                entry["key"]: entry["value"] for entry in inst["descriptors"]
-            }
-            module, start, end = bounds[site]
-            args = inst["args"]
-
-            summary = descriptors.get("summary", "")
-            target = descriptors.get("target", "").replace("dish2::", "")
-            target_index = descriptors.get("target index", "")
-
-            row = {
-                "site": site,
-                "module": "" if module is None else module,
-                "module_offset": "" if start is None else site - start,
-                "module_size": "" if start is None else end - start,
-                "operation": inst["operation"],
-                "summary": summary,
-                "arg_a": args.get("value0", ""),
-                "arg_b": args.get("value1", ""),
-                "arg_c": args.get("value2", ""),
-                "value": descriptors.get("value", ""),
-                "probability": descriptors.get("probability", ""),
-                "target": target,
-                "target_index": target_index,
-                "target_label": (f"{target}[{target_index}]" if target else ""),
-                "target_jump_table": descriptors.get("target jump table", ""),
-                "tag_moniker": descriptors.get("tag moniker", ""),
-                "tag_bits": descriptors.get("tag bits", ""),
-            }
-            writer.writerow(row)
-
-    unplaced = {
-        key
+    descriptors = pd.DataFrame(
+        {entry["key"]: entry["value"] for entry in inst["descriptors"]}
         for inst in program
-        for key in (entry["key"] for entry in inst["descriptors"])
-        if key not in KNOWN_DESCRIPTORS
-    }
+    )
+    unplaced = set(descriptors) - set(DESCRIPTORS) - IGNORED_DESCRIPTORS
     if unplaced:
         print(f"warning: descriptor keys without a column: {sorted(unplaced)}")
 
-    print(f"wrote {len(program)} sites to {tsv_path}")
+    df = pd.DataFrame(
+        {
+            "site": range(len(program)),
+            "operation": [inst["operation"] for inst in program],
+            "arg_a": [inst["args"]["value0"] for inst in program],
+            "arg_b": [inst["args"]["value1"] for inst in program],
+            "arg_c": [inst["args"]["value2"] for inst in program],
+        }
+    ).join(descriptors.rename(columns=DESCRIPTORS))
+
+    is_anchor = df["operation"] == "Global Anchor"
+    module = is_anchor.cumsum() - 1
+    df["module"] = module.where(module >= 0)
+    df["module_offset"] = df["site"] - df["site"].where(is_anchor).ffill()
+    df["module_size"] = df.groupby("module")["site"].transform("size")
+    df["target"] = df["target"].str.replace("dish2::", "", regex=False)
+    df["target_label"] = (df["target"] + "[" + df["target_index"] + "]").where(
+        df["target"].notna()
+    )
+
+    df = df.astype({c: "Int64" for c in ("module", "module_offset", "module_size")})
+    df[COLUMNS].to_csv(tsv_path, sep="\t", index=False, lineterminator="\n")
+
+    print(f"wrote {len(df)} sites to {tsv_path}")
 
 
 if __name__ == "__main__":
