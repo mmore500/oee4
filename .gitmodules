@@ -186,3 +186,9 @@
 	url = https://github.com/mmore500/oee4.git
 	branch = binder-2026-06-22-eco-gwas-nobb.ipynb
 	shallow = true
+
+[submodule "binder/binder-2026-06-22-eco-gwas-nodm.ipynb"]
+	path = binder/binder-2026-06-22-eco-gwas-nodm.ipynb
+	url = https://github.com/mmore500/oee4.git
+	branch = binder-2026-06-22-eco-gwas-nodm.ipynb
+	shallow = true
