@@ -37,7 +37,7 @@
 \genomerow{33}{5}{5}{Local Anchor}{register a local jump-to destination}{5,4,3}{}{}
 \genomerow{34}{5}{6}{Divide}{a = b / c}{3,1,0}{}{}
 \genomerow{35}{6}{0}{Global Anchor}{register a global jump-to destination, maybe terminate}{1,2,5}{}{}
-\genomerow{36}{7}{0}{Global Anchor}{register a global jump-to destination, maybe terminate}{7,2,5}{}{}
+\genomerowb{36}{7}{0}{Global Anchor}{register a global jump-to destination, maybe terminate}{7,2,5}{}{}
 \genomerow{37}{7}{1}{Decay Secondary Global Regulator}{decay global regulator value by register a}{5,2,7}{}{}
 \genomerow{38}{7}{2}{Local Anchor}{register a local jump-to destination}{5,6,4}{}{}
 \genomerow{39}{7}{3}{Read Neighbor State}{a = state}{7,4,4}{NumKnownQuorumBits[1]}{}
@@ -60,11 +60,11 @@
 \genomerow{56}{7}{20}{Terminal}{a = value}{4,4,7}{}{0.157256}
 \genomerow{57}{7}{21}{Terminal}{a = value}{4,4,1}{}{-0.937871}
 \genomerow{58}{7}{22}{Local Anchor}{register a local jump-to destination}{7,4,7}{}{}
-\genomerow{59}{7}{23}{Not Equal}{a = (b != c)}{5,3,1}{}{}
+\genomerowb{59}{7}{23}{Not Equal}{a = (b != c)}{5,3,1}{}{}
 \genomerow{60}{7}{24}{Divide}{a = b / c}{6,1,6}{}{}
 \genomerow{61}{7}{25}{Terminal}{a = value}{4,3,0}{}{4.27122}
 \genomerow{62}{7}{26}{Adjust Secondary Global Regulator}{adjust global regulator value by a}{0,7,5}{}{}
-\genomerow{63}{7}{27}{Write Own State}{if b, state = a}{5,4,3}{RepLevRequest[1]}{}
+\genomerowb{63}{7}{27}{Write Own State}{if b, state = a}{5,4,3}{RepLevRequest[1]}{}
 \genomerow{64}{7}{28}{Not}{a = !a}{4,4,3}{}{}
 \genomerow{65}{7}{29}{Send Intra-Cell Message}{if a, send message another cardinal within cell}{0,4,6}{}{}
 \genomerow{66}{7}{30}{Global Jump If}{if a, goto tag match global anchor; if b, clear registers}{2,7,7}{}{}
@@ -75,7 +75,7 @@
 \genomerow{71}{7}{35}{Terminal}{a = value}{4,0,7}{}{-0.184987}
 \genomerow{72}{7}{36}{Terminal}{a = value}{4,3,0}{}{82.5566}
 \genomerow{73}{7}{37}{Decay Global Regulator}{decay global regulator value by register a}{3,2,0}{}{}
-\genomerow{74}{7}{38}{Write Own State}{if b, state = a}{1,7,3}{RepLevRequest[0]}{}
+\genomerowb{74}{7}{38}{Write Own State}{if b, state = a}{1,7,3}{RepLevRequest[0]}{}
 \genomerow{75}{7}{39}{Write Own State}{if b, state = a}{6,0,1}{RepLevRequest[1]}{}
 \genomerow{76}{7}{40}{Write Own State}{if b, state = a}{0,4,6}{ResourceSendRequest[0]}{}
 \genomerow{77}{7}{41}{Read Neighbor State}{a = state}{3,0,3}{KinGroupWillExpire[1]}{}
@@ -168,7 +168,7 @@
 \genomerow{164}{27}{1}{Bitwise Not}{a = \textasciitilde{}b}{1,5,3}{}{}
 \genomerow{165}{27}{2}{Bitwise Shift}{a = b << c}{2,6,0}{}{}
 \genomerow{166}{27}{3}{Send Inter-Cell Message}{if a, send message to neighbor cell}{0,1,0}{}{}
-\genomerow{167}{27}{4}{Local Anchor}{register a local jump-to destination}{7,7,5}{}{}
+\genomerowb{167}{27}{4}{Local Anchor}{register a local jump-to destination}{7,7,5}{}{}
 \genomerow{168}{27}{5}{Multiply Own State}{state *= a}{5,6,3}{TransientNopState[2]}{}
 \genomerow{169}{27}{6}{Terminal}{a = value}{5,6,3}{}{-0.332087}
 \genomerow{170}{28}{0}{Global Anchor}{register a global jump-to destination, maybe terminate}{0,5,0}{}{}
@@ -183,10 +183,10 @@
 \genomerow{179}{30}{7}{Local Anchor}{register a local jump-to destination}{3,4,6}{}{}
 \genomerow{180}{30}{8}{Send Intra-Cell Message}{if a, send message another cardinal within cell}{2,2,4}{}{}
 \genomerow{181}{31}{0}{Global Anchor}{register a global jump-to destination, maybe terminate}{2,5,2}{}{}
-\genomerow{182}{31}{1}{Local Anchor}{register a local jump-to destination}{7,5,3}{}{}
+\genomerowb{182}{31}{1}{Local Anchor}{register a local jump-to destination}{7,5,3}{}{}
 \genomerow{183}{31}{2}{Get Local Regulator}{a = local regulator value}{3,7,5}{}{}
 \genomerow{184}{31}{3}{Terminal}{a = value}{3,4,4}{}{-1.6443}
-\genomerow{185}{32}{0}{Global Anchor}{register a global jump-to destination, maybe terminate}{5,4,0}{}{}
+\genomerowb{185}{32}{0}{Global Anchor}{register a global jump-to destination, maybe terminate}{5,4,0}{}{}
 \genomerow{186}{32}{1}{Less Than}{a = ( b < c )}{1,5,7}{}{}
 \genomerow{187}{32}{2}{Local Anchor}{register a local jump-to destination}{3,5,3}{}{}
 \genomerow{188}{32}{3}{Local Jump If Not}{if !a, goto tag match local anchor}{2,6,1}{}{}
@@ -243,7 +243,7 @@
 \genomerow{239}{35}{0}{Global Anchor}{register a global jump-to destination, maybe terminate}{3,7,2}{}{}
 \genomerow{240}{35}{1}{Local Anchor}{register a local jump-to destination}{6,3,0}{}{}
 \genomerow{241}{35}{2}{Terminal}{a = value}{4,6,0}{}{-28.3538}
-\genomerow{242}{35}{3}{Read Own State}{a = state}{1,0,4}{KinGroupIDAncestorView[0]}{}
+\genomerowb{242}{35}{3}{Read Own State}{a = state}{1,0,4}{KinGroupIDAncestorView[0]}{}
 \genomerow{243}{35}{4}{Read Own State}{a = state}{5,2,7}{SpawnRequest[0]}{}
 \genomerow{244}{35}{5}{Send Inter-Cell Message}{if a, send message to neighbor cell}{3,6,4}{}{}
 \genomerow{245}{35}{6}{Count Ones}{a = popcnt( b )}{5,3,6}{}{}
@@ -320,15 +320,15 @@
 \genomerow{316}{42}{1}{Bitwise Xor}{a = b \textasciicircum{} c}{2,4,2}{}{}
 \genomerow{317}{42}{2}{Terminal}{a = value}{2,3,0}{}{89.2276}
 \genomerow{318}{42}{3}{Multiply Own State}{state *= a}{1,2,4}{ResourceReserveRequest[0]}{}
-\genomerow{319}{43}{0}{Global Anchor}{register a global jump-to destination, maybe terminate}{6,7,2}{}{}
+\genomerowb{319}{43}{0}{Global Anchor}{register a global jump-to destination, maybe terminate}{6,7,2}{}{}
 \genomerow{320}{43}{1}{Read Neighbor State}{a = state}{7,6,0}{NumKnownQuorumBits[0]}{}
 \genomerow{321}{43}{2}{Bitwise Or}{a = b \textbar{} c}{2,3,2}{}{}
 \genomerow{322}{43}{3}{Adjust Local Regulator}{adjust local regulator value by a}{1,5,4}{}{}
-\genomerow{323}{43}{4}{Increment}{a = a + 1}{5,1,1}{}{}
+\genomerowb{323}{43}{4}{Increment}{a = a + 1}{5,1,1}{}{}
 \genomerow{324}{43}{5}{Send Intra-Cell Message}{if a, send message another cardinal within cell}{5,5,3}{}{}
-\genomerow{325}{43}{6}{Write Own State}{if b, state = a}{5,5,1}{SpawnRequest[0]}{}
+\genomerowb{325}{43}{6}{Write Own State}{if b, state = a}{5,5,1}{SpawnRequest[0]}{}
 \genomerow{326}{43}{7}{Nop-1}{perform no operation}{2,7,3}{}{}
-\genomerow{327}{43}{8}{Divide}{a = b / c}{2,3,0}{}{}
+\genomerowb{327}{43}{8}{Divide}{a = b / c}{2,3,0}{}{}
 \genomerow{328}{43}{9}{Send Inter-Cell Message}{if a, send message to neighbor cell}{7,1,0}{}{}
 \genomerow{329}{43}{10}{Send Intra-Cell Message}{if a, send message another cardinal within cell}{7,5,5}{}{}
 \genomerow{330}{43}{11}{Increment}{a = a + 1}{5,7,5}{}{}
@@ -350,7 +350,7 @@
 \genomerow{346}{45}{2}{Write Own State}{if b, state = a}{5,7,3}{TransientNopState[1]}{}
 \genomerow{347}{45}{3}{Terminal}{a = value}{1,1,0}{}{156.557}
 \genomerow{348}{45}{4}{Local Anchor}{register a local jump-to destination}{1,3,2}{}{}
-\genomerow{349}{45}{5}{Write Own State}{if b, state = a}{5,5,1}{ResourceReserveRequest[0]}{}
+\genomerowb{349}{45}{5}{Write Own State}{if b, state = a}{5,5,1}{ResourceReserveRequest[0]}{}
 \genomerow{350}{45}{6}{Generate Random Bool}{if p, a = 1; else a = 0}{1,1,0}{}{}
 \genomerow{351}{45}{7}{Read Own State}{a = state}{5,7,1}{ApoptosisRequest[0]}{}
 \genomerow{352}{45}{8}{Local Anchor}{register a local jump-to destination}{1,1,7}{}{}
@@ -486,7 +486,7 @@
 \genomerow{482}{56}{0}{Global Anchor}{register a global jump-to destination, maybe terminate}{0,7,3}{}{}
 \genomerow{483}{56}{1}{Decay Secondary Global Regulator}{decay global regulator value by register a}{0,1,6}{}{}
 \genomerow{484}{56}{2}{Fork If}{if a, submit fork request (processed when core terminates)}{4,2,6}{}{}
-\genomerow{485}{57}{0}{Global Anchor}{register a global jump-to destination, maybe terminate}{2,6,5}{}{}
+\genomerowb{485}{57}{0}{Global Anchor}{register a global jump-to destination, maybe terminate}{2,6,5}{}{}
 \genomerow{486}{57}{1}{Read Own State}{a = state}{3,4,6}{KinGroupIDAncestorView[1]}{}
 \genomerow{487}{57}{2}{Get Local Regulator}{a = local regulator value}{4,7,5}{}{}
 \genomerow{488}{57}{3}{Multiply}{a = b * c}{3,4,4}{}{}
@@ -505,13 +505,13 @@
 \genomerow{501}{58}{8}{Read Neighbor State}{a = state}{1,5,7}{KinGroupIDAncestorView[0]}{}
 \genomerow{502}{58}{9}{Read Own State}{a = state}{7,4,0}{NeighborIsNewborn[0]}{}
 \genomerow{503}{58}{10}{Terminal}{a = value}{6,5,4}{}{0.896754}
-\genomerow{504}{58}{11}{Read Own State}{a = state}{7,5,3}{NeighborKinGroupWillExpire[0]}{}
+\genomerowb{504}{58}{11}{Read Own State}{a = state}{7,5,3}{NeighborKinGroupWillExpire[0]}{}
 \genomerow{505}{58}{12}{Bitwise Not}{a = \textasciitilde{}b}{2,2,3}{}{}
 \genomerow{506}{58}{13}{Local Anchor}{register a local jump-to destination}{2,1,1}{}{}
 \genomerow{507}{58}{14}{Not Equal}{a = (b != c)}{6,2,4}{}{}
 \genomerow{508}{58}{15}{Local Anchor}{register a local jump-to destination}{2,1,1}{}{}
 \genomerow{509}{58}{16}{Not Equal}{a = (b != c)}{6,2,4}{}{}
-\genomerow{510}{58}{17}{Send Inter-Cell Message}{if a, send message to neighbor cell}{7,4,7}{}{}
+\genomerowb{510}{58}{17}{Send Inter-Cell Message}{if a, send message to neighbor cell}{7,4,7}{}{}
 \genomerow{511}{58}{18}{Read Own State}{a = state}{3,2,2}{TransientNopState[2]}{}
 \genomerow{512}{58}{19}{Read Neighbor State}{a = state}{6,2,4}{StockpileFecund[0]}{}
 \genomerow{513}{58}{20}{Less Than}{a = ( b < c )}{2,7,5}{}{}
@@ -522,7 +522,7 @@
 \genomerow{518}{61}{1}{Decrement}{a = a - 1}{6,4,0}{}{}
 \genomerow{519}{61}{2}{Greater Than}{a = ( b > c )}{0,3,2}{}{}
 \genomerow{520}{61}{3}{Send Inter-Cell Message}{if a, send message to neighbor cell}{7,7,7}{}{}
-\genomerow{521}{61}{4}{Read Own State}{a = state}{6,2,6}{KinGroupIDView[0]}{}
+\genomerowb{521}{61}{4}{Read Own State}{a = state}{6,2,6}{KinGroupIDView[0]}{}
 \genomerow{522}{61}{5}{Read Own State}{a = state}{7,4,0}{KinGroupIDAncestorView[1]}{}
 \genomerow{523}{61}{6}{Adjust Global Regulator}{adjust global regulator value by a}{6,2,5}{}{}
 \genomerow{524}{61}{7}{Add To Own State}{state += a}{1,0,4}{RepLevRequest[1]}{}
@@ -1243,10 +1243,10 @@
 \genomerow{1239}{130}{15}{Global Jump If}{if a, goto tag match global anchor; if b, clear registers}{6,0,4}{}{}
 \genomerow{1240}{130}{16}{Local Anchor}{register a local jump-to destination}{0,2,4}{}{}
 \genomerow{1241}{130}{17}{Global Jump If}{if a, goto tag match global anchor; if b, clear registers}{6,0,4}{}{}
-\genomerow{1242}{130}{18}{Terminal}{a = value}{4,6,1}{}{2.22617}
+\genomerowb{1242}{130}{18}{Terminal}{a = value}{4,6,1}{}{2.22617}
 \genomerow{1243}{130}{19}{Terminal}{a = value}{5,4,4}{}{-38.1068}
 \genomerow{1244}{130}{20}{Send Intra-Cell Message}{if a, send message another cardinal within cell}{6,3,6}{}{}
-\genomerow{1245}{130}{21}{Terminate If}{if a, terminate core}{4,1,4}{}{}
+\genomerowb{1245}{130}{21}{Terminate If}{if a, terminate core}{4,1,4}{}{}
 \genomerow{1246}{130}{22}{Negate}{a = -a}{4,0,2}{}{}
 \genomerow{1247}{130}{23}{Terminal}{a = value}{3,7,3}{}{-0.536215}
 \genomerow{1248}{130}{24}{Adjust Secondary Global Regulator}{adjust global regulator value by a}{2,5,2}{}{}
@@ -1408,14 +1408,14 @@
 \genomerow{1404}{146}{7}{Equal}{a = ( b == c )}{4,2,6}{}{}
 \genomerow{1405}{146}{8}{Terminal}{a = value}{1,5,1}{}{-0.619654}
 \genomerow{1406}{146}{9}{Decay Secondary Global Regulator}{decay global regulator value by register a}{7,4,6}{}{}
-\genomerow{1407}{146}{10}{Local Anchor}{register a local jump-to destination}{0,7,7}{}{}
+\genomerowb{1407}{146}{10}{Local Anchor}{register a local jump-to destination}{0,7,7}{}{}
 \genomerow{1408}{146}{11}{Terminal}{a = value}{6,6,0}{}{-9.41647}
 \genomerow{1409}{146}{12}{Add}{a = b + c}{4,3,4}{}{}
 \genomerow{1410}{146}{13}{Read Own State}{a = state}{5,0,1}{ResourceReserveRequest[0]}{}
 \genomerow{1411}{146}{14}{Get Local Regulator}{a = local regulator value}{3,3,3}{}{}
 \genomerow{1412}{146}{15}{Subtract}{a = b - c}{1,0,0}{}{}
 \genomerow{1413}{146}{16}{Not Equal}{a = (b != c)}{1,1,5}{}{}
-\genomerow{1414}{147}{0}{Global Anchor}{register a global jump-to destination, maybe terminate}{1,4,7}{}{}
+\genomerowb{1414}{147}{0}{Global Anchor}{register a global jump-to destination, maybe terminate}{1,4,7}{}{}
 \genomerow{1415}{147}{1}{Set Secondary Global Regulator}{set global regulator value to a}{6,7,0}{}{}
 \genomerow{1416}{147}{2}{Nop-0}{perform no operation}{4,5,5}{}{}
 \genomerow{1417}{147}{3}{Adjust Global Regulator}{adjust global regulator value by a}{0,1,7}{}{}
@@ -1556,11 +1556,11 @@
 \genomerow{1552}{156}{38}{Modulo}{a = b \% c}{7,0,7}{}{}
 \genomerow{1553}{157}{0}{Global Anchor}{register a global jump-to destination, maybe terminate}{2,2,6}{}{}
 \genomerow{1554}{157}{1}{Local Anchor}{register a local jump-to destination}{7,4,4}{}{}
-\genomerow{1555}{158}{0}{Global Anchor}{register a global jump-to destination, maybe terminate}{0,0,3}{}{}
+\genomerowb{1555}{158}{0}{Global Anchor}{register a global jump-to destination, maybe terminate}{0,0,3}{}{}
 \genomerow{1556}{158}{1}{Add To Own State}{state += a}{0,7,2}{NopState[1]}{}
 \genomerow{1557}{158}{2}{Add To Own State}{state += a}{4,0,3}{ResourceSendLimit[0]}{}
 \genomerow{1558}{158}{3}{RandomFill}{fill a with uniformly-distributed random bits}{6,0,6}{}{}
-\genomerow{1559}{158}{4}{Read Own State}{a = state}{6,1,6}{IsChildCellOf[0]}{}
+\genomerowb{1559}{158}{4}{Read Own State}{a = state}{6,1,6}{IsChildCellOf[0]}{}
 \genomerow{1560}{158}{5}{Send Intra-Cell Message}{if a, send message another cardinal within cell}{4,7,1}{}{}
 \genomerow{1561}{159}{0}{Global Anchor}{register a global jump-to destination, maybe terminate}{1,2,0}{}{}
 \genomerow{1562}{159}{1}{Terminal}{a = value}{5,0,0}{}{-0.548841}
@@ -1654,18 +1654,18 @@
 \genomerow{1650}{176}{19}{Bitwise Shift}{a = b << c}{6,4,5}{}{}
 \genomerow{1651}{176}{20}{Read Own State}{a = state}{4,6,3}{StockpileFecund[0]}{}
 \genomerow{1652}{176}{21}{Add To Own State}{state += a}{6,0,0}{NopState[2]}{}
-\genomerow{1653}{176}{22}{Decrement}{a = a - 1}{5,4,6}{}{}
+\genomerowb{1653}{176}{22}{Decrement}{a = a - 1}{5,4,6}{}{}
 \genomerow{1654}{176}{23}{Terminal}{a = value}{3,6,2}{}{3.04407}
-\genomerow{1655}{176}{24}{Bitwise Shift}{a = b << c}{5,5,7}{}{}
+\genomerowb{1655}{176}{24}{Bitwise Shift}{a = b << c}{5,5,7}{}{}
 \genomerow{1656}{176}{25}{Decrement}{a = a - 1}{5,6,6}{}{}
 \genomerow{1657}{176}{26}{Terminal}{a = value}{7,3,7}{}{0.945789}
 \genomerow{1658}{176}{27}{Send Intra-Cell Message}{if a, send message another cardinal within cell}{7,5,5}{}{}
 \genomerow{1659}{176}{28}{Terminal}{a = value}{7,4,1}{}{0.825638}
 \genomerow{1660}{176}{29}{Local Anchor}{register a local jump-to destination}{1,3,2}{}{}
 \genomerow{1661}{176}{30}{Read Own State}{a = state}{4,4,5}{IsParentGroupOf[0]}{}
-\genomerow{1662}{176}{31}{Multiply Own State}{state *= a}{5,3,7}{SpawnRequest[0]}{}
+\genomerowb{1662}{176}{31}{Multiply Own State}{state *= a}{5,3,7}{SpawnRequest[0]}{}
 \genomerow{1663}{176}{32}{Terminal}{a = value}{2,0,7}{}{3.35585}
-\genomerow{1664}{176}{33}{Not Equal}{a = (b != c)}{6,1,2}{}{}
+\genomerowb{1664}{176}{33}{Not Equal}{a = (b != c)}{6,1,2}{}{}
 \genomerow{1665}{176}{34}{Local Anchor}{register a local jump-to destination}{5,0,7}{}{}
 \genomerow{1666}{176}{35}{Send Intra-Cell Message}{if a, send message another cardinal within cell}{7,0,5}{}{}
 \genomerow{1667}{176}{36}{Decay Secondary Global Regulator}{decay global regulator value by register a}{2,3,7}{}{}
@@ -1857,7 +1857,7 @@
 \genomerow{1853}{196}{6}{Global Jump If Not}{if !a, goto global anchor; if !b, clear registers}{3,7,4}{}{}
 \genomerow{1854}{197}{0}{Global Anchor}{register a global jump-to destination, maybe terminate}{0,6,4}{}{}
 \genomerow{1855}{197}{1}{Local Anchor}{register a local jump-to destination}{1,7,5}{}{}
-\genomerow{1856}{198}{0}{Global Anchor}{register a global jump-to destination, maybe terminate}{6,3,7}{}{}
+\genomerowb{1856}{198}{0}{Global Anchor}{register a global jump-to destination, maybe terminate}{6,3,7}{}{}
 \genomerow{1857}{199}{0}{Global Anchor}{register a global jump-to destination, maybe terminate}{0,6,4}{}{}
 \genomerow{1858}{199}{1}{Local Anchor}{register a local jump-to destination}{3,2,5}{}{}
 \genomerow{1859}{199}{2}{Local Anchor}{register a local jump-to destination}{0,5,0}{}{}
@@ -1955,7 +1955,7 @@
 \genomerow{1951}{210}{10}{Not Equal}{a = (b != c)}{1,0,1}{}{}
 \genomerow{1952}{211}{0}{Global Anchor}{register a global jump-to destination, maybe terminate}{0,7,5}{}{}
 \genomerow{1953}{211}{1}{Decay Secondary Global Regulator}{decay global regulator value by register a}{2,6,5}{}{}
-\genomerow{1954}{212}{0}{Global Anchor}{register a global jump-to destination, maybe terminate}{0,7,5}{}{}
+\genomerowb{1954}{212}{0}{Global Anchor}{register a global jump-to destination, maybe terminate}{0,7,5}{}{}
 \genomerow{1955}{212}{1}{Terminal}{a = value}{4,7,6}{}{-1.68841}
 \genomerow{1956}{212}{2}{Less Than}{a = ( b < c )}{1,4,3}{}{}
 \genomerow{1957}{212}{3}{Read Own State}{a = state}{1,0,1}{IncomingInterMessageCounter[0]}{}
@@ -2034,13 +2034,13 @@
 \genomerow{2030}{222}{0}{Global Anchor}{register a global jump-to destination, maybe terminate}{0,2,4}{}{}
 \genomerow{2031}{222}{1}{Read Own State}{a = state}{1,1,4}{SpawnArrest[0]}{}
 \genomerow{2032}{222}{2}{Local Anchor}{register a local jump-to destination}{6,0,7}{}{}
-\genomerow{2033}{223}{0}{Global Anchor}{register a global jump-to destination, maybe terminate}{4,2,3}{}{}
+\genomerowb{2033}{223}{0}{Global Anchor}{register a global jump-to destination, maybe terminate}{4,2,3}{}{}
 \genomerow{2034}{223}{1}{Write Own State}{if b, state = a}{3,0,4}{TransientNopState[3]}{}
 \genomerow{2035}{223}{2}{Read Own State}{a = state}{4,2,7}{NopState[3]}{}
 \genomerow{2036}{223}{3}{Read Own State}{a = state}{0,2,4}{TransientNopState[3]}{}
 \genomerow{2037}{223}{4}{Read Own State}{a = state}{1,1,4}{IsParentGroupOf[1]}{}
-\genomerow{2038}{223}{5}{Local Anchor}{register a local jump-to destination}{6,0,7}{}{}
-\genomerow{2039}{224}{0}{Global Anchor}{register a global jump-to destination, maybe terminate}{4,2,3}{}{}
+\genomerowb{2038}{223}{5}{Local Anchor}{register a local jump-to destination}{6,0,7}{}{}
+\genomerowb{2039}{224}{0}{Global Anchor}{register a global jump-to destination, maybe terminate}{4,2,3}{}{}
 \genomerow{2040}{224}{1}{Write Own State}{if b, state = a}{3,0,4}{ResourceSendRequest[0]}{}
 \genomerow{2041}{224}{2}{Local Anchor}{register a local jump-to destination}{1,2,4}{}{}
 \genomerow{2042}{224}{3}{Write Own State}{if b, state = a}{3,0,4}{TransientNopState[3]}{}

@@ -12,6 +12,12 @@
     & \texttt{#7} & \texttt{#8} \\
 }
 
+\newcommand{\genomerowb}[8]{%
+  \textbf{#1} & \textbf{#2} & \textbf{#3} & \textbf{\texttt{#4}}
+    & \textbf{\texttt{#5}} & \textbf{\texttt{#6}}
+    & \textbf{\texttt{#7}} & \textbf{\texttt{#8}} \\
+}
+
 \newcommand{\genomehead}{%
 \textbf{Site} & \textbf{Mod.} & \textbf{Off.} & \textbf{Operation}
   & \textbf{Semantics} & \textbf{a,b,c} & \textbf{State Target}
@@ -31,16 +37,7 @@
   >{\raggedright\arraybackslash}p{5.5cm}
   r
 }
-\caption{%
-\textbf{Annotated genome of the round-100 co-evolved ``background'' strain isolate.}
-\footnotesize
-One row per instruction for the 2,357-instruction genome screened in Figure \ref{fig:ecogwas}, tabulated from the annotated JSON that DISHTINY emits for a specimen.
-\emph{Site} indexes the linear instruction sequence, matching the knockout site labels in Figure \labelcref{fig:ecogwas:sites,fig:ecogwas-nobb-supp}.
-\emph{Mod.} numbers the tag-addressable module a site falls in and \emph{Off.} gives its position within that module; modules are delimited by \texttt{Global Anchor} instructions, which register the tag by which a module can be triggered, so an anchor always sits at offset 0 of its own module.
-\emph{Semantics}, \emph{State Target}, and \emph{Const.} reproduce the human-readable descriptors that the virtual CPU generates for each operation (Section \ref{sec:virtual_cpu}), and \emph{a,b,c} are the instruction's three raw register arguments.
-A blank \emph{State Target} marks an operation that neither reads nor writes cell state, and a blank \emph{Const.} one that carries no immediate value.
-Source data are committed alongside the manuscript: \texttt{data/genome-16005-stint100-root1.json} is the genome dump verbatim, and \texttt{script/make\_annotated\_genome\_table.py} flattens it to \texttt{data/annotated-genome-16005-stint100-root1.csv} --- which additionally records each site's enclosing module size, its tag moniker and full 64-bit tag, the jump-table index of control-flow operations, and the draw probability of \texttt{Generate Random Bool} --- and to the row file this table reads.
-} \label{tab:annotated_genome} \\
+\caption{TODO. TODO.} \label{tab:annotated_genome} \\
 \toprule
 \genomehead
 \endfirsthead

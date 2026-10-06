@@ -25,7 +25,10 @@ csvsimple nor datatool reads safely out of a CSV; a LaTeX table therefore
 \\input{}s the rows file rather than parsing the CSV itself.
 
 Usage:
-    ./make_annotated_genome_table.py <genome.json> <out.csv> <out.tex>
+    ./make_annotated_genome_table.py <genome.json> <out.csv> <out.tex> [highlighted-sites.csv]
+
+Sites listed in the optional highlighted-sites CSV (a ``site`` column) are
+emitted as ``\\genomerowb`` calls so the table can set them in bold.
 """
 
 import csv
@@ -94,9 +97,7 @@ def load_program(path):
 def module_bounds(program):
     """Return one (module_index, module_start, module_end) triple per site."""
     anchors = [
-        idx
-        for idx, inst in enumerate(program)
-        if inst["operation"] == "Global Anchor"
+        idx for idx, inst in enumerate(program) if inst["operation"] == "Global Anchor"
     ]
 
     out = []
@@ -115,10 +116,16 @@ def module_bounds(program):
 
 def main():
     try:
-        __, genome_path, csv_path, tex_path = sys.argv
-    except ValueError:
+        __, genome_path, csv_path, tex_path, *rest = sys.argv
+        assert len(rest) <= 1
+    except (ValueError, AssertionError):
         print(__doc__)
         sys.exit(1)
+
+    highlighted = set()
+    if rest:
+        with open(rest[0], newline="") as handle:
+            highlighted = {row["site"] for row in csv.DictReader(handle)}
 
     program = load_program(genome_path)
     bounds = module_bounds(program)
@@ -153,12 +160,8 @@ def main():
                 "probability": descriptors.get("probability", ""),
                 "target": target,
                 "target_index": target_index,
-                "target_label": (
-                    f"{target}[{target_index}]" if target else ""
-                ),
-                "target_jump_table": descriptors.get(
-                    "target jump table", ""
-                ),
+                "target_label": (f"{target}[{target_index}]" if target else ""),
+                "target_jump_table": descriptors.get("target jump table", ""),
                 "tag_moniker": descriptors.get("tag moniker", ""),
                 "tag_bits": descriptors.get("tag bits", ""),
             }
@@ -189,10 +192,10 @@ def main():
         )
         for row in rows:
             fields = "".join(
-                "{" + tex_escape(str(field)) + "}"
-                for field in tex_row_fields(row)
+                "{" + tex_escape(str(field)) + "}" for field in tex_row_fields(row)
             )
-            handle.write(f"\\genomerow{fields}\n")
+            macro = "genomerowb" if str(row["site"]) in highlighted else "genomerow"
+            handle.write(f"\\{macro}{fields}\n")
 
     unplaced = {
         key
