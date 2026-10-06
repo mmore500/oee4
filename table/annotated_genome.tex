@@ -1,9 +1,9 @@
 \input{lib/dissertationelse.tex}
 
-% Source: data/genome-16005-stint100-root1.json is the gunzipped copy of
+% Source: data/genome-16005-stint100-highestroot.json is the gunzipped copy of
 % s3://prq49/endeavor=16/genomes/stage=1+what=extracted/stint=100/series=16005/a=genome+criteria=abundance_highest_root+morph=wildtype+proc=0+series=16005+stint=100+thread=0+variation=master+ext=.json.gz
 % One row per genome site.  The rows live in a generated data file rather than
-% inline here: data/annotated-genome-16005-stint100-root1.tex is written by
+% inline here: data/annotated-genome-16005-stint100-highestroot.tex is written by
 % script/make_annotated_genome_table.py straight from the committed annotated
 % genome JSON, alongside an RFC 4180 CSV of the same records for analysis.
 % Instruction semantics contain TeX-special characters (%, &, ~, ^, _, |), so
@@ -49,6 +49,6 @@
 \endhead
 \bottomrule
 \endlastfoot
-\input{data/annotated-genome-16005-stint100-root1.tex}%
+\input{data/annotated-genome-16005-stint100-highestroot.tex}%
 \end{longtable}
 \end{landscape}
