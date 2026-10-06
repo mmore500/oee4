@@ -178,7 +178,6 @@ def main():
             "{arg_a},{arg_b},{arg_c}".format(**row),
             row["target_label"],
             row["value"],
-            row["tag_moniker"],
         ]
 
     with open(tex_path, "w") as handle:
