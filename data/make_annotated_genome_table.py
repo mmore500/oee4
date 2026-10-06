@@ -16,7 +16,7 @@ last module start therefore does not open a module.
 One column is derived rather than copied: ``target_label`` joins a state
 target with its index.  Every other column is copied out of the JSON.
 
-Requires pandas.  Run from the repository root with no arguments.
+Requires pandas.  Run from tex root with no arguments.
 
 The output is tab-separated (no field contains a tab or a quote) rather than
 comma-separated, because csvsimple does not understand RFC 4180 quoting of
@@ -27,11 +27,12 @@ core`` do.  Text fields are written already TeX-escaped (``a = b & c`` becomes
 otherwise.
 """
 
+import gzip
 import json
 
 import pandas as pd
 
-GENOME_PATH = "data/genome-16005-stint100-highestroot.json"
+GENOME_PATH = "data/a=genome+criteria=abundance_highest_root+morph=wildtype+proc=0+series=16005+stint=100+thread=0+variation=master+ext=.json.gz"
 TSV_PATH = "data/annotated-genome-16005-stint100-highestroot.tsv"
 
 TEX_ESCAPES = str.maketrans(
@@ -72,7 +73,7 @@ COLUMNS = [
 
 
 if __name__ == "__main__":
-    with open(GENOME_PATH) as handle:
+    with gzip.open(GENOME_PATH, "rt", encoding="utf-8") as handle:
         program = json.load(handle)["value0"]["program"]
 
     descriptors = pd.DataFrame(
@@ -80,9 +81,6 @@ if __name__ == "__main__":
         for inst in program
     )
     descriptors.columns = descriptors.columns.str.replace(" ", "_")
-    unplaced = set(descriptors) - set(COLUMNS)
-    if unplaced:
-        print(f"warning: descriptor keys without a column: {sorted(unplaced)}")
 
     df = pd.DataFrame(
         {
@@ -102,7 +100,9 @@ if __name__ == "__main__":
         has_local |= operation == "Local Anchor"
         modules.append(len(module_start) - 1)
     df["module"] = modules
-    df["module_offset"] = df["site"] - df["module"].map(module_start.__getitem__)
+    df["module_offset"] = df["site"] - df["module"].map(
+        module_start.__getitem__
+    )
     df["module_size"] = df.groupby("module")["site"].transform("size")
     df["target"] = df["target"].str.replace("dish2::", "", regex=False)
     df["target_label"] = (df["target"] + "[" + df["target_index"] + "]").where(
