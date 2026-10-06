@@ -71,7 +71,7 @@ COLUMNS = [
 ]
 
 
-def main():
+if __name__ == "__main__":
     with open(GENOME_PATH) as handle:
         program = json.load(handle)["value0"]["program"]
 
@@ -116,7 +116,3 @@ def main():
     )
 
     print(f"wrote {len(df)} sites to {TSV_PATH}")
-
-
-if __name__ == "__main__":
-    main()
