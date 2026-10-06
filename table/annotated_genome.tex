@@ -1,0 +1,57 @@
+\input{lib/dissertationelse.tex}
+
+% One row per genome site.  The rows live in a generated data file rather than
+% inline here: data/annotated-genome-16005-stint100-root1.tex is written by
+% script/make_annotated_genome_table.py straight from the committed annotated
+% genome JSON, alongside an RFC 4180 CSV of the same records for analysis.
+% Instruction semantics contain TeX-special characters (%, &, ~, ^, _, |), so
+% the generator escapes them on the way into the rows file; the CSV keeps them
+% verbatim.
+\newcommand{\genomerow}[9]{%
+  #1 & #2 & #3 & \texttt{#4} & \texttt{#5} & \texttt{#6}
+    & \texttt{#7} & \texttt{#8} & #9 \\
+}
+
+\newcommand{\genomehead}{%
+\textbf{Site} & \textbf{Mod.} & \textbf{Off.} & \textbf{Operation}
+  & \textbf{Semantics} & \textbf{a,b,c} & \textbf{State Target}
+  & \textbf{Const.} & \textbf{Tag Moniker} \\
+\midrule
+}
+
+\begin{landscape}
+\begin{scriptsize}
+% nine columns of default padding would push the table past the text block
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{%
+  r@{\hspace{0.6em}}r@{\hspace{0.6em}}r
+  >{\raggedright\arraybackslash}p{4.2cm}
+  >{\raggedright\arraybackslash}p{6.15cm}
+  c
+  >{\raggedright\arraybackslash}p{4.6cm}
+  r
+  >{\raggedright\arraybackslash}p{2.8cm}
+}
+\caption{%
+\textbf{Annotated genome of the round-100 co-evolved ``background'' strain isolate.}
+\footnotesize
+One row per instruction for the 2,357-instruction genome screened in Figure \ref{fig:ecogwas}, tabulated from the annotated JSON that DISHTINY emits for a specimen.
+\emph{Site} indexes the linear instruction sequence, matching the knockout site labels in Figure \labelcref{fig:ecogwas:sites,fig:ecogwas-nobb-supp}.
+\emph{Mod.} numbers the tag-addressable module a site falls in and \emph{Off.} gives its position within that module; modules are delimited by \texttt{Global Anchor} instructions, which register the tag by which a module can be triggered, so an anchor always sits at offset 0 of its own module.
+\emph{Semantics}, \emph{State Target}, \emph{Const.} and \emph{Tag Moniker} reproduce the human-readable descriptors that the virtual CPU generates for each operation (Section \ref{sec:virtual_cpu}), and \emph{a,b,c} are the instruction's three raw register arguments.
+A blank \emph{State Target} marks an operation that neither reads nor writes cell state, and a blank \emph{Const.} one that carries no immediate value.
+Source data are committed alongside the manuscript: \texttt{data/genome-16005-stint100-root1.json} is the genome dump verbatim, and \texttt{script/make\_annotated\_genome\_table.py} flattens it to \texttt{data/annotated-genome-16005-stint100-root1.csv} --- which additionally records each site's enclosing module size, its full 64-bit tag, the jump-table index of control-flow operations, and the draw probability of \texttt{Generate Random Bool} --- and to the row file this table reads.
+} \label{tab:annotated_genome} \\
+\toprule
+\genomehead
+\endfirsthead
+\caption*{\tablename{} \thetable{} (cont'd)} \\
+\toprule
+\genomehead
+\endhead
+\bottomrule
+\endlastfoot
+\input{data/annotated-genome-16005-stint100-root1.tex}%
+\end{longtable}
+\end{scriptsize}
+\end{landscape}
