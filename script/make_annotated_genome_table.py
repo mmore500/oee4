@@ -71,20 +71,6 @@ COLUMNS = [
     "tag_bits",
 ]
 
-DESCRIPTORS = {
-    "summary": "summary",
-    "value": "value",
-    "probability": "probability",
-    "target": "target",
-    "target index": "target_index",
-    "target jump table": "target_jump_table",
-    "tag moniker": "tag_moniker",
-    "tag bits": "tag_bits",
-}
-
-# register-argument descriptors are redundant with the raw args
-IGNORED_DESCRIPTORS = {"argument a", "argument b", "argument c"}
-
 
 def main():
     with open(GENOME_PATH) as handle:
@@ -94,7 +80,8 @@ def main():
         {entry["key"]: entry["value"] for entry in inst["descriptors"]}
         for inst in program
     )
-    unplaced = set(descriptors) - set(DESCRIPTORS) - IGNORED_DESCRIPTORS
+    descriptors.columns = descriptors.columns.str.replace(" ", "_")
+    unplaced = set(descriptors) - set(COLUMNS)
     if unplaced:
         print(f"warning: descriptor keys without a column: {sorted(unplaced)}")
 
@@ -106,7 +93,7 @@ def main():
             "arg_b": [inst["args"]["value1"] for inst in program],
             "arg_c": [inst["args"]["value2"] for inst in program],
         }
-    ).join(descriptors.rename(columns=DESCRIPTORS))
+    ).join(descriptors)
 
     is_anchor = df["operation"] == "Global Anchor"
     module = is_anchor.cumsum() - 1
@@ -121,7 +108,9 @@ def main():
     df = df.astype({c: "Int64" for c in ("module", "module_offset", "module_size")})
     text = df.select_dtypes(exclude="number").columns
     df[text] = df[text].apply(lambda col: col.str.translate(TEX_ESCAPES))
-    df[COLUMNS].to_csv(TSV_PATH, sep="\t", index=False, lineterminator="\n")
+    df.reindex(columns=COLUMNS).to_csv(
+        TSV_PATH, sep="\t", index=False, lineterminator="\n"
+    )
 
     print(f"wrote {len(df)} sites to {TSV_PATH}")
 
