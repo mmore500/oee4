@@ -1,5 +1,11 @@
 \input{lib/dissertationelse.tex}
 
+% csvsimple opens its data files with \openin, which ignores the \input@path that the import package sets up when the paper build imports this directory.
+% So splice that import path onto data file names by hand; it is empty when this directory is itself the build root.
+\makeatletter
+\providecommand*{\datafile}[1]{\@ifundefined{import@path}{}{\import@path}data/#1}
+\makeatother
+
 % Source: data/genome-16005-stint100-highestroot.json is the gunzipped copy of
 % s3://prq49/endeavor=16/genomes/stage=1+what=extracted/stint=100/series=16005/a=genome+criteria=abundance_highest_root+morph=wildtype+proc=0+series=16005+stint=100+thread=0+variation=master+ext=.json.gz
 % Rows are read straight from the tab-separated file that
@@ -8,7 +14,7 @@
 % csvsimple does not understand RFC 4180 quoting of fields containing commas).
 
 % Sites flagged in the single-site knockout screens are set in bold.
-\csvreader{data/knockout-highlighted-sites-16005-stint100-highestroot.csv}%
+\csvreader{\datafile{knockout-highlighted-sites-16005-stint100-highestroot.csv}}%
   {site=\hlsite}{\expandafter\gdef\csname genomehl@\hlsite\endcsname{}}
 
 \newcommand{\gtext}[1]{\ifcsname genomehl@\gsite\endcsname\textbf{#1}\else#1\fi}
@@ -41,7 +47,7 @@
     \toprule \genomehead \endhead
     \bottomrule \endlastfoot},
   late after line=\\
-]{data/annotated-genome-16005-stint100-highestroot.tsv}{%
+]{\datafile{annotated-genome-16005-stint100-highestroot.tsv}}{%
   site=\gsite, module=\gmodule, module_offset=\goffset, operation=\goperation,
   summary=\gsummary, arg_a=\garga, arg_b=\gargb, arg_c=\gargc,
   target_label=\gtarget, value=\gvalue}{%
