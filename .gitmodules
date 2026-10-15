@@ -192,3 +192,39 @@
 	url = https://github.com/mmore500/oee4.git
 	branch = binder-2026-06-22-eco-gwas-nodm.ipynb
 	shallow = true
+
+[submodule "binder/binder-2026-10-15-external-hardbb16000-reciporical.ipynb"]
+	path = binder/binder-2026-10-15-external-hardbb16000-reciporical.ipynb
+	url = https://github.com/mmore500/oee4.git
+	branch = binder-2026-10-15-external-hardbb16000-reciporical.ipynb
+	shallow = true
+
+[submodule "binder/binder-2026-10-15-external-hardbb16001-reciporical.ipynb"]
+	path = binder/binder-2026-10-15-external-hardbb16001-reciporical.ipynb
+	url = https://github.com/mmore500/oee4.git
+	branch = binder-2026-10-15-external-hardbb16001-reciporical.ipynb
+	shallow = true
+
+[submodule "binder/binder-2026-10-15-external-hardbb16002-reciporical.ipynb"]
+	path = binder/binder-2026-10-15-external-hardbb16002-reciporical.ipynb
+	url = https://github.com/mmore500/oee4.git
+	branch = binder-2026-10-15-external-hardbb16002-reciporical.ipynb
+	shallow = true
+
+[submodule "binder/binder-2026-10-15-external-hardbb16003-reciporical.ipynb"]
+	path = binder/binder-2026-10-15-external-hardbb16003-reciporical.ipynb
+	url = https://github.com/mmore500/oee4.git
+	branch = binder-2026-10-15-external-hardbb16003-reciporical.ipynb
+	shallow = true
+
+[submodule "binder/binder-2026-10-15-external-hardbb16004-reciporical.ipynb"]
+	path = binder/binder-2026-10-15-external-hardbb16004-reciporical.ipynb
+	url = https://github.com/mmore500/oee4.git
+	branch = binder-2026-10-15-external-hardbb16004-reciporical.ipynb
+	shallow = true
+
+[submodule "binder/binder-2026-10-15-external-hardbb16005-reciporical.ipynb"]
+	path = binder/binder-2026-10-15-external-hardbb16005-reciporical.ipynb
+	url = https://github.com/mmore500/oee4.git
+	branch = binder-2026-10-15-external-hardbb16005-reciporical.ipynb
+	shallow = true
