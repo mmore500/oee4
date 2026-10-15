@@ -16,30 +16,14 @@
 \label{fig:external-hardbb16004-reciporical:ecological}
 \end{subfigure}
 
-\begin{subfigure}{\linewidth}
-\begin{minipage}{0.31\linewidth}
-\includegraphics[width=\linewidth,trim={0 0 0.95cm 0},clip]{../binder/binder-2026-10-15-external-hardbb16004-reciporical.ipynb/binder/teeplots/2026-10-15-external-hardbb16004-reciporical/hue=kind1+kind=line+row=swap+style=kind1+viz=relplot+what=Self+x=competition-stint+y=focal-prevalence+ext=.pdf}
-\end{minipage}%
-\begin{minipage}{0.34\linewidth}
-\includegraphics[width=\linewidth]{../binder/binder-2026-10-15-external-hardbb16004-reciporical.ipynb/binder/teeplots/2026-10-15-external-hardbb16004-reciporical/kind=line+row=source+style=kind1+viz=relplot+what=Self+x=stint+y=prevalence-benefit+ext=.pdf}
-\end{minipage}%
-\begin{minipage}{0.35\linewidth}
-\centering
-\includegraphics[width=\linewidth]{../binder/binder-2026-10-15-external-hardbb16004-reciporical.ipynb/binder/teeplots/2026-10-15-external-hardbb16004-reciporical/hue=stint+regplot=True+viz=scatterplot+what=Self+x=diff-nonswap+y=diff-swap+ext=.pdf}
-\end{minipage}
-\vspace{-1.5ex}
-\caption{self context}
-\label{fig:external-hardbb16004-reciporical:self}
-\end{subfigure}
-
 \caption{%
 \textbf{TODO control hardbb series 16004}
 \footnotesize
-% parentheticals report exact Binomial tests in (ecological context; self context) order
-% https://github.com/mmore500/oee4/blob/4669588650698a3bad6f337e5cc4b42b8f4f28b5/binder/2026-10-15-external-hardbb16004-reciporical.ipynb
-focal (exact Binomial tests; $k=66$, $n=100$, $p=2\times10^{-3}$; $k=96$, $n=100$, $p=6\times10^{-24}$).
-% https://github.com/mmore500/oee4/blob/4669588650698a3bad6f337e5cc4b42b8f4f28b5/binder/2026-10-15-external-hardbb16004-reciporical.ipynb
-background (exact Binomial tests; $k=61$, $n=98$, $p=0.02$; $k=74$, $n=98$, $p=4\times10^{-7}$).
+% Holm-Bonferroni correction applied across all 12 tests in hardbb control figures
+% https://github.com/mmore500/oee4/blob/bfea8342fb28e0022d936164e2403eee4deb36d7/binder/2026-10-15-external-hardbb16004-reciporical.ipynb
+focal (exact Binomial tests; $k=66$, $n=100$, $p=2\times10^{-3}$, Holm-Bonferroni corrected $p=0.01$).
+% https://github.com/mmore500/oee4/blob/bfea8342fb28e0022d936164e2403eee4deb36d7/binder/2026-10-15-external-hardbb16004-reciporical.ipynb
+background (exact Binomial tests; $k=61$, $n=98$, $p=0.02$, Holm-Bonferroni corrected $p=0.10$).
 }
 \label{fig:external-hardbb16004-reciporical}
 \end{figure*}
